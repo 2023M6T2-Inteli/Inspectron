@@ -12,7 +12,7 @@
 
 ## Nome do Grupo
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Goku Sayajin</a>, <a href="https://www.linkedin.com/in/victorbarq/">Saitama One</a>, <a href="https://www.linkedin.com/in/victorbarq/">Ikki de Fenix</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
+## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Antonio Ribeiro</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gabriela Barretto</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gustavo Pereira</a>, <a href="https://www.linkedin.com/in/luca-giberti-63a4ab231/">Luca Sarhan Giberti</a>, <a href="https://www.linkedin.com/in/victorbarq/">Lyorrei Quintão</a>, <a href="https://www.linkedin.com/in/victorbarq/">Emanuele Morais</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vinicius Lugli</a>
 
 ## Descrição
 
