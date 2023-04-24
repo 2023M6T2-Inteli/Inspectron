@@ -12,6 +12,31 @@
 
 </center></font>
 
+# 1. Entendimento de negócio.
+
 # 2. Entendimento do metadesign
-## Qual a missão do projeto proposto?
+## 2.1. Fatores mercadológicos
+## 2.2. Sistema produto/design
+### Qual a missão do projeto proposto?
 Um dos príncipais valores da Gerdau é a segurança de seus colaboradores. O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se fala de segurança do trabalho. Neste sentido, a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, um deles é o acidente zero e para alcança-lo a empresa segue rígidos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança. Por isso, um dos riscos mais relevantes que foi identificado nas operações da Gerdau é o Espaço Confinado. Espaço Confinado são lugares que não foram feitos para intervenção humana em período contínuo. Hoje, a rotina de inspeção desses espaços é realizada externamente ao espaço e previamente a manutenção, para que possa ser observada a situação do ambiente e da infraestrutura do local.
+
+## 2.3. Sustentabilidade ambiental
+## 2.4. Influências socioculturais
+## 2.5. Tipológico-formais e ergonômicos
+## 2.6. Tecnologia produtiva e materiais empregados
+
+# 3. Descrição da arquitetura do sistema.
+
+# 4. Sistema de locomoção e otimização de rota.
+
+# 5. Interface de usuário.
+
+# 6. Sistema de visão computacional. 
+
+# 7. Sistemas de segurança. 
+
+# 8. Backend.
+
+# 9. Integração de sistemas.
+
+# 10. Validação da eficácia do sistema.
