@@ -13,6 +13,22 @@
 </center></font>
 
 # 1. Entendimento de negócio.
+## 1.1. Matriz de Riscos
+### Plano de resposta aos riscos
+1. <b>Risco:</b> Custos elevados para aquisição e manutenção dos equipamentos tecnológicos<br>
+<b>Resposta (transferência):</b> Para amenizar os gastos imediatos do projeto, é possível que a Gerdau solicite financiamento a investidores ou instituições financeiras. Dessa forma, a empresa passa a compartilhar os riscos com aqueles que forneceram o financiamento e, assim, diminui-se o risco.
+
+2. <b>Risco:</b> Solução inapta para situações específicas (com água, fogo, altas temperaturas, etc.)<br>
+<b>Resposta (mitigação):</b> Para capacitar o robô a operar em ambientes com condições adversas, pode-se adicionar módulos externos que permitam a operação com segurança. Por exemplo, em espaços confinados de alta temperatura, como fornalhas, fornos ou caldeiras, é possível utilizar um escudo térmico no robô.
+
+3. <b>Risco:</b> Queima de componentes eletrônicos <br>
+<b>Resposta (mitigação):</b> Para evitar a queima de componentes eletrônicos, é crucial observar e seguir as boas práticas da eletrônica. O primeiro passo é fazer as ligações em um simulador para evitar desperdícios. Em seguida, faz-se a montagem de acordo com a simulação e, antes de ligar o sistema, realiza-se o teste de continuidade. Dessa forma, as chances de queimar qualquer componente são praticamente nulas.
+
+4. <b>Risco: O dispositivo é frágil para determinados ambientes</b> <br>
+<b>Resposta ():</b>
+
+5. <b>Risco: Divergência nas informações captadas pelos sensores e o estado atual</b> <br>
+<b>Resposta ():</b>
 
 # 2. Entendimento do metadesign
 ## 2.1. Fatores mercadológicos
