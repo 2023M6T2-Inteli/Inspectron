@@ -26,9 +26,15 @@ O projeto criado se orienta para o mercado de segurança e otimização de proce
 
 No que se refere à precificação do produto, é importante destacar que os AGVs apresentam uma ampla variação de preços, que podem variar de $40.000 a $200.000, dependendo do tipo de veículo, tamanho, sensores instalados, função e outras possíveis variações. Além disso, é preciso levar em consideração os custos envolvidos na implantação do AGV, tais como o treinamento dos funcionários, a instalação de trilhos ou outras referências de movimento e a integração com outros sistemas de softwares. Para precificar o MVP, será utilizado o TurtleBot3 com os sensores necessários e os investimentos necessários para implementar a solução na empresa parceira.
 
-###Cenário do mercado
 
-###Visão do projeto proposto
+
+### Cenário do mercado
+
+Durante uma entrevista com um parceiro, foi levantada a questão de que a vistoria de locais confinados é feita apenas pelo lado de fora, o que não permite entender verdadeiramente a condição do espaço. Apesar dos riscos envolvidos, tarefas como limpeza, manutenção e inspeção precisam ser realizadas em espaços confinados. No entanto, devido à dificuldade de acesso, essas atividades podem resultar em várias situações perigosas.
+
+Felizmente, a indústria 4.0 está trazendo soluções para esse problema através da automatização desses processos perigosos. Essa tecnologia inovadora aumenta a segurança dos trabalhadores e otimiza os processos, tornando as atividades em espaços confinados mais eficientes e menos perigosas. 
+
+### Visão do projeto proposto
 
 
 ## 2.2. Sistema produto/design
