@@ -16,6 +16,21 @@
 
 # 2. Entendimento do metadesign
 ## 2.1. Fatores mercadológicos
+### Produto, orientação de mercado e precificação
+
+Um AGV é um tipo de robô autônomo que segue uma trajetória pré-definida por meio de software e utiliza sensores, como câmeras e lasers, para navegar no ambiente e evitar obstáculos. Esses robôs são altamente precisos e seguros, permitindo que se movimentem por espaços apertados com habilidade superior à das mãos humanas. Por essas razões, eles são amplamente utilizados para transportar materiais em ambientes industriais ou logísticos.
+
+Além de seu uso para transporte, os AGVs podem ser equipados com sensores e câmeras para realizar a inspeção de áreas de difícil acesso ou perigosas para os humanos. Isso garante mais segurança e precisão na realização da manutenção preventiva.
+
+O projeto criado se orienta para o mercado de segurança e otimização de processos na indústria 4.0. Tal informação pode ser aferida pois o protótipo desenvolvido utiliza recursos avançados, como câmeras, lasers, sensores de proximidade, sensores de gases e outros, para automatizar trabalhos considerados perigosos para os humanos. Além disso, fornece dados em tempo real para uma melhor análise das informações obtidas. A tendência desse mercado, de acordo com um relatório da BCC Research, o mercado global de veículos guiados automatizados (AGVs) deve atingir US$ 4 bilhões até 2025, o que indica uma forte tendência de crescimento.
+
+No que se refere à precificação do produto, é importante destacar que os AGVs apresentam uma ampla variação de preços, que podem variar de $40.000 a $200.000, dependendo do tipo de veículo, tamanho, sensores instalados, função e outras possíveis variações. Além disso, é preciso levar em consideração os custos envolvidos na implantação do AGV, tais como o treinamento dos funcionários, a instalação de trilhos ou outras referências de movimento e a integração com outros sistemas de softwares. Para precificar o MVP, será utilizado o TurtleBot3 com os sensores necessários e os investimentos necessários para implementar a solução na empresa parceira.
+
+###Cenário do mercado
+
+###Visão do projeto proposto
+
+
 ## 2.2. Sistema produto/design
 ### Qual a missão do projeto proposto?
 Um dos príncipais valores da Gerdau é a segurança de seus colaboradores. O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se fala de segurança do trabalho. Neste sentido, a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, um deles é o acidente zero e para alcança-lo a empresa segue rígidos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança. Por isso, um dos riscos mais relevantes que foi identificado nas operações da Gerdau é o Espaço Confinado. Espaço Confinado são lugares que não foram feitos para intervenção humana em período contínuo. Hoje, a rotina de inspeção desses espaços é realizada externamente ao espaço e previamente a manutenção, para que possa ser observada a situação do ambiente e da infraestrutura do local.
