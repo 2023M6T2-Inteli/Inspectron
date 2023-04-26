@@ -8,11 +8,11 @@
 </tr>
 </table>
 
-# Nome do Projeto
+# Gerdau - AGV
 
-## Nome do Grupo
+## Inspectron
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Antonio Ribeiro</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gabriela Barretto</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gustavo Pereira</a>, <a href="https://www.linkedin.com/in/luca-giberti-63a4ab231/">Luca Sarhan Giberti</a>, <a href="https://www.linkedin.com/in/victorbarq/">Lyorrei Quintão</a>, <a href="https://www.linkedin.com/in/victorbarq/">Emanuele Morais</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vinicius Lugli</a>
+## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Antonio Ribeiro</a>, <a href="https://www.linkedin.com/in/gabriela-barretto02/">Gabriela Barretto</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gustavo Pereira</a>, <a href="https://www.linkedin.com/in/luca-giberti-63a4ab231/">Luca Sarhan Giberti</a>, <a href="https://www.linkedin.com/in/victorbarq/">Lyorrei Quintão</a>, <a href="https://www.linkedin.com/in/victorbarq/">Emanuele Morais</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vinicius Lugli</a>
 
 ## Descrição
 
@@ -21,7 +21,7 @@
 Meu projeto é um exemplo de como utilizar o github.
 <br><br>
 <p align="center">
-<img src="media/Inspectron.svg" alt="NOME DO JOGO" border="0">
+<img src="media/Inspectron.svg" border="0">
 </p>
 
 
@@ -85,18 +85,8 @@ Para abrir este projeto você necessita das seguintes ferramentas:
 
 A cada atualização os detalhes devem ser lançados aqui.
 
-* 0.2.1 - 25/01/2022
-    * MUDANÇA: Atualização de docs (código do módulo permanece inalterado)
-* 0.2.0 - 15/01/2022
-    * MUDANÇA: Remove `setDefaultXYZ()`
-    * ADD: Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * CONSERTADO: Crash quando chama `baz()` (Obrigado @NomeDoContribuidorGeneroso!)
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * MUDANÇA: Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
-    * Trabalho em andamento
+* 0.0.1 - 15/04/2023
+     * Início da documentação 
 
 ## 📋 Licença/License
 
