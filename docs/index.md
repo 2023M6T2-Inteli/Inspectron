@@ -14,9 +14,11 @@
 
 # 1. Entendimento de negócio.
 ## 1.1. Matriz de Riscos
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/Matriz%20de%20Risco.png?raw=true" width=80%></img></p>
+
 ### Plano de resposta aos riscos
 1. <b>Risco:</b> Custos elevados para aquisição e manutenção dos equipamentos tecnológicos<br>
-<b>Resposta (transferência):</b> Para amenizar os gastos imediatos do projeto, é possível que a Gerdau solicite financiamento a investidores ou instituições financeiras. Dessa forma, a empresa passa a compartilhar os riscos com aqueles que forneceram o financiamento, de modo a diminuir, consequentemente, a exposição a condições perigosas.
+<b>Resposta (transferência):</b> Para amenizar os gastos imediatos do projeto, é possível que a Gerdau solicite financiamento a investidores ou instituições financeiras. Dessa forma, a empresa compartilha os potenciais riscos com aqueles que fornecerão o financiamento, de modo a diminuir, consequentemente, a exposição a condições financeiras perigosas.
 
 2. <b>Riscos:</b> Solução inapta para situações específicas (com água, fogo, altas temperaturas, etc.) e O dispositivo é frágil para determinados ambientes<br>
 <b>Resposta (mitigação):</b> Para capacitar o robô a operar em ambientes com condições adversas, pode-se adicionar módulos externos que permitam a operação com segurança. Por exemplo, em espaços confinados de alta temperatura, como fornalhas, fornos ou caldeiras, é possível utilizar um escudo térmico no robô.
