@@ -25,7 +25,7 @@
 <b>Resposta (mitigação):</b> Para evitar a queima de componentes eletrônicos, é crucial observar e seguir as boas práticas da eletrônica. O primeiro passo é fazer as ligações em um simulador para evitar desperdícios. Em seguida, faz-se a montagem de acordo com a simulação e, antes de ligar o sistema, realiza-se o teste de continuidade. Dessa forma, as chances de queimar qualquer componente são praticamente nulas.
 
 5. <b>Risco:</b> Divergência nas informações captadas pelos sensores e o estado atual<br>
-<b>Resposta (mitigação): Para garantir a qualidade das informações dos sensores, deve-se escolher sensores precisos e calibrá-los regularmente. Além disso, é possível utilizar sensores redundantes, para comparar as informações captadas por ele e identificar possíveis incongruências.</b> 
+<b>Resposta (mitigação):</b>  Para garantir a qualidade das informações dos sensores, deve-se escolher sensores precisos e calibrá-los regularmente. Além disso, é possível utilizar sensores redundantes, para comparar as informações captadas por ele e identificar possíveis incongruências.
 
 # 2. Entendimento do metadesign
 ## 2.1. Fatores mercadológicos
