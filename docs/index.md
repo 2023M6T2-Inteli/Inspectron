@@ -13,7 +13,10 @@
 </center></font>
 
 # 1. Entendimento de negócio.
-## 1.1. Matriz de Riscos
+
+## 1.1. Canvas Proposta de Valor
+
+## 1.2. Matriz de Riscos
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/Matriz%20de%20Risco.png?raw=true" width=80%></img></p>
 
 ### Plano de resposta aos riscos
@@ -28,6 +31,13 @@
 
 5. <b>Risco:</b> Divergência nas informações captadas pelos sensores e o estado atual<br>
 <b>Resposta (mitigação):</b>  Para garantir a qualidade das informações dos sensores, deve-se escolher sensores precisos e calibrá-los regularmente. Além disso, é possível utilizar sensores redundantes, para comparar as informações captadas por ele e identificar possíveis incongruências.
+
+## 1.3. Oceano Azul
+
+
+## 1.4. Análise financeira 
+
+
 
 # 2. Entendimento do metadesign
 ## 2.1. Fatores mercadológicos
