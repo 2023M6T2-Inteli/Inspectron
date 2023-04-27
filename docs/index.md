@@ -8,8 +8,6 @@
 </tr>
 </table>
 
-<font size="+10"><center><b>Inspectron</b></center></font>
-
 # Sumário
 
 -   [1 - Entendimento de negócio](#1-entendimento-de-negócio)
