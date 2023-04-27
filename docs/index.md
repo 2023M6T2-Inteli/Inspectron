@@ -59,35 +59,35 @@
 
 <b>Reduzir:</b>
 
-- A inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduz o tempo  para realizar essas atividades e aumenta a produtividade.
+-   A inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduz o tempo para realizar essas atividades e aumenta a produtividade.
 
-- Riscos à saúde dos colaboradores durante a realização de atividades em espaços confinados.
+-   Riscos à saúde dos colaboradores durante a realização de atividades em espaços confinados.
 
 <b>Aumentar:</b>
 
-- Pode aumentar a precisão dos dados coletados em espaços confinados, permitindo uma melhor identificação de possíveis problemas ou riscos nas estruturas.
+-   Pode aumentar a precisão dos dados coletados em espaços confinados, permitindo uma melhor identificação de possíveis problemas ou riscos nas estruturas.
 
-- A segurança dos colaboradores durante a realização de atividades em espaços confinados, reduzindo o risco de acidentes.
+-   A segurança dos colaboradores durante a realização de atividades em espaços confinados, reduzindo o risco de acidentes.
 
 <b>Eliminar:</b>
 
-- Erros humanos durante a inspeção e coleta de dados em espaços confinados, garantindo a precisão dos resultados.
+-   Erros humanos durante a inspeção e coleta de dados em espaços confinados, garantindo a precisão dos resultados.
 
-- A exposição de colaboradores a gases tóxicos ou falta de oxigênio.
+-   A exposição de colaboradores a gases tóxicos ou falta de oxigênio.
 
 <b>Criar:</b>
 
-- Flexível e adaptável às necessidades dos clientes, permitindo a personalização dos recursos de acordo com a demanda. 
+-   Flexível e adaptável às necessidades dos clientes, permitindo a personalização dos recursos de acordo com a demanda.
 
-- Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
+-   Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
 
 ## 1.4. Análise financeira
 
-| Descrição do custo | Valor |
-| --- | --- |
-| Fixo do Robô |  R$  3,230.22 |
+| Descrição do custo | Valor       |
+| ------------------ | ----------- |
+| Fixo do Robô       | R$ 3,230.22 |
 
- O robô tem custo fixo, portanto quanto mais robôs a Gerdau decidir usar mais caro vai ficar. O custo de implementação do nosso código foi calculado usando o salário médio de um técnico de robótica no Brasil que equivale a  $ 4779.18, depois foi calculado o custo presumindo 15 minutos de trabalho para completar seria R$ 7.47. Por ter componentes elétricos, o robô tem uma bateria e o custo da sua carga também tem que ser levado em consideração, que equivale a 12 centavos por carga completa, presumindo que seja carregado em uma tomada de 110 volts. Achei que cabia colocar manutenção preventiva como um custo relevante para prevenir outros custos que podem ser maiores. Isso foi calculado também pelo salário do técnico de robótica mencionado anteriormente pelo mesmo período de tempo, portanto tendo o mesmo valor. O nosso trabalho é gratuito portanto não tem custo associado. Também não existe nenhum imposto associado ao projeto a ser pago.
+O robô tem custo fixo, portanto quanto mais robôs a Gerdau decidir usar mais caro vai ficar. O custo de implementação do nosso código foi calculado usando o salário médio de um técnico de robótica no Brasil que equivale a $ 4779.18, depois foi calculado o custo presumindo 15 minutos de trabalho para completar seria R$ 7.47. Por ter componentes elétricos, o robô tem uma bateria e o custo da sua carga também tem que ser levado em consideração, que equivale a 12 centavos por carga completa, presumindo que seja carregado em uma tomada de 110 volts. Achei que cabia colocar manutenção preventiva como um custo relevante para prevenir outros custos que podem ser maiores. Isso foi calculado também pelo salário do técnico de robótica mencionado anteriormente pelo mesmo período de tempo, portanto tendo o mesmo valor. O nosso trabalho é gratuito portanto não tem custo associado. Também não existe nenhum imposto associado ao projeto a ser pago.
 
 # 2. Entendimento do metadesign
 
@@ -113,19 +113,19 @@ Em ambientes confinados a utilização de robôs tem se mostrado uma alternativa
 
 ### Visão do projeto proposto
 
-O setor siderúrgico, onde a Gerdau atua, envolve a manipulação de equipamentos e materiais pesados, altas temperaturas e exposição dos trabalhadores a materiais químicos tóxicos, o que o torna um setor de alto risco em termos de segurança do trabalho.
+O setor siderúrgico, onde a Gerdau atua, envolve a manipulação de equipamentos e materiais pesados, altas temperaturas e exposição dos trabalhadores a materiais e gases químicos tóxicos, o que o torna um setor de alto risco em termos de segurança do trabalho.
 
 A segurança dos colaboradores é um dos valores primordiais da Gerdau e, como tal, a empresa busca continuamente formas de garantir maior segurança em suas operações. Neste contexto, um dos principais riscos que causa grande preocupação na Gerdau são os espaços confinados.
 
 O trabalho em espaços confinados é considerado uma das modalidades mais perigosas, já que os colaboradores estão expostos a diversos riscos e o ambiente favorece a ocorrência de acidentes graves e frequentes. Em uma conversa com o parceiro, foi constatado que o processo atual é realizado externamente ao espaço e antes da manutenção, o que torna impossível ter uma visão real da situação dentro do espaço confinado.
 
-Nesse cenário, o projeto apresenta uma grande importância para a Gerdau. Ao implementar inspeções automatizadas para vistorias preventivas de manutenção, será possível elevar ainda mais a segurança no trabalho, padrões de qualidade em vistorias e proporcionar maior satisfação aos colaboradores.
+Nesse cenário, o projeto apresenta uma grande importância para a Gerdau. Ao implementar inspeções sem necessidade de humanos atuando inseguramente dentro dos espaços para vistorias preventivas de manutenção, será possível elevar ainda mais a segurança no trabalho, padrões de qualidade em vistorias e proporcionar maior satisfação e segurança aos colaboradores.
 
 ## 2.2. Sistema produto/design
 
 ### Qual a missão do projeto proposto?
 
-Um dos príncipais valores da Gerdau é a segurança de seus colaboradores. O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se fala de segurança do trabalho. Neste sentido, a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, um deles é o acidente zero e para alcança-lo a empresa segue rígidos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança. Por isso, um dos riscos mais relevantes que foi identificado nas operações da Gerdau é o Espaço Confinado. Espaço Confinado são lugares que não foram feitos para intervenção humana em período contínuo. Hoje, a rotina de inspeção desses espaços é realizada externamente ao espaço e previamente a manutenção, para que possa ser observada a situação do ambiente e da infraestrutura do local.
+Um dos príncipais valores da Gerdau é a segurança de seus colaboradores. O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais e gases químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se fala de segurança do trabalho. Neste sentido, a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, um deles é o acidente zero e para alcança-lo a empresa segue rígidos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança. Por isso, um dos riscos mais relevantes que foi identificado nas operações da Gerdau é o Espaço Confinado. Espaço Confinado são lugares que não foram feitos para intervenção humana em período contínuo. Hoje, a rotina de inspeção desses espaços é realizada externamente ao espaço e previamente a manutenção, para que possa ser observada a situação do ambiente e da infraestrutura do local.
 
 ## 2.3. Sustentabilidade ambiental
 
