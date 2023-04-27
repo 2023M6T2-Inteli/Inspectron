@@ -99,7 +99,3 @@ Aqui estão as referências usadas no projeto.
 1. <https://github.com/iuricode/readme-template>
 2. <https://github.com/gabrieldejesus/readme-model>
 3. <https://creativecommons.org/share-your-work/>
-
-## Analise financeira
-<img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/media/AnaliseFinanceira.png?raw=true">
-A análise financeira é relativamente simples. O robô tem custo fixo, portanto quanto mais robôs a Gerdau decidir usar mais caro vai ficar. O custo de implementação do nosso código foi calculado usando o salário médio de um técnico de robótica no Brasil que equivale a  $ 4779.18, depois foi calculado o custo presumindo 15 minutos de trabalho para completar seria R$ 7.47. Por ter componentes elétricos, o robô tem uma bateria e o custo da sua carga também tem que ser levado em consideração, que equivale a 12 centavos por carga completa, presumindo que seja carregado em uma tomada de 110 volts. Achei que cabia colocar manutenção preventiva como um custo relevante para prevenir outros custos que podem ser maiores. Isso foi calculado também pelo salário do técnico de robótica mencionado anteriormente pelo mesmo período de tempo, portanto tendo o mesmo valor. O nosso trabalho é gratuito portanto não tem custo associado. Também não existe nenhum imposto associado ao projeto a ser pago.
