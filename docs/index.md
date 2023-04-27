@@ -57,6 +57,30 @@
 
 ## 1.3. Oceano Azul
 
+Reduzir: 
+
+- A inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduz o tempo  para realizar essas atividades e aumenta a produtividade.
+
+- Riscos à saúde dos colaboradores durante a realização de atividades em espaços confinados.
+
+Aumentar: 
+
+- Pode aumentar a precisão dos dados coletados em espaços confinados, permitindo uma melhor identificação de possíveis problemas ou riscos nas estruturas.
+
+- A segurança dos colaboradores durante a realização de atividades em espaços confinados, reduzindo o risco de acidentes.
+
+Eliminar: 
+
+- Erros humanos durante a inspeção e coleta de dados em espaços confinados, garantindo a precisão dos resultados.
+
+- A exposição de colaboradores a gases tóxicos ou falta de oxigênio.
+
+Criar: 
+
+- Flexível e adaptável às necessidades dos clientes, permitindo a personalização dos recursos de acordo com a demanda. 
+
+- Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
+
 ## 1.4. Análise financeira
 
 # 2. Entendimento do metadesign
