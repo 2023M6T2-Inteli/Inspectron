@@ -84,7 +84,6 @@
 ## 1.4. Análise financeira
 
 | Descrição do custo | Valor |
-| --- | --- |
 | Fixo do Robô |  R$  3,230.22 |
 | --- | --- |
 | Profisional para instalação do codigo |  R$  7.47 |
