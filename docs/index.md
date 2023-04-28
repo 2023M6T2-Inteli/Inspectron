@@ -83,14 +83,14 @@
 
 ## 1.4. Análise financeira
 
-| Descrição do custo | Valor |
-| --- | --- |
-| Fixo do Robô |  R$  3,230.22 |
-| Profisional para instalação do codigo |  R$  7.47 |
-| Eletricidade por carga completa da bateria |  R$  0.12 |
-| Manutenção preventiva |  R$  7.47 |
-| Custo do RH, 7 pessoas |  R$  0.00 |
-| Imposto |  R$  0.00 |
+| Descrição do custo                         | Valor       |
+| ------------------------------------------ | ----------- |
+| Fixo do Robô                               | R$ 3,230.22 |
+| Profisional para instalação do codigo      | R$ 7.47     |
+| Eletricidade por carga completa da bateria | R$ 0.12     |
+| Manutenção preventiva                      | R$ 7.47     |
+| Custo do RH, 7 pessoas                     | R$ 0.00     |
+| Imposto                                    | R$ 0.00     |
 
 O robô tem custo fixo, portanto quanto mais robôs a Gerdau decidir usar mais caro vai ficar. O custo de implementação do nosso código foi calculado usando o salário médio de um técnico de robótica no Brasil que equivale a $ 4779.18, depois foi calculado o custo presumindo 15 minutos de trabalho para completar seria R$ 7.47. Por ter componentes elétricos, o robô tem uma bateria e o custo da sua carga também tem que ser levado em consideração, que equivale a 12 centavos por carga completa, presumindo que seja carregado em uma tomada de 110 volts. Achei que cabia colocar manutenção preventiva como um custo relevante para prevenir outros custos que podem ser maiores. Isso foi calculado também pelo salário do técnico de robótica mencionado anteriormente pelo mesmo período de tempo, portanto tendo o mesmo valor. O nosso trabalho é gratuito portanto não tem custo associado. Também não existe nenhum imposto associado ao projeto a ser pago.
 
@@ -141,6 +141,8 @@ O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, alt
 ## 2.6. Tecnologia produtiva e materiais empregados
 
 # 3. Descrição da arquitetura do sistema.
+
+![Arquitetura-do-sistema](./media/Arquitetura%20do%20sistema.png)
 
 # 4. Sistema de locomoção e otimização de rota.
 
