@@ -37,6 +37,12 @@
 
 ## 1.1. Canvas Proposta de Valor
 
+O Canvas de Proposta de Valor é uma forma de ajudar criadores de solução a focar naquilo que é importante para o consumidor da solução, priorizando aquilo que gera valor ao produto final. A principal vantagem da proposta de valor apresentada é aumentar a segurança dos colaboradores da Gerdau, melhorar as vistorias realizadas e monitorar em tempo real.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235230832-903594cb-639e-4431-a6ee-d6d46994d6a9.png" width=110%></img></p>
+
+
+
 ## 1.2. Matriz de Riscos
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/Matriz%20de%20Risco.png?raw=true" width=80%></img></p>
