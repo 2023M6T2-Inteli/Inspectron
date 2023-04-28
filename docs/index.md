@@ -131,9 +131,24 @@ Nesse cenário, o projeto apresenta uma grande importância para a Gerdau. Ao im
 
 ### Qual a missão do projeto proposto?
 
-O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se trata de segurança do trabalho. Neste sentido, baseando-se no TAPI (Termo de Abertura do Projeto Inteli), sabe-se que a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, visto que um dos principais valores da Gerdau é a segurança de seus colaboradores. Um desses objetivos é o acidente zero e para alcançá-lo a empresa segue rígidos padrões de operação e manutenção, além de também seguir normas nacionais e internacionais de segurança. Buscando excelência em seus processos, a Gerdau realizou um mapeamento de possíveis ameaças a segurança da empresa e um dos riscos mais relevantes identificado nas operações é o Espaço Confinado. Espaços Confinados são lugares que não foram projetados para ocupação humana em período contínuo. Hoje, não existe uma rotina de inspeção no interior desses espaços, apenas no exterior. Não possuir essa rotina é preocupante pois sujeita a empresa e os trabalhadores a eventualidades prejudiciais. Portanto, a fim de se alinhar com o posicionamento da Gerdau, o presente projeto realizará essa inspeção por meio de um AGV, de forma que a Gerdau tenha acesso as informações e imagens do ambiente em tempo real através de um software de integração. Dessa forma, torna-se praticável identificar possíveis vazamentos, problemas na infraestrutura, entre outros riscos relacionados a espaços confinados. Então, após a inspeção é possível que a empresa se prepare corretamente para tornar a intervenção humana segura.
+O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se trata de segurança do trabalho. Neste sentido, baseando-se no TAPI (Termo de Abertura do Projeto Inteli), sabe-se que a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, visto que um dos principais valores da Gerdau é a segurança de seus colaboradores. Um desses objetivos é o acidente zero e para alcançá-lo a empresa segue rígidos padrões de operação e manutenção, além de também seguir normas nacionais e internacionais de segurança. Buscando excelência em seus processos, a Gerdau realizou um mapeamento de possíveis ameaças a segurança da empresa e um dos riscos mais relevantes identificado nas operações é o Espaço Confinado. Espaços Confinados são lugares que não foram projetados para ocupação humana em período contínuo. Hoje, não existe uma rotina de inspeção no interior desses espaços, apenas no exterior. Não possuir essa rotina é preocupante pois sujeita a empresa e os trabalhadores a eventualidades prejudiciais. Portanto, a fim de se alinhar com o posicionamento da Gerdau, o presente projeto realizará essa inspeção por meio de um AGV (_Automated Guided Vehicle_), de forma que a Gerdau tenha acesso as informações e imagens do ambiente em tempo real através de um software de integração. Dessa forma, torna-se praticável identificar possíveis vazamentos, problemas na infraestrutura, entre outros riscos relacionados a espaços confinados. Então, após a inspeção a empresa pode se preparar corretamente para tornar a intervenção humana segura.
+
+### Como se pensa em manter uma unidade formal entre o design do produto, as formas de divulgação e venda?
 
 ## 2.3. Sustentabilidade ambiental
+
+### O projeto visa um produto ecoeficiente?
+
+O projeto visa uma automatização do processo de varredura de gases em espaços confinados que possibilita análises em diferentes áreas destes. Com o escopo em mente, assume-se que o projeto poderá trazer uma quantidade menor de recursos, onde um único robô poderá fazer varreduras em diversos segmentos, seja em meio a leitura de gases ou gravação do atual estado estrutural do ambiente, sem a necessidade de um operador ser exposto ao risco. <br>
+
+Os principais pontos que justificam o uso de uma nova tecnologia é: <br>
+
+ A identificação dos riscos ambientais relacionados às manutenções que com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. <br>
+A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho, expondo as equipes de manutenção a um contado de gases tóxicos. <br>
+
+O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
+
+
 
 ## 2.4. Influências socioculturais
 
