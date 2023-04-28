@@ -83,16 +83,15 @@
 
 ## 1.4. Análise financeira
 
-| Descrição do custo                         | Valor       |
-| ------------------------------------------ | ----------- |
-| Fixo do Robô                               | R$ 3,230.22 |
-| Profisional para instalação do codigo      | R$ 7.47     |
-| Eletricidade por carga completa da bateria | R$ 0.12     |
-| Manutenção preventiva                      | R$ 7.47     |
-| Custo do RH, 7 pessoas                     | R$ 0.00     |
-| Imposto                                    | R$ 0.00     |
+<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235224067-2c36aa92-0bc3-4073-a9b2-650df9a09703.png" width=120%></img></p>
 
-O robô tem custo fixo, portanto quanto mais robôs a Gerdau decidir usar mais caro vai ficar. O custo de implementação do nosso código foi calculado usando o salário médio de um técnico de robótica no Brasil que equivale a $ 4779.18, depois foi calculado o custo presumindo 15 minutos de trabalho para completar seria R$ 7.47. Por ter componentes elétricos, o robô tem uma bateria e o custo da sua carga também tem que ser levado em consideração, que equivale a 12 centavos por carga completa, presumindo que seja carregado em uma tomada de 110 volts. Achei que cabia colocar manutenção preventiva como um custo relevante para prevenir outros custos que podem ser maiores. Isso foi calculado também pelo salário do técnico de robótica mencionado anteriormente pelo mesmo período de tempo, portanto tendo o mesmo valor. O nosso trabalho é gratuito portanto não tem custo associado. Também não existe nenhum imposto associado ao projeto a ser pago.
+** ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
+
+Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de R$ 10.030,00. Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução. Além disso, após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, o retorno sobre o investimento (ROI) seria alcançado em um ano. 
+
+É importante ressaltar que a análise financeira foi feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.
+
+
 
 # 2. Entendimento do metadesign
 
