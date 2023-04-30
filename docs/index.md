@@ -37,9 +37,10 @@
 
 ## 1.1. Canvas Proposta de Valor
 
+
 O Canvas de Proposta de Valor é uma forma de ajudar criadores de solução a focar naquilo que é importante para o consumidor da solução, priorizando aquilo que gera valor ao produto final. A principal vantagem da proposta de valor apresentada é aumentar a segurança dos colaboradores da Gerdau, melhorar as vistorias realizadas e monitorar em tempo real.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235230832-903594cb-639e-4431-a6ee-d6d46994d6a9.png" width=100%></img></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235381624-3a66133d-8ee4-43b3-a694-97aa20c38639.png" width=100%></img></p>
 
 
 
