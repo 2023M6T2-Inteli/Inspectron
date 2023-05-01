@@ -156,6 +156,10 @@ O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, alt
 
 ### Como se pensa em manter uma unidade formal entre o design do produto, as formas de divulgação e venda?
 
+A solução é pensada de forma personalizada para a Gerdau e não será comercializada em larga escala. Neste sentido, é evidente que a abordagem de divulgação e venda deve ser feita com uma visão interna da empresa. <br>
+Para manter uma unidade formal entre o design do produto, formas de divulgação e venda, deve-se manter a coêrencia em todos os aspectos do projeto, desde apresentação visual até requisitos técnicos do produto, pois esses elementos exercem um grande impacto na imagem do próprio projeto e da empresa. Para atingir excelência neste objetivo, a criação de um manual de uso do produto é importante para que a experiência do usuário seja otimizada. Um bom manual de uso traz diversas vantagens para um projeto. Em outras palavras, um manual de uso é essencial em situações como: facilitar a compreensão (tanto do sistema quanto da ideia), tornar a manutenção do sistema possível e reduzir possíveis erros, esperados e inesperados, de uso. <br>
+Além disso, a Gerdau deve investir na capacitação de seus funcionários, principalmente nos setores que terão contato direto com a solução. Para isso, pode-se realizar um teste em ambiente controlado com um técnico especialista. Desta forma, os usuários da solução entenderão o funcionamento do sistema, e também observarão o sucesso do projeto naquilo que é esperado. Isto posto, os trabalhadores terão mais confiança e se sentirão mais confortáveis na utilização do produto.
+
 ## 2.3. Sustentabilidade ambiental
 
 ### O projeto visa um produto ecoeficiente?
