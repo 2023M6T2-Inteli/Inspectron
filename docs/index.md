@@ -198,6 +198,7 @@ A arquiterura de solução nossa contém três áreas de atuação:
 - `Backend`: Sistema de servidor em núvem que fornece dados sobre o `embarcado` para o `frontend`, e armazena as varreduras feitas, junto ao código de execução do trajeto necessário para o funcionamento autônomo do robô.
 - `Frontend`: Dashboard principal do usuário, apresentando dados sobre as rotinas, e enviando solicitações/comandos indiretamenta ao robô utilizando do `Backend` em requisições _HTTP_ ou _Sockets_. 
 Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma forma de comunicação contínua, principalmente utilizando o `ROS2`, que facilita todo o sistema de comunicação e comandos entre o `Backend` e o `Embarcado`.
+
 ![Arquitetura-do-sistema](./media/Arquitetura%20do%20sistema.png)
 
 # 4. Sistema de locomoção e otimização de rota.
