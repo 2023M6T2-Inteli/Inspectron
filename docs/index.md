@@ -95,13 +95,17 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 ### Diminuir
 
 - De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
+- Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
 
 ### Criar
 - Tecnologia será criada pois o processo atual é feito de forma manual;
 - Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
+- Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
+- Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
 
 ### Eliminar
 - A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
+- Erros humanos durante a inspeção e coleta de dados em espaços confinados.
 
 
 ## 1.4. Análise financeira
