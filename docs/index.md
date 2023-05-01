@@ -86,6 +86,16 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/99221221/235233152-7ea9aae8-9fae-4492-af04-e381366007a7.png" width=60%></img></p>
 
+**Variáveis análisadas:**
+1. Custo
+2. Qualidade
+3. Tecnologia
+4. Conforto
+5. Intervenção humana
+6.  Precisão da análise
+7. Segurança
+8. Praticidade
+
 ### Aumentar 
 
 - A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
