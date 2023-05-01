@@ -30,6 +30,7 @@
 -   [8 - Backend](#8-backend)
 -   [9 - Integração de sistemas](#9-integração-de-sistemas)
 -   [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
+-   [11 - Referências](#11-referências)
 
 ---
 
@@ -111,7 +112,10 @@ A análise financeira informa o quanto o parceiro tem projetado para investir no
 
 ** ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
 
-Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de R$ 10.030,00. Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução. Além disso, após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, o retorno sobre o investimento (ROI) seria alcançado em um ano. 
+Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.030,00 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
+
+Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00 - Página da Gerdau no Glassdoor), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução.
+
 
 
 
@@ -199,3 +203,24 @@ O monitoramento em tempo real provido por sensores é fundamental para avaliar a
 # 9. Integração de sistemas.
 
 # 10. Validação da eficácia do sistema.
+
+# 11. Referências
+
+Página da Gerdau no Glassdorr. Disponível em <https://www.glassdoor.com.br/Vis%C3%A3o-geral/Trabalhar-na-Gerdau-EI_IE7569.13,19.htm>.
+
+A Indústria 4.0 e o futuro da manufatura com a utilização de AGVs – Sinova AGV – Sistema AGV e Solução. Disponível em: <https://www.sinova.com.br/2021/10/22/a-industria-4-0-e-o-futuro-da-manufatura-com-a-utilizacao-de-agvs/>.
+
+‌How much does an AGV cost? Disponível em: <https://www.flexqube.com/news/how-much-does-an-agv-cost/#:~:text=AGV%20Forklifts%20have%20an%20estimated>. 
+
+‌EDGE-ADMIN. AGV ou AMR? Qual a melhor tecnologia para robôs móveis? - EDGE. Disponível em: <https://edgeglobal.com.br/blog/agv-ou-amr/>.
+
+‌Veículo autoguiado e os benefícios na indústria 4.0 – Sinova AGV – Sistema AGV e Solução. Disponível em: <https://www.sinova.com.br/2021/03/11/veiculo-autoguiado-e-os-beneficios-na-industria-4-0/>. 
+
+‌CONECT, E. O que preciso saber sobre trabalho em espaço confinado? Disponível em: <https://conect.online/blog/o-que-preciso-saber-sobre-trabalho-em-espaco-confinado/>. 
+
+Indústria 4.0 no Brasil: cenário e perspectivas - KPMG Brasil. Disponível em: <https://kpmg.com/br/pt/home/insights/2021/07/industria-4-0.html>.
+
+‌Indústria 4.0. Disponível em: <https://www.portaldaindustria.com.br/industria-de-a-z/industria-4-0/>.
+
+Veículos Autoguiados: estimativa de mercado da automação industrial – Sinova AGV – Sistema AGV e Solução. Disponível em: <https://www.sinova.com.br/2020/12/22/veiculos-autoguiados-estimativa-de-mercado-da-automacao-industrial/>.
+
