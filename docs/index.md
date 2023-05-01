@@ -152,29 +152,37 @@ Nesse cenário, o projeto apresenta uma grande importância para a Gerdau pois t
 
 ## 2.2. Sistema produto/design
 
-### Qual a missão do projeto proposto?
+### Missão do projeto
 
-O setor siderúrgico envolve o manuseio de equipamentos e materiais pesados, altas temperaturas, além de sujeitar os trabalhadores a exposição de materiais químicos que podem ser tóxicos para o ser humano. Portanto, podemos considerar esse setor como de alto risco quando se trata de segurança do trabalho. Neste sentido, baseando-se no TAPI (Termo de Abertura do Projeto Inteli), sabe-se que a Gerdau traça objetivos para que o desenvolvimento de segurança da empresa seja mais palpável, visto que um dos principais valores da Gerdau é a segurança de seus colaboradores. Um desses objetivos é o acidente zero e para alcançá-lo a empresa segue rígidos padrões de operação e manutenção, além de também seguir normas nacionais e internacionais de segurança. Buscando excelência em seus processos, a Gerdau realizou um mapeamento de possíveis ameaças a segurança da empresa e um dos riscos mais relevantes identificado nas operações é o Espaço Confinado. Espaços Confinados são lugares que não foram projetados para ocupação humana em período contínuo. Hoje, não existe uma rotina de inspeção no interior desses espaços, apenas no exterior. Não possuir essa rotina é preocupante pois sujeita a empresa e os trabalhadores a eventualidades prejudiciais. Portanto, a fim de se alinhar com o posicionamento da Gerdau, o presente projeto realizará essa inspeção por meio de um AGV (_Automated Guided Vehicle_), de forma que a Gerdau tenha acesso as informações e imagens do ambiente em tempo real através de um software de integração. <br>
-Dessa forma, torna-se praticável identificar possíveis vazamentos, problemas na infraestrutura, entre outros riscos relacionados a espaços confinados. Então, após a inspeção a empresa pode se preparar corretamente para tornar a intervenção humana segura.
+O setor siderúrgico é conhecido por envolver o manuseio de equipamentos e materiais pesados, altas temperaturas e exposição a materiais químicos tóxicos, tornando-o de alto risco em termos de segurança do trabalho. A Gerdau, valorizando a segurança de seus colaboradores ("Sobre nós", [s.d.]), traça objetivos para tornar o desenvolvimento de segurança mais palpável e busca alcançar o objetivo de acidente zero por meio da adoção de rigorosos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança.
 
-### Como se pensa em manter uma unidade formal entre o design do produto, as formas de divulgação e venda?
+A empresa realizou um mapeamento das possíveis ameaças à segurança e identificou que os espaços confinados são um dos riscos mais relevantes em suas operações. Esses espaços não foram projetados para ocupação humana contínua, e a falta de uma rotina de inspeção no interior desses locais pode sujeitar a empresa e seus trabalhadores a eventualidades prejudiciais.
 
-A solução é pensada de forma personalizada para a Gerdau e não será comercializada em larga escala. Neste sentido, é evidente que a abordagem de divulgação e venda deve ser feita com uma visão interna da empresa. <br>
-Para manter uma unidade formal entre o design do produto, formas de divulgação e venda, deve-se manter a coêrencia em todos os aspectos do projeto, desde apresentação visual até requisitos técnicos do produto, pois esses elementos exercem um grande impacto na imagem do próprio projeto e da empresa. Para atingir excelência neste objetivo, a criação de um manual de uso do produto é importante para que a experiência do usuário seja otimizada. Um bom manual de uso traz diversas vantagens para um projeto. Em outras palavras, um manual de uso é essencial em situações como: facilitar a compreensão (tanto do sistema quanto da ideia), tornar a manutenção do sistema possível e reduzir possíveis erros, esperados e inesperados, de uso. <br>
-Além disso, a Gerdau deve investir na capacitação de seus funcionários, principalmente nos setores que terão contato direto com a solução. Para isso, pode-se realizar um teste em ambiente controlado com um técnico especialista. Desta forma, os usuários da solução entenderão o funcionamento do sistema, e também observarão o sucesso do projeto naquilo que é esperado. Isto posto, os trabalhadores terão mais confiança e se sentirão mais confortáveis na utilização do produto.
+Para solucionar esse problema e estar em linha com sua política de segurança, a Gerdau pretende realizar inspeções em espaços confinados por meio de um AGV (Automated Guided Vehicle), um veículo guiado automaticamente que permitirá que a empresa tenha acesso a informações e imagens do ambiente em tempo real através de um software de integração. Dessa forma, a empresa poderá identificar possíveis vazamentos, problemas na infraestrutura e outros riscos relacionados a espaços confinados e preparar-se corretamente para realizar intervenções seguras.
+
+
+### Unidade formal entre o design do produto, as formas de divulgação e venda
+
+A solução desenvolvida para a Gerdau é personalizada e não será comercializada em larga escala. Nesse sentido, a abordagem de divulgação e venda deve ser adaptada à visão interna da empresa. É importante manter a coerência em todos os aspectos do projeto, desde a apresentação visual até os requisitos técnicos do produto, para manter uma unidade formal entre o design, a forma de divulgação e a venda. Esses elementos têm um grande impacto na imagem do projeto e da empresa.
+
+Para atingir a excelência nesse objetivo, a criação de um manual de uso do produto é essencial para otimizar a experiência do usuário. Um manual bem elaborado traz diversas vantagens para o projeto, como facilitar a compreensão do sistema e da ideia, tornar a manutenção possível e reduzir possíveis erros de uso, esperados e inesperados.
+
+Além disso, a capacitação dos funcionários, principalmente nos setores que terão contato direto com a solução, é fundamental para o sucesso do projeto. Um teste em ambiente controlado com um técnico especialista pode ser realizado para que os usuários da solução entendam o funcionamento do sistema e observem o sucesso do projeto naquilo que é esperado. Isso aumentará a confiança e o conforto dos trabalhadores na utilização do produto.
+
 
 ## 2.3. Sustentabilidade ambiental
 
-### O projeto visa um produto ecoeficiente?
+### Ecoeficiente do projeto
 
 O projeto visa uma automatização do processo de varredura de gases em espaços confinados que possibilita análises em diferentes áreas destes. Com o escopo em mente, assume-se que o projeto poderá trazer uma quantidade menor de recursos, onde um único robô poderá fazer varreduras em diversos segmentos, seja em meio a leitura de gases ou gravação do atual estado estrutural do ambiente, sem a necessidade de um operador ser exposto ao risco. <br>
 
-Os principais pontos que justificam o uso de uma nova tecnologia é: <br>
+Os principais pontos que justificam o uso de uma nova tecnologia são: <br>
 
- A identificação dos riscos ambientais relacionados às manutenções que com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. <br>
-A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho, expondo as equipes de manutenção a um contado de gases tóxicos. <br>
+- A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. <br>
 
-O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
+- A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. <br>
+
+- O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
 
 
 
