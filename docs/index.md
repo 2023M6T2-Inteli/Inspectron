@@ -225,6 +225,24 @@ Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma fo
 # 7. Sistemas de segurança.
 
 # 8. Backend.
+## Modelagem do Banco de Dados
+O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automatização de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô. <br> 
+Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas principais coleções, *space* (Que representa o espaço confinado em si) e *route* (Que representa as leituras feitas nos determinados espaços).
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/docs/add-simple-describes-and-format/media/Inspectron%20DB.jpg"></img></p>
+A entidade *space* é composta pelos documentos *id*, *name* e *coordinates*. O *id* é a *primary key* da coleção, ou seja, ele é responsável por fornecer um registro exclusivo para a coleção. Dessa forma, ele garante que não tenha duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O *name* é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento *coordinates* é utilizado para localizar físicamente o espaço salvo. Ele é do tipo *object*, isso significa que ele precisa de mais de uma informação na sua composição. No presente projeto, para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y. <br>
+Já a entidade *route* é composta pelos documentos *id*, *directions*, *oxygen* e *space*. O *id* exerce a mesma função comentada anteriormente. O documento *directions* é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo *object* que recebe o enum *direction*, utilizado para dar um valor inteiro para constantes nomeadas e *value* que metrifica essa movimentação. <br>
+A estrutura do enum *direction* pode ser representada como: <br>
+{ <br>
+Frente: 0 <br>
+Trás: 1 <br>
+Esquerda: 2 <br>
+Direita: 3 <br>
+} <br>
+O documento *oxygen* representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô. <br>
+Além disso, essa coleção possui a *Foreign Key* *space*, que a relaciona com a coleção *space*. A *Foreign Key* garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
+
+
+
 
 # 9. Integração de sistemas.
 
