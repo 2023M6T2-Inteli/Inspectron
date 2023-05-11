@@ -43,7 +43,7 @@ const NewSimulation: React.FC = (props) => {
             <div className="bg-white rounded-xl shadow-2xl p-8 grow">
                 {content}
             </div>
-            {showModal && <LocationModal setShowModal={setShowModal} />}
+            <LocationModal showModal={showModal} setShowModal={setShowModal} />
         </Wrapper>
     );
 };

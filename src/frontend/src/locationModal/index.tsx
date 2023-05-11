@@ -14,10 +14,11 @@ const schema = yup.object({
 
 
 interface Props {
+    showModal: boolean;
     setShowModal: (show: boolean) => void;
 }
 
-const LocationModal: React.FC<Props> = ({ setShowModal }) => {
+const LocationModal: React.FC<Props> = ({ showModal, setShowModal }) => {
     const {
         register,
         handleSubmit,
@@ -29,7 +30,7 @@ const LocationModal: React.FC<Props> = ({ setShowModal }) => {
     const onSubmit = (data: any) => console.log(data);
     
     return (
-        <Modal title="Criar novo lugar" closeModal={() => setShowModal(false)}>
+        <Modal showModal={showModal} title="Criar novo lugar" closeModal={() => setShowModal(false)}>
             <form
                 className="flex flex-col gap-4"
                 onSubmit={handleSubmit(onSubmit)}
