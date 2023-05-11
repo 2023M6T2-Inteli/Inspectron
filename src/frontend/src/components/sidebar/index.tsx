@@ -24,7 +24,7 @@ const Sidebar: React.FC<Props> = (props) => {
     ];
 
     return (
-        <div className="w-[20vw] flex flex-col py-8 border-r-2 border-[#E4E4E4]">
+        <div className="w-[20vw] min-h-[100vh] flex flex-col py-8 border-r-2 border-[#E4E4E4] fixed">
             <Image alt="Logo" src={Logo} className="mx-auto mb-6" />
 
             <div className="flex flex-col gap-2">
