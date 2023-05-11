@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    background: var(--color-white);
+    background: #FDFDFD;
     font-family: var(--font-family);
     position: relative;
 }
