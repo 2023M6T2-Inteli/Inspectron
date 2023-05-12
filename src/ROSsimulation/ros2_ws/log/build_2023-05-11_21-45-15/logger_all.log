@@ -1,0 +1,129 @@
+[2.200s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'turtlesimulation']
+[2.201s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['turtlesimulation'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fd8c83da500>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fd8c83d9f90>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fd8c83d9f90>>)
+[2.457s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[2.463s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[2.466s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[2.467s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[2.469s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[2.471s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[2.473s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws'
+[2.480s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[2.481s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[2.483s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[2.488s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[2.490s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[2.494s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[2.496s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[2.497s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[2.498s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[2.548s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[2.549s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[2.551s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[2.553s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[2.554s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[2.564s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[2.565s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[2.576s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[2.590s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[2.591s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[2.600s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[2.638s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[2.639s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[2.645s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[2.661s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[2.664s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[2.670s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[2.677s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[2.678s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[2.684s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[2.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[2.691s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[2.693s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[2.714s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[2.715s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[2.718s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[2.724s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[2.726s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[2.751s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extensions ['ignore', 'ignore_ament_install']
+[2.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extension 'ignore'
+[2.756s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extension 'ignore_ament_install'
+[2.766s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extensions ['colcon_pkg']
+[2.767s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extension 'colcon_pkg'
+[2.776s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extensions ['colcon_meta']
+[2.777s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extension 'colcon_meta'
+[2.789s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extensions ['ros']
+[2.790s] Level 1:colcon.colcon_core.package_identification:_identify(src/turtlesimulation) by extension 'ros'
+[2.858s] DEBUG:colcon.colcon_core.package_identification:Package 'src/turtlesimulation' with type 'ros.ament_python' and name 'turtlesimulation'
+[2.860s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[2.861s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[2.864s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[2.865s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[2.866s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[3.129s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[3.131s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[3.318s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install
+[3.321s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 380 installed packages in /opt/ros/humble
+[3.325s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[3.506s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_args' from command line to 'None'
+[3.507s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_target' from command line to 'None'
+[3.507s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.508s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_clean_cache' from command line to 'False'
+[3.508s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_clean_first' from command line to 'False'
+[3.509s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'cmake_force_configure' from command line to 'False'
+[3.510s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'ament_cmake_args' from command line to 'None'
+[3.511s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'catkin_cmake_args' from command line to 'None'
+[3.512s] Level 5:colcon.colcon_core.verb:set package 'turtlesimulation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.514s] DEBUG:colcon.colcon_core.verb:Building package 'turtlesimulation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation', 'merge_install': False, 'path': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation', 'symlink_install': False, 'test_result_base': None}
+[3.517s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[3.526s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[3.527s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation' with build type 'ament_python'
+[3.528s] Level 1:colcon.colcon_core.shell:create_environment_hook('turtlesimulation', 'ament_prefix_path')
+[3.570s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[3.574s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/ament_prefix_path.ps1'
+[3.670s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/ament_prefix_path.dsv'
+[3.755s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/ament_prefix_path.sh'
+[3.849s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.850s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.598s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation'
+[6.602s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.603s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.952s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation': PYTHONPATH=/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/prefix_override:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlesimulation build --build-base /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build install --record /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log --single-version-externally-managed
+[19.426s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation' returned '0': PYTHONPATH=/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/prefix_override:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlesimulation build --build-base /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build install --record /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log --single-version-externally-managed
+[19.483s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation' for CMake module files
+[19.774s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation' for CMake config files
+[20.278s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib'
+[20.305s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/bin'
+[20.309s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/pkgconfig/turtlesimulation.pc'
+[20.321s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages'
+[20.338s] Level 1:colcon.colcon_core.shell:create_environment_hook('turtlesimulation', 'pythonpath')
+[20.343s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/pythonpath.ps1'
+[20.431s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/pythonpath.dsv'
+[20.513s] INFO:colcon.colcon_core.shell:Creating environment hook '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/hook/pythonpath.sh'
+[20.614s] Level 1:colcon.colcon_core.environment:checking '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/bin'
+[20.625s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(turtlesimulation)
+[20.632s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/package.ps1'
+[20.718s] INFO:colcon.colcon_core.shell:Creating package descriptor '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/package.dsv'
+[20.779s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/package.sh'
+[20.849s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/package.bash'
+[20.924s] INFO:colcon.colcon_core.shell:Creating package script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/turtlesimulation/package.zsh'
+[20.977s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/share/colcon-core/packages/turtlesimulation)
+[21.029s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[21.031s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[21.032s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[21.033s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[21.202s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[21.203s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[21.204s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[21.207s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[21.209s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory
+[21.210s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[21.215s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/local_setup.ps1'
+[21.251s] INFO:colcon.colcon_core.shell:Creating prefix util module '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/_local_setup_util_ps1.py'
+[21.288s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/setup.ps1'
+[21.358s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/local_setup.sh'
+[21.389s] INFO:colcon.colcon_core.shell:Creating prefix util module '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/_local_setup_util_sh.py'
+[21.424s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/setup.sh'
+[21.490s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/local_setup.bash'
+[21.518s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/setup.bash'
+[21.598s] INFO:colcon.colcon_core.shell:Creating prefix script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/local_setup.zsh'
+[21.625s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/setup.zsh'

@@ -1,0 +1,24 @@
+[7.826s] Invoking command in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation': PYTHONPATH=/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/prefix_override:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlesimulation build --build-base /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build install --record /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log --single-version-externally-managed
+[11.231s] running egg_info
+[11.255s] writing ../../build/turtlesimulation/turtlesimulation.egg-info/PKG-INFO
+[11.301s] writing dependency_links to ../../build/turtlesimulation/turtlesimulation.egg-info/dependency_links.txt
+[11.336s] writing entry points to ../../build/turtlesimulation/turtlesimulation.egg-info/entry_points.txt
+[11.366s] writing requirements to ../../build/turtlesimulation/turtlesimulation.egg-info/requires.txt
+[11.389s] writing top-level names to ../../build/turtlesimulation/turtlesimulation.egg-info/top_level.txt
+[11.572s] reading manifest file '../../build/turtlesimulation/turtlesimulation.egg-info/SOURCES.txt'
+[11.914s] writing manifest file '../../build/turtlesimulation/turtlesimulation.egg-info/SOURCES.txt'
+[11.928s] running build
+[11.929s] running build_py
+[11.995s] copying turtlesimulation/__init__.py -> /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build/lib/turtlesimulation
+[12.096s] running install
+[12.102s] running install_lib
+[12.301s] copying /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build/lib/turtlesimulation/__init__.py -> /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation
+[12.513s] byte-compiling /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation/__init__.py to __init__.cpython-310.pyc
+[12.716s] running install_data
+[12.846s] running install_egg_info
+[12.908s] removing '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation-0.0.0-py3.10.egg-info' (and everything under it)
+[13.211s] Copying ../../build/turtlesimulation/turtlesimulation.egg-info to /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation-0.0.0-py3.10.egg-info
+[14.527s] running install_scripts
+[14.822s] Installing route script to /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/turtlesimulation
+[14.890s] writing list of installed files to '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log'
+[15.034s] Invoked command in '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation' returned '0': PYTHONPATH=/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/prefix_override:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/turtlesimulation build --build-base /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build install --record /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log --single-version-externally-managed

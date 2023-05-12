@@ -1,0 +1,200 @@
+[0.000000] (-) TimerEvent: {}
+[0.004106] (turtlesimulation) JobQueued: {'identifier': 'turtlesimulation', 'dependencies': OrderedDict()}
+[0.005132] (turtlesimulation) JobStarted: {'identifier': 'turtlesimulation'}
+[0.089725] (-) TimerEvent: {}
+[0.192283] (-) TimerEvent: {}
+[0.294073] (-) TimerEvent: {}
+[0.396353] (-) TimerEvent: {}
+[0.498844] (-) TimerEvent: {}
+[0.600238] (-) TimerEvent: {}
+[0.702175] (-) TimerEvent: {}
+[0.807730] (-) TimerEvent: {}
+[0.909445] (-) TimerEvent: {}
+[1.011911] (-) TimerEvent: {}
+[1.113575] (-) TimerEvent: {}
+[1.215189] (-) TimerEvent: {}
+[1.317997] (-) TimerEvent: {}
+[1.419869] (-) TimerEvent: {}
+[1.524683] (-) TimerEvent: {}
+[1.626648] (-) TimerEvent: {}
+[1.730021] (-) TimerEvent: {}
+[1.831965] (-) TimerEvent: {}
+[1.939875] (-) TimerEvent: {}
+[2.042909] (-) TimerEvent: {}
+[2.148586] (-) TimerEvent: {}
+[2.251477] (-) TimerEvent: {}
+[2.353898] (-) TimerEvent: {}
+[2.457138] (-) TimerEvent: {}
+[2.558765] (-) TimerEvent: {}
+[2.660309] (-) TimerEvent: {}
+[2.762858] (-) TimerEvent: {}
+[2.865029] (-) TimerEvent: {}
+[2.966817] (-) TimerEvent: {}
+[3.068620] (-) TimerEvent: {}
+[3.173937] (-) TimerEvent: {}
+[3.275717] (-) TimerEvent: {}
+[3.378559] (-) TimerEvent: {}
+[3.480694] (-) TimerEvent: {}
+[3.583171] (-) TimerEvent: {}
+[3.685584] (-) TimerEvent: {}
+[3.790974] (-) TimerEvent: {}
+[3.894475] (-) TimerEvent: {}
+[3.997303] (-) TimerEvent: {}
+[4.099651] (-) TimerEvent: {}
+[4.201078] (-) TimerEvent: {}
+[4.302770] (-) TimerEvent: {}
+[4.405983] (-) TimerEvent: {}
+[4.508222] (-) TimerEvent: {}
+[4.611434] (-) TimerEvent: {}
+[4.713436] (-) TimerEvent: {}
+[4.816124] (-) TimerEvent: {}
+[4.918508] (-) TimerEvent: {}
+[5.021461] (-) TimerEvent: {}
+[5.124434] (-) TimerEvent: {}
+[5.228158] (-) TimerEvent: {}
+[5.330134] (-) TimerEvent: {}
+[5.432401] (-) TimerEvent: {}
+[5.533539] (-) TimerEvent: {}
+[5.635819] (-) TimerEvent: {}
+[5.739341] (-) TimerEvent: {}
+[5.841355] (-) TimerEvent: {}
+[5.943132] (-) TimerEvent: {}
+[6.044767] (-) TimerEvent: {}
+[6.147062] (-) TimerEvent: {}
+[6.249281] (-) TimerEvent: {}
+[6.351756] (-) TimerEvent: {}
+[6.454734] (-) TimerEvent: {}
+[6.558092] (-) TimerEvent: {}
+[6.660317] (-) TimerEvent: {}
+[6.762213] (-) TimerEvent: {}
+[6.864250] (-) TimerEvent: {}
+[6.967607] (-) TimerEvent: {}
+[7.070239] (-) TimerEvent: {}
+[7.172275] (-) TimerEvent: {}
+[7.275007] (-) TimerEvent: {}
+[7.377081] (-) TimerEvent: {}
+[7.478769] (-) TimerEvent: {}
+[7.580598] (-) TimerEvent: {}
+[7.682101] (-) TimerEvent: {}
+[7.783961] (-) TimerEvent: {}
+[7.886241] (-) TimerEvent: {}
+[7.989734] (-) TimerEvent: {}
+[8.091541] (-) TimerEvent: {}
+[8.194347] (-) TimerEvent: {}
+[8.297184] (-) TimerEvent: {}
+[8.341362] (turtlesimulation) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/turtlesimulation', 'build', '--build-base', '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build', 'install', '--record', '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log', '--single-version-externally-managed'], 'cwd': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src/turtlesimulation', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'antonio', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'WT_PROFILE_ID': '{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}', 'HOME': '/home/antonio', 'OLDPWD': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/src', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'antonio', 'NAME': 'Notebook-0177', 'WSL_INTEROP': '/run/WSL/98460_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Inteli/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Inteli/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Inteli/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Inteli/AppData/Roaming/npm:/snap/bin', 'WT_SESSION': 'a078d79c-80b0-458f-b8a2-7abf2cac26d7', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation:/opt/ros/humble', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation', 'TURTLEBOT3_MODEL': 'burger', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/prefix_override:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'WSLENV': 'WT_SESSION::WT_PROFILE_ID'}, 'shell': False}
+[8.418156] (-) TimerEvent: {}
+[8.521107] (-) TimerEvent: {}
+[8.626832] (-) TimerEvent: {}
+[8.728980] (-) TimerEvent: {}
+[8.831332] (-) TimerEvent: {}
+[8.933472] (-) TimerEvent: {}
+[9.035484] (-) TimerEvent: {}
+[9.137936] (-) TimerEvent: {}
+[9.239974] (-) TimerEvent: {}
+[9.341462] (-) TimerEvent: {}
+[9.444137] (-) TimerEvent: {}
+[9.546061] (-) TimerEvent: {}
+[9.648011] (-) TimerEvent: {}
+[9.749738] (-) TimerEvent: {}
+[9.855441] (-) TimerEvent: {}
+[9.959746] (-) TimerEvent: {}
+[10.061382] (-) TimerEvent: {}
+[10.163142] (-) TimerEvent: {}
+[10.267622] (-) TimerEvent: {}
+[10.374660] (-) TimerEvent: {}
+[10.481598] (-) TimerEvent: {}
+[10.583378] (-) TimerEvent: {}
+[10.685896] (-) TimerEvent: {}
+[10.790046] (-) TimerEvent: {}
+[10.893718] (-) TimerEvent: {}
+[10.995769] (-) TimerEvent: {}
+[11.097924] (-) TimerEvent: {}
+[11.199359] (-) TimerEvent: {}
+[11.301969] (-) TimerEvent: {}
+[11.404034] (-) TimerEvent: {}
+[11.505665] (-) TimerEvent: {}
+[11.607240] (-) TimerEvent: {}
+[11.708729] (-) TimerEvent: {}
+[11.812150] (-) TimerEvent: {}
+[11.914684] (-) TimerEvent: {}
+[11.961406] (turtlesimulation) StdoutLine: {'line': b'running egg_info\n'}
+[11.989377] (turtlesimulation) StdoutLine: {'line': b'writing ../../build/turtlesimulation/turtlesimulation.egg-info/PKG-INFO\n'}
+[12.015076] (-) TimerEvent: {}
+[12.033041] (turtlesimulation) StdoutLine: {'line': b'writing dependency_links to ../../build/turtlesimulation/turtlesimulation.egg-info/dependency_links.txt\n'}
+[12.069415] (turtlesimulation) StdoutLine: {'line': b'writing entry points to ../../build/turtlesimulation/turtlesimulation.egg-info/entry_points.txt\n'}
+[12.098330] (turtlesimulation) StdoutLine: {'line': b'writing requirements to ../../build/turtlesimulation/turtlesimulation.egg-info/requires.txt\n'}
+[12.115449] (-) TimerEvent: {}
+[12.125450] (turtlesimulation) StdoutLine: {'line': b'writing top-level names to ../../build/turtlesimulation/turtlesimulation.egg-info/top_level.txt\n'}
+[12.215684] (-) TimerEvent: {}
+[12.318068] (-) TimerEvent: {}
+[12.320351] (turtlesimulation) StdoutLine: {'line': b"reading manifest file '../../build/turtlesimulation/turtlesimulation.egg-info/SOURCES.txt'\n"}
+[12.418294] (-) TimerEvent: {}
+[12.519678] (-) TimerEvent: {}
+[12.621741] (-) TimerEvent: {}
+[12.694671] (turtlesimulation) StdoutLine: {'line': b"writing manifest file '../../build/turtlesimulation/turtlesimulation.egg-info/SOURCES.txt'\n"}
+[12.715521] (turtlesimulation) StdoutLine: {'line': b'running build\n'}
+[12.718954] (turtlesimulation) StdoutLine: {'line': b'running build_py\n'}
+[12.721789] (-) TimerEvent: {}
+[12.799182] (turtlesimulation) StdoutLine: {'line': b'copying turtlesimulation/__init__.py -> /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build/lib/turtlesimulation\n'}
+[12.822218] (-) TimerEvent: {}
+[12.881976] (turtlesimulation) StdoutLine: {'line': b'running install\n'}
+[12.887753] (turtlesimulation) StdoutLine: {'line': b'running install_lib\n'}
+[12.922882] (-) TimerEvent: {}
+[13.025186] (-) TimerEvent: {}
+[13.102943] (turtlesimulation) StdoutLine: {'line': b'copying /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/build/lib/turtlesimulation/__init__.py -> /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation\n'}
+[13.125454] (-) TimerEvent: {}
+[13.227529] (-) TimerEvent: {}
+[13.330806] (-) TimerEvent: {}
+[13.354961] (turtlesimulation) StdoutLine: {'line': b'byte-compiling /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation/__init__.py to __init__.cpython-310.pyc\n'}
+[13.431572] (-) TimerEvent: {}
+[13.534331] (-) TimerEvent: {}
+[13.557860] (turtlesimulation) StdoutLine: {'line': b'running install_data\n'}
+[13.635083] (-) TimerEvent: {}
+[13.701554] (turtlesimulation) StdoutLine: {'line': b'running install_egg_info\n'}
+[13.735380] (-) TimerEvent: {}
+[13.756826] (turtlesimulation) StdoutLine: {'line': b"removing '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[13.835713] (-) TimerEvent: {}
+[13.939754] (-) TimerEvent: {}
+[14.042820] (-) TimerEvent: {}
+[14.058887] (turtlesimulation) StdoutLine: {'line': b'Copying ../../build/turtlesimulation/turtlesimulation.egg-info to /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/python3.10/site-packages/turtlesimulation-0.0.0-py3.10.egg-info\n'}
+[14.143013] (-) TimerEvent: {}
+[14.245335] (-) TimerEvent: {}
+[14.347734] (-) TimerEvent: {}
+[14.450046] (-) TimerEvent: {}
+[14.551297] (-) TimerEvent: {}
+[14.653112] (-) TimerEvent: {}
+[14.756249] (-) TimerEvent: {}
+[14.858842] (-) TimerEvent: {}
+[14.960857] (-) TimerEvent: {}
+[15.062804] (-) TimerEvent: {}
+[15.165034] (-) TimerEvent: {}
+[15.267209] (-) TimerEvent: {}
+[15.369068] (-) TimerEvent: {}
+[15.424866] (turtlesimulation) StdoutLine: {'line': b'running install_scripts\n'}
+[15.469233] (-) TimerEvent: {}
+[15.570342] (-) TimerEvent: {}
+[15.672163] (-) TimerEvent: {}
+[15.716693] (turtlesimulation) StdoutLine: {'line': b'Installing route script to /mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/install/turtlesimulation/lib/turtlesimulation\n'}
+[15.772331] (-) TimerEvent: {}
+[15.791399] (turtlesimulation) StdoutLine: {'line': b"writing list of installed files to '/mnt/c/Users/Inteli/Documents/GitHub/Inspectron/src/ROSsimulation/ros2_ws/build/turtlesimulation/install.log'\n"}
+[15.872588] (-) TimerEvent: {}
+[15.887756] (turtlesimulation) CommandEnded: {'returncode': 0}
+[15.972853] (-) TimerEvent: {}
+[16.074555] (-) TimerEvent: {}
+[16.176738] (-) TimerEvent: {}
+[16.278844] (-) TimerEvent: {}
+[16.380564] (-) TimerEvent: {}
+[16.484375] (-) TimerEvent: {}
+[16.590269] (-) TimerEvent: {}
+[16.692402] (-) TimerEvent: {}
+[16.795557] (-) TimerEvent: {}
+[16.898223] (-) TimerEvent: {}
+[17.000441] (-) TimerEvent: {}
+[17.104318] (-) TimerEvent: {}
+[17.206570] (-) TimerEvent: {}
+[17.308589] (-) TimerEvent: {}
+[17.410701] (-) TimerEvent: {}
+[17.493350] (turtlesimulation) JobEnded: {'identifier': 'turtlesimulation', 'rc': 0}
+[17.538691] (-) TimerEvent: {}
+[17.539906] (-) EventReactorShutdown: {}
