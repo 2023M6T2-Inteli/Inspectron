@@ -8,19 +8,30 @@ import Modal from "@/components/modal";
 import StartScan from "@/components/startScan";
 import LiveScan from "@/components/liveScan";
 import LocationModal from "@/locationModal";
+import Loader from "@/components/loader";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
-    const [showModal, setShowModal] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
 
     const startScan = () => {
+        setLoading(true)
         toast.success("Varredura iniciada com sucesso!");
         setStage(1);
+
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
     };
 
     const emergencyStop = () => {
+        setLoading(true)
         toast.info("Varredura finalizada com sucesso!");
         setStage(0);
+
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
     };
 
     let content = null;
@@ -29,7 +40,6 @@ const NewSimulation: React.FC = (props) => {
             content = (
                 <StartScan
                     buttonHandler={startScan}
-                    setShowModal={setShowModal}
                 />
             );
             break;
@@ -41,9 +51,8 @@ const NewSimulation: React.FC = (props) => {
     return (
         <Wrapper title={"Nova varredura"}>
             <div className="bg-white rounded-xl shadow-2xl p-8 grow">
-                {content}
+                {loading ? <Loader /> : content}
             </div>
-            <LocationModal showModal={showModal} setShowModal={setShowModal} />
         </Wrapper>
     );
 };

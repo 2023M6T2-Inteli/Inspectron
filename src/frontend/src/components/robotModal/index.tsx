@@ -18,7 +18,7 @@ interface Props {
     setShowModal: (show: boolean) => void;
 }
 
-const LocationModal: React.FC<Props> = ({ showModal, setShowModal }) => {
+const RobotModal: React.FC<Props> = ({ showModal, setShowModal }) => {
     const {
         register,
         handleSubmit,
@@ -30,7 +30,7 @@ const LocationModal: React.FC<Props> = ({ showModal, setShowModal }) => {
     const onSubmit = (data: any) => console.log(data);
     
     return (
-        <Modal showModal={showModal} title="Cadastrar nova localização" closeModal={() => setShowModal(false)}>
+        <Modal showModal={showModal} title="Cadastrar novo robô" closeModal={() => setShowModal(false)}>
             <form
                 className="flex flex-col gap-4"
                 onSubmit={handleSubmit(onSubmit)}
@@ -42,23 +42,17 @@ const LocationModal: React.FC<Props> = ({ showModal, setShowModal }) => {
                     error={errors.name?.message as string}
                 />
                 <Input
-                    label="Latitude"
-                    placeholder="Digite aqui a latitude..."
+                    label="Ip"
+                    placeholder="Digite aqui o ip..."
                     {...register("x")}
                     error={errors.x?.message as string}
 
                 />
-                <Input
-                    label="Longitude"
-                    placeholder="Digite aqui a longitude..."
-                    {...register("y")}
-                    error={errors.y?.message as string}
-
-                />
+                
                 <Button buttonType={ButtonTypes.primary}>Criar</Button>
             </form>
         </Modal>
     );
 };
 
-export default LocationModal;
+export default RobotModal;
