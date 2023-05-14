@@ -39,7 +39,7 @@ const Modal: React.FC<Props> = ({
                         animate="visible"
                         initial="hidden"
                         exit="hidden"
-                        className="z-20 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-10 rounded-lg min-w-[30vw] min-h-[40vh]"
+                        className="z-20 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-10 rounded-lg min-w-[30vw]"
                     >
                         <div className="flex items-center justify-between mb-6">
                             <h4 className="text-3xl">{title}</h4>

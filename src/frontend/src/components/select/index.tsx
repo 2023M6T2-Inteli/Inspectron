@@ -32,7 +32,6 @@ const SelectComponent: React.FC<Props> = ({
                     classNames={{
                         control: (state) => "p-2 w-80",
                     }}
-                    placeholder={"Selecione um lugar..."}
                     options={options}
                 />
                 {addIcon}
