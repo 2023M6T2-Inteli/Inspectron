@@ -14,7 +14,7 @@ const Sidebar: React.FC<Props> = (props) => {
         {
             icon: LayoutDashboard,
             label: "Varreduras/Locais",
-            link: "/",
+            link: "/dashboard",
         },
         {
             icon: Plus,
