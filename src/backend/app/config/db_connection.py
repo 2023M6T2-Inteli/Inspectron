@@ -1,7 +1,13 @@
 import pymongo
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 
-cluster = MongoClient("mongodb+srv://gustavo-francisco:M1e2c3a4d@inspectron.9igr5b1.mongodb.net/?retryWrites=true&w=majority")
+load_dotenv()
+
+uri = os.getenv("MONGODB_URI") 
+
+cluster = MongoClient(uri)
 db = cluster["Inspectron"]
-collection_space = db["space"]
-collection_route = db["route"]
+collection_location = db["location"]
+collection_scan = db["scan"]
