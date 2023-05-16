@@ -21,7 +21,7 @@ class TurtleBotController(Node):
         self.get_logger().info(str(euler_data))
 
     def publish_velocity(self):
-        self.velocity_module.apply(Vector3(x=0.0, y=0.0, z=0.0), Vector3(x=0.0, y=0.0, z=0.0))
+        self.velocity_module.apply(Vector3(x=1.0, y=0.0, z=0.0), Vector3(x=0.0, y=0.0, z=1.0))
 
 if __name__ == "__main__":
     rclpy.init()

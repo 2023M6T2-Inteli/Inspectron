@@ -1,11 +1,10 @@
 from mongoengine import *
 
-connect('Inspectron')
 
-class location(Document):
+class Location(Document):
     name = StringField(required=True)
     coordinates = DictField(required=True,
-        fields ={
-            "x": FloatField(),
-            "y": FloatField()
-        })
+                            fields={
+                                "x": FloatField(required=True),
+                                "y": FloatField(required=True)
+                            })
