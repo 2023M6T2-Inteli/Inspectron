@@ -1,10 +1,10 @@
 from mongoengine import *
-from enum import Enum
+from enum import IntEnum
 from ..models.location import Location
 from ..models.robot import Robot
 
 
-class Direction(Enum):
+class Direction(IntEnum):
     FRENTE = 1
     TRAS = 2
     DIREITA = 3
@@ -12,11 +12,11 @@ class Direction(Enum):
 
 
 class Scan(Document):
-    directions = ListField(required=True,
+    directions = ListField(DictField(required=True,
                            fields={
-                               "direction": EnumField(Direction, default=Direction.FRENTE),
+                               "direction": EnumField(Direction),
                                "value": IntField()
-                           })
+                           }))
     oxygen = FloatField()
     location = ReferenceField('Location')
     robot = ReferenceField('Robot')
