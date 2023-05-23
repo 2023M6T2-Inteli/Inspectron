@@ -1,16 +1,14 @@
 import fastapi
-import uvicorn
-import random
 from fastapi.responses import RedirectResponse
+import uvicorn
 
+import rclpy
+from ros.setup import BackendController
+import socketio
+from eventlet import wsgi, listen
 
 #Cria um objeto API para o FASTAPI
 api = fastapi.FastAPI()
-
-import socketio
-import socket
-from eventlet import wsgi, listen
-
 
 HOST = "127.0.0.1"  # localhost padrão
 PORT = 65432  # Porta a ser utilizada
@@ -21,15 +19,9 @@ sio = socketio.Server(async_handlers=True, logger=True,
 
 app = socketio.WSGIApp(sio)
 
-
 @sio.event
 def connect(sid, environ):
     print('Connected to socket')
-
-#recebendo o stream e mandando para o frontend
-@sio.on('streaming')
-def streaming(sid, data):
-    sio.emit("streaming", data, skip_sid=True)
 
 @sio.on('emergency_stop')
 def stop(sid):
@@ -38,12 +30,16 @@ def stop(sid):
     
 # Function to start the server
 def start_server():
-
     wsgi.server(listen((HOST, PORT)), app)
 
-    
 def main():
-    pass
+    start_server()
+    uvicorn.run(api)
+
+    rclpy.init()
+    node = BackendController(sio)
+    rclpy.spin(node)
+    rclpy.shutdown()
 
 if __name__ =="__main__":
-    uvicorn.run(api)
+    main()
