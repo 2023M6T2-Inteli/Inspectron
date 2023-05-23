@@ -4,6 +4,4 @@ import os
 
 load_dotenv()
 
-uri = os.getenv("MONGODB_URI") 
-
-connect(host=uri)
+uri = os.getenv("MONGODB_URI")

@@ -1,6 +1,13 @@
-from src.backend.app.config.db_connection import collection_space
+from mongoengine import *
+from ..models.location import Location
+from ..models.robot import Robot
+from ..models.scan import Direction
+from ..models.scan import Scan
+from ..config.db_connection import uri
 
-results = collection_space.find({"name": "Atelie 93"})
+connect(host=uri)
 
-for result in results:
-    print(result)
+locations = Location.objects()
+
+for location in locations:
+    print(location.to_json())
