@@ -34,7 +34,7 @@ class EulerData:
         return f"EulerData(x={self.x}, y={self.y}, z={self.z}, roll={self.roll}, pitch={self.pitch}, yaw={self.yaw})"
 
     def __str__(self):
-        return self.__repr__()
+        return f"(x={self.x}, y={self.y}, z={self.z}, roll={self.roll}, pitch={self.pitch}, yaw={self.yaw})"
 
 class Position(Subscription):
     def __init__(self, node: Node, subscription_callback: Any):
