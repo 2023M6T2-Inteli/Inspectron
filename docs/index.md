@@ -210,21 +210,19 @@ Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma fo
 
 # 4. Sistema de locomoção e otimização de rota.
 
-Diante do contexto de nossa aplicação, optamos por utilizar do robô e seus sensores para realizar sua movimentação. Assim, o robô diante da "entrada" ao espaço deverá seguir um caminho desobstruído diante de uma analise que ela realizará sobre o valor dos sensores, pensamos em utilizar principalmente seu sensor LIDAR para aumentar a precisão dos pontos entre robô e a estrutura/obstruções do local. Para tal, foi desenvolvido um Script que a principal lógica é caso um objeto em linha reta seja identificado ele devera desviar sua rota para realizar o
+Diante do contexto de nossa aplicação, optamos por utilizar do robô e seus sensores para realizar sua movimentação. Assim, o robô diante da "entrada" ao espaço deverá seguir um caminho desobstruído diante de uma analise que ela realizará sobre o valor dos sensores, pensamos em utilizar principalmente seu sensor LIDAR para aumentar a precisão dos pontos entre robô e a estrutura/obstruções do local. Detalhando a implementação, foi desenvolvido um Script no qual a principal lógica é caso um objeto em linha reta seja identificado eplo sensor (podemos configurar uma medida) ele deverá desviar sua rota, podendo ser ela a continuação do percurso ou até mesmo uma meia volta diante de uma obstrução.
 
-Detalhamento da implementação: ... 
-
-Para a realização de testes, iniciamos no simulador Gazebo do ROS, que dispõem do sensor LIDAR. 
+Para a realização de testes, iniciamos no simulador Gazebo do ROS, que dispõem do sensor LIDAR. Com o MVP desenvolvido,
 
 # 5. Interface de usuário.
 
 # 6. Sistema de visão computacional.
 
-A partir da necessidade de realizar um serviço de streaming entre o robô e a plataforma diante das decisões tomadas para o projeto e a implementação de um modelo pré treinado para a avaliação de rachaduras ao longo do percurso, tivemos de contruir nosso sistema de visão computacional pensando em cumprir nossos objetivos.
+A partir da necessidade de realizar um serviço de streaming entre o robô e a plataforma diante das decisões tomadas para o projeto e a implementação de um modelo pré treinado para a avaliação de rachaduras nas imagens captadas ao longo do percurso, tivemos de contruir nosso sistema de visão computacional pensando em cumprir tais objetivos.
 
-A fim de analisar o desempenho de nosso modelo preditivo disponível pela YoLo para análise de imagens, utilizamos da câmera de um notebook para testarmos a detecção de rachaduras. Colocamos em frente à camera imagens que poderiam ser detectadas e em 100% dos casos ele apresentou corretamnte suas dimensoes e posicoes na tela, logo pudemos observar que o modelo havia sido treinado corretamente e que poderiamos utilizar de seu arquivo .pt gerado em nosso backend para que apresentasse no frontend alguma rachudura detectada nas imagens obtidas durante uma inspeção.
+A fim de analisar o desempenho de nosso modelo preditivo disponível pela YoLo para análise de imagens, utilizamos da câmera de um notebook para testarmos a detecção de rachaduras. Colocamos em frente à camera imagens que poderiam ser detectadas e na maioria dos casos ele apresentou corretamente suas dimensões e posições na tela, logo pudemos observar que o modelo havia sido treinado corretamente e que poderiamos utilizar de seu arquivo .pt gerado em nosso backend, para que fosse possivel realizar essa inspeção em imagens que chegam do nodo ROS e sua apresentação no frontend de maneira imediata.
 
-Para o serviço de streaming, contamos com tecnologias como Socketio e a capacidade de subscrever e publicar em topicos da rede local. Devemos entao, converter as imgaens obtidas em um formato que seja facil para transmitir entre a rede, para tal escolhemos a função tobytes() (64).
+Para o serviço de streaming, contamos com tecnologias como Socketio e a capacidade de subscrever e publicar em topicos da rede local. Devemos então, converter as imgaens obtidas em um formato que seja facil para transmitir entre a rede, para tal utilizamos da função tobytes(), que permite que os frames sejam transmitidos via tópicos, neste caso 'streaming'. Seguindo a lógica da aplicação, 
 
 # 7. Sistemas de segurança.
 
