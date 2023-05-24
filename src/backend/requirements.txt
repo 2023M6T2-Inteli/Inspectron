@@ -227,3 +227,4 @@ visualization-msgs==4.2.3
 watchfiles==0.19.0
 websockets==11.0.3
 xacro==2.0.8
+transforms3d==0.4.1
