@@ -27,7 +27,7 @@ class TurtleBotController(Node):
         self.__imu_module = Imu(self, self.__imu_callback)
         self.__camera_module = Camera(self)
 
-        self.create_timer(0.16, self.__runtime)
+        self.create_timer(1, self.__runtime)
 
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
@@ -43,16 +43,17 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-        self.get_logger().info("Publsoh realizado")
-        
-        self.velocity_module.apply(Vector3(x=0.0, y=0.0, z=0.0), Vector3(x=0.0, y=0.0, z=0.0))
-        #self.camera.apply("oi")
+        self.get_logger().info("Starting camera video")
         
         video_capture = cv2.VideoCapture("./videoteste.mp4")
         while True:
-            _, frame = video_capture.read()
-            converted_string = base64.b64encode(frame) 
-            self.camera.apply(str(converted_string))
+            ret, frame = video_capture.read()
+            if not ret:  # Verifica se o frame é válido
+                break  # Interrompe o loop se não há mais quadros
+
+            converted_string = base64.b64encode(frame)
+            self.__camera_module.apply(str(converted_string))
+        self.get_logger().info("End of camera video")
 
 if __name__ == "__main__":
     rclpy.init()
