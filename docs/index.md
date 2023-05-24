@@ -218,11 +218,15 @@ Para a realização de testes, iniciamos no simulador Gazebo do ROS, que dispõe
 
 # 6. Sistema de visão computacional.
 
-A partir da necessidade de realizar um serviço de streaming entre o robô e a plataforma diante das decisões tomadas para o projeto e a implementação de um modelo pré treinado para a avaliação de rachaduras nas imagens captadas ao longo do percurso, tivemos de contruir nosso sistema de visão computacional pensando em cumprir tais objetivos.
+A partir da necessidade de realizar um serviço de streaming entre o robô e a plataforma diante das decisões tomadas para o projeto e a implementação de um modelo pré treinado para a avaliação de rachaduras nas imagens captadas ao longo do percurso, tivemos de contruir nosso sistema de visão computacional pensando em cumprir tais objetivos. Para o serviço de streaming, contamos com tecnologias como Socketio e a capacidade de subscrever e publicar em tópicos da rede local. Devemos então, converter as imgaens obtidas em um formato que seja facil para transmitir entre a rede, para tal utilizamos da função para converter qualquer sequência de bytes em uma sequência de caracteres base64, usando < base64.b64encode(SEU_FRAME) >, que permite que os frames estejam em um formato que pode ser enviado via tópicos, neste caso criamos o tópico 'streaming'. Seguindo a lógica da aplicação, nosso servidor Socket estará ouvindo este tópico no qual o nodo ROS publica e poderá emitir esta mensagem (frame) ao frontend, em ambos os passos a imagem será convertida e re-convertida, para fins de salvar em um arquivo apenas para relatório da inspeção e para o serviço de srteaming final.
+
+Testes do modelo:
 
 A fim de analisar o desempenho de nosso modelo preditivo disponível pela YoLo para análise de imagens, utilizamos da câmera de um notebook para testarmos a detecção de rachaduras. Colocamos em frente à camera imagens que poderiam ser detectadas e na maioria dos casos ele apresentou corretamente suas dimensões e posições na tela, logo pudemos observar que o modelo havia sido treinado corretamente e que poderiamos utilizar de seu arquivo .pt gerado em nosso backend, para que fosse possivel realizar essa inspeção em imagens que chegam do nodo ROS e sua apresentação no frontend de maneira imediata.
 
-Para o serviço de streaming, contamos com tecnologias como Socketio e a capacidade de subscrever e publicar em topicos da rede local. Devemos então, converter as imgaens obtidas em um formato que seja facil para transmitir entre a rede, para tal utilizamos da função para encode base64.b64encode(), que permite que os frames estejam em um formato que pode ser enviado via tópicos, neste caso criamos o tópico 'streaming'. Seguindo a lógica da aplicação, nosso servidor Socket estara ouvindo este tópico no qual o nodo ROS publica e poderá emitir esta mensagem (frame) ao frontend.
+Teste da stream:
+
+No caso do serviço de streaming, pudemos realizar o teste utilizando de Scripts python do Socket e do Robô, contando com a biblioteca cv2 para pegarmos a imagem da webcam do notebook (alteração mínima para ser a camera intalada no microcomputador do Robô) e a base64, para realizamos as devidas conversões dos frames para sua transmissão. 
 
 # 7. Sistemas de segurança.
 
