@@ -1,9 +1,9 @@
 version: "3"
 services:
   app:
-    build: $PWD
+    build: .
     restart: always
     ports:
       - "3000:3000"
     volumes:
-      - $PWD/app:/app
+      - $PWD:/app
