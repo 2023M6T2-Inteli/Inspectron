@@ -212,7 +212,9 @@ Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma fo
 
 Diante do contexto de nossa aplicação, optamos por utilizar do robô e seus sensores para realizar sua movimentação. Assim, o robô diante da "entrada" ao espaço deverá seguir um caminho desobstruído diante de uma analise que ela realizará sobre o valor dos sensores, pensamos em utilizar principalmente seu sensor LIDAR para aumentar a precisão dos pontos entre robô e a estrutura/obstruções do local. Detalhando a implementação, foi desenvolvido um Script no qual a principal lógica é caso um objeto em linha reta seja identificado eplo sensor (podemos configurar uma medida) ele deverá desviar sua rota, podendo ser ela a continuação do percurso ou até mesmo uma meia volta diante de uma obstrução.
 
-Para a realização de testes, iniciamos no simulador Gazebo do ROS, que dispõem do sensor LIDAR. Com o MVP desenvolvido,
+Para a realização de testes, iniciamos no simulador Gazebo do ROS, que dispõem do sensor LIDAR. Com o MVP desenvolvido, decismos criar dois cenários diferentes e testar a locomoção do robô.
+
+(FALTA DOCUMENTAR MELHOR OS TESTES E A IMPLEMENTAÇÃO)
 
 # 5. Interface de usuário.
 
