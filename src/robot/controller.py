@@ -3,8 +3,10 @@ from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
 
-from modules.publishers import Velocity
+from modules.publishers import Velocity, Camera
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData
+import cv2
+import base64
 
 class TurtleBotController(Node):
     __euler_data = EulerData()
@@ -14,6 +16,7 @@ class TurtleBotController(Node):
     __velocity_module = None
     __position_module = None
     __lidar_module = None
+    __camera_module = None
 
     def __init__(self):
         super().__init__("turtlebot_controller")
@@ -22,10 +25,9 @@ class TurtleBotController(Node):
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
+        self.__camera_module = Camera(self)
 
-        self.create_timer(1, self.__publish_velocity)
-
-
+        self.create_timer(1, self.__runtime)
 
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
@@ -40,8 +42,18 @@ class TurtleBotController(Node):
         self.__imu_data = imu_data
         #self.get_logger().info(str(imu_data))
 
-    def __publish_velocity(self):
-        self.__velocity_module.apply(1, 0)
+    def __runtime(self):
+        self.get_logger().info("Starting camera video")
+        
+        video_capture = cv2.VideoCapture("./videoteste.mp4")
+        while True:
+            ret, frame = video_capture.read()
+            if not ret:  # Verifica se o frame é válido
+                break  # Interrompe o loop se não há mais quadros
+
+            converted_string = base64.b64encode(frame)
+            self.__camera_module.apply(str(converted_string))
+        self.get_logger().info("End of camera video")
 
 if __name__ == "__main__":
     rclpy.init()
