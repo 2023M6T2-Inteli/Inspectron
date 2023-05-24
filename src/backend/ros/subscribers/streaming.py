@@ -1,7 +1,6 @@
 from .base import Subscription
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
-from tf_transformations import euler_from_quaternion
 from typing import Any
 
 class Streaming(Subscription):

@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 
-from subscribers import Streaming
+from ros.subscribers import Streaming
 
 class BackendController(Node):
     def __init__(self, sio):
