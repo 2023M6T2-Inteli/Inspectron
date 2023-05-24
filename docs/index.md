@@ -278,7 +278,7 @@ Essa abordagem permite que o usuário execute de forma eficiente e conveniente o
 
 # 8. Backend.
 
-## Modelagem do Banco de Dados
+## Banco de Dados
 
 O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô. `<br>`
 Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, *space* (que representa o espaço confinado em si) e *route* (que representa as leituras feitas nos determinados espaços).
@@ -295,6 +295,18 @@ Direita: 3 <br>
 } <br>
 O documento *oxygen* representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô. <br>
 Além disso, essa coleção possui a *Foreign Key* *space*, que a relaciona com a coleção *space*. A *Foreign Key* garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
+
+## Servidor
+
+A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
+
+O primeiro serviço é o ROS (Robot Operating System). Na nossa backend, criamos um nó do ROS, encarregado de trocar informações com o robô. Para isso, o nó do ROS se inscreve em tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos.
+
+O segundo serviço é o WebSocket. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos. O WebSocket desempenha um papel fundamental na página de nova varredura, onde a necessidade de troca rápida de informações, como vídeo capturado pelo robô e outros dados dos sensores, é primordial.
+
+Por fim, o terceiro serviço é uma API HTTP em Fast. Nessa camada, estabelecemos rotas que permitem ao frontend fazer requisições para obter informações. São nessas rotas que armazenamos e buscamos dados no nosso banco de dados, como informações de localizações ou robôs cadastrados no sistema.
+
+Com essa arquitetura backend robusta e bem estruturada, garantimos uma comunicação eficiente entre o robô, o frontend e o banco de dados, permitindo uma experiência fluida e confiável para os usuários do sistema.
 
 # 9. Integração de sistemas.
 
