@@ -9,6 +9,7 @@ interface Props {
 const LiveScan: React.FC<Props> = ({buttonHandler}) => {
     return (
         <div className="flex flex-col p-4 h-full">
+            <h3 className="text-2xl mb-2">Vídeo</h3>
             <div className="w-full bg-slate-400 rounded-md grow mb-8">
                 &nbsp;
             </div>

@@ -13,12 +13,12 @@ const Sidebar: React.FC<Props> = (props) => {
     const items = [
         {
             icon: LayoutDashboard,
-            label: "Rotas / Salas",
-            link: "/",
+            label: "Varreduras/Locais",
+            link: "/dashboard",
         },
         {
             icon: Plus,
-            label: "Nova simulação",
+            label: "Nova varredura",
             link: "/simulation/new",
         },
     ];
@@ -41,7 +41,7 @@ const Sidebar: React.FC<Props> = (props) => {
 
             <div className="mt-auto flex gap-4 justify-center items-center text-lg">
               <Image alt="Avatar" src={Avatar} className="" />
-              <p>Rodrigo Mangoni Nicola</p>
+              <p>Alfredo Soares Azevedo</p>
             </div>
         </div>
     );

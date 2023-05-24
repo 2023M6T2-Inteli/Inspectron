@@ -30,7 +30,7 @@ const LocationModal: React.FC<Props> = ({ showModal, setShowModal }) => {
     const onSubmit = (data: any) => console.log(data);
     
     return (
-        <Modal showModal={showModal} title="Criar novo lugar" closeModal={() => setShowModal(false)}>
+        <Modal showModal={showModal} title="Cadastrar nova localização" closeModal={() => setShowModal(false)}>
             <form
                 className="flex flex-col gap-4"
                 onSubmit={handleSubmit(onSubmit)}
