@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
-WORKDIR /app
 ENV DEBIAN_FRONTEND noninteractive
 SHELL ["/bin/bash", "-c"] 
+WORKDIR /app
 
 RUN apt update -y && \
     apt install software-properties-common -y && \
