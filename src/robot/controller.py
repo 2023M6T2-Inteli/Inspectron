@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-
+from cv_bridge import CvBridge
 from modules.publishers import Velocity, Camera
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData
 import cv2
@@ -26,6 +26,7 @@ class TurtleBotController(Node):
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
         self.__camera_module = Camera(self)
+        self.video_capture = cv2.VideoCapture("src/robot/videoteste.mp4")
 
         self.create_timer(1, self.__runtime)
 
@@ -43,17 +44,26 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-        self.get_logger().info("Starting camera video")
         
-        video_capture = cv2.VideoCapture("./videoteste.mp4")
+        
         while True:
-            ret, frame = video_capture.read()
-            if not ret:  # Verifica se o frame é válido
-                break  # Interrompe o loop se não há mais quadros
-
-            converted_string = base64.b64encode(frame)
-            self.__camera_module.apply(str(converted_string))
-        self.get_logger().info("End of camera video")
+            self.get_logger().info("Starting camera video")
+            self.bridge = CvBridge()
+            ret, frame = self.video_capture.read()
+            if ret == True:
+                self.__camera_module.apply(self.bridge.cv2_to_imgmsg(frame))
+                print("oublicando")
+            else:
+                break
+            
+        
+        # while True:
+        #     ret, frame = video_capture.read()
+        #     if not ret:  # Verifica se o frame é válido
+        #         break  # Interrompe o loop se não há mais quadros
+            
+        #     self.__camera_module.apply(frame)
+        # self.get_logger().info("End of camera video")
 
 if __name__ == "__main__":
     rclpy.init()
