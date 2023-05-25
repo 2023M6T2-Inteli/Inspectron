@@ -52,6 +52,8 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
+        self.__camera_runtime()
+        
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
 
@@ -70,8 +72,9 @@ class TurtleBotController(Node):
             self.__velocity_module.apply(0.30, 0)
 
         self.get_logger().info(f"State: {self.__state}")
+        
 
-    def __runtime(self):
+    def __camera_runtime(self):
         self.get_logger().info("Starting camera video")
 
         while True:
