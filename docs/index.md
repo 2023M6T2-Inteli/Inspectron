@@ -313,6 +313,23 @@ Ao se inscrever no tópico "/streaming", a backend é capaz de receber as imagen
 
 Essa interação entre o robô, o tópico "/streaming" e a backend do modelo de visão computacional permite que o sistema seja capaz de detectar e visualizar as rachaduras em tempo real. Essa abordagem é especialmente valiosa em ambientes onde a presença de rachaduras representa um risco significativo, como em sistemas de tubulação e dutos contendo gases tóxicos, pois permite a tomada de ações imediatas para reparo e manutenção.
 
+### Testes de eficácia e performance
+
+Estamos confiantes de que nosso modelo atingiu um alto nível de eficácia na detecção de rachaduras. Para treiná-lo, utilizamos um conjunto de dados robusto, composto por 3.700 imagens, das quais separamos 200 para validação e 112 para teste. Essa divisão dos dados é essencial para avaliar o desempenho do modelo em cenários não vistos durante o treinamento.
+
+Para avaliar a precisão do nosso modelo, realizamos uma análise da matriz de confusão, que fornece informações detalhadas sobre as predições feitas pelo modelo em relação às classes verdadeiras. A matriz de confusão nos permite visualizar as predições corretas (verdadeiros positivos) e incorretas (falsos positivos e falsos negativos) em relação às rachaduras presentes nas imagens de teste.
+
+Além disso, também fornecemos exemplos visuais das predições realizadas pelo modelo em algumas das imagens de teste. Essas imagens destacam como o modelo identifica e delimita as rachaduras nas superfícies, permitindo que os usuários tenham uma visualização clara das capacidades do sistema.
+
+Ao analisar a matriz de confusão e examinar as predições visuais em imagens de teste, podemos ter uma compreensão mais completa da performance do modelo. Isso nos permite avaliar sua capacidade de detectar rachaduras com precisão e identificar possíveis áreas de melhoria.
+
+![Arquitetura-do-sistema](./media/confusion_matrix.png)
+
+![Arquitetura-do-sistema](./media/val_batch0_pred.jpg)
+
+![Arquitetura-do-sistema](./media/val_batch1_pred.jpg)
+
+
 ### Adendo
 
 Além das implementações mencionadas anteriormente, também adicionamos ao nosso projeto uma pasta chamada "/src/model" que contém arquivos específicos para o processo de detecção de rachaduras e treinamento do modelo.
