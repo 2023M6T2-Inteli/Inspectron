@@ -25,9 +25,9 @@ class TurtleBotController(Node):
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
+        
         self.__camera_module = Camera(self)
-        self.video_capture = cv2.VideoCapture("src/robot/videoteste.mp4")
-
+        self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
         self.create_timer(1, self.__runtime)
 
     def __position_callback(self, euler_data: EulerData):
@@ -44,26 +44,15 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-        
-        
+        self.get_logger().info("Starting camera video")
         while True:
-            self.get_logger().info("Starting camera video")
             self.bridge = CvBridge()
             ret, frame = self.video_capture.read()
             if ret == True:
                 self.__camera_module.apply(self.bridge.cv2_to_imgmsg(frame))
-                print("oublicando")
             else:
                 break
-            
-        
-        # while True:
-        #     ret, frame = video_capture.read()
-        #     if not ret:  # Verifica se o frame é válido
-        #         break  # Interrompe o loop se não há mais quadros
-            
-        #     self.__camera_module.apply(frame)
-        # self.get_logger().info("End of camera video")
+
 
 if __name__ == "__main__":
     rclpy.init()
