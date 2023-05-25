@@ -1,14 +1,14 @@
-import fastapi
-from fastapi.responses import RedirectResponse
+from fastapi import FastAPI
 import uvicorn
-
 import rclpy
 from ros.setup import BackendController
 import socketio
 from eventlet import wsgi, listen
+from routes.routes import router
 
 #Cria um objeto API para o FASTAPI
-api = fastapi.FastAPI()
+app = FastAPI()
+app.include_router(router)
 
 HOST = "127.0.0.1"  # localhost padrão
 PORT = 65432  # Porta a ser utilizada

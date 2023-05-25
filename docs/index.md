@@ -274,27 +274,98 @@ Essa abordagem permite que o usuário execute de forma eficiente e conveniente o
 
 # 6. Sistema de visão computacional.
 
+O sistema de visão computacional implementado no projeto desempenha um papel crucial ao utilizar o sensor de câmera do robô para detectar e identificar a presença de rachaduras nas paredes durante o processo de varredura.
+
+A aplicação do sistema de visão computacional nesse contexto traz uma série de benefícios. Além de automatizar o processo de detecção de rachaduras, o sistema oferece uma abordagem não invasiva para inspecionar estruturas de locais não propícios a sobrevivência humana, reduzindo a necessidade de intervenção humana direta e potencialmente perigosa. Além disso, a detecção precoce de rachaduras pode ajudar a evitar problemas futuros, permitindo que medidas corretivas sejam tomadas antes que danos mais graves ocorram.
+
+## Modelo de detecção de rachaduras Yolov8
+
+A detecção de rachaduras é de suma importância, especialmente quando o robô realiza varreduras em ambientes que contêm gases tóxicos para seres humanos, como sistemas de tubulação e dutos. Para lidar com esse desafio, optamos por implementar um modelo de inteligência artificial YOLOv8. Ele foi especialmente treinado para reconhecer padrões visuais característicos de rachaduras. Ao processar as imagens capturadas pelo sensor de câmera, o sistema analisa minuciosamente cada pixel, identificando possíveis rachaduras com base em características como formas, texturas e variações de cor. Ao detectar uma rachadura, o sistema automaticamente desenha um quadrado no frame do vídeo correspondente, indicando com precisão ao usuário a localização exata da rachadura detectada.
+
+Acreditamos que a identificação e localização das rachaduras presentes no ambiente de varredura sejam informações cruciais para o nosso parceiro. Essa funcionalidade permite que eles tenham conhecimento prévio das condições estruturais e possam tomar medidas adequadas para a manutenção e reparo, evitando possíveis problemas futuros.
+
+### Pré-processamento da imagem
+
+No desenvolvimento do nosso modelo, optamos por não utilizar técnicas de pré-processamento de imagens, pois constatamos que o YOLOv8 foi capaz de identificar as rachaduras com sucesso mesmo quando treinado apenas com imagens puras.
+
+O YOLOv8 é um modelo de detecção de objetos que se destaca pela sua capacidade de aprender e reconhecer padrões complexos diretamente nas imagens de entrada. Ele utiliza uma arquitetura de rede neural profunda que combina camadas convolucionais e de detecção para identificar objetos em tempo real.
+
+Ao treinar o YOLOv8 com imagens puras, permitimos que o modelo aprenda diretamente com os dados de entrada, sem a necessidade de aplicar técnicas de pré-processamento como filtragem, normalização ou aumento de dados. Isso significa que o modelo é capaz de extrair informações relevantes das imagens sem intervenções adicionais, como a remoção de ruídos ou aprimoramento de contraste.
+
+Essa abordagem simplificada de treinamento é possível graças à capacidade do YOLOv8 de aprender recursos discriminativos em várias escalas e níveis de complexidade. Ele é capaz de capturar características como bordas, texturas e formas diretamente das imagens, o que é essencial para a detecção precisa das rachaduras.
+
+Embora técnicas de pré-processamento de imagens possam ser úteis em determinados cenários, como redução de ruído ou ajuste de iluminação, no nosso caso específico, observamos que o YOLOv8 apresentou um desempenho satisfatório sem a necessidade dessas etapas adicionais. Isso simplifica o fluxo de trabalho e aumenta a eficiência do modelo, permitindo uma detecção eficaz das rachaduras nas imagens capturadas.
+
+### Onde o modelo está sendo utilizado?
+
+Como mencionado nas seções anteriores, a backend do nosso modelo é responsável por receber e processar informações provenientes de diferentes tópicos do ROS.
+
+Um dos tópicos cruciais com os quais a backend está inscrita é o "/streaming". Esse tópico é onde o robô faz a publicação contínua do vídeo que está sendo capturado pelo seu sensor de câmera. Ao enviar os frames de vídeo para esse tópico, o robô permite que a backend tenha acesso em tempo real às imagens da cena, proporcionando assim uma base sólida para a detecção de rachaduras e outras análises visuais.
+
+Ao se inscrever no tópico "/streaming", a backend é capaz de receber as imagens sequenciais e processá-las usando algoritmos de visão computacional. Isso inclui a aplicação do modelo de inteligência artificial YOLOv8, treinado especificamente para identificar rachaduras. Cada frame recebido é analisado pela backend, que realiza a detecção de rachaduras e, em seguida, desenha um retângulo ao redor da área identificada no próprio frame.
+
+Essa interação entre o robô, o tópico "/streaming" e a backend do modelo de visão computacional permite que o sistema seja capaz de detectar e visualizar as rachaduras em tempo real. Essa abordagem é especialmente valiosa em ambientes onde a presença de rachaduras representa um risco significativo, como em sistemas de tubulação e dutos contendo gases tóxicos, pois permite a tomada de ações imediatas para reparo e manutenção.
+
+### Adendo
+
+Além das implementações mencionadas anteriormente, também adicionamos ao nosso projeto uma pasta chamada "/src/model" que contém arquivos específicos para o processo de detecção de rachaduras e treinamento do modelo.
+
+Dentro dessa pasta, encontramos o arquivo "model.py", onde está contido o código responsável por executar o modelo de detecção de rachaduras utilizando a câmera do computador que está executando o arquivo. Essa implementação foi desenvolvida com o propósito de demonstração e testes do modelo em um ambiente controlado. Ao executar esse código, o usuário pode visualizar a detecção de rachaduras em tempo real usando a câmera do computador, permitindo uma compreensão prática do funcionamento do modelo e suas capacidades.
+
+Adicionalmente, no arquivo "training.py", localizado também na pasta "/src/model", está presente o código utilizado para treinar o modelo com as imagens de rachaduras. Esse treinamento é uma etapa crucial para que o modelo seja capaz de realizar uma detecção precisa e confiável. Durante o treinamento, são utilizadas diversas imagens de rachaduras como dados de entrada, permitindo que o modelo aprenda a reconhecer e identificar corretamente esse tipo de padrão visual.
+
+Essas adições ao projeto, tanto o código de detecção de rachaduras em tempo real quanto o código de treinamento do modelo, têm o objetivo de fornecer uma estrutura completa e funcional para o uso da visão computacional na detecção de rachaduras. Com essas implementações, os usuários podem tanto visualizar a detecção de rachaduras em tempo real quanto treinar o modelo com suas próprias imagens de rachaduras, adaptando-o às suas necessidades específicas.
+
+#### Vídeo do funcionamento do modelo a partir da webcam
+
+https://youtu.be/QXdE4vfUh5s
+
 # 7. Sistemas de segurança.
+
+## Sensor Lidar
+
+A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente.
 
 # 8. Backend.
 
-## Modelagem do Banco de Dados
+## Banco de Dados
 
-O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô. `<br>`
+O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô.
 Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, *space* (que representa o espaço confinado em si) e *route* (que representa as leituras feitas nos determinados espaços).
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/docs/add-simple-describes-and-format/media/Inspectron%20DB.jpg"></img></p>
-A entidade *space* é composta pelos documentos *id*, *name* e *coordinates*. O id é a primary key da coleção, ou seja, ele é responsável por fornecer um registro exclusivo a ela. Dessa forma, ele garante que não haja duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O *name* é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento *coordinates* é utilizado para localizar físicamente o espaço salvo. Ele é do tipo *object*, isso significa que ele precisa de mais de uma informação na sua composição. Para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y. <br>
-Já a entidade *route* é composta pelos documentos *id*, *directions*, *oxygen* e *space*. O *id* exerce a mesma função comentada anteriormente. O documento *directions* é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo *object* que recebe o enum *direction*, utilizado para dar um valor inteiro para constantes nomeadas e *value* que metrifica essa movimentação. <br>
-A estrutura do enum *direction* pode ser representada como: <br>
-{ <br>
-Frente: 0 <br>
-Trás: 1 <br>
-Esquerda: 2 <br>
-Direita: 3 <br>
-} <br>
-O documento *oxygen* representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô. <br>
+A seguir está uma imagem da arquitetura de nosso banco de dados:
+
+![Inspectron DB.jpg](https://github.com/2023M6T2-Inteli/Inspectron/blob/docs/add-simple-describes-and-format/media/Inspectron%20DB.jpg?raw=true)
+
+Explicação detalhada:
+
+A entidade *space* é composta pelas colunas *id*, *name* e *coordinates*. O id é a primary key da coleção, ou seja, ele é responsável por fornecer um registro exclusivo a ela. Dessa forma, ele garante que não haja duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O *name* é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento *coordinates* é utilizado para localizar físicamente o espaço salvo. Ele é do tipo *object*, isso significa que ele precisa de mais de uma informação na sua composição. Para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y.
+
+Já a tabela *route* é composta pelos documentos *id*, *directions*, *oxygen* e *space*. O *id* exerce a mesma função comentada anteriormente. O documento *directions* é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo *object* que recebe o enum *direction*, utilizado para dar um valor inteiro para constantes nomeadas e *value* que metrifica essa movimentação.
+
+A estrutura do enum *direction* pode ser representada como:
+{
+    Frente: 0
+    Trás: 1
+    Esquerda: 2
+    Direita: 3
+}
+
+O documento *oxygen* representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô.
+
 Além disso, essa coleção possui a *Foreign Key* *space*, que a relaciona com a coleção *space*. A *Foreign Key* garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
+
+## Servidor
+
+A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
+
+O primeiro serviço é o ROS (Robot Operating System). Na nossa backend, criamos um nó do ROS, encarregado de trocar informações com o robô. Para isso, o nó do ROS se inscreve em tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos.
+
+O segundo serviço é o WebSocket. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos. O WebSocket desempenha um papel fundamental na página de nova varredura, onde a necessidade de troca rápida de informações, como vídeo capturado pelo robô e outros dados dos sensores, é primordial.
+
+Por fim, o terceiro serviço é uma API HTTP em Fast. Nessa camada, estabelecemos rotas que permitem ao frontend fazer requisições para obter informações. São nessas rotas que armazenamos e buscamos dados no nosso banco de dados, como informações de localizações ou robôs cadastrados no sistema.
+
+Com essa arquitetura backend robusta e bem estruturada, garantimos uma comunicação eficiente entre o robô, o frontend e o banco de dados, permitindo uma experiência fluida e confiável para os usuários do sistema.
 
 # 9. Integração de sistemas.
 

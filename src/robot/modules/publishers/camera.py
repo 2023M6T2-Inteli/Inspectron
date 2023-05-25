@@ -9,6 +9,5 @@ class Camera(Publisher):
 
 
     def apply(self, img):
-        # self.bridge = CvBridge()
-        # self.publish(self.bridge.cv2_to_imgmsg(img))
         self.publish(img)
+
