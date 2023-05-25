@@ -8,6 +8,6 @@ class Camera(Publisher):
         super().__init__("camera", node, f"/camera", Image)
 
 
-    def apply(self, img):
+    def send(self, img):
         self.publish(img)
 

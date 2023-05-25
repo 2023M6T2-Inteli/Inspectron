@@ -35,7 +35,6 @@ class TurtleBotController(Node):
         self.__imu_module = Imu(self, self.__imu_callback)
         
         self.__camera_module = Camera(self)
-
         self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
         self.create_timer(1, self.__runtime)
 
@@ -72,14 +71,14 @@ class TurtleBotController(Node):
 
         self.get_logger().info(f"State: {self.__state}")
 
-    def __camera_runtime(self):
+    def __runtime(self):
         self.get_logger().info("Starting camera video")
 
         while True:
             self.bridge = CvBridge()
             ret, frame = self.video_capture.read()
             if ret == True:
-                self.__camera_module.apply(self.bridge.cv2_to_imgmsg(frame))
+                self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
             else:
                 break
 
