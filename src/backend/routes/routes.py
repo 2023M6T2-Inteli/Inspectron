@@ -1,9 +1,7 @@
 ## File principal do projeto, onde são definidas as rotas e os métodos
 
 from fastapi import APIRouter # Import APIRouter
-from ..models.location import Location # Importando a classe "Location" da pasta "models" e o arquivo "location.py"
-from ..models.robot import Robot # Importando a classe "Robot" da pasta "models" e o arquivo "robot.py"
-from ..models.scan import Scan # Importando a classe "Scan" da pasta "models" e o arquivo "scan.py"
+from models import Robot, Scan, Location 
 
 router = APIRouter() # Instanciando o objeto "router" da classe "APIRouter"
 

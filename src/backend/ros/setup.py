@@ -3,7 +3,7 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from subscribers import Streaming
+from ros.subscribers import Streaming
 
 class BackendController(Node):
     def __init__(self):

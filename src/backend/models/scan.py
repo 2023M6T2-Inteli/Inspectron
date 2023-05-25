@@ -1,8 +1,5 @@
 from mongoengine import *
 from enum import IntEnum
-from ..models.location import Location
-from ..models.robot import Robot
-
 
 class Direction(IntEnum):
     FRENTE = 1
