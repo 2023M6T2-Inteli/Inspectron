@@ -10,27 +10,27 @@
 
 # Sumário
 
-- [1 - Entendimento de negócio](#1-entendimento-de-negócio)
-  - [1.1 - Canvas Proposta de Valor](#11-canvas-proposta-de-valor)
-  - [1.2 - Matriz de Riscos](#12-matriz-de-riscos)
-  - [1.3 - Oceano Azul](#13-oceano-azul)
-  - [1.4 - Análise financeira](#14-análise-financeira)
-- [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
-  - [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
-  - [2.2 - Sistema produto/design](#22-sistema-produto/design)
-  - [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-  - [2.4 - Influências socioculturais](#24-influências-socioculturais)
-  - [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
-  - [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
-- [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
-- [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
-- [5 - Interface de usuário](#5-interface-de-usuário)
-- [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
-- [7 - Sistemas de segurança](#7-sistemas-de-segurança)
-- [8 - Backend](#8-backend)
-- [9 - Integração de sistemas](#9-integração-de-sistemas)
-- [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
-- [11 - Referências](#11-referências)
+-   [1 - Entendimento de negócio](#1-entendimento-de-negócio)
+    -   [1.1 - Canvas Proposta de Valor](#11-canvas-proposta-de-valor)
+    -   [1.2 - Matriz de Riscos](#12-matriz-de-riscos)
+    -   [1.3 - Oceano Azul](#13-oceano-azul)
+    -   [1.4 - Análise financeira](#14-análise-financeira)
+-   [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
+    -   [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
+    -   [2.2 - Sistema produto/design](#22-sistema-produto/design)
+    -   [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
+    -   [2.4 - Influências socioculturais](#24-influências-socioculturais)
+    -   [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
+    -   [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
+-   [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
+-   [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+-   [5 - Interface de usuário](#5-interface-de-usuário)
+-   [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
+-   [7 - Sistemas de segurança](#7-sistemas-de-segurança)
+-   [8 - Backend](#8-backend)
+-   [9 - Integração de sistemas](#9-integração-de-sistemas)
+-   [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
+-   [11 - Referências](#11-referências)
 
 ---
 
@@ -95,26 +95,26 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 ### Aumentar
 
-- A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
-- A precisão da análise será elevada pois a inspeção será no interior do espaço que necessita de manutenção;
-- Irá melhorar a praticidade pois os colaboradores da Gerdau terão apenas que controlar a dashboard de dados coletador pelo robô;
+-   A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
+-   A precisão da análise será elevada pois a inspeção será no interior do espaço que necessita de manutenção;
+-   Irá melhorar a praticidade pois os colaboradores da Gerdau terão apenas que controlar a dashboard de dados coletador pelo robô;
 
 ### Diminuir
 
-- De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
-- Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
+-   De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
+-   Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
 
 ### Criar
 
-- Tecnologia será criada pois o processo atual é feito de forma manual;
-- Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
-- Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
-- Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
+-   Tecnologia será criada pois o processo atual é feito de forma manual;
+-   Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
+-   Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
+-   Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
 
 ### Eliminar
 
-- A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
-- Erros humanos durante a inspeção e coleta de dados em espaços confinados.
+-   A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
+-   Erros humanos durante a inspeção e coleta de dados em espaços confinados.
 
 ## 1.4. Análise financeira
 
@@ -122,7 +122,7 @@ A análise financeira informa o quanto o parceiro tem projetado para investir no
 
 <p align="center"><img src="https://user-images.githubusercontent.com/99221221/235224067-2c36aa92-0bc3-4073-a9b2-650df9a09703.png" width=120%></img></p>
 
-** ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
+\*\* ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
 
 Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.030,00 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
 
@@ -186,9 +186,9 @@ O projeto visa uma automatização do processo de varredura de gases em espaços
 
 Os principais pontos que justificam o uso de uma nova tecnologia são: `<br>`
 
-- A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. `<br>`
-- A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. `<br>`
-- O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
+-   A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. `<br>`
+-   A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. `<br>`
+-   O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
 
 ## 2.4. Influências socioculturais
 
@@ -200,9 +200,9 @@ Os principais pontos que justificam o uso de uma nova tecnologia são: `<br>`
 
 A arquitetura de solução nossa contém três áreas de atuação:
 
-- `Embarcado`: Parte do embarcado/robô, onde contém todo controle de movimento e sensores do turtlebot, por exemplo: _IMU_, _LIDAR_ e _Camera_.
-- `Backend`: Sistema de servidor em núvem que fornece dados sobre o `embarcado` para o `frontend`, e armazena as varreduras feitas, junto ao código de execução do trajeto necessário para o funcionamento autônomo do robô.
-- `Frontend`: Dashboard principal do usuário, apresentando dados sobre as rotinas, e enviando solicitações/comandos indiretamenta ao robô utilizando do `Backend` em requisições _HTTP_ ou _Sockets_.
+-   `Embarcado`: Parte do embarcado/robô, onde contém todo controle de movimento e sensores do turtlebot, por exemplo: _IMU_, _LIDAR_ e _Camera_.
+-   `Backend`: Sistema de servidor em núvem que fornece dados sobre o `embarcado` para o `frontend`, e armazena as varreduras feitas, junto ao código de execução do trajeto necessário para o funcionamento autônomo do robô.
+-   `Frontend`: Dashboard principal do usuário, apresentando dados sobre as rotinas, e enviando solicitações/comandos indiretamenta ao robô utilizando do `Backend` em requisições _HTTP_ ou _Sockets_.
 
 Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma forma de comunicação contínua, principalmente utilizando o `ROS2`, que facilita todo o sistema de comunicação e comandos entre o `Backend` e o `Embarcado`.
 
@@ -214,8 +214,15 @@ Em face do contexto da nossa aplicação, decidimos empregar o robô e seus sens
 
 Explicando a implementação com mais detalhes, elaboramos um script cuja lógica principal é: se um objeto for identificado pelo sensor (configuramos uma determinada distância para isso), o robô deverá alterar sua rota. Essa mudança pode envolver a continuação do percurso em uma direção diferente ou até mesmo um retorno completo em face de uma obstrução.
 
-Para testar nossa solução, começamos com o simulador Gazebo do ROS, que possui um sensor LIDAR. Com o produto mínimo viável (MVP) desenvolvido, decidimos criar dois cenários distintos para avaliar a capacidade de locomoção do robô.
+Para testar nossa solução, começamos com o simulador Gazebo do ROS, que possui um sensor LIDAR. Com o produto mínimo viável (MVP) desenvolvido, decidimos utilizar o cenário de testes disponibilizado pelo próprio Gazebo, assim, podemos testar a solução atual e quais os possívels problemas a serem encontrados. Durante os testes, percebemos que o atual algoritmo de desvio de obstáculos é eficiente, porém limitado, atualmente o robô só consegue desviar de obstáculos que estão a sua frente e buscar o melhor caminho decidido pelos valores do sensor LIDAR do lado direito e esquerda do robô, então não podemos direcionar para o mesmo alcançar um ponto específico, apenas para que ele desvie de obstáculos.
 
+Fluxo de funcionamento atual:
+
+-   O robô inicia o percurso;
+-   O robô segue em frente até encontrar um obstáculo ( angulo de 330° a 30° );
+-   O robô identifica o obstáculo, verificar qual dos lados possui o maior espaço livre ( média dos pontos de 60° a 120°, relativo a direita, e 240° a 300°, relativo a esquerda);
+-   Com a informação de qual lado possui o maior espaço livre, o robô gira para o lado com maior espaço livre até os sensores frontais não identificarem mais o obstáculo;
+-   Repete o processo inicial;
 
 # 5. Interface de usuário.
 
@@ -329,7 +336,6 @@ Ao analisar a matriz de confusão e examinar as predições visuais em imagens d
 
 ![Arquitetura-do-sistema](./media/val_batch1_pred.jpg)
 
-
 ### Adendo
 
 Além das implementações mencionadas anteriormente, também adicionamos ao nosso projeto uma pasta chamada "/src/model" que contém arquivos específicos para o processo de detecção de rachaduras e treinamento do modelo.
@@ -355,7 +361,7 @@ A detecção de obstáculos é uma etapa fundamental para garantir que o robô m
 ## Banco de Dados
 
 O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô.
-Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, *space* (que representa o espaço confinado em si) e *route* (que representa as leituras feitas nos determinados espaços).
+Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, _space_ (que representa o espaço confinado em si) e _route_ (que representa as leituras feitas nos determinados espaços).
 
 A seguir está uma imagem da arquitetura de nosso banco de dados:
 
@@ -363,21 +369,21 @@ A seguir está uma imagem da arquitetura de nosso banco de dados:
 
 Explicação detalhada:
 
-A entidade *space* é composta pelas colunas *id*, *name* e *coordinates*. O id é a primary key da coleção, ou seja, ele é responsável por fornecer um registro exclusivo a ela. Dessa forma, ele garante que não haja duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O *name* é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento *coordinates* é utilizado para localizar físicamente o espaço salvo. Ele é do tipo *object*, isso significa que ele precisa de mais de uma informação na sua composição. Para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y.
+A entidade _space_ é composta pelas colunas _id_, _name_ e _coordinates_. O id é a primary key da coleção, ou seja, ele é responsável por fornecer um registro exclusivo a ela. Dessa forma, ele garante que não haja duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O _name_ é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento _coordinates_ é utilizado para localizar físicamente o espaço salvo. Ele é do tipo _object_, isso significa que ele precisa de mais de uma informação na sua composição. Para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y.
 
-Já a tabela *route* é composta pelos documentos *id*, *directions*, *oxygen* e *space*. O *id* exerce a mesma função comentada anteriormente. O documento *directions* é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo *object* que recebe o enum *direction*, utilizado para dar um valor inteiro para constantes nomeadas e *value* que metrifica essa movimentação.
+Já a tabela _route_ é composta pelos documentos _id_, _directions_, _oxygen_ e _space_. O _id_ exerce a mesma função comentada anteriormente. O documento _directions_ é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo _object_ que recebe o enum _direction_, utilizado para dar um valor inteiro para constantes nomeadas e _value_ que metrifica essa movimentação.
 
-A estrutura do enum *direction* pode ser representada como:
+A estrutura do enum _direction_ pode ser representada como:
 {
-    Frente: 0
-    Trás: 1
-    Esquerda: 2
-    Direita: 3
+Frente: 0
+Trás: 1
+Esquerda: 2
+Direita: 3
 }
 
-O documento *oxygen* representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô.
+O documento _oxygen_ representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô.
 
-Além disso, essa coleção possui a *Foreign Key* *space*, que a relaciona com a coleção *space*. A *Foreign Key* garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
+Além disso, essa coleção possui a _Foreign Key_ _space_, que a relaciona com a coleção _space_. A _Foreign Key_ garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
 
 ## Servidor
 
