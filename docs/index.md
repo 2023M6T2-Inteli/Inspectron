@@ -362,8 +362,8 @@ No contexto de desenvolvimento um AGV, usado para inspeção em locais confinado
 Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, mecânicos e eletrônicos do AGV, decidimos definir, implementar e validar dispositivos de segurança apropriados para mitigar esses riscos. Esses dispositivos têm o objetivo de prevenir acidentes, reduzir a gravidade das consequências e garantir a segurança das operações do AGV em locais confinados.
 
 1. Sistemas de detecção de obstáculos: Sensores, como câmeras, ultrassom ou sensores de proximidade, podem ser instalados no AGV para detectar obstáculos próximos e desacelerar ou parar o veículo automaticamente.
-2. Sistemas de frenagem de emergência: Mecanismos de frenagem rápida e eficiente devem ser implementados para interromper o movimento do AGV em situações de emergência, evitando colisões ou acidentes.
-3. Sistemas de segurança eletrônica: É importante incorporar sistemas eletrônicos de segurança, como circuitos de proteção contra curto-circuito, sobrecarga ou choque elétrico, para evitar danos ao AGV e reduzir os riscos de incêndio ou choque elétrico.
+2. Sistemas de frenagem/parada de emergência: Mecanismos de frenagem rápida e eficiente devem ser implementados para interromper o movimento e continuação do AGV em situações de emergência, evitando acidentes.
+3. Sistemas de segurança eletrônica: É importante incorporar sistemas eletrônicos de segurança, como circuitos de proteção contra curto-circuito, sobrecarga ou choque elétrico, para evitar danos ao AGV e proteje-los para diferentes ambientes e cenários, reduzindo os riscos de incêndio ou choque elétrico.
 4. Controle de movimentação: Implementar algoritmos de controle e programação adequados para garantir movimentos suaves, estáveis e controlados do AGV, evitando manobras bruscas ou imprevistas.
 5. Treinamento e conscientização: Além dos dispositivos físicos, é essencial fornecer treinamento adequado aos operadores do AGV sobre os riscos envolvidos, procedimentos de segurança e boas práticas a serem seguidas durante as operações em locais confinados.
 
