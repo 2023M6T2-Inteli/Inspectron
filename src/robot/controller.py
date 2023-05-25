@@ -33,10 +33,11 @@ class TurtleBotController(Node):
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
-        
+
         self.__camera_module = Camera(self)
         self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
-        self.create_timer(1, self.__runtime)
+
+        self.create_timer(0.16, self.__runtime)
 
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
@@ -52,8 +53,8 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-        self.__camera_runtime()
-        
+        #self.__camera_runtime()
+
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
 
@@ -72,7 +73,7 @@ class TurtleBotController(Node):
             self.__velocity_module.apply(0.30, 0)
 
         self.get_logger().info(f"State: {self.__state}")
-        
+
 
     def __camera_runtime(self):
         self.get_logger().info("Starting camera video")
