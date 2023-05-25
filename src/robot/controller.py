@@ -70,6 +70,19 @@ class TurtleBotController(Node):
 
         self.get_logger().info(f"State: {self.__state}")
 
+    def __camera_runtime(self):
+        self.get_logger().info("Starting camera video")
+
+        video_capture = cv2.VideoCapture("./videoteste.mp4")
+        while True:
+            ret, frame = video_capture.read()
+            if not ret:  # Verifica se o frame é válido
+                break  # Interrompe o loop se não há mais quadros
+
+            converted_string = base64.b64encode(frame)
+            self.__camera_module.apply(str(converted_string))
+        self.get_logger().info("End of camera video")
+
 if __name__ == "__main__":
     rclpy.init()
     node = TurtleBotController()
