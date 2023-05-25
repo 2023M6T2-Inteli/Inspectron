@@ -80,7 +80,7 @@ class TurtleBotController(Node):
                 break  # Interrompe o loop se não há mais quadros
 
             converted_string = base64.b64encode(frame)
-            self.__camera_module.apply(str(converted_string))
+            self.__camera_module.send(str(converted_string))
         self.get_logger().info("End of camera video")
 
 if __name__ == "__main__":
