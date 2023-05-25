@@ -356,6 +356,27 @@ https://youtu.be/QXdE4vfUh5s
 
 A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente.
 
+## Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos
+
+No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV.
+
+1. Riscos mecânicos: Falhas em componentes como rodas, correias, eixos ou sistemas de freios podem levar a acidentes ou colisões com objetos ou pessoas presentes no ambiente confinado.
+2. Riscos elétricos: Curto-circuitos, sobrecargas, choques elétricos ou incêndios podem ocorrer devido a falhas nos sistemas de alimentação elétrica, cabos, conexões ou componentes eletrônicos.
+3. Riscos de colisão: O AGV pode colidir com obstáculos, paredes ou outras estruturas dentro do ambiente confinado, causando danos ao equipamento ou representando perigo para o operador ou pessoas presentes.
+4. Riscos de movimentação: Movimentos imprevistos ou não controlados do AGV, como acelerações bruscas, curvas fechadas ou manobras inseguras, podem causar quedas, deslizamentos ou acidentes.
+
+## Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
+
+Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, mecânicos e eletrônicos do AGV, decidimos definir, implementar e validar dispositivos de segurança apropriados para mitigar esses riscos. Esses dispositivos têm o objetivo de prevenir acidentes, reduzir a gravidade das consequências e garantir a segurança das operações do AGV em locais confinados.
+
+1. Sistemas de detecção de obstáculos: Sensores, como câmeras, ultrassom ou sensores de proximidade, podem ser instalados no AGV para detectar obstáculos próximos e desacelerar ou parar o veículo automaticamente.
+2. Sistemas de frenagem/parada de emergência: Mecanismos de frenagem rápida e eficiente devem ser implementados para interromper o movimento e continuação do AGV em situações de emergência, evitando acidentes.
+3. Sistemas de segurança eletrônica: É importante incorporar sistemas eletrônicos de segurança, como circuitos de proteção contra curto-circuito, sobrecarga ou choque elétrico, para evitar danos ao AGV e proteje-los para diferentes ambientes e cenários, reduzindo os riscos de incêndio ou choque elétrico.
+4. Controle de movimentação: Implementar algoritmos de controle e programação adequados para garantir movimentos suaves, estáveis e controlados do AGV, evitando manobras bruscas ou imprevistas.
+5. Treinamento e conscientização: Além dos dispositivos físicos, é essencial fornecer treinamento adequado aos operadores do AGV sobre os riscos envolvidos, procedimentos de segurança e boas práticas a serem seguidas durante as operações em locais confinados.
+
+Após a implementação dos dispositivos de segurança, realizamos testes e validações para garantir sua eficácia e conformidade com as normas e regulamentações de segurança aplicáveis. Envolvemos testes de funcionalidade, simulações de cenários de risco e revisões de projeto para garantir que os dispositivos estejam operando corretamente e atendendo aos requisitos de segurança estabelecidos.
+
 # 8. Backend.
 
 ## Banco de Dados
