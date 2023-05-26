@@ -10,27 +10,27 @@
 
 # Sumário
 
--   [1 - Entendimento de negócio](#1-entendimento-de-negócio)
-    -   [1.1 - Canvas Proposta de Valor](#11-canvas-proposta-de-valor)
-    -   [1.2 - Matriz de Riscos](#12-matriz-de-riscos)
-    -   [1.3 - Oceano Azul](#13-oceano-azul)
-    -   [1.4 - Análise financeira](#14-análise-financeira)
--   [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
-    -   [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
-    -   [2.2 - Sistema produto/design](#22-sistema-produto/design)
-    -   [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-    -   [2.4 - Influências socioculturais](#24-influências-socioculturais)
-    -   [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
-    -   [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
--   [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
--   [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
--   [5 - Interface de usuário](#5-interface-de-usuário)
--   [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
--   [7 - Sistemas de segurança](#7-sistemas-de-segurança)
--   [8 - Backend](#8-backend)
--   [9 - Integração de sistemas](#9-integração-de-sistemas)
--   [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
--   [11 - Referências](#11-referências)
+- [1 - Entendimento de negócio](#1-entendimento-de-negócio)
+  - [1.1 - Canvas Proposta de Valor](#11-canvas-proposta-de-valor)
+  - [1.2 - Matriz de Riscos](#12-matriz-de-riscos)
+  - [1.3 - Oceano Azul](#13-oceano-azul)
+  - [1.4 - Análise financeira](#14-análise-financeira)
+- [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
+  - [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
+  - [2.2 - Sistema produto/design](#22-sistema-produto/design)
+  - [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
+  - [2.4 - Influências socioculturais](#24-influências-socioculturais)
+  - [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
+  - [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
+- [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
+- [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+- [5 - Interface de usuário](#5-interface-de-usuário)
+- [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
+- [7 - Sistemas de segurança](#7-sistemas-de-segurança)
+- [8 - Backend](#8-backend)
+- [9 - Integração de sistemas](#9-integração-de-sistemas)
+- [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
+- [11 - Referências](#11-referências)
 
 ---
 
@@ -80,7 +80,7 @@ Para garantir a qualidade das informações dos sensores, deve-se escolher senso
 
 O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar novos mercados e a alcançar o sucesso em meio à concorrência acirrada de uma solução. Para realizar a análise foi feita a comparação entre o método atual utilizada pela parceira e a solução que está sendo desenvolvida.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235233152-7ea9aae8-9fae-4492-af04-e381366007a7.png" width=60%></img></p>
+<p align="center"><img src="media\oceano azul2.png" width=60%></img></p>
 
 **Variáveis análisadas:**
 
@@ -95,26 +95,26 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 ### Aumentar
 
--   A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
--   A precisão da análise será elevada pois a inspeção será no interior do espaço que necessita de manutenção;
--   Irá melhorar a praticidade pois os colaboradores da Gerdau terão apenas que controlar a dashboard de dados coletador pelo robô;
+- A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
+- A precisão da análise será elevada pois a inspeção será no interior do espaço que necessita de manutenção;
+- Irá melhorar a praticidade pois os colaboradores da Gerdau terão apenas que controlar a dashboard de dados coletador pelo robô;
 
 ### Diminuir
 
--   De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
--   Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
+- De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
+- Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
 
 ### Criar
 
--   Tecnologia será criada pois o processo atual é feito de forma manual;
--   Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
--   Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
--   Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
+- Tecnologia será criada pois o processo atual é feito de forma manual;
+- Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
+- Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
+- Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
 
 ### Eliminar
 
--   A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
--   Erros humanos durante a inspeção e coleta de dados em espaços confinados.
+- A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
+- Erros humanos durante a inspeção e coleta de dados em espaços confinados.
 
 ## 1.4. Análise financeira
 
@@ -186,9 +186,9 @@ O projeto visa uma automatização do processo de varredura de gases em espaços
 
 Os principais pontos que justificam o uso de uma nova tecnologia são: `<br>`
 
--   A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. `<br>`
--   A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. `<br>`
--   O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
+- A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. `<br>`
+- A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. `<br>`
+- O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
 
 ## 2.4. Influências socioculturais
 
@@ -198,13 +198,13 @@ Os principais pontos que justificam o uso de uma nova tecnologia são: `<br>`
 
 # 3. Descrição da arquitetura do sistema.
 
-A arquitetura de solução nossa contém três áreas de atuação:
+Nossa arquitetura de solução abrange três áreas de atuação, cada uma desempenhando um papel fundamental:
 
--   `Embarcado`: Parte do embarcado/robô, onde contém todo controle de movimento e sensores do turtlebot, por exemplo: _IMU_, _LIDAR_ e _Camera_.
--   `Backend`: Sistema de servidor em núvem que fornece dados sobre o `embarcado` para o `frontend`, e armazena as varreduras feitas, junto ao código de execução do trajeto necessário para o funcionamento autônomo do robô.
--   `Frontend`: Dashboard principal do usuário, apresentando dados sobre as rotinas, e enviando solicitações/comandos indiretamenta ao robô utilizando do `Backend` em requisições _HTTP_ ou _Sockets_.
+1. **Embarcado** : Esta parte está presente no próprio robô e engloba todo o controle de movimento e os sensores utilizados, como IMU (Unidade de Medição Inercial), LIDAR (Sensor de Detecção e Alcance de Luz) e Câmera. Esses dispositivos são responsáveis por capturar informações do ambiente e fornecer dados essenciais para o funcionamento autônomo do robô.
+2. **Backend** : O sistema de servidor em nuvem constitui o backend da nossa solução. Ele é responsável por fornecer dados provenientes do embarcado para o frontend, bem como armazenar as varreduras realizadas pelo robô e o código necessário para a execução dos trajetos autônomos. O backend é crucial para o processamento e armazenamento eficiente das informações coletadas, garantindo acesso rápido aos dados relevantes quando necessário.
+3. **Frontend** : O frontend consiste no principal painel de controle utilizado pelo usuário. Através dele, são apresentados dados sobre as rotinas e funcionalidades do robô. O frontend também permite ao usuário enviar solicitações e comandos indiretos ao robô, utilizando o backend para estabelecer comunicação por meio de requisições HTTP ou Sockets. Esse ambiente de interação intuitivo e amigável permite ao usuário monitorar e controlar o robô remotamente.
 
-Todos os componentes estão ligados pela internet rede _WI-FI_ para terem uma forma de comunicação contínua, principalmente utilizando o `ROS2`, que facilita todo o sistema de comunicação e comandos entre o `Backend` e o `Embarcado`.
+Todos os componentes da solução estão conectados através de uma rede Wi-Fi, garantindo uma comunicação contínua entre eles. O ROS2 (Robot Operating System 2) é utilizado para facilitar a comunicação e o envio de comandos entre o backend e o embarcado. Essa plataforma otimiza o sistema de troca de informações, permitindo uma interação eficiente entre as diferentes partes da solução.
 
 ![Arquitetura-do-sistema](./media/Arquitetura%20do%20sistema.png)
 
@@ -218,11 +218,11 @@ Para testar nossa solução, começamos com o simulador Gazebo do ROS, que possu
 
 Fluxo de funcionamento atual:
 
--   O robô inicia o percurso;
--   O robô segue em frente até encontrar um obstáculo ( angulo de 330° a 30° );
--   O robô identifica o obstáculo, verificar qual dos lados possui o maior espaço livre ( média dos pontos de 60° a 120°, relativo a direita, e 240° a 300°, relativo a esquerda);
--   Com a informação de qual lado possui o maior espaço livre, o robô gira para o lado com maior espaço livre até os sensores frontais não identificarem mais o obstáculo;
--   Repete o processo inicial;
+- O robô inicia o percurso;
+- O robô segue em frente até encontrar um obstáculo ( angulo de 330° a 30° );
+- O robô identifica o obstáculo, verificar qual dos lados possui o maior espaço livre ( média dos pontos de 60° a 120°, relativo a direita, e 240° a 300°, relativo a esquerda);
+- Com a informação de qual lado possui o maior espaço livre, o robô gira para o lado com maior espaço livre até os sensores frontais não identificarem mais o obstáculo;
+- Repete o processo inicial;
 
 # 5. Interface de usuário.
 
@@ -352,30 +352,34 @@ https://youtu.be/QXdE4vfUh5s
 
 # 7. Sistemas de segurança.
 
-## Sensor Lidar
-
-A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente.
-
 ## Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos
 
-No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV.
+No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV. 
 
-1. Riscos mecânicos: Falhas em componentes como rodas, correias, eixos ou sistemas de freios podem levar a acidentes ou colisões com objetos ou pessoas presentes no ambiente confinado.
-2. Riscos elétricos: Curto-circuitos, sobrecargas, choques elétricos ou incêndios podem ocorrer devido a falhas nos sistemas de alimentação elétrica, cabos, conexões ou componentes eletrônicos.
-3. Riscos de colisão: O AGV pode colidir com obstáculos, paredes ou outras estruturas dentro do ambiente confinado, causando danos ao equipamento ou representando perigo para o operador ou pessoas presentes.
-4. Riscos de movimentação: Movimentos imprevistos ou não controlados do AGV, como acelerações bruscas, curvas fechadas ou manobras inseguras, podem causar quedas, deslizamentos ou acidentes.
+1. **Riscos mecânicos** : Durante a inspeção em um local confinado, o AGV pode encontrar-se em ambientes desafiadores, como dutos, tubulações ou espaços estreitos. Suponhamos que o AGV encontre uma obstrução imprevista, como um objeto sólido. Nesse caso, uma falha em um dos componentes mecânicos, como uma roda, correia, eixo ou sistema de freios, pode resultar em movimentos descontrolados ou instáveis do veículo. Isso aumenta o risco de colisões com obstáculos ou danos aos próprios componentes do AGV.
+2. **Riscos elétricos** : Durante a inspeção, o AGV depende de um sistema de alimentação elétrica para fornecer energia aos sistemas eletrônicos e motores. Em um cenário hipotético, consideremos um local confinado com condições ambientais adversas, como alta umidade ou presença de produtos químicos corrosivos. Nessas circunstâncias, pode ocorrer uma falha no sistema de alimentação elétrica, resultando em curto-circuito, sobrecarga ou mesmo incêndio. Esses eventos representam riscos para a integridade dos componentes do AGV e podem comprometer o sucesso da inspeção.
+3. **Riscos de colisão** : Embora não haja pessoas próximas, os riscos de colisão com obstáculos continuam sendo uma preocupação importante em ambientes confinados. Suponhamos que o AGV esteja realizando uma inspeção em uma tubulação com curvas acentuadas e estruturas internas. Se o sistema de detecção de obstáculos falhar ou houver um mau funcionamento do sistema de navegação, o AGV pode colidir com as paredes da tubulação ou com objetos presentes, causando danos significativos aos seus componentes e comprometendo a eficácia da inspeção.
+4. **Riscos de movimentação** : Durante as operações de inspeção, o AGV precisa realizar movimentos controlados e precisos. No entanto, em um cenário hipotético, um mau funcionamento em um dos sistemas de controle do veículo pode resultar em movimentos imprevistos. Por exemplo, em um ambiente confinado com múltiplas curvas e superfícies escorregadias, uma falha no sistema de controle de tração pode levar a acelerações bruscas, curvas fechadas ou manobras inseguras. Essas situações podem resultar em quedas do AGV, deslizamentos ou até mesmo danos aos componentes.
+
+Para mitigar esses riscos, é fundamental realizar uma análise detalhada dos componentes e sistemas envolvidos no AGV, bem como implementar mecanismos de segurança robustos. Isso pode incluir o uso de sistemas avançados de detecção e prevenção de colisões, sistemas redundantes em componentes críticos, como rodas e freios, e adesão a padrões de segurança relevantes. Além disso, é importante considerar o ambiente em que o AGV será utilizado e adotar medidas de proteção adicionais, como revestimentos resistentes a ambientes corrosivos ou à prova d'água, dependendo das condições específicas encontradas durante a inspeção em locais confinados.
 
 ## Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
 
-Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, mecânicos e eletrônicos do AGV, decidimos definir, implementar e validar dispositivos de segurança apropriados para mitigar esses riscos. Esses dispositivos têm o objetivo de prevenir acidentes, reduzir a gravidade das consequências e garantir a segurança das operações do AGV em locais confinados.
+Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, mecânicos e eletrônicos do AGV, decidimos definir dispositivos de segurança apropriados para mitigar esses riscos. Esses dispositivos têm o objetivo de prevenir acidentes, reduzir a gravidade das consequências e garantir a segurança das operações do AGV em locais confinados.
 
-1. Sistemas de detecção de obstáculos: Sensores, como câmeras, ultrassom ou sensores de proximidade, podem ser instalados no AGV para detectar obstáculos próximos e desacelerar ou parar o veículo automaticamente.
-2. Sistemas de frenagem/parada de emergência: Mecanismos de frenagem rápida e eficiente devem ser implementados para interromper o movimento e continuação do AGV em situações de emergência, evitando acidentes.
-3. Sistemas de segurança eletrônica: É importante incorporar sistemas eletrônicos de segurança, como circuitos de proteção contra curto-circuito, sobrecarga ou choque elétrico, para evitar danos ao AGV e proteje-los para diferentes ambientes e cenários, reduzindo os riscos de incêndio ou choque elétrico.
-4. Controle de movimentação: Implementar algoritmos de controle e programação adequados para garantir movimentos suaves, estáveis e controlados do AGV, evitando manobras bruscas ou imprevistas.
-5. Treinamento e conscientização: Além dos dispositivos físicos, é essencial fornecer treinamento adequado aos operadores do AGV sobre os riscos envolvidos, procedimentos de segurança e boas práticas a serem seguidas durante as operações em locais confinados.
+1. **Sistemas de detecção de obstáculos** : Para evitar colisões com objetos no ambiente confinado, sensores como câmeras, ultrassom ou sensores de proximidade podem ser instalados no AGV. Esses sensores são capazes de detectar obstáculos próximos ao veículo e fornecer informações em tempo real. Com base nessas informações, algoritmos de controle podem ser implementados para desacelerar ou parar o AGV automaticamente, evitando possíveis colisões.
+2. **Sistemas de frenagem/parada de emergência** : Mecanismos de frenagem rápida e eficiente são fundamentais para situações de emergência. Se ocorrer uma falha ou um perigo iminente, é necessário interromper o movimento do AGV o mais rápido possível. Portanto, sistemas de frenagem de emergência devem ser implementados, permitindo uma parada rápida e segura do veículo, evitando acidentes graves.
+3. **Sistemas de segurança eletrônica** : É crucial incorporar sistemas eletrônicos de segurança no AGV para proteger seus componentes e prevenir riscos elétricos. Circuitos de proteção contra curto-circuito, sobrecarga ou choque elétrico devem ser integrados aos sistemas elétricos do veículo. Esses sistemas eletrônicos monitoram constantemente a integridade elétrica e garantem a segurança do AGV em diferentes ambientes e cenários, minimizando os riscos de incêndio ou choque elétrico.
+4. **Controle de movimentação** : A implementação de algoritmos de controle adequados é essencial para garantir movimentos suaves, estáveis e controlados do AGV. Isso envolve a programação precisa de trajetórias, velocidades e acelerações, evitando manobras bruscas ou imprevistas que possam comprometer a segurança. O controle de movimentação deve levar em consideração os limites físicos do AGV, como a capacidade de frenagem, a estabilidade do veículo e a adaptação a diferentes tipos de terreno.
+5. **Treinamento e conscientização** : Além das medidas técnicas, é fundamental fornecer treinamento adequado aos operadores do AGV. Os operadores devem receber instruções claras sobre os riscos envolvidos, procedimentos de segurança e boas práticas a serem seguidas durante as operações em locais confinados. Eles devem estar cientes das características e limitações do AGV, além de receber orientações sobre como agir em situações de emergência. O treinamento contínuo e a conscientização são essenciais para promover uma cultura de segurança e minimizar erros humanos que possam levar a acidentes.
 
 Após a implementação dos dispositivos de segurança, realizamos testes e validações para garantir sua eficácia e conformidade com as normas e regulamentações de segurança aplicáveis. Envolvemos testes de funcionalidade, simulações de cenários de risco e revisões de projeto para garantir que os dispositivos estejam operando corretamente e atendendo aos requisitos de segurança estabelecidos.
+
+## Nossas implementações
+
+## Sensor Lidar
+
+A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente. Atualmente, nossa aplicação dispõem de uma analise constante em quanto em moviemnto de obstruções diante do robô e automatizamos seu desvio. Logo, nos organizamos para utilizar deste sensor em prol da segurança e efetividade nas inpeções que o robô deverá realizar.
 
 # 8. Backend.
 
