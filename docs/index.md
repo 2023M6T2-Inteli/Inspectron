@@ -373,11 +373,11 @@ Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, 
 4. **Controle de movimentação** : A implementação de algoritmos de controle adequados é essencial para garantir movimentos suaves, estáveis e controlados do AGV. Isso envolve a programação precisa de trajetórias, velocidades e acelerações, evitando manobras bruscas ou imprevistas que possam comprometer a segurança. O controle de movimentação deve levar em consideração os limites físicos do AGV, como a capacidade de frenagem, a estabilidade do veículo e a adaptação a diferentes tipos de terreno.
 5. **Treinamento e conscientização** : Além das medidas técnicas, é fundamental fornecer treinamento adequado aos operadores do AGV. Os operadores devem receber instruções claras sobre os riscos envolvidos, procedimentos de segurança e boas práticas a serem seguidas durante as operações em locais confinados. Eles devem estar cientes das características e limitações do AGV, além de receber orientações sobre como agir em situações de emergência. O treinamento contínuo e a conscientização são essenciais para promover uma cultura de segurança e minimizar erros humanos que possam levar a acidentes.
 
-Após a implementação dos dispositivos de segurança, realizamos testes e validações para garantir sua eficácia e conformidade com as normas e regulamentações de segurança aplicáveis. Envolvemos testes de funcionalidade, simulações de cenários de risco e revisões de projeto para garantir que os dispositivos estejam operando corretamente e atendendo aos requisitos de segurança estabelecidos.
+A implementação dessas estratégias de mitigação contriburá para garantir a segurança e integridade do AGV durante as operações de inspeção em locais confinados, protegendo tanto o próprio veículo quanto os ambientes em que ele opera. Em um primeiro momento, focamos na movimentação do robô e atuação perante obstruções, sendo as alternativasa cimas opções para evoluções futuras.
 
 ## Nossas implementações
 
-## Sensor Lidar
+### Sensor Lidar
 
 A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente. Atualmente, nossa aplicação dispõem de uma analise constante em quanto em moviemnto de obstruções diante do robô e automatizamos seu desvio. Logo, nos organizamos para utilizar deste sensor em prol da segurança e efetividade nas inpeções que o robô deverá realizar.
 
