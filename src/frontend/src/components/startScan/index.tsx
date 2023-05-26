@@ -2,7 +2,7 @@ import React from "react";
 import Select from "@/components/select";
 import { PlusSquare } from "lucide-react";
 import Button, { ButtonTypes } from "../button";
-import LocationModal from "@/locationModal";
+import LocationModal from "@/components/locationModal";
 import RobotModal from "../robotModal";
 
 interface Option {

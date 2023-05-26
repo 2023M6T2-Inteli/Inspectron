@@ -1,18 +1,38 @@
-import Button, { ButtonTypes } from "@/components/button";
-import SimpleInfo from "@/components/simpleInfo";
 import Wrapper from "@/components/wrapper";
-import React from "react";
+import React, { useEffect } from "react";
 import { toast } from "react-toastify";
-import { PlusSquare } from "lucide-react";
-import Modal from "@/components/modal";
 import StartScan from "@/components/startScan";
 import LiveScan from "@/components/liveScan";
-import LocationModal from "@/locationModal";
 import Loader from "@/components/loader";
+import { socket } from "@/config/socket";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
+    
+    useEffect(() => {
+        function onConnect() {
+            setLoading(false);
+        }
+    
+        function onDisconnect() {
+            setLoading(false);
+        }
+    
+        function onStreaming(value: string) {
+          console.log(value)
+        }
+    
+        socket.on('connect', onConnect);
+        socket.on('disconnect', onDisconnect);
+        socket.on('foo', onStreaming);
+    
+        return () => {
+          socket.off('connect', onConnect);
+          socket.off('disconnect', onDisconnect);
+          socket.off('foo', onStreaming);
+        };
+      }, []);
 
     const startScan = () => {
         setLoading(true)

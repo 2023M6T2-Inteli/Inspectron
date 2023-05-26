@@ -1,7 +1,5 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND noninteractive
-SHELL ["/bin/bash", "-c"] 
-WORKDIR /app
 
 RUN apt update -y && \
     apt install software-properties-common -y && \
@@ -14,7 +12,7 @@ RUN apt update -y && \
     apt install ros-humble-desktop -y && \
     apt install ros-humble-ros-base -y && \
     apt install ros-dev-tools -y && \
-    source /opt/ros/humble/setup.bash
+    . /opt/ros/humble/setup.sh
 
 RUN apt update -y && \ 
     apt-get install python3-pip -y
@@ -28,11 +26,14 @@ RUN apt update -y && \
 #     ros-${ROS_DISTRO}-demo-nodes-py && \
 #     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
-RUN pip3 install --no-cache-dir -r requirements.txt
+# COPY requirements.txt .
+# RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install fastapi uvicorn eventlet ultralytics python-socketio mongoengine python-dotenv
 
+WORKDIR /app
 COPY . .
 
-# launch ros package
-CMD ["python3", "app.py"]
-EXPOSE 3000
+RUN pip3 install numpy --upgrade
+
+CMD ["/bin/bash", "entrypoint.sh"]
+EXPOSE 3001
