@@ -43,6 +43,7 @@ def run_rclpy():
     
 def main():
     connect_to_database()
+
     uvicorn_thread = threading.Thread(target=run_uvicorn)
     rclpy_thread = threading.Thread(target=run_rclpy)
 
