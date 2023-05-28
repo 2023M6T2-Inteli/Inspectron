@@ -19,6 +19,7 @@ def connect_to_database():
     
     try:
         # Atribuindo o valor da variável de ambiente "MONGODB_URI" à variável "uri"
+        #Para Funcionar, crie um file chamado ".evn" e passe a senha do banco de dados como uma variavel.
         uri = os.getenv("MONGODB_URI")
 
         connect(host=uri)

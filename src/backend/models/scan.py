@@ -1,6 +1,9 @@
 from mongoengine import *
 from enum import IntEnum
 
+
+# Criando uma tabela para os scans
+
 class Direction(IntEnum):
     FRENTE = 1
     TRAS = 2
