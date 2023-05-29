@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../card";
 import Link from "next/link";
 import { Variants, motion } from "framer-motion";
+import Loader from "../loader";
 
 const container: Variants = {
     hidden: { opacity: 1, scale: 0 },
@@ -31,17 +32,15 @@ interface Props {
         link?: string;
     }[];
     columns: string;
+    loading?: boolean;
 }
 
-const CardList: React.FC<Props> = ({ items, columns }) => {
-    return (
-        <motion.div
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            className={"grid gap-4 " + columns}
-        >
-            {items.map((item, index) => (
+const CardList: React.FC<Props> = ({ items, columns, loading }) => {
+    let content: JSX.Element | JSX.Element[] = <div className="mx-auto"><Loader /></div>
+
+    if (!loading) {
+        content = items.length > 0 ? (
+            items.map((item, index) => (
                 <motion.div variants={itemVariants} key={index}>
                     {item.link ? (
                         <Link href={item.link} key={index}>
@@ -51,7 +50,15 @@ const CardList: React.FC<Props> = ({ items, columns }) => {
                         <Card key={index} {...item} />
                     )}
                 </motion.div>
-            ))}
+            ))
+        ) : (
+            <div className="text-center text-black-400">Nenhum item encontrado</div>
+        )
+    }
+    console.log(loading)
+    return (
+        <motion.div variants={container} initial="hidden" animate="visible" className={`grid gap-4 ${loading ? 'items-center grow' : columns}`}>
+            {content}
         </motion.div>
     );
 };

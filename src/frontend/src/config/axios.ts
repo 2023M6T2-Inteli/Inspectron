@@ -1,17 +1,20 @@
-import axios, { AxiosInstance } from 'axios'
+import axiosPackage, { AxiosInstance } from 'axios'
 
 interface Axios extends AxiosInstance {
     CancelToken?: any
     isCancel?: any
 }
 
-const instance: Axios = axios.create({
+export const axios: Axios = axiosPackage.create({
     // withCredentials: true,
-    baseURL: process.env.NEXT_PUBLIC_APP_URL 
+    baseURL: process.env.NEXT_PUBLIC_APP_URL,
+    headers: {
+        common: {
+            Accept: 'application/json',
+        }
+    },
 })
 
-instance.defaults.headers.common.Accept = 'application/json'
-instance.CancelToken = axios.CancelToken
-instance.isCancel = axios.isCancel
+axios.CancelToken = axiosPackage.CancelToken
+axios.isCancel = axiosPackage.isCancel
 
-export default instance

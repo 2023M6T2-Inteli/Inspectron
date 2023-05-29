@@ -4,49 +4,56 @@ from fastapi import APIRouter  # Import APIRouter
 from models import Robot, Scan, Location
 from fastapi.responses import JSONResponse
 import json
-from config import Console
+from pydantic import BaseModel
 
-router = APIRouter()  # Instanciando o objeto "router" da classe "APIRouter"
+# Instanciando o objeto "router" da classe "APIRouter"
+router = APIRouter()  
 
-
-@router.get("/locations")  # Definindo a rota "/locations" para o método "get_locations"
+# Definindo a rota "/locations" para o método "get_locations"
+@router.get("/locations")
 async def get_locations():  # Definindo o método "get_locations"/ o "async" é para que o método seja assíncrono
-    Console.log("diahdiwa")
     locations = json.loads(Location.objects().to_json())
-    # Instanciando o objeto "locations" da classe "Location" e o método "objects" para retornar todos os objetos da classe
-    return JSONResponse(
-        content=locations
-    )  # Retornando o objeto "locations" em formato JSON
+    
+    # Retornando o objeto "locations" em formato JSON
+    return JSONResponse(content=locations)
+
+
+class LocationModel(BaseModel):
+    name: str
+    coordinates: dict[str, float]
 
 
 # Definindo a rota "/locations/create" para o método "create_location"
 @router.post("/locations/create")
 async def create_location(
-    body,
+    locationBody: LocationModel,
 ):
-    Console.log("djaihdbadhao")
-    location = Location(
-        name=body["name"], coordinates=body["coordinates"]
-    )  # Instanciando o objeto "location" da classe "Location" e passando os parâmetros "name" e "coordinates" do corpo da requisição
-    location.save()  # Salvando o objeto "location" no banco de dados
+    # Instanciando o objeto "location" da classe "Location" e passando os parâmetros "name" e "coordinates" do corpo da requisição
+    location = Location(name=locationBody.name, coordinates=locationBody.coordinates)
+
+    # Salvando o objeto "location" no banco de dados
+    location.save()
     location_json = json.loads(location.to_json())
-    return JSONResponse(
-        content=location_json
-    )  # Retornando o objeto "location" em formato JSON
+
+    # Retornando o objeto "location" em formato JSON
+    return JSONResponse(content=location_json)
 
 
 # Definindo a rota "/robots"
-@router.get("/robot")
+@router.get("/robots")
 async def get_robots():
     robots = json.loads(Robot.objects().to_json())
     return JSONResponse(content=robots)
 
 
-# Definindo a rota "/robots/create"
+class robotModel(BaseModel):
+    name: str
+    ip: str
+
 # Criando uma rota para salvar os robôs no banco de dados
-@router.post("/robot/create")
-async def get_robots(body):
-    robot = Robot(name=body["name"], ip=body["ip"])
+@router.post("/robots/create")
+async def get_robots(robotBody: robotModel):
+    robot = Robot(name=robotBody.name, ip=robotBody.ip)
     robot.save()
     robot_json = json.loads(robot.to_json())
 
@@ -54,7 +61,8 @@ async def get_robots(body):
 
 
 # Definindo a rota "/scan"
-@router.get("/scan")
+@router.get("/scans")
 async def get_scans():
     scans = json.loads(Scan.objects().to_json())
+    
     return JSONResponse(content=scans)
