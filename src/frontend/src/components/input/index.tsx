@@ -1,15 +1,14 @@
 import React from "react";
-import Button, { ButtonTypes } from "../button";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 import { LucideIcon } from "lucide-react";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string;
     error?: string;
     Icon?: LucideIcon;
+    register?: any;
 }
 
-const Input: React.FC<Props> = ({ label, error, Icon, ...rest }) => {
+const Input: React.FC<Props> = ({ label, error, Icon, register, ...rest }) => {
     return (
         <div>
             {label && <label className="text-[#7A7A96] text-lg mb-1 block">{label}</label>}
@@ -18,6 +17,7 @@ const Input: React.FC<Props> = ({ label, error, Icon, ...rest }) => {
                 <input
                     className="grow py-1 bg-transparent outline-none placeholder-[#B9BCC7] text-gray-950"
                     {...rest}
+                    {...register}
                 />
             </div>
             {error && <span className="text-red-800 mt-1 block">{error}</span>}

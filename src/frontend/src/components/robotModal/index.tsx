@@ -2,16 +2,18 @@ import Button, { ButtonTypes } from "@/components/button";
 import Input from "@/components/input";
 import Modal from "@/components/modal";
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { set, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { toast } from "react-toastify";
+import { axios } from "@/config/axios";
 
-const schema = yup.object({
-  name: yup.string().required("Esse campo é obrigatório."),
-  x: yup.number().required("Esse campo é obrigatório."),
-  y: yup.number().required("Esse campo é obrigatório."),
-}).required();
-
+const schema = yup
+    .object({
+        name: yup.string().required("Esse campo é obrigatório."),
+        ip: yup.string().required("Esse campo é obrigatório."),
+    })
+    .required();
 
 interface Props {
     showModal: boolean;
@@ -22,33 +24,40 @@ const RobotModal: React.FC<Props> = ({ showModal, setShowModal }) => {
     const {
         register,
         handleSubmit,
-        watch,
+        reset,
         formState: { errors },
     } = useForm({
-      resolver: yupResolver(schema),
+        resolver: yupResolver(schema),
     });
-    const onSubmit = (data: any) => console.log(data);
-    
+
+    const onSubmit = async (data: any) => {
+        try {
+            await axios.post("/robots/create", data);
+            toast.success("Robô cadastrado com sucesso.");
+            setShowModal(false);
+            reset()
+        } catch (err) {
+            toast.error("Erro ao cadastrar robô.");
+        }
+    };
+
     return (
         <Modal showModal={showModal} title="Cadastrar novo robô" closeModal={() => setShowModal(false)}>
-            <form
-                className="flex flex-col gap-4"
-                onSubmit={handleSubmit(onSubmit)}
-            >
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     label="Nome"
                     placeholder="Digite aqui o nome..."
-                    {...register("name")}
                     error={errors.name?.message as string}
+                    register={{...register("name")}}
+                    
                 />
                 <Input
                     label="Ip"
                     placeholder="Digite aqui o ip..."
-                    {...register("x")}
-                    error={errors.x?.message as string}
-
+                    error={errors.ip?.message as string}
+                    register={{...register("ip")}}
                 />
-                
+
                 <Button buttonType={ButtonTypes.primary}>Criar</Button>
             </form>
         </Modal>

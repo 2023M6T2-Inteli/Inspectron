@@ -4,7 +4,10 @@ import Backdrop from "../backdrop";
 import { AnimatePresence, Variants, motion } from "framer-motion";
 
 const container: Variants = {
-    hidden: { opacity: 0, scale: 0, translateX: "-50%", translateY: "-50%" },
+    hidden: { opacity: 0, scale: 0, translateX: "-50%", translateY: "-50%", transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+    } },
     visible: {
         opacity: 1,
         scale: 1,
@@ -39,7 +42,7 @@ const Modal: React.FC<Props> = ({
                         animate="visible"
                         initial="hidden"
                         exit="hidden"
-                        className="z-20 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-10 rounded-lg min-w-[30vw]"
+                        className="z-20 fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-white p-10 rounded-lg min-w-[35vw]"
                     >
                         <div className="flex items-center justify-between mb-6">
                             <h4 className="text-3xl">{title}</h4>

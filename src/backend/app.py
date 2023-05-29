@@ -7,9 +7,22 @@ from socketio import AsyncServer
 from routes import router
 from config import connect_to_database
 import threading
+from fastapi.middleware.cors import CORSMiddleware
 
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
+
+origins = [
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(router)
 
