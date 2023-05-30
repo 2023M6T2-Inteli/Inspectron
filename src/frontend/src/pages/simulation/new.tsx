@@ -34,7 +34,7 @@ const NewSimulation: React.FC = (props) => {
         };
       }, []);
 
-    const startScan = () => {
+    const startScan = (data: any) => {
         setLoading(true)
         toast.success("Varredura iniciada com sucesso!");
         setStage(1);

@@ -17,11 +17,10 @@ async def get_locations():  # Definindo o método "get_locations"/ o "async" é 
     # Retornando o objeto "locations" em formato JSON
     return JSONResponse(content=locations)
 
-
 class LocationModel(BaseModel):
     name: str
-    coordinates: dict[str, float]
-
+    x: float
+    y: float
 
 # Definindo a rota "/locations/create" para o método "create_location"
 @router.post("/locations/create")
@@ -29,7 +28,7 @@ async def create_location(
     locationBody: LocationModel,
 ):
     # Instanciando o objeto "location" da classe "Location" e passando os parâmetros "name" e "coordinates" do corpo da requisição
-    location = Location(name=locationBody.name, coordinates=locationBody.coordinates)
+    location = Location(name=locationBody.name, coordinates={'x':locationBody.x, 'y':locationBody.y})
 
     # Salvando o objeto "location" no banco de dados
     location.save()
