@@ -182,12 +182,12 @@ Além disso, a capacitação dos funcionários, principalmente nos setores que t
 
 ### Ecoeficiente do projeto
 
-O projeto visa uma automatização do processo de varredura de gases em espaços confinados que possibilita análises em diferentes áreas destes. Com o escopo em mente, assume-se que o projeto poderá trazer uma quantidade menor de recursos, onde um único robô poderá fazer varreduras em diversos segmentos, seja em meio a leitura de gases ou gravação do atual estado estrutural do ambiente, sem a necessidade de um operador ser exposto ao risco. 
+O projeto visa uma automatização do processo de varredura de gases em espaços confinados que possibilita análises em diferentes áreas destes. Com o escopo em mente, assume-se que o projeto poderá trazer uma quantidade menor de recursos, onde um único robô poderá fazer varreduras em diversos segmentos, seja em meio a leitura de gases ou gravação do atual estado estrutural do ambiente, sem a necessidade de um operador ser exposto ao risco.
 
-Os principais pontos que justificam o uso de uma nova tecnologia são: 
+Os principais pontos que justificam o uso de uma nova tecnologia são:
 
-- A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas. 
-- A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas. 
+- A identificação dos riscos ambientais relacionados às manutenções que, com o uso da nova solução, pode-se reduzir a liberação de gases tóxicos derivados de um mal fechamento ou falha nas válvulas.
+- A adoção de tecnologias ecoeficientes pode contribuir para reduzir os riscos ambientais e promover a segurança do trabalho pois não expõe as equipes de manutenção a um contado de gases tóxicos e situações adiversas.
 - O monitoramento em tempo real provido por sensores é fundamental para avaliar a efetividade das medidas de prevenção e controle de riscos ambientais. A análise dos resultados pode contribuir para a implementação de novas medidas preventivas e para a melhoria contínua da segurança do trabalho e da ecoeficiência na empresa.
 
 ## 2.4. Influências socioculturais
@@ -354,7 +354,7 @@ https://youtu.be/QXdE4vfUh5s
 
 ## Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos
 
-No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV. 
+No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV.
 
 1. **Riscos mecânicos** : Durante a inspeção em um local confinado, o AGV pode encontrar-se em ambientes desafiadores, como dutos, tubulações ou espaços estreitos. Suponhamos que o AGV encontre uma obstrução imprevista, como um objeto sólido. Nesse caso, uma falha em um dos componentes mecânicos, como uma roda, correia, eixo ou sistema de freios, pode resultar em movimentos descontrolados ou instáveis do veículo. Isso aumenta o risco de colisões com obstáculos ou danos aos próprios componentes do AGV.
 2. **Riscos elétricos** : Durante a inspeção, o AGV depende de um sistema de alimentação elétrica para fornecer energia aos sistemas eletrônicos e motores. Em um cenário hipotético, consideremos um local confinado com condições ambientais adversas, como alta umidade ou presença de produtos químicos corrosivos. Nessas circunstâncias, pode ocorrer uma falha no sistema de alimentação elétrica, resultando em curto-circuito, sobrecarga ou mesmo incêndio. Esses eventos representam riscos para a integridade dos componentes do AGV e podem comprometer o sucesso da inspeção.
@@ -423,6 +423,28 @@ Por fim, o terceiro serviço é uma API HTTP em Fast. Nessa camada, estabelecemo
 Com essa arquitetura backend robusta e bem estruturada, garantimos uma comunicação eficiente entre o robô, o frontend e o banco de dados, permitindo uma experiência fluida e confiável para os usuários do sistema.
 
 # 9. Integração de sistemas.
+
+A fim de apresentar a fluidez da integração do nosso sistema, segue uma breve apresentação dos protocolados utilizados e a síntese de sua implementação.
+
+1. **ROS (Robot Operating System)** : ROS é um framework de software flexível para escrever programas de robótica. Ele fornece ferramentas, bibliotecas e convenções que visam simplificar a tarefa de criar comportamento de robôs complexos e robustos em uma ampla variedade de plataformas robóticas. O ROS usa um estilo de comunicação baseado em publicação/assinatura, onde os nós podem publicar mensagens para tópicos, e outros nós podem assinar esses tópicos para receber as mensagens. As mensagens são estruturas de dados que podem incluir informações como dados de sensores, estados de robôs, planos de ação, bateria etc. O ROS também suporta serviços, que são chamadas de procedimentos remotos síncronos que um nó pode usar para solicitar dados de outro.
+2. **WebSocket** : WebSocket é um protocolo de comunicação que fornece comunicação bidirecional em tempo real entre um cliente e um servidor. Diferente do HTTP, o WebSocket permite uma conexão persistente, onde tanto o cliente quanto o servidor podem iniciar a transmissão de dados a qualquer momento. Isso é especialmente útil para aplicações que requerem atualizações frequentes e em tempo real, como a página de varredura da aplicação, onde os dados do vídeo e dos sensores do robô são enviados para o frontend em tempo real. O WebSocket também utiliza um modelo de publicação/assinatura para a troca de mensagens.
+3. **HTTP (com FastAPI)** : HTTP é um protocolo de aplicação para sistemas de informação hipermedia distribuídos e colaborativos. Ele é a base da comunicação de dados na World Wide Web. O FastAPI é um framework moderno e rápido (de alto desempenho) para a construção de APIs com Python 3.6+ baseado nos padrões para APIs da web, como HTTP (para os métodos de requisição) e JSON (para a resposta das requisições). No nosso caso, FastAPI é usado para definir as rotas HTTP que o frontend pode usar para fazer requisições e obter informações. Essas rotas podem permitir operações como a obtenção de dados do banco de dados ou a atualização de informações de robôs ou locais.
+
+Nesse contexto, apresentando o escopo de nossa solução novamente e vinculando suas features às tecnologias, começamos desenvolvendo os publisher das informações pertinentes do robô, no nosso caso, valor do sensor do oxigênio, bateria e imagens da câmera, todos em frequencia constante. Após isso entra o WebSocket, que estará configurado para ouvir os tópicos desenvolvidos no nodo ROS, este receberá o valor e sera responsável de emitir ao Frontend esta atualização. Em suma, desenvolvemos esta ponte entre robô, back e frontend utilizando fundamentalmente destes protocolos para tal, visando que nosso cliente tenha um acesso à criação de uma nova  inspeção, stream da inspeção.
+
+## Teste de eficácia e performance
+
+Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas.
+
+Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema. Criamos um nó do ROS que se inscreve em um tópico específico para receber dados do robô e possui a capacidade de publicar informações em outros tópicos. Essa configuração permite a troca de informações entre o robô e a backend.
+
+Em relação ao WebSocket, configuramos a troca de informações em tempo real com o frontend, permitindo a transmissão de vídeo capturado pelo robô e outros dados dos sensores. Nosso objetivo principal era garantir uma comunicação rápida e confiável para a página de nova varredura.
+
+Quanto à API HTTP em Fast, estabelecemos rotas básicas para permitir que o frontend faça requisições e obtenha informações do banco de dados. Limitamos essas rotas às funcionalidades fundamentais, como o armazenamento e a busca de informações de localizações ou robôs cadastrados no sistema.
+
+Essa implementação simples para teste nos permitiu validar a comunicação entre os componentes e garantir que a arquitetura proposta funcione corretamente em um ambiente básico. Durante essa fase, focamos em identificar possíveis problemas de integração, latência ou erros de comunicação.
+
+À medida que avançamos, podemos aprimorar a implementação, adicionando mais funcionalidades e recursos à backend, garantindo uma experiência mais completa e abrangente para os usuários do sistema.
 
 # 10. Validação da eficácia do sistema.
 
