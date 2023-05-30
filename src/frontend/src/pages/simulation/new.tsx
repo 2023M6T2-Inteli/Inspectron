@@ -9,30 +9,36 @@ import { socket } from "@/config/socket";
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
+
+    function onConnect() {
+        console.log("conectado")
+        setLoading(false);
+    }
+
+    function onDisconnect() {
+        setLoading(false);
+    }
+
+    function onStreaming(value: string) {
+      console.log(value)
+    }
     
     useEffect(() => {
-        function onConnect() {
-            setLoading(false);
+        if (stage == 1) {
+            socket.connect()
+           
+            socket.on('connect', onConnect);
+            socket.on('disconnect', onDisconnect);
+            socket.on('foo', onStreaming);
+        
+            return () => {
+              socket.off('connect', onConnect);
+              socket.off('disconnect', onDisconnect);
+              socket.off('foo', onStreaming);
+            };
         }
-    
-        function onDisconnect() {
-            setLoading(false);
-        }
-    
-        function onStreaming(value: string) {
-          console.log(value)
-        }
-    
-        socket.on('connect', onConnect);
-        socket.on('disconnect', onDisconnect);
-        socket.on('foo', onStreaming);
-    
-        return () => {
-          socket.off('connect', onConnect);
-          socket.off('disconnect', onDisconnect);
-          socket.off('foo', onStreaming);
-        };
-      }, []);
+        
+      }, [stage]);
 
     const startScan = () => {
         setLoading(true)

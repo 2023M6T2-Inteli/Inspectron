@@ -6,9 +6,9 @@ from cv_bridge import CvBridge
 from ros.subscribers import Streaming
 
 class BackendController(Node):
-    def __init__(self):
+    def __init__(self, sio):
         super().__init__("backend_controller")
-        #self.sio = sio
+        self.sio = sio
         self.streaming_module = Streaming(self, self.__streaming_callback)
         self.bridge = CvBridge()
 
