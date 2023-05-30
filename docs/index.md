@@ -434,17 +434,17 @@ Nesse contexto, apresentando o escopo de nossa solução novamente e vinculando 
 
 ## Teste de eficácia e performance
 
-Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas.
+Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas. Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema. 
 
-Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema. Criamos um nó do ROS que se inscreve em um tópico específico para receber dados do robô (LIDAR) e possui a capacidade de publicar informações em outros tópicos que este ouve (cmd_vel). Essa configuração permite a troca de informações entre o robô e a backend. Para teste, decidimos desenvolver o script que analisa os valores do LIDAR e altere a direção e velocidade do robô.
+A princípio, criamos um nó do ROS que se inscreve em um tópico específico para receber dados do robô (ex: 'LIDAR') e possui a capacidade de publicar informações em outros tópicos que este ouve (ex: 'cmd_vel'). Essa configuração permite a troca de informações entre o robô e a backend. Para teste, decidimos desenvolver o script que analisa os valores do LIDAR e altere a direção e velocidade do robô. Sobre os resultados com esse primeiro teste, no cenário padrão da TurtleBot o robô analisou e desviou corretamente de obstruções em seu caminho, consideramos um sucesso em termos de comunicação do ROS com o robô. 
 
-Em relação ao WebSocket, configuramos a troca de informações em tempo real com o frontend, permitindo a transmissão de vídeo capturado pelo robô e outros dados dos sensores. Nosso objetivo principal era garantir uma comunicação rápida e confiável para a página de nova varredura. Testamos inicialmente com um vídeo pré-gravado e conseguimos publicar em um determinado tópico e em uma certa frequência os frames dele.
+Em relação ao WebSocket, configuramos a troca de informações em tempo real com o frontend, permitindo a transmissão de vídeo capturado pelo robô e outros dados dos sensores. Nosso objetivo principal era garantir uma comunicação rápida e confiável para a página de nova varredura. Testamos inicialmente com um vídeo pré-gravado e conseguimos publicar em um determinado tópico e em uma certa frequência os frames dele, checamos utilizando de um subscriber no mesmo.
 
 Quanto à API HTTP em Fast, estabelecemos rotas básicas para permitir que o frontend faça requisições e obtenha informações do banco de dados. Limitamos essas rotas às funcionalidades fundamentais, como o armazenamento e a busca de informações de localizações ou robôs cadastrados no sistema.
 
 Essa implementação simples para teste nos permitiu validar a comunicação entre os componentes e garantir que a arquitetura proposta funcione corretamente em um ambiente básico. Durante essa fase, focamos em identificar possíveis problemas de integração, latência ou erros de comunicação.
 
-À medida que avançamos, podemos aprimorar a implementação, adicionando mais funcionalidades e recursos à backend, garantindo uma experiência mais completa e abrangente para os usuários do sistema.
+À medida que avançamos, visamos aprimorar a implementação, adicionando mais funcionalidades e recursos à backend, garantindo uma experiência mais completa e abrangente para os usuários do sistema.
 
 # 10. Validação da eficácia do sistema.
 
