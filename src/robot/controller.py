@@ -31,7 +31,7 @@ class TurtleBotController(Node):
 
         self.__velocity_module = Velocity(self)
         self.__camera_module = Camera(self)
-        self.__heartbeat_response_callback = Heartbeat(self)
+        self.__heartbeat_response_callback = HeartbeatResponse(self)
         
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
@@ -41,13 +41,13 @@ class TurtleBotController(Node):
         
         self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
 
-        self.create_timer(0.16, self.__runtime)
 
     def __backend_commands_callback(self, data):
+        print(data)
         msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
-                pass
+                self.create_timer(0.16, self.__runtime)
             case "STOP":
                 pass
             case "PAUSE":
@@ -60,7 +60,7 @@ class TurtleBotController(Node):
                 pass
     
     def __heartbeat_callback(self, msg):
-        pass
+        self.__heartbeat_response_callback.send("oie")
     
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data

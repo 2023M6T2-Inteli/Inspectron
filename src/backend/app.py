@@ -33,11 +33,15 @@ PORT = 3001  # Porta a ser utilizada
 sio = AsyncServer(async_handlers=True, logger=True,
                       ping_interval=120, ping_timeout=120, async_mode='asgi', cors_allowed_origins='*')
 
+rclpy.init()
+node_backend = BackendController(sio=sio)
+
 socketio_app = socketio.ASGIApp(sio, app)
 # app.mount("/socket.io", socketio_app)
 
 @sio.event
 def connect(sid, environ):
+    node_backend.heartbeat.send("oi")
     print('Connected to socket', flush=True)
 
 @sio.on('emergency_stop')
@@ -49,9 +53,7 @@ def run_uvicorn():
     uvicorn.run(socketio_app, host=HOST, port=PORT)
 
 def run_rclpy():
-    rclpy.init()
-    node = BackendController(sio=sio)
-    rclpy.spin(node)
+    rclpy.spin(node_backend)
     rclpy.shutdown()
     
 def main():
