@@ -62,6 +62,18 @@ async def get_robots(robotBody: robotModel):
 # Definindo a rota "/scan"
 @router.get("/scans")
 async def get_scans():
-    scans = json.loads(Scan.objects().to_json())
-    
-    return JSONResponse(content=scans)
+    scans = Scan.objects()
+    for scan in scans:
+        location = Location.objects(id=scan.location).first()
+        robot = Robot.objects(id=scan.robot).first()
+
+        scan_data = json.loads(scan.to_json())
+        location_data = json.loads(location.to_json())
+        robot_data = json.loads(robot.to_json())
+
+        scan_data["location"] = location_data
+        scan_data["robot"] = robot_data
+
+        json.dumps(scan_data)
+
+    return JSONResponse(content=scan_data)
