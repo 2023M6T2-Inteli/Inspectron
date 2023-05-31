@@ -5,63 +5,60 @@ import StartScan from "@/components/startScan";
 import LiveScan from "@/components/liveScan";
 import Loader from "@/components/loader";
 import { socket } from "@/config/socket";
+import withAuth, { getServerSideProps } from "@/HOC/withAuth";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
-    
+
     useEffect(() => {
         function onConnect() {
             setLoading(false);
         }
-    
+
         function onDisconnect() {
             setLoading(false);
         }
-    
-        function onStreaming(value: string) {
-          console.log(value)
-        }
-    
-        socket.on('connect', onConnect);
-        socket.on('disconnect', onDisconnect);
-        socket.on('foo', onStreaming);
-    
-        return () => {
-          socket.off('connect', onConnect);
-          socket.off('disconnect', onDisconnect);
-          socket.off('foo', onStreaming);
-        };
-      }, []);
 
-    const startScan = (data: any) => {
-        setLoading(true)
+        function onStreaming(value: string) {
+            console.log(value);
+        }
+
+        socket.on("connect", onConnect);
+        socket.on("disconnect", onDisconnect);
+        socket.on("foo", onStreaming);
+
+        return () => {
+            socket.off("connect", onConnect);
+            socket.off("disconnect", onDisconnect);
+            socket.off("foo", onStreaming);
+        };
+    }, []);
+
+    const startScan = () => {
+        setLoading(true);
         toast.success("Varredura iniciada com sucesso!");
         setStage(1);
 
         setTimeout(() => {
-            setLoading(false)
-        }, 2000)
+            setLoading(false);
+        }, 2000);
     };
 
     const emergencyStop = () => {
-        setLoading(true)
+        setLoading(true);
         toast.info("Varredura finalizada com sucesso!");
         setStage(0);
 
         setTimeout(() => {
-            setLoading(false)
-        }, 2000)
+            setLoading(false);
+        }, 2000);
     };
 
     let content = null;
     switch (stage) {
         case 0:
-            content = (
-                <StartScan
-                    buttonHandler={startScan}
-                />
-            );
+            content = <StartScan buttonHandler={startScan} />;
             break;
         case 1:
             content = <LiveScan buttonHandler={emergencyStop} />;
@@ -70,11 +67,11 @@ const NewSimulation: React.FC = (props) => {
 
     return (
         <Wrapper title={"Nova varredura"}>
-            <div className="bg-white rounded-xl shadow-2xl p-8 grow">
-                {loading ? <Loader /> : content}
-            </div>
+            <div className="bg-white rounded-xl shadow-2xl p-8 grow">{loading ? <Loader /> : content}</div>
         </Wrapper>
     );
 };
 
-export default NewSimulation;
+export { getServerSideProps };
+
+export default withAuth(NewSimulation);
