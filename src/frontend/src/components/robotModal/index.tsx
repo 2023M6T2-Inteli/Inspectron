@@ -35,7 +35,7 @@ const RobotModal: React.FC<Props> = ({ showModal, setShowModal }) => {
             await axios.post("/robots/create", data);
             toast.success("Robô cadastrado com sucesso.");
             setShowModal(false);
-            reset()
+            reset();
         } catch (err) {
             toast.error("Erro ao cadastrar robô.");
         }
@@ -48,14 +48,13 @@ const RobotModal: React.FC<Props> = ({ showModal, setShowModal }) => {
                     label="Nome"
                     placeholder="Digite aqui o nome..."
                     error={errors.name?.message as string}
-                    register={{...register("name")}}
-                    
+                    register={{ ...register("name") }}
                 />
                 <Input
                     label="Ip"
                     placeholder="Digite aqui o ip..."
                     error={errors.ip?.message as string}
-                    register={{...register("ip")}}
+                    register={{ ...register("ip") }}
                 />
 
                 <Button buttonType={ButtonTypes.primary}>Criar</Button>
