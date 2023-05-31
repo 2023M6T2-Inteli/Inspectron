@@ -37,7 +37,7 @@ export default NextAuth({
     ],
     callbacks: {
         jwt({ token, account, user, session }) {
-            if (account) {
+            if (user) {
                 token.accessToken = user.access_token;
             }
 
