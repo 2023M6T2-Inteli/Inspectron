@@ -14,7 +14,6 @@ const withAuth = (WrappedComponent: any) => {
 };
 
 export const getServerSideProps = async (context: NextPageContext) => {
-    console.log("oieeeeeeeee");
     const session = await getSession(context);
     if (!session) {
         return {

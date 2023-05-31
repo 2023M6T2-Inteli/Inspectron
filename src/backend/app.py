@@ -4,10 +4,11 @@ import rclpy
 import socketio
 from ros.setup import BackendController
 from socketio import AsyncServer
-from routes import router
+from routes import location_router, robot_router, scan_router, user_router
 from config import connect_to_database
 import threading
 from fastapi.middleware.cors import CORSMiddleware
+
 
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
@@ -24,7 +25,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router)
+app.include_router(location_router)
+app.include_router(robot_router)
+app.include_router(scan_router)
+app.include_router(user_router)
 
 HOST = "0.0.0.0"  # localhost padrão
 PORT = 3001  # Porta a ser utilizada
@@ -34,7 +38,6 @@ sio = AsyncServer(async_handlers=True, logger=True,
                       ping_interval=120, ping_timeout=120, async_mode='asgi')
 
 socketio_app = socketio.ASGIApp(sio, app)
-# app.mount("/socket.io", socketio_app)
 
 @sio.event
 def connect(sid, environ):

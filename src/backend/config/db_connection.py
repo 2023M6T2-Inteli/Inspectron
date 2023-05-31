@@ -3,11 +3,12 @@ from mongoengine import connect
 
 # Importando o módulo "load_dotenv" / "load_dotenv" é um módulo que permite o acesso às variáveis de ambiente
 from dotenv import load_dotenv
+load_dotenv()  # Carregando as variáveis de ambiente
 from .logger import Console
 
 import os
 
-load_dotenv()  # Carregando as variáveis de ambiente
+
 
 def connect_to_database():
     try:

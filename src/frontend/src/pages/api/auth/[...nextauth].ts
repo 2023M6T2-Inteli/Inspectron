@@ -1,8 +1,18 @@
 import { axios } from "@/config/axios";
-import NextAuth from "next-auth";
+import NextAuth, { Session } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-const options = {
+interface User {
+    _id: {
+        $oid: string;
+    };
+    email: string;
+    password: string;
+    token: string;
+}
+
+export default NextAuth({
     providers: [
         CredentialsProvider({
             credentials: {
@@ -18,7 +28,6 @@ const options = {
                         email: credentials.email,
                         password: credentials.password,
                     });
-                    console.log(data)
                     return data;
                 } catch (err) {
                     return null;
@@ -26,10 +35,19 @@ const options = {
             },
         }),
     ],
-    secret: process.env.JWT_SECRET,
-    pages: {
-        signIn: "/login",
-    },
-};
+    callbacks: {
+        jwt({ token, account, user, session }) {
+            if (account) {
+                token.accessToken = user.access_token;
+            }
 
-export default NextAuth(options);
+            return token;
+        },
+
+        session({ session, token, user }) {
+            session.accessToken = token.accessToken;
+            return session;
+        },
+    },
+    secret: process.env.JWT_SECRET,
+});
