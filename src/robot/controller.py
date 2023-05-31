@@ -6,7 +6,7 @@ from cv_bridge import CvBridge
 from modules.publishers import Velocity, Camera, HeartbeatResponse
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 import cv2
-from ros2_message_converter import message_converter
+# from ros2_message_converter import message_converter
 import json
 from enum import Enum
 
@@ -44,7 +44,8 @@ class TurtleBotController(Node):
 
     def __backend_commands_callback(self, data):
         print(data)
-        msg_json = message_converter.convert_ros_message_to_dictionary(data)
+        msg_json = json.loads(data)
+        # msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
                 self.create_timer(0.16, self.__runtime)

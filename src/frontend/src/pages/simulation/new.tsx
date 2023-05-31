@@ -11,6 +11,8 @@ const NewSimulation: React.FC = (props) => {
     const [loading, setLoading] = React.useState(false);
 
     function onConnect() {
+        toast.success("Varredura iniciada com sucesso!");
+        setStage(1);
         console.log("conectado")
         setLoading(false);
     }
@@ -25,7 +27,6 @@ const NewSimulation: React.FC = (props) => {
     
     useEffect(() => {
         if (stage == 1) {
-            socket.connect()
            
             socket.on('connect', onConnect);
             socket.on('disconnect', onDisconnect);
@@ -42,8 +43,8 @@ const NewSimulation: React.FC = (props) => {
 
     const startScan = () => {
         setLoading(true)
-        toast.success("Varredura iniciada com sucesso!");
-        setStage(1);
+        socket.connect()
+       
 
         setTimeout(() => {
             setLoading(false)
@@ -55,9 +56,7 @@ const NewSimulation: React.FC = (props) => {
         toast.info("Varredura finalizada com sucesso!");
         setStage(0);
 
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
+     
     };
 
     let content = null;
