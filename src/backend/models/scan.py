@@ -18,5 +18,5 @@ class Scan(Document):
                                "value": IntField()
                            }))
     oxygen = FloatField()
-    location = ReferenceField('Location')
-    robot = ReferenceField('Robot')
+    location = ObjectIdField()
+    robot = ObjectIdField()
