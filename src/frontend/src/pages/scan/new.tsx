@@ -13,34 +13,39 @@ const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
 
-    useEffect(() => {
-        function onConnect() {
-            setLoading(false);
-        }
-
-        function onDisconnect() {
-            setLoading(false);
-        }
-
-        function onStreaming(value: string) {
-            console.log(value);
-        }
-
-        socket.on("connect", onConnect);
-        socket.on("disconnect", onDisconnect);
-        socket.on("foo", onStreaming);
-
-        return () => {
-            socket.off("connect", onConnect);
-            socket.off("disconnect", onDisconnect);
-            socket.off("foo", onStreaming);
-        };
-    }, []);
-
-    const startScan = () => {
-        setLoading(true);
+    function onConnect() {
         toast.success("Varredura iniciada com sucesso!");
         setStage(1);
+        console.log("conectado")
+        setLoading(false);
+    }
+
+    function onDisconnect() {
+        setLoading(false);
+    }
+
+    function onStreaming(value: string) {
+      console.log(value)
+    }
+    
+    useEffect(() => {
+        socket.on('connect', onConnect);
+        socket.on('disconnect', onDisconnect);
+        socket.on('foo', onStreaming);
+
+        return () => {
+            socket.off('connect', onConnect);
+            socket.off('disconnect', onDisconnect);
+            socket.off('foo', onStreaming);
+            socket.disconnect()
+          };
+        
+      }, []);
+
+    const startScan = () => {
+        setLoading(true)
+        socket.connect()
+       
 
         setTimeout(() => {
             setLoading(false);
@@ -51,10 +56,6 @@ const NewSimulation: React.FC = (props) => {
         setLoading(true);
         toast.info("Varredura finalizada com sucesso!");
         setStage(0);
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
     };
 
     let content = null;
