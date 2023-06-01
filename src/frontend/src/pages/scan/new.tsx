@@ -5,7 +5,9 @@ import StartScan from "@/components/startScan";
 import LiveScan from "@/components/liveScan";
 import Loader from "@/components/loader";
 import { socket } from "@/config/socket";
-import withAuth, { getServerSideProps } from "@/HOC/withAuth";
+import { withAuth } from "@/HOC/withAuth";
+import { GetServerSidePropsContext, PreviewData } from "next";
+import { ParsedUrlQuery } from "querystring";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
@@ -71,7 +73,8 @@ const NewSimulation: React.FC = (props) => {
         </Wrapper>
     );
 };
+export const getServerSideProps = async (ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) => {
+    return await withAuth(ctx);
+};
 
-export { getServerSideProps };
-
-export default withAuth(NewSimulation);
+export default NewSimulation;

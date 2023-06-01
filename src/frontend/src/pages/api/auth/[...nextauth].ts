@@ -1,5 +1,5 @@
 import { axios } from "@/config/axios";
-import NextAuth, { Session } from "next-auth";
+import NextAuth, { NextAuthOptions, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -12,7 +12,7 @@ interface User {
     token: string;
 }
 
-export default NextAuth({
+export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             credentials: {
@@ -20,8 +20,6 @@ export default NextAuth({
                 password: { label: "Password", type: "password" },
             },
 
-            // Set your own credentials provider options here
-            // For example, you can use an API endpoint to validate credentials
             async authorize(credentials: any, req) {
                 try {
                     const { data } = await axios.post("/users/login", {
@@ -36,7 +34,7 @@ export default NextAuth({
         }),
     ],
     callbacks: {
-        jwt({ token, account, user, session }) {
+        jwt({ token, user }) {
             if (user) {
                 token.accessToken = user.access_token;
             }
@@ -45,9 +43,12 @@ export default NextAuth({
         },
 
         session({ session, token, user }) {
+            // @ts-ignore
             session.accessToken = token.accessToken;
             return session;
         },
     },
     secret: process.env.JWT_SECRET,
-});
+};
+
+export default NextAuth(authOptions);
