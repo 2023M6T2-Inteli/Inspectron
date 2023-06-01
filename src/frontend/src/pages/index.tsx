@@ -43,8 +43,13 @@ export default function Login({ csrfToken }: Props) {
                 password: data.password,
                 callbackUrl: `${window.location.origin}`,
             });
-            toast.success("Login realizado com sucesso.");
-            router.replace("/dashboard");
+          
+            if (res!.ok) {
+                toast.success("Login realizado com sucesso.");
+                router.replace("/dashboard");
+            } else {
+                toast.error("Erro ao fazer login.");
+            }
         } catch {
             toast.error("Erro ao fazer login.");
         }

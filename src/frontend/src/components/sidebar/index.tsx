@@ -20,7 +20,7 @@ const Sidebar: React.FC<Props> = (props) => {
         {
             icon: Plus,
             label: "Nova varredura",
-            link: "/simulation/new",
+            link: "/scan/new",
         },
     ];
 

@@ -4,28 +4,17 @@ import Card from "@/components/card";
 import CardList from "@/components/cardList";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
-import { axios } from "@/config/axios";
+import { createServerSideAxiosInstance } from "@/config/axios";
 import { Scan } from "../dashboard";
-import withAuth, { getServerSideProps } from "@/HOC/withAuth";
+import { withAuth } from "@/HOC/withAuth";
+import { GetServerSidePropsContext, PreviewData } from "next";
+import { ParsedUrlQuery } from "querystring";
 
-const Room = () => {
-    const [loading, setLoading] = useState<boolean>(true);
-    const [scans, setScans] = useState<Scan[]>([]);
+interface Props {
+    scans: Scan[];
+}
 
-    const getScans = async () => {
-        try {
-            const { data } = await axios.get("/scans");
-            setScans(data);
-        } catch (err) {
-            toast.error("Erro ao carregar varreduras");
-        }
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        getScans();
-    }, []);
-
+const Room = ({ scans }: Props) => {
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
@@ -36,14 +25,21 @@ const Room = () => {
         });
     }, [scans]);
 
-    
     return (
         <Wrapper title={"Sala #9083"}>
-            <CardList columns={"grid-cols-4"} items={scansMemo} loading={loading} />
+            <CardList columns={"grid-cols-4"} items={scansMemo} />
         </Wrapper>
     );
 };
+export const getServerSideProps = async (ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) => {
+    return await withAuth(ctx, async () => {
+        const axios = await createServerSideAxiosInstance(ctx);
+        const { data: scans } = await axios.get("/scans");
 
-export { getServerSideProps };
+        return {
+            props: { scans },
+        };
+    });
+};
 
-export default withAuth(Room);
+export default Room;

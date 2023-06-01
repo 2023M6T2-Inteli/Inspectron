@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Wrapper from "@/components/wrapper";
-import Card from "@/components/card";
 import CardList from "@/components/cardList";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
-import { axios } from "@/config/axios";
-import withAuth, {getServerSideProps} from "@/HOC/withAuth";
+import { useMemo } from "react";
+import { withAuth } from "@/HOC/withAuth";
+import { GetServerSidePropsContext, PreviewData } from "next";
+import { ParsedUrlQuery } from "querystring";
+import { createServerSideAxiosInstance } from "@/config/axios";
 
 export interface Scan {
     _id: {
@@ -25,50 +24,12 @@ interface Room {
     scans: Scan[];
 }
 
-const Home = () => {
-    const routes = [
-        {
-            title: "Varredura 1",
-            subtitle: "86% de oxigênio",
-            info: "01/09/2002 - 14:33:40",
-        },
-        {
-            title: "Varredura 1",
-            subtitle: "86% de oxigênio",
-            info: "01/09/2002 - 14:33:40",
-        },
-        {
-            title: "Varredura 1",
-            subtitle: "86% de oxigênio",
-            info: "01/09/2002 - 14:33:40",
-        },
-        {
-            title: "Varredura 1",
-            subtitle: "86% de oxigênio",
-            info: "01/09/2002 - 14:33:40",
-        },
-        {
-            title: "Varredura 1",
-            subtitle: "86% de oxigênio",
-            info: "01/09/2002 - 14:33:40",
-        },
-    ];
+interface Props {
+    locations: Room[];
+    scans: Scan[];
+}
 
-    const [rooms, setRooms] = useState<Room[]>([]);
-    const [scans, setScans] = useState<Scan[]>([]);
-    const [scansLoading, setScansLoading] = useState<boolean>(true);
-    const [roomsLoading, setRoomsLoading] = useState<boolean>(true);
-
-    const getScans = async () => {
-        try {
-            const { data } = await axios.get("/scans");
-            setScans(data);
-        } catch (err) {
-            toast.error("Erro ao carregar varreduras");
-        }
-        setScansLoading(false);
-    };
-
+const Home = ({ locations, scans }: Props) => {
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
@@ -79,8 +40,8 @@ const Home = () => {
         });
     }, [scans]);
 
-    const roomsMemo = useMemo(() => {
-        return rooms.map((room) => {
+    const locationsMemo = useMemo(() => {
+        return locations.map((room) => {
             return {
                 title: room.name,
                 subtitle: `x: ${room.coordinates.x} | y: ${room.coordinates.y}`,
@@ -88,36 +49,32 @@ const Home = () => {
                 link: `/room/${room._id.$oid}`,
             };
         });
-    }, [rooms]);
-
-    const getRooms = async () => {
-        try {
-            const { data } = await axios.get("/locations");
-            setRooms(data);
-        } catch (err) {
-            toast.error("Erro ao carregar dados");
-        }
-        setRoomsLoading(false);
-    };
-
-    useEffect(() => {
-        Promise.all([getRooms(), getScans()]);
-    }, []);
+    }, [locations]);
 
     const rightSide = (
         <div className="p-10 bg-[#F5FBFF] min-w-[20vw] flex flex-col">
             <h1 className="text-3xl mt-10 font-medium mb-10">Locais</h1>
-            <CardList columns={"grid-cols-1"} items={roomsMemo} loading={roomsLoading} />
+            <CardList columns={"grid-cols-1"} items={locationsMemo} />
         </div>
     );
 
     return (
         <Wrapper title={"Histórico de varreduras"} subtitle="Bem vindo," rightSide={rightSide}>
-            <CardList columns={"grid-cols-3"} items={scansMemo} loading={scansLoading} />
+            <CardList columns={"grid-cols-3"} items={scansMemo} />
         </Wrapper>
     );
 };
 
-export { getServerSideProps };
+export const getServerSideProps = async (ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) => {
+    return await withAuth(ctx, async () => {
+        const axios = await createServerSideAxiosInstance(ctx);
+        const { data: locations } = await axios.get("/locations");
+        const { data: scans } = await axios.get("/scans");
 
-export default withAuth(Home);
+        return {
+            props: { locations, scans },
+        };
+    });
+};
+
+export default Home;
