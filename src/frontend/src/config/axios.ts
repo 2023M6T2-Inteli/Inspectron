@@ -1,5 +1,9 @@
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import axiosPackage, { AxiosInstance } from "axios";
+import { GetServerSidePropsContext, PreviewData } from "next";
 import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { ParsedUrlQuery } from "querystring";
 
 interface Axios extends AxiosInstance {
     CancelToken?: any;
@@ -22,7 +26,19 @@ axios.interceptors.request.use(async (config) => {
     return config;
 });
 
-axios.CancelToken = axiosPackage.CancelToken;
-axios.isCancel = axiosPackage.isCancel;
+// axios.CancelToken = axiosPackage.CancelToken;
+// axios.isCancel = axiosPackage.isCancel;
 
-export { axios };
+const createServerSideAxiosInstance = async (ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) => {
+    const instance = axiosPackage.create();
+    instance.defaults.baseURL = process.env.NEXT_PUBLIC_APP_URL;
+    const session = await getServerSession(ctx.req, ctx.res, authOptions);
+
+    if (session) {
+        instance.defaults.headers.common.Authorization = `Bearer ${session.accessToken}`;
+    }
+
+    return instance;
+};
+
+export { axios, createServerSideAxiosInstance };

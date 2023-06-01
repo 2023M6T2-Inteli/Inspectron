@@ -1,32 +1,46 @@
-import { GetServerSideProps, NextPageContext } from "next";
+import { GetServerSideProps, GetServerSidePropsContext, NextPageContext, PreviewData } from "next";
 import { getSession } from "next-auth/react";
+import { ParsedUrlQuery } from "querystring";
 
-const withAuth = (WrappedComponent: any) => {
-    const Wrapper = ({ session, ...props }: any) => {
-        if (!session) {
-            return null; // or handle the unauthorized state however you prefer
-        }
-
-        return <WrappedComponent session={session} {...props} />;
-    };
-
-    return Wrapper;
+const returnConst = {
+    redirect: {
+        destination: "/",
+        permanent: false,
+    },
 };
 
-export const getServerSideProps = async (context: NextPageContext) => {
-    const session = await getSession(context);
+export const withAuth = async (
+    ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>,
+    getServerSidePropsFunc?: GetServerSideProps
+) => {
+    const session = await getSession(ctx);
+
     if (!session) {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false,
-            },
-        };
+        return returnConst;
     }
 
+    // Se a sessão existir, então chame a função getServerSideProps da página.
+    if (getServerSidePropsFunc) {
+        try {
+            const wrappedProps: any = await getServerSidePropsFunc(ctx);
+            
+            // Retorne os props recebidos da função getServerSideProps da página.
+            return {
+                props: {
+                    ...wrappedProps.props,
+                    session,
+                },
+            };
+        } catch (err) {
+            console.log(err);
+            return returnConst;
+        }
+    }
+
+    // Se não existir uma função getServerSideProps para a página, apenas retorne a sessão.
     return {
-        props: { session },
+        props: {
+            session,
+        },
     };
 };
-
-export default withAuth;
