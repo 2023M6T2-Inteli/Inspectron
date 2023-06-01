@@ -5,6 +5,7 @@ import CardList from "@/components/cardList";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import { axios } from "@/config/axios";
+import withAuth, {getServerSideProps} from "@/HOC/withAuth";
 
 export interface Scan {
     _id: {
@@ -24,7 +25,7 @@ interface Room {
     scans: Scan[];
 }
 
-export default function Home() {
+const Home = () => {
     const routes = [
         {
             title: "Varredura 1",
@@ -60,13 +61,13 @@ export default function Home() {
 
     const getScans = async () => {
         try {
-            const {data} = await axios.get("/scans");
+            const { data } = await axios.get("/scans");
             setScans(data);
-        } catch(err) {
+        } catch (err) {
             toast.error("Erro ao carregar varreduras");
         }
-        setScansLoading(false)
-    }
+        setScansLoading(false);
+    };
 
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
@@ -74,10 +75,10 @@ export default function Home() {
                 title: scan._id.$oid,
                 subtitle: "86% de oxigênio",
                 info: "01/09/2002 - 14:33:40",
-            }
-        })
-    }, [scans])
-    
+            };
+        });
+    }, [scans]);
+
     const roomsMemo = useMemo(() => {
         return rooms.map((room) => {
             return {
@@ -88,7 +89,6 @@ export default function Home() {
             };
         });
     }, [rooms]);
-
 
     const getRooms = async () => {
         try {
@@ -101,7 +101,7 @@ export default function Home() {
     };
 
     useEffect(() => {
-        Promise.all([getRooms(), getScans()])
+        Promise.all([getRooms(), getScans()]);
     }, []);
 
     const rightSide = (
@@ -116,4 +116,8 @@ export default function Home() {
             <CardList columns={"grid-cols-3"} items={scansMemo} loading={scansLoading} />
         </Wrapper>
     );
-}
+};
+
+export { getServerSideProps };
+
+export default withAuth(Home);

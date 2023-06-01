@@ -6,24 +6,25 @@ import { useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import { axios } from "@/config/axios";
 import { Scan } from "../dashboard";
+import withAuth, { getServerSideProps } from "@/HOC/withAuth";
 
-export default function Room() {
+const Room = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [scans, setScans] = useState<Scan[]>([]);
 
     const getScans = async () => {
         try {
-            const {data} = await axios.get("/scans");
+            const { data } = await axios.get("/scans");
             setScans(data);
-        } catch(err) {
+        } catch (err) {
             toast.error("Erro ao carregar varreduras");
         }
-        setLoading(false)
-    }
+        setLoading(false);
+    };
 
     useEffect(() => {
-        getScans()
-    }, [])
+        getScans();
+    }, []);
 
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
@@ -31,41 +32,18 @@ export default function Room() {
                 title: scan._id.$oid,
                 subtitle: "86% de oxigênio",
                 info: "01/09/2002 - 14:33:40",
-            }
-        })
-    }, [scans])
+            };
+        });
+    }, [scans]);
 
-    // const routes = [
-    //     {
-    //         title: "Varredura 1",
-    //         subtitle: "86% de oxigênio",
-    //         info: "01/09/2002 - 14:33:40",
-    //     },
-    //     {
-    //         title: "Varredura 1",
-    //         subtitle: "86% de oxigênio",
-    //         info: "01/09/2002 - 14:33:40",
-    //     },
-    //     {
-    //         title: "Varredura 1",
-    //         subtitle: "86% de oxigênio",
-    //         info: "01/09/2002 - 14:33:40",
-    //     },
-    //     {
-    //         title: "Varredura 1",
-    //         subtitle: "86% de oxigênio",
-    //         info: "01/09/2002 - 14:33:40",
-    //     },
-    //     {
-    //         title: "Varredura 1",
-    //         subtitle: "86% de oxigênio",
-    //         info: "01/09/2002 - 14:33:40",
-    //     },
-    // ];
-
+    
     return (
         <Wrapper title={"Sala #9083"}>
             <CardList columns={"grid-cols-4"} items={scansMemo} loading={loading} />
         </Wrapper>
     );
-}
+};
+
+export { getServerSideProps };
+
+export default withAuth(Room);
