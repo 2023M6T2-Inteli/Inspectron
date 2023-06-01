@@ -49,6 +49,10 @@ def stop(sid):
     sio.emit("emergency_stop")
     sio.sleep(0)
 
+@sio.event
+def disconnect(sid):
+    print('Disconnected from socket')
+
 def run_uvicorn():
     uvicorn.run(socketio_app, host=HOST, port=PORT)
 

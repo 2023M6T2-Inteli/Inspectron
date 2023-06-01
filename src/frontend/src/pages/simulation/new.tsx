@@ -26,20 +26,18 @@ const NewSimulation: React.FC = (props) => {
     }
     
     useEffect(() => {
-        if (stage == 1) {
-           
-            socket.on('connect', onConnect);
-            socket.on('disconnect', onDisconnect);
-            socket.on('foo', onStreaming);
+        socket.on('connect', onConnect);
+        socket.on('disconnect', onDisconnect);
+        socket.on('foo', onStreaming);
+
+        return () => {
+            socket.off('connect', onConnect);
+            socket.off('disconnect', onDisconnect);
+            socket.off('foo', onStreaming);
+            socket.disconnect()
+          };
         
-            return () => {
-              socket.off('connect', onConnect);
-              socket.off('disconnect', onDisconnect);
-              socket.off('foo', onStreaming);
-            };
-        }
-        
-      }, [stage]);
+      }, []);
 
     const startScan = () => {
         setLoading(true)
@@ -55,8 +53,6 @@ const NewSimulation: React.FC = (props) => {
         setLoading(true)
         toast.info("Varredura finalizada com sucesso!");
         setStage(0);
-
-     
     };
 
     let content = null;

@@ -8,4 +8,8 @@ class Heartbeat(Publisher):
         super().__init__("Heartbeat", node, f"/heartbeat", String)
 
     def send(self, msg):
-        self.publish(msg)
+        message = String()
+        message.data = msg
+
+        self.publish(message)
+        print("Mensagem publicada com sucesso!", flush=True)

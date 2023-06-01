@@ -44,7 +44,7 @@ class TurtleBotController(Node):
 
     def __backend_commands_callback(self, data):
         print(data)
-        msg_json = json.loads(data)
+        msg_json = json.loads(data.data)
         # msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
@@ -61,6 +61,7 @@ class TurtleBotController(Node):
                 pass
     
     def __heartbeat_callback(self, msg):
+        print("Mensagem recebida com sucesso no heartbeat!")
         self.__heartbeat_response_callback.send("oie")
     
     def __position_callback(self, euler_data: EulerData):

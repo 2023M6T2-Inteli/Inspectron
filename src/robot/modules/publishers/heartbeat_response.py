@@ -7,5 +7,6 @@ class HeartbeatResponse(Publisher):
     def __init__(self, node: Node):
         super().__init__("heartbeat_response", node, f"/heartbeat_response", String)
 
-    def apply(self, msg: String):
+    def send(self, msg: String):
         self.publish(String(data=str(msg)))
+        print("Mensagem publicada com sucesso!")
