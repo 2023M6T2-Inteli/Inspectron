@@ -3,7 +3,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
 from cv_bridge import CvBridge
-from modules.publishers import Velocity, Camera, HeartbeatResponse
+from modules.publishers import Velocity, Camera, HeartbeatResponse, Oxygen
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 import cv2
 # from ros2_message_converter import message_converter
@@ -32,6 +32,7 @@ class TurtleBotController(Node):
         self.__velocity_module = Velocity(self)
         self.__camera_module = Camera(self)
         self.__heartbeat_response_callback = HeartbeatResponse(self)
+        self.oxygen_callback = Oxygen(self)
         
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
@@ -80,6 +81,7 @@ class TurtleBotController(Node):
     def __runtime(self):
                 
         #self.__camera_runtime()
+        #self.__oxygen_runtime()
 
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
@@ -111,6 +113,10 @@ class TurtleBotController(Node):
                 self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
             else:
                 break
+            
+    def __oxygen_runtime(self):
+        #leitura do sensor
+        self.oxygen_callback.send() #Passar informação lida
         
         
 

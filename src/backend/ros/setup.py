@@ -3,7 +3,7 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import Streaming, HeartbeatResponse
+from ros.subscribers import Streaming, HeartbeatResponse, Battery, Oxygen
 from ros.publisher import BackendCommands, Heartbeat
 import json
 
@@ -13,6 +13,8 @@ class BackendController(Node):
         self.sio = sio
         self.streaming_module = Streaming(self, self.__streaming_callback)
         self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
+        self.battery_module = Battery(self, self.__battery_callback)
+        self.oxygen_module = Oxygen(self, self.__oxygen_callback)
         self.heartbeat = Heartbeat(self)
         self.bridge = CvBridge()
         self.backend_commands = BackendCommands(self)
@@ -32,6 +34,14 @@ class BackendController(Node):
 
         # self.sio.emit("streaming", converted_string)
         # self.get_logger().info(f"Received message: {msg}")
+        
+    def __battery_callback(self, data):
+        self.voltage = data.voltage
+        pass
+        
+    def __oxygen_callback(self, data):
+        pass
+        
       
         
 # def main(args=None):
