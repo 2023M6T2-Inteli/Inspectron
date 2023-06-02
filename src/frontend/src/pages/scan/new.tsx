@@ -24,19 +24,19 @@ const NewSimulation: React.FC = (props) => {
         setLoading(false);
     }
 
-    function onStreaming(value: string) {
+    function onCamera(value: string) {
       console.log(value)
     }
     
     useEffect(() => {
         socket.on('connect', onConnect);
         socket.on('disconnect', onDisconnect);
-        socket.on('foo', onStreaming);
+        socket.on('camera', onCamera);
 
         return () => {
             socket.off('connect', onConnect);
             socket.off('disconnect', onDisconnect);
-            socket.off('foo', onStreaming);
+            socket.off('camera', onCamera);
             socket.disconnect()
           };
         

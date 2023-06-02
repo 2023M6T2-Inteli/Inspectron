@@ -3,29 +3,35 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import Streaming, HeartbeatResponse
+from ros.subscribers import Camera, HeartbeatResponse
 from ros.publisher import BackendCommands, Heartbeat
 import json
-
+import websockets
+import base64
+import asyncio
 class BackendController(Node):
     def __init__(self, sio):
         super().__init__("backend_controller")
         self.sio = sio
-        self.streaming_module = Streaming(self, self.__streaming_callback)
+        self.camera_module = Camera(self, self.__camera_callback)
         self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
         self.heartbeat = Heartbeat(self)
         self.bridge = CvBridge()
         self.backend_commands = BackendCommands(self)
+        
 
-    def __streaming_callback(self, data):
+    def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
         
         current_frame = self.bridge.imgmsg_to_cv2(data)
-        model = YOLO("./yolo.pt")
+        model = YOLO(".yolo.pt")
         result = model.predict(current_frame, conf=0.6)
         annotated = result[0].plot()
-        cv2.imshow("camera", annotated)
-        cv2.waitKey(1)
+        _, frame = cv2.imencode(".jpg", annotated)
+        frame64 = base64.b64encode(frame).decode("utf-8")
+        print(frame64)
+        self.sio.emit("camera", frame64)
+        
 
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})

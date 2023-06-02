@@ -39,7 +39,7 @@ class TurtleBotController(Node):
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
         self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
         
-        self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
+        self.video_capture = cv2.VideoCapture('./videoteste.mp4') #Entrada não funciona no WSL
 
 
     def __backend_commands_callback(self, data):
@@ -79,7 +79,7 @@ class TurtleBotController(Node):
 
     def __runtime(self):
                 
-        #self.__camera_runtime()
+        self.__camera_runtime()
 
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
