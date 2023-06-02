@@ -9,5 +9,6 @@ class Camera(Publisher):
 
 
     def send(self, img):
+        print("Imagem enviada com sucesso!")
         self.publish(img)
 

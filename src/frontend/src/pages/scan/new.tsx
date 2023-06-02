@@ -4,59 +4,63 @@ import { toast } from "react-toastify";
 import StartScan from "@/components/startScan";
 import LiveScan from "@/components/liveScan";
 import Loader from "@/components/loader";
-import { socket } from "@/config/socket";
 import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { io } from "socket.io-client";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
+    const [socket, setSocket] = React.useState<any>(null);
+    const [videoImage, setVideoImage] = React.useState<string | undefined>(undefined);
 
     function onConnect() {
         toast.success("Varredura iniciada com sucesso!");
         setStage(1);
-        console.log("conectado")
+        console.log("Connected to websocket!");
         setLoading(false);
     }
 
     function onDisconnect() {
+        console.log("Disconnected to websocket!");
         setLoading(false);
     }
 
-    function onCamera(value: string) {
-      console.log(value)
-    }
-    
-    useEffect(() => {
-        socket.on('connect', onConnect);
-        socket.on('disconnect', onDisconnect);
-        socket.on('camera', onCamera);
-
-        return () => {
-            socket.off('connect', onConnect);
-            socket.off('disconnect', onDisconnect);
-            socket.off('camera', onCamera);
-            socket.disconnect()
-          };
-        
-      }, []);
-
     const startScan = () => {
-        setLoading(true)
-        socket.connect()
-       
-
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
+        setLoading(true);
+        socket.connect();
     };
 
     const emergencyStop = () => {
-        setLoading(true);
         toast.info("Varredura finalizada com sucesso!");
+        socket.disconnect();
         setStage(0);
     };
+
+    function onCamera(value: string) {
+        if (videoImage == undefined) {
+            console.log(value)
+            setVideoImage(value);
+
+        }
+    }
+
+    useEffect(() => {
+        const socket = io(process.env.NEXT_PUBLIC_APP_URL!, { autoConnect: false, transports: ["websocket"] });
+        setSocket(socket);
+
+        socket.on("connect", onConnect);
+        socket.on("disconnect", onDisconnect);
+        socket.on("camera", onCamera);
+
+        return () => {
+            socket.off("connect", onConnect);
+            socket.off("disconnect", onDisconnect);
+            socket.off("camera", onCamera);
+            socket.disconnect();
+        };
+    }, []);
 
     let content = null;
     switch (stage) {
@@ -64,7 +68,7 @@ const NewSimulation: React.FC = (props) => {
             content = <StartScan buttonHandler={startScan} />;
             break;
         case 1:
-            content = <LiveScan buttonHandler={emergencyStop} />;
+            content = <LiveScan buttonHandler={emergencyStop} videoImage={videoImage}/>;
             break;
     }
 

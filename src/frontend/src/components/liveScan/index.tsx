@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SimpleInfo from "../simpleInfo";
 import Button, { ButtonTypes } from "../button";
 
 interface Props {
   buttonHandler: () => void;
+  videoImage?: string
 }
 
-const LiveScan: React.FC<Props> = ({buttonHandler}) => {
+const LiveScan: React.FC<Props> = ({buttonHandler, videoImage}) => {
+    // useEffect(() => {
+    //     console.log(videoImage)
+    // }, [videoImage])
     return (
         <div className="flex flex-col p-4 h-full">
             <h3 className="text-2xl mb-2">Vídeo</h3>
-            <div className="w-full bg-slate-400 rounded-md grow mb-8">
-                &nbsp;
-            </div>
+            <img className="w-full bg-slate-400 rounded-md grow mb-8" src={`data:image/png;base64,${videoImage}`} alt="Base64 Image"/>
             <div className="flex gap-4 justify-around">
                 <SimpleInfo label="Bateria" value="80%" />
                 <SimpleInfo label="Nível de oxigênio" value="89%" />
