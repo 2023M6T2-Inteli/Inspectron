@@ -10,13 +10,7 @@ from bson import ObjectId
 # Instanciando o objeto "router" da classe "APIRouter"
 router = APIRouter()
 
-
-# Definindo a rota "/scan"
-@router.get(
-    "/scans",
-    dependencies=[Depends(JWTBearer())],
-)
-async def get_scans():
+def complete_scan(location=None):
     scans = Scan.objects()
     for scan in scans:
         location = Location.objects(id=scan.location).first()
@@ -29,8 +23,16 @@ async def get_scans():
         scan_data["location"] = location_data
         scan_data["robot"] = robot_data
 
-        json.dumps(scan_data)
+    return scan_data
 
+# Definindo a rota "/scan"
+@router.get(
+    "/scans",
+    dependencies=[Depends(JWTBearer())],
+)
+async def get_scans():
+    scan_data = complete_scan()
+    json.dumps(scan_data)
     return JSONResponse(content=scan_data)
 
 @router.get(
@@ -38,6 +40,6 @@ async def get_scans():
 )
 async def get_scans_by_location(location_id: str):
     location = Location.objects(id=ObjectId(location_id)).first()
-    scans = json.loads(Scan.objects(location=location.id).to_json())
+    scans = complete_scan(location=location.id)
 
     return JSONResponse(content=scans)
