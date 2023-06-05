@@ -3,8 +3,8 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import Streaming, HeartbeatResponse, Battery, Oxygen
-from ros.publisher import BackendCommands, Heartbeat
+from subscribers import Streaming, HeartbeatResponse, Battery, Oxygen
+from publisher import BackendCommands, Heartbeat
 import json
 
 class BackendController(Node):
@@ -35,12 +35,15 @@ class BackendController(Node):
         # self.sio.emit("streaming", converted_string)
         # self.get_logger().info(f"Received message: {msg}")
         
-    def __battery_callback(self, data):
-        self.voltage = data.voltage
-        pass
+    def __battery_callback(self, data):  
+        self.percentage = ((data.voltage - 11)/1.6) * 100
+        #print(self.percentage)
+        return self.percentage
+        
         
     def __oxygen_callback(self, data):
-        pass
+        print(data.data)
+        
         
       
         

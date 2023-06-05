@@ -1,10 +1,10 @@
 from .base import Subscription
 from rclpy.node import Node
 from typing import Any
-#from sensor_msgs.msg import BatteryState
+from std_msgs.msg import Float64
 
 class Oxygen(Subscription):
     def __init__(self, node: Node, subscription_callback: Any):
-        super().__init__("oxygen", node, "/oxygen") 
+        super().__init__("oxygen", node, "/oxygen", Float64) 
 
         super().connect(subscription_callback)
