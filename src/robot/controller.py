@@ -3,11 +3,11 @@ from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
 from cv_bridge import CvBridge
-from modules.publishers import Velocity, Camera
-from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType
+from modules.publishers import Velocity, Camera, HeartbeatResponse
+from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 import cv2
-import base64
-
+# from ros2_message_converter import message_converter
+import json
 from enum import Enum
 
 class State(Enum):
@@ -30,15 +30,40 @@ class TurtleBotController(Node):
         super().__init__("turtlebot_controller")
 
         self.__velocity_module = Velocity(self)
+        self.__camera_module = Camera(self)
+        self.__heartbeat_response_callback = HeartbeatResponse(self)
+        
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
-
-        self.__camera_module = Camera(self)
+        self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
+        self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
+        
         self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
 
-        self.create_timer(0.16, self.__runtime)
 
+    def __backend_commands_callback(self, data):
+        print(data)
+        msg_json = json.loads(data.data)
+        # msg_json = message_converter.convert_ros_message_to_dictionary(data)
+        match (msg_json["command"]):
+            case "START":
+                self.create_timer(0.16, self.__runtime)
+            case "STOP":
+                pass
+            case "PAUSE":
+                pass
+            case "RESUME":
+                pass
+            case "RESTART":
+                pass
+            case "SHUTDOWN":
+                pass
+    
+    def __heartbeat_callback(self, msg):
+        print("Mensagem recebida com sucesso no heartbeat!")
+        self.__heartbeat_response_callback.send("oie")
+    
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
         #self.get_logger().info(str(euler_data))
@@ -53,6 +78,7 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
+                
         #self.__camera_runtime()
 
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
@@ -85,6 +111,8 @@ class TurtleBotController(Node):
                 self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
             else:
                 break
+        
+        
 
 
 if __name__ == "__main__":

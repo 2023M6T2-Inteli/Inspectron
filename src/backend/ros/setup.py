@@ -3,14 +3,19 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import Streaming
+from ros.subscribers import Streaming, HeartbeatResponse
+from ros.publisher import BackendCommands, Heartbeat
+import json
 
 class BackendController(Node):
-    def __init__(self):
+    def __init__(self, sio):
         super().__init__("backend_controller")
-        #self.sio = sio
+        self.sio = sio
         self.streaming_module = Streaming(self, self.__streaming_callback)
+        self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
+        self.heartbeat = Heartbeat(self)
         self.bridge = CvBridge()
+        self.backend_commands = BackendCommands(self)
 
     def __streaming_callback(self, data):
         self.get_logger().info('Receiving video frame')
@@ -21,21 +26,23 @@ class BackendController(Node):
         annotated = result[0].plot()
         cv2.imshow("camera", annotated)
         cv2.waitKey(1)
-        
-        
+
+    def __heartbeat_response_callback(self, data):
+        self.backend_commands.send({'command': 'START', 'body': ''})
+
         # self.sio.emit("streaming", converted_string)
         # self.get_logger().info(f"Received message: {msg}")
       
         
-def main(args=None):
-    rclpy.init(args=args)
-    image_subscriber = BackendController()
-    rclpy.spin(image_subscriber)
-    image_subscriber.destroy_node()
-    rclpy.shutdown()
+# def main(args=None):
+#     rclpy.init(args=args)
+#     image_subscriber = BackendController()
+#     rclpy.spin(image_subscriber)
+#     image_subscriber.destroy_node()
+#     rclpy.shutdown()
   
-if __name__ == '__main__':
-  main()
+# if __name__ == '__main__':
+#   main()
         
         
         
