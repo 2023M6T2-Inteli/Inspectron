@@ -4,7 +4,7 @@ from typing import Any
 from std_msgs.msg import Float64
 
 class Oxygen(Publisher):
-    def __init__(self, node: Node, subscription_callback: Any):
+    def __init__(self, node: Node):
         super().__init__("Oxygen", node, f"/oxygen", Float64)
 
     def send(self, msg):
