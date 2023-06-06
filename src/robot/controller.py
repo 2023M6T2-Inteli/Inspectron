@@ -39,7 +39,7 @@ class TurtleBotController(Node):
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
         self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
         
-        self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
+        self.video_capture = cv2.VideoCapture('./videoteste.mp4') #Entrada não funciona no WSL
 
 
     def __backend_commands_callback(self, data):
@@ -48,7 +48,8 @@ class TurtleBotController(Node):
         # msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
-                self.create_timer(0.16, self.__runtime)
+                # self.create_timer(0.16, self.__runtime)
+                self.__camera_runtime()
             case "STOP":
                 pass
             case "PAUSE":
@@ -78,9 +79,6 @@ class TurtleBotController(Node):
         #self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-                
-        #self.__camera_runtime()
-
         frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
 
@@ -111,9 +109,6 @@ class TurtleBotController(Node):
                 self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
             else:
                 break
-        
-        
-
 
 if __name__ == "__main__":
     rclpy.init()
