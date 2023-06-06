@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
 import uvicorn
 import rclpy
 import socketio
@@ -8,10 +8,35 @@ from routes import location_router, robot_router, scan_router, user_router
 from config import connect_to_database
 import threading
 from fastapi.middleware.cors import CORSMiddleware
-
+from uvicorn.protocols.http.h11_impl import H11Protocol
+import asyncio
+import queue
 
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
+
+async def startup_event():
+    while True:
+        try:
+            # Try to get an event from the queue
+            event = event_queue.get_nowait()
+        except queue.Empty:
+            # If the queue is empty, sleep for a bit and then continue the loop
+            await asyncio.sleep(0.1)
+            continue
+       
+        # If we got an event, emit it
+        await sio.emit(event['name'], event['data'])
+
+# async def startup():
+#     loop = asyncio.get_event_loop()
+#     await loop.run_in_executor(None, startup_event)
+
+@app.on_event("startup")
+async def tste():
+    # await startup()
+    
+    asyncio.create_task(startup_event())
 
 origins = [
     "http://localhost:3000",
@@ -37,15 +62,19 @@ PORT = 3001  # Porta a ser utilizada
 sio = AsyncServer(async_handlers=True, logger=True,
                       ping_interval=120, ping_timeout=120, async_mode='asgi', cors_allowed_origins='*')
 
+event_queue = queue.Queue()
+
 rclpy.init()
-node_backend = BackendController(sio=sio)
+node_backend = BackendController(sio=sio, event_queue=event_queue)
 
 socketio_app = socketio.ASGIApp(sio, app)
 
+
 @sio.event
-def connect(sid, environ):
+async def connect(sid, environ):
     node_backend.heartbeat.send("oi")
     print('Connected to socket', flush=True)
+    
 
 @sio.on('emergency_stop')
 def stop(sid):
@@ -56,8 +85,29 @@ def stop(sid):
 def disconnect(sid):
     print('Disconnected from socket')
 
+# async def emit_events_from_queue():
+#     while True:
+#         print("oie", flush=True)
+#         try:
+#             # Try to get an event from the queue
+#             event = event_queue.get_nowait()
+#         except queue.Empty:
+#             # If the queue is empty, sleep for a bit and then continue the loop
+#             await asyncio.sleep(0.1)
+#             continue
+#         print(event, flush=True)
+#         # If we got an event, emit it
+#         await sio.emit(event['name'], event['data'])
+
 def run_uvicorn():
-    uvicorn.run(socketio_app, host=HOST, port=PORT)
+    config = uvicorn.Config(
+        socketio_app, 
+        host=HOST, 
+        port=PORT,
+    )
+    server = uvicorn.Server(config)
+    
+    server.run()
 
 def run_rclpy():
     rclpy.spin(node_backend)
@@ -75,5 +125,5 @@ def main():
     uvicorn_thread.join()
     rclpy_thread.join()
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     main()

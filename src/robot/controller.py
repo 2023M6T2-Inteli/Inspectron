@@ -40,7 +40,7 @@ class TurtleBotController(Node):
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
         self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
         
-        self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
+        self.video_capture = cv2.VideoCapture('./videoteste.mp4') #Entrada não funciona no WSL
 
 
     def __backend_commands_callback(self, data):
@@ -49,7 +49,8 @@ class TurtleBotController(Node):
         # msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
-                self.create_timer(0.16, self.__runtime)
+                # self.create_timer(0.16, self.__runtime)
+                self.__camera_runtime()
             case "STOP":
                 pass
             case "PAUSE":
@@ -115,11 +116,10 @@ class TurtleBotController(Node):
                 break
             
     def __oxygen_runtime(self):
-        #leitura do sensor
-        self.oxygen_callback.send() #Passar informação lida
+        #leitura do sensor aqui
+        self.oxygen_callback.send(1.6) #Passar informação lida
         
         
-
 
 if __name__ == "__main__":
     rclpy.init()
