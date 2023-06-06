@@ -3,7 +3,7 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import Camera, HeartbeatResponse
+from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera
 from ros.publisher import BackendCommands, Heartbeat
 import json
 import websockets
@@ -15,10 +15,15 @@ class BackendController(Node):
         self.sio = sio
         self.camera_module = Camera(self, self.__camera_callback)
         self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
+        self.battery_module = Battery(self, self.__battery_callback)
+        self.oxygen_module = Oxygen(self, self.__oxygen_callback)
+        
         self.heartbeat = Heartbeat(self)
+        self.backend_commands = BackendCommands(self)
+        
         self.bridge = CvBridge()
         self.event_queue = event_queue
-        self.backend_commands = BackendCommands(self)
+        
         
 
     async def __camera_callback(self, data):
@@ -34,6 +39,39 @@ class BackendController(Node):
         frame64 = base64.b64encode(current_frame.tobytes()).decode("utf-8")
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
-
+        
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})
+           
+          
+    def __battery_callback(self, data):  
+        self.percentage = ((data.voltage - 11)/1.6) * 100
+        #print(self.percentage)
+        return 
+                    
+    def __oxygen_callback(self, data):
+        print(data.data)
+        return
+        
+        
+      
+        
+# def main(args=None):
+#     rclpy.init(args=args)
+#     image_subscriber = BackendController()
+#     rclpy.spin(image_subscriber)
+#     image_subscriber.destroy_node()
+#     rclpy.shutdown()
+  
+# if __name__ == '__main__':
+#   main()
+        
+        
+        
+        
+        
+        
+ 
+      
+
+    
