@@ -1,7 +1,7 @@
 from .base import Publisher
 from rclpy.node import Node
-from typing import Any
 from std_msgs.msg import Float64
+
 
 class Humidity(Publisher):
     def __init__(self, node: Node):
@@ -9,5 +9,3 @@ class Humidity(Publisher):
 
     def send(self, msg):
         self.publish(Float64(data=float(msg)))
-
-    
