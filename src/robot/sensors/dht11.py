@@ -9,7 +9,13 @@ class DHT11:
     @staticmethod
     def get_temperature():
         try:
-            return DHT11.DHT11_SENSOR.temperature
+            temperature = DHT11.DHT11_SENSOR.temperature
+
+			if temperature is not None:
+				return temperature
+			else:
+				return -1
+
         except Exception as error:
             print(error)
             return -1
@@ -17,7 +23,13 @@ class DHT11:
     @staticmethod
     def get_humidity():
         try:
-            return DHT11.DHT11_SENSOR.humidity
+            humidity = DHT11.DHT11_SENSOR.humidity
+
+			if humidity is not None:
+				return humidity
+			else:
+				return -1
+
         except Exception as error:
             print(error)
             return -1
