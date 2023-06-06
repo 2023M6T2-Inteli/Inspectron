@@ -1,7 +1,7 @@
 from .base import Publisher
 from rclpy.node import Node
 from std_msgs.msg import Float64
-from modules.sensors import DHT11
+from sensors import DHT11
 
 
 class Humidity(Publisher):
