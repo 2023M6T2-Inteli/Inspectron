@@ -40,8 +40,8 @@ class Lidar(Subscription):
 
     @staticmethod
     def remap_to_scan(data: list) -> list:
-        print(len(data.ranges))
-        print(data.ranges)
+        # print(len(data.ranges))
+        # print(data.ranges)
         new_list = []
 
         for i in range(360):
