@@ -1,3 +1,5 @@
 from .base import Subscription
-from .streaming import Streaming
+from .camera import Camera
 from .heartbeat_response import HeartbeatResponse
+from .battery import Battery
+from .oxygen import Oxygen
