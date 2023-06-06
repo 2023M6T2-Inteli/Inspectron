@@ -9,4 +9,6 @@ class Temperature(Publisher):
         super().__init__("Temperature", node, f"/temperature", Float64)
 
     def update(self):
-        self.publish(Float64(data=float(DHT11.get_temperature())))
+        temperature = DHT11.get_temperature()
+        if temperature:
+            self.publish(Float64(data=float(DHT11.get_temperature())))
