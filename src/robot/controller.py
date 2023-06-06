@@ -2,10 +2,9 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-from cv_bridge import CvBridge
 from modules.publishers import Velocity, Camera, HeartbeatResponse, Oxygen, Temperature, Humidity
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
-import cv2
+
 # from ros2_message_converter import message_converter
 import json
 from enum import Enum
@@ -45,9 +44,9 @@ class TurtleBotController(Node):
         self.__backend_commands_module = BackendCommands(
             self, self.__backend_commands_callback)
 
-        self.video_capture = cv2.VideoCapture(
-            './videoteste.mp4')  # Entrada não funciona no WSL
-        self.create_timer(0.16, self.__runtime)
+        self.create_timer(1, self.__sensores_runtime)
+        self.create_timer(0.16, self.__runtime_camera)
+        self.create_timer(0.24, self.__runtime_movement)
 
     def __backend_commands_callback(self, data):
         print(data)
@@ -85,12 +84,16 @@ class TurtleBotController(Node):
         self.__imu_data = imu_data
         # self.get_logger().info(str(imu_data))
 
-    def __runtime(self):
+    def __sensores_runtime(self):
+        self.__oxygen_callback.send(1.6)
+        self.__temperature_callback.update()
+        self.__humidity_callback.update()
 
-        # self.__camera_runtime()
-        self.__oxygen_runtime()
-        self.__temperature_runtime()
-        self.__humidity_runtime()
+    def __runtime_camera(self):
+        self.__camera_module.update()
+
+    def __runtime_movement(self):
+        pass
 
         # frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         # self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
@@ -110,26 +113,6 @@ class TurtleBotController(Node):
         #     self.__velocity_module.apply(0.30, 0)
 
         # self.get_logger().info(f"State: {self.__state}")
-
-    def __camera_runtime(self):
-        self.get_logger().info("Starting camera video")
-
-        while True:
-            self.bridge = CvBridge()
-            ret, frame = self.video_capture.read()
-            if ret == True:
-                self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
-            else:
-                break
-
-    def __oxygen_runtime(self):
-        self.__oxygen_callback.send(1.6)
-
-    def __temperature_runtime(self):
-        self.__temperature_callback.update()
-
-    def __humidity_runtime(self):
-        self.__humidity_callback.update()
 
 
 if __name__ == "__main__":
