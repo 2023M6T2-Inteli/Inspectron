@@ -3,3 +3,5 @@ from .velocity import Velocity
 from .camera import Camera
 from .heartbeat_response import HeartbeatResponse
 from .oxygen import Oxygen
+from .humidity import Humidity
+from .temperature import Temperature

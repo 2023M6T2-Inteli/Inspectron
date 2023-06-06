@@ -3,12 +3,13 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera
-from ros.publisher import BackendCommands, Heartbeat
+from subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
+from publisher import BackendCommands, Heartbeat
 import json
 import websockets
 import base64
 import asyncio
+
 class BackendController(Node):
     def __init__(self, sio, event_queue):
         super().__init__("backend_controller")
@@ -17,6 +18,8 @@ class BackendController(Node):
         self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
         self.battery_module = Battery(self, self.__battery_callback)
         self.oxygen_module = Oxygen(self, self.__oxygen_callback)
+        self.temperature_module = Temperature(self, self.__temperature_callback)
+        self.humidity_module = Humidity(self, self.__humidity_callback)
         
         self.heartbeat = Heartbeat(self)
         self.backend_commands = BackendCommands(self)
@@ -47,11 +50,17 @@ class BackendController(Node):
     def __battery_callback(self, data):  
         self.percentage = ((data.voltage - 11)/1.6) * 100
         #print(self.percentage)
-        return 
-                    
+                     
     def __oxygen_callback(self, data):
         print(data.data)
-        return
+        
+    def __temperature_callback(self, data):
+        print(data.data)
+
+    
+    def __humidity_callback(self, data):
+        print(data.data)
+        
         
         
       
