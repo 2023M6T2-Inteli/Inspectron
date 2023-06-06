@@ -10,10 +10,12 @@ import cv2
 import json
 from enum import Enum
 
+
 class State(Enum):
     FOWARD = 1
     DETOUR_LEFT = 2
     DETOUR_RIGHT = 3
+
 
 class TurtleBotController(Node):
     __euler_data = EulerData()
@@ -32,15 +34,17 @@ class TurtleBotController(Node):
         self.__velocity_module = Velocity(self)
         self.__camera_module = Camera(self)
         self.__heartbeat_response_callback = HeartbeatResponse(self)
-        
+
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
-        self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
-        
-        self.video_capture = cv2.VideoCapture(0) #Entrada não funciona no WSL
+        self.__backend_commands_module = BackendCommands(
+            self, self.__backend_commands_callback)
 
+        self.video_capture = cv2.VideoCapture(0)  # Entrada não funciona no WSL
+
+        self.create_timer(0.16, self.__runtime)
 
     def __backend_commands_callback(self, data):
         print(data)
@@ -59,29 +63,30 @@ class TurtleBotController(Node):
                 pass
             case "SHUTDOWN":
                 pass
-    
+
     def __heartbeat_callback(self, msg):
         print("Mensagem recebida com sucesso no heartbeat!")
         self.__heartbeat_response_callback.send("oie")
-    
+
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
-        #self.get_logger().info(str(euler_data))
+        # self.get_logger().info(str(euler_data))
 
     def __lidar_callback(self, lidar_data: LaserScanData):
         # lidar_data.ranges = array of 360 values (0-360 degrees) of distance in meters
-        #self.get_logger().info(str(lidar_data.ranges))
+        # self.get_logger().info(str(lidar_data.ranges))
         pass
 
     def __imu_callback(self, imu_data: ImuData):
         self.__imu_data = imu_data
-        #self.get_logger().info(str(imu_data))
+        # self.get_logger().info(str(imu_data))
 
     def __runtime(self):
-                
-        #self.__camera_runtime()
 
-        frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
+        # self.__camera_runtime()
+
+        frontal_min_distance = self.__lidar_module.frontal_distance(
+            DistanceFilterType.AVERAGE)
         self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
 
         if frontal_min_distance < 0.3:
@@ -100,7 +105,6 @@ class TurtleBotController(Node):
 
         self.get_logger().info(f"State: {self.__state}")
 
-
     def __camera_runtime(self):
         self.get_logger().info("Starting camera video")
 
@@ -111,8 +115,6 @@ class TurtleBotController(Node):
                 self.__camera_module.send(self.bridge.cv2_to_imgmsg(frame))
             else:
                 break
-        
-        
 
 
 if __name__ == "__main__":
