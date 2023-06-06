@@ -42,9 +42,11 @@ class TurtleBotController(Node):
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
-        self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
+        self.__backend_commands_module = BackendCommands(
+            self, self.__backend_commands_callback)
 
-        self.video_capture = cv2.VideoCapture('./videoteste.mp4') #Entrada não funciona no WSL
+        self.video_capture = cv2.VideoCapture(
+            './videoteste.mp4')  # Entrada não funciona no WSL
         self.create_timer(0.16, self.__runtime)
 
     def __backend_commands_callback(self, data):
@@ -85,7 +87,7 @@ class TurtleBotController(Node):
 
     def __runtime(self):
 
-        #self.__camera_runtime()
+        # self.__camera_runtime()
         self.__oxygen_runtime()
         self.__temperature_runtime()
         self.__humidity_runtime()
@@ -121,28 +123,14 @@ class TurtleBotController(Node):
                 break
 
     def __oxygen_runtime(self):
-<<<<<<< HEAD
-        # leitura do sensor aqui
-        self.oxygen_callback.send(1.6)  # Passar informação lida
-
-=======
-        #leitura do sensor aqui
-        print("ok")
-        self.__oxygen_callback.send(1.6) #Passar informação lida
+        self.__oxygen_callback.send(1.6)
 
     def __temperature_runtime(self):
-        #leitura do sensor aqui
-        print("ok")
-        self.__temperature_callback.send(1.6) #Passar informação lida
+        self.__temperature_callback.update()
 
     def __humidity_runtime(self):
-        #leitura do sensor aqui
-        print("ok")
-        self.__humidity_callback.send(1.6) #Passar informação lida
+        self.__humidity_callback.update()
 
-
-
->>>>>>> 24974c537bb7546cf633a34e32d3192babfc89c8
 
 if __name__ == "__main__":
     rclpy.init()

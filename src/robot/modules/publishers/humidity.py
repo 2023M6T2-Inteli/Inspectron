@@ -8,5 +8,5 @@ class Humidity(Publisher):
     def __init__(self, node: Node):
         super().__init__("Humidity", node, f"/humidity", Float64)
 
-    def send(self, msg):
+    def update(self):
         self.publish(Float64(data=float(DHT11.get_humidity())))

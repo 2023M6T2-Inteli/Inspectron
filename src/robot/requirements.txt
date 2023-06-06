@@ -133,3 +133,4 @@ transforms3d==0.4.1
 turtlesim==1.4.2
 unique-identifier-msgs==2.2.1
 visualization-msgs==4.2.3
+adafruit-circuitpython-dht==4.0.2

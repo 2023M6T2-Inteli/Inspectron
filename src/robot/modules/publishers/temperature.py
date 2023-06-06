@@ -8,5 +8,5 @@ class Temperature(Publisher):
     def __init__(self, node: Node):
         super().__init__("Temperature", node, f"/temperature", Float64)
 
-    def send(self, msg):
+    def update(self):
         self.publish(Float64(data=float(DHT11.get_temperature())))
