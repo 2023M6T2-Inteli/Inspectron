@@ -4,7 +4,7 @@ import adafruit_dht
 
 
 class DHT11:
-    DHT11_SENSOR = adafruit_dht.DHT11(board.D25)
+    DHT11_SENSOR = adafruit_dht.DHT11(board.D18)
 
     @staticmethod
     def get_temperature():
