@@ -11,10 +11,10 @@ class DHT11:
         try:
             temperature = DHT11.DHT11_SENSOR.temperature
 
-			if temperature is not None:
-				return temperature
-			else:
-				return -1
+            if temperature is not None:
+                return temperature
+            else:
+                return -1
 
         except Exception as error:
             print(error)
@@ -25,10 +25,10 @@ class DHT11:
         try:
             humidity = DHT11.DHT11_SENSOR.humidity
 
-			if humidity is not None:
-				return humidity
-			else:
-				return -1
+            if humidity is not None:
+                return humidity
+            else:
+                return -1
 
         except Exception as error:
             print(error)
