@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-from modules.publishers import Velocity, Camera, HeartbeatResponse, Oxygen, Temperature, Humidity
+from modules.publishers import Velocity, Camera, HeartbeatResponse, TVOC, Temperature, ECO2, GPS
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 
 # from ros2_message_converter import message_converter
@@ -33,9 +33,11 @@ class TurtleBotController(Node):
         self.__velocity_module = Velocity(self)
         self.__camera_module = Camera(self)
         self.__heartbeat_response_callback = HeartbeatResponse(self)
-        self.__oxygen_callback = Oxygen(self)
-        self.__temperature_callback = Temperature(self)
-        self.__humidity_callback = Humidity(self)
+
+        self.__tvoc_sensor = TVOC(self)
+        self.__temperature_sensor = Temperature(self)
+        self.__eco2_sensor = ECO2(self)
+        self.__gps_sensor = GPS(self)
 
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
@@ -44,6 +46,10 @@ class TurtleBotController(Node):
         self.__backend_commands_module = BackendCommands(
             self, self.__backend_commands_callback)
 
+        # command_start() # If you want to start the robot automatically
+
+    def command_start(self):
+        self.get_logger().info("Starting robot runtime...")
         self.create_timer(1, self.__sensores_runtime)
         self.create_timer(0.16, self.__runtime_camera)
         self.create_timer(0.24, self.__runtime_movement)
@@ -51,11 +57,9 @@ class TurtleBotController(Node):
     def __backend_commands_callback(self, data):
         print(data)
         msg_json = json.loads(data.data)
-        # msg_json = message_converter.convert_ros_message_to_dictionary(data)
         match (msg_json["command"]):
             case "START":
-                # self.create_timer(0.16, self.__runtime)
-                self.__camera_runtime()
+                self.command_start()
             case "STOP":
                 pass
             case "PAUSE":
@@ -85,9 +89,10 @@ class TurtleBotController(Node):
         # self.get_logger().info(str(imu_data))
 
     def __sensores_runtime(self):
-        self.__oxygen_callback.send(1.6)
-        self.__temperature_callback.update()
-        self.__humidity_callback.update()
+        self.__tvoc_sensor.update()
+        self.__temperature_sensor.update()
+        self.__eco2_sensor.update()
+        self.__gps_sensor.update()
 
     def __runtime_camera(self):
         self.__camera_module.update()
