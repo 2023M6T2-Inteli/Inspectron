@@ -29,15 +29,14 @@ class GPSSensor:
     PORT = "/dev/ttyAMA1"
     BAUDRATE = 9600
     TIMEOUT = 0.5
-    SERIAL = serial.Serial(PORT, BAUDRATE, timeout=TIMEOUT)
 
     @staticmethod
     def read_gps_data():
         try:
-            # sio = io.TextIOWrapper(io.BufferedRWPair(
-            #    serial_pipeline, serial_pipeline))
+            ser = serial.Serial(
+                GPSSensor.PORT, GPSSensor.BAUDRATE, timeout=GPSSensor.TIMEOUT)
             dataout = pynmea2.NMEAStreamReader()
-            raw_data = SERIAL.readline()
+            raw_data = ser.readline()
 
             if raw_data[0:6] == "$GPRMC":
                 parsed_data = pynmea2.parse(raw_data)
