@@ -26,7 +26,7 @@ class GPSData:
 
 
 class GPSSensor:
-    PORT = "/dev/ttyAMA0"
+    PORT = "/dev/ttyAMA1"
     BAUDRATE = 9600
     TIMEOUT = 0.5
 
@@ -34,7 +34,7 @@ class GPSSensor:
     def read_gps_data():
         try:
             serial_pipeline = serial.Serial(
-                GPSSensor.PORT, GPSSensor.BAUDRATE, GPSSensor.TIMEOUT)
+                GPSSensor.PORT, GPSSensor.BAUDRATE, timeout=0.5)
             sio = io.TextIOWrapper(io.BufferedRWPair(
                 serial_pipeline, serial_pipeline))
 
