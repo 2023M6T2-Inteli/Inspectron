@@ -26,7 +26,7 @@ class GPSData:
 
 
 class GPSSensor:
-    PORT = "/dev/ttyAMA2"
+    PORT = "/dev/ttyAMA1"
     BAUDRATE = 9600
     TIMEOUT = 0.5
     SERIAL = serial.Serial(PORT, BAUDRATE, timeout=TIMEOUT)
