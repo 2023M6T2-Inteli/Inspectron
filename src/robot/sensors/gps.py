@@ -33,7 +33,8 @@ class GPSSensor:
     @staticmethod
     def read_gps_data():
         try:
-            serial_pipeline = serial.Serial(PORT, BAUDRATE, TIMEOUT)
+            serial_pipeline = serial.Serial(
+                GPSSensor.PORT, GPSSensor.BAUDRATE, GPSSensor.TIMEOUT)
             sio = io.TextIOWrapper(io.BufferedRWPair(
                 serial_pipeline, serial_pipeline))
 
