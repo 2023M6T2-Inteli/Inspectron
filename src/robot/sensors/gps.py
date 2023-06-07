@@ -36,7 +36,7 @@ class GPSSensor:
         try:
             # sio = io.TextIOWrapper(io.BufferedRWPair(
             #    serial_pipeline, serial_pipeline))
-
+            dataout = pynmea2.NMEAStreamReader()
             raw_data = SERIAL.readline()
 
             if raw_data[0:6] == "$GPRMC":
