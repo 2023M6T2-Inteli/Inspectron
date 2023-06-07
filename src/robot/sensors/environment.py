@@ -2,9 +2,11 @@ import time
 import board
 import adafruit_ccs811
 
+i2c = board.I2C()
+
 
 class EnvironmentSensor:
-    CCS811 = adafruit_ccs811.CCS811(board.I2C())
+    CCS811 = adafruit_ccs811.CCS811(i2c)
 
     @staticmethod
     def get_temperature():
