@@ -14,4 +14,4 @@ class Camera(Publisher):
     def update(self):
         returned, frame = self.__video_capture.read()
         if returned:
-            self.publish(self.__bridge.cv2_to_imgmsg(frame, encoding="rgb8"))
+            self.publish(self.__bridge.cv2_to_imgmsg(frame, encoding="bgr8"))
