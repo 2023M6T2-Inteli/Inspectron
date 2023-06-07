@@ -10,6 +10,23 @@
 
 <h1> Manual de Instruções 
 	
+# Índice
+
+* [1. Introdução](#introdução)
+	* [1.1. Solução](#solução) 
+	* [1.2. Arquitetura da Solução](#arquitetura-da-solução)
+		* [1.2.1. HardWare](#hardware)
+		* [1.2.2. FrontEnd e BackEnd](#frontend-e-backend)
+* [2. Componestes e Recursos](#componestes-e-recursos)
+	* [2.1. Componestes de hardware](#componestes-de-hardware)
+	* [2.2. Componestes externos](#componestes-externos)
+* [3. Guia de Montagem](#guia-de-montagem)
+* [4. Guia de Instalação](#guia-de-instalção)
+* [5. Guia de Configuração](#guia-de-configuração)
+* [6. Guia de Operação](#guia-de-operação)
+* [7. Troubleshooting](#troubleshooting)
+* [8. Creditos](#creditos) 
+
 # 1. Introdução
 ## 1.1. Solução
 A solução se trata de um sistema de varredura de ambientes confinados, por meio de um robô(TurtleBot). O TurtleBot é um AGV que pode ser considerado como um um tipo de robô autônomo que segue uma trajetória pré-definida por meio de software e utiliza sensores, como câmeras e lasers, para navegar no ambiente e evitar obstáculos.
