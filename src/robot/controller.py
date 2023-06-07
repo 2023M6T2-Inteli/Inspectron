@@ -46,7 +46,7 @@ class TurtleBotController(Node):
         self.__backend_commands_module = BackendCommands(
             self, self.__backend_commands_callback)
 
-        # command_start() # If you want to start the robot automatically
+        self.command_start()  # If you want to start the robot automatically
 
     def command_start(self):
         self.get_logger().info("Starting robot runtime...")
