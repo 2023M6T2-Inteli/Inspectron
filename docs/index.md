@@ -414,17 +414,68 @@ Além disso, essa coleção possui a _Foreign Key_ _space_, que a relaciona com 
 
 A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
 
-O primeiro serviço é o ROS (Robot Operating System). Na nossa backend, criamos um nó do ROS, encarregado de trocar informações com o robô. Para isso, o nó do ROS se inscreve em tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos.
+### ROS (Robot Operating System)
 
-O segundo serviço é o WebSocket. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos. O WebSocket desempenha um papel fundamental na página de nova varredura, onde a necessidade de troca rápida de informações, como vídeo capturado pelo robô e outros dados dos sensores, é primordial.
+O primeiro serviço que temos em nossa backend é o ROS (Robot Operating System). Nele, criamos um nó do ROS responsável por trocar informações com o robô. Esse nó do ROS se conecta a tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos. Abaixo estão listados os tópicos que estamos utilizando:
 
-Por fim, o terceiro serviço é uma API HTTP em Fast. Nessa camada, estabelecemos rotas que permitem ao frontend fazer requisições para obter informações. São nessas rotas que armazenamos e buscamos dados no nosso banco de dados, como informações de localizações ou robôs cadastrados no sistema.
+Tópicos em que a backend se inscreve:
 
-Com essa arquitetura backend robusta e bem estruturada, garantimos uma comunicação eficiente entre o robô, o frontend e o banco de dados, permitindo uma experiência fluida e confiável para os usuários do sistema.
+* battery: Esse tópico é responsável por receber informações sobre o nível de bateria do robô enquanto ele está realizando uma nova varredura. A backend se inscreve nesse tópico para obter os dados atualizados sobre a energia disponível no robô.
+* camera: Esse tópico é responsável por receber cada frame da câmera do robô durante a varredura. A backend se inscreve nesse tópico para receber os dados de imagem capturados pelo robô em tempo real.
+* humidity: Esse tópico é responsável por receber informações sobre a umidade do ambiente em que o robô está operando. A backend se inscreve nesse tópico para obter os dados atualizados sobre a umidade do local.
+* oxygen: Esse tópico é responsável por receber informações sobre o nível de oxigênio do ambiente em que o robô está realizando a varredura. A backend se inscreve nesse tópico para monitorar os dados relacionados à qualidade do ar no local.
+* temperature: Esse tópico é responsável por receber informações sobre a temperatura do ambiente em que o robô está operando. A backend se inscreve nesse tópico para acompanhar os dados atualizados de temperatura.
+* heartbeat_response: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Se o robô estiver ativo, ele enviará uma mensagem de resposta no tópico "heartbeat_response".
+
+Tópicos que a backend publica:
+
+* heartbeat: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Essa publicação serve como um sinal para o robô informando que a conexão foi estabelecida.
+* backend_commands: Esse tópico é aquele em que o robô se inscreve, e a backend utiliza para enviar comandos ao robô. A backend publica nesse tópico todos os comandos que deseja que o robô execute, como iniciar o movimento, pausar, retornar ao ponto inicial, desligar, entre outros. Essa comunicação bidirecional permite que a backend envie instruções e controle o comportamento do robô durante a varredura.
+
+Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante
+
+### SOCKET.IO
+
+O segundo serviço é o Socketio. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos.
+
+O WebSocket desempenha um papel crucial na funcionalidade da página de nova varredura, onde é essencial estabelecer uma conexão em tempo real entre o robô e o frontend para permitir a troca de dados de forma rápida e eficiente. Essa tecnologia de comunicação bidirecional oferecida pelo WebSocket é ideal para lidar com fluxos contínuos de dados, como os gerados pelo robô durante uma varredura.
+
+Ao utilizar o WebSocket, somos capazes de transmitir diversos tipos de dados relevantes da backend para o frontend por meio do socket.io. Esses dados incluem, por exemplo, o vídeo capturado pelo robô, o nível de oxigênio presente na sala onde o robô está realizando a varredura e até mesmo a detecção de gases tóxicos por meio dos sensores do robô.
+
+Através dessa conexão em tempo real, podemos enviar os dados mencionados acima para o frontend de forma contínua e atualizada, permitindo que a interface do usuário reaja instantaneamente às informações recebidas. Isso significa que o usuário poderá visualizar o vídeo em tempo real, monitorar os níveis de oxigênio e receber alertas imediatos caso gases tóxicos sejam detectados durante a varredura.
+
+Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. Além disso, essa tecnologia é altamente
+
+### FAST API
+
+O terceiro serviço criado em nossa backend é uma FastAPI responsável por receber requisições HTTP do nosso frontend e gerenciar o armazenamento e busca de dados em nosso banco de dados. Essa API possui uma variedade de rotas para diferentes funcionalidades:
+
+#### Rotas de Usuário:
+
+* /users/create: Essa rota é responsável por criar um novo usuário e armazená-lo no banco de dados. Ela recebe os dados necessários para criar um usuário, como nome, email, senha e realiza a inserção dessas informações no banco de dados.
+* /users: Essa rota retorna todos os usuários cadastrados no sistema. Ao acessar essa rota, o frontend pode receber uma lista completa de todos os usuários registrados, com suas respectivas informações.
+* /users/login: Essa rota é responsável por realizar o login de um usuário. Ela recebe um email e uma senha, verifica se o usuário correspondente existe no banco de dados e, se for o caso, gera tokens de autenticação JWT (JSON Web Tokens) para permitir o acesso autenticado às demais partes do sistema.
+
+#### Rotas de Varreduras:
+
+* /scans: Essa rota retorna todas as varreduras realizadas. Ela fornece ao frontend uma lista com todas as varreduras registradas, incluindo informações relevantes como data, hora e outras.
+* /scans/locations: Essa rota retorna todas as varreduras realizadas em uma determinada localização. O frontend pode especificar uma localização específica como parâmetro e receberá uma lista das varreduras realizadas apenas nessa área, fornecendo uma visão mais específica dos dados de varredura.
+
+#### Rotas de Robô:
+
+* /robots: Essa rota retorna todos os robôs cadastrados no banco de dados. Ao acessar essa rota, o frontend receberá uma lista com informações detalhadas sobre cada robô registrado, como nome e ip.
+* /robots/create: Essa rota permite armazenar um novo robô no banco de dados. O frontend pode enviar os dados relevantes do robô, como nome, ip, e a API se encarregará de adicioná-lo ao banco de dados.
+
+#### Rotas de Localização:
+
+* /locations: Essa rota retorna todas as localizações cadastradas no banco de dados. O frontend pode acessá-la para obter uma lista completa de todas as localizações registradas, com detalhes como nome e coordenadas geográficas.
+* /locations/create: Essa rota permite a criação de uma nova localização. O frontend pode enviar os dados necessários para criar uma nova localização, como nome, endereço, coordenadas, e a API se encarregará de adicioná-la ao banco de dados.
+
+Essas rotas fornecem uma interface clara e abrangente para o nosso sistema, permitindo que o frontend realize operações relacionadas a usuários, varreduras, robôs e localizações de forma eficiente e organizada.
 
 # 9. Integração de sistemas.
 
-A fim de apresentar a fluidez da integração do nosso sistema, segue uma breve apresentação dos protocolados utilizados e a síntese de sua implementação.
+A fim de apresentar a fluidez da integração do nosso sistema, segue uma breve apresentação dos protocolos utilizados e a síntese de sua implementação.
 
 1. **ROS (Robot Operating System)** : ROS é um framework de software flexível para escrever programas de robótica. Ele fornece ferramentas, bibliotecas e convenções que visam simplificar a tarefa de criar comportamento de robôs complexos e robustos em uma ampla variedade de plataformas robóticas. O ROS usa um estilo de comunicação baseado em publicação/assinatura, onde os nós podem publicar mensagens para tópicos, e outros nós podem assinar esses tópicos para receber as mensagens. As mensagens são estruturas de dados que podem incluir informações como dados de sensores, estados de robôs, planos de ação, bateria etc. O ROS também suporta serviços, que são chamadas de procedimentos remotos síncronos que um nó pode usar para solicitar dados de outro.
 2. **WebSocket** : WebSocket é um protocolo de comunicação que fornece comunicação bidirecional em tempo real entre um cliente e um servidor. Diferente do HTTP, o WebSocket permite uma conexão persistente, onde tanto o cliente quanto o servidor podem iniciar a transmissão de dados a qualquer momento. Isso é especialmente útil para aplicações que requerem atualizações frequentes e em tempo real, como a página de varredura da aplicação, onde os dados do vídeo e dos sensores do robô são enviados para o frontend em tempo real. O WebSocket também utiliza um modelo de publicação/assinatura para a troca de mensagens.
@@ -434,7 +485,7 @@ Nesse contexto, apresentando o escopo de nossa solução novamente e vinculando 
 
 ## Teste de eficácia e performance
 
-Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas. Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema. 
+Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas. Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema.
 
 A princípio, criamos um nó do ROS que se inscreve em um tópico específico para receber dados do robô (ex: 'LIDAR') e possui a capacidade de publicar informações em outros tópicos que este ouve (ex: 'cmd_vel'). Essa configuração permite a troca de informações entre o robô e a backend. Para teste, decidimos desenvolver o script que analisa os valores do LIDAR e altere a direção e velocidade do robô. Sobre resultados com esse primeiro teste, no cenário padrão da TurtleBot o robô analisou e desviou corretamente de obstruções em seu caminho, consideramos um sucesso em termos de comunicação do ROS com o robô e a execução dos comandos de forma devida.
 
