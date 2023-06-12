@@ -385,30 +385,21 @@ A detecção de obstáculos é uma etapa fundamental para garantir que o robô m
 
 ## Banco de Dados
 
-O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, rotas e informações de ambiente captadas pelos sensores do robô.
-Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, _space_ (que representa o espaço confinado em si) e _route_ (que representa as leituras feitas nos determinados espaços).
+O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, das varreduras e as informações de ambiente captadas pelos sensores do robô, qual robô realizou a varredura e também é fundamental a criação de um sistema de autenticação de usuário.
+Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, _location_ (que representa o espaço confinado em si) e _scan_ (que representa as varreduras feitas nos determinados espaços).
 
 A seguir está uma imagem da arquitetura de nosso banco de dados:
 
-![Inspectron DB.jpg](https://github.com/2023M6T2-Inteli/Inspectron/blob/docs/add-simple-describes-and-format/media/Inspectron%20DB.jpg?raw=true)
+![Inspectron DB.jpg](https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/Inspectron%20DB.jpg?raw=true)
 
-Explicação detalhada:
+A coleção location é composta pelos documentos id, name e coordinates. O id é a chave primária, garantindo um registro exclusivo. Isso evita duplicatas na coleção e permite relacionar com outras coleções do banco de dados. O campo name facilita a identificação e pesquisa dos registros no espaço. O documento coordinates é utilizado para localizar fisicamente o espaço salvo. Ele é do tipo object, necessitando de informações como coordenadas x e y para cumprir sua função no projeto.
 
-A entidade _space_ é composta pelas colunas _id_, _name_ e _coordinates_. O id é a primary key da coleção, ou seja, ele é responsável por fornecer um registro exclusivo a ela. Dessa forma, ele garante que não haja duplicatas na coleção e também possibilita a relação entre as coleções do banco de dados. O _name_ é utilizado para facilitar a identificação e pesquisa de registros do espaço. E por fim, o documento _coordinates_ é utilizado para localizar físicamente o espaço salvo. Ele é do tipo _object_, isso significa que ele precisa de mais de uma informação na sua composição. Para cumprir sua função corretamente no projeto, ele precisa receber uma coordenada x e uma coordenada y.
+No caso da coleção scan, encontra-se os documentos id, actions, oxygen e space. O id possui a mesma função mencionada anteriormente. O documento actions registra as movimentações do robô no espaço, sendo um array que armazena objetos dinâmicos representando as ações realizadas. Essa estrutura permite lidar flexivelmente com diferentes tipos de objetos no mesmo documento, caso seja necessário registrar ações mais complexas executadas pelo robô. O documento oxygen representa os níveis de oxigênio, medidos em porcentagem pelo sensor do robô. Além disso, essa coleção possui a chave estrangeira space, que a relaciona com a coleção space. A chave estrangeira garante a integridade dos dados entre as duas coleções, possibilitando estabelecer a relação com segurança.
 
-Já a tabela _route_ é composta pelos documentos _id_, _directions_, _oxygen_ e _space_. O _id_ exerce a mesma função comentada anteriormente. O documento _directions_ é utilizado para salvar a movimentação que o robô faz dentro do espaço. Ele é uma array do tipo _object_ que recebe o enum _direction_, utilizado para dar um valor inteiro para constantes nomeadas e _value_ que metrifica essa movimentação.
+Para a coleção robot, tem-se os campos id, name e ip. Essa coleção tem como objetivo fornecer informações de identificação do robô responsável pela varredura, permitindo uma análise mais detalhada do agente executor da tarefa.
 
-A estrutura do enum _direction_ pode ser representada como:
-{
-Frente: 0
-Trás: 1
-Esquerda: 2
-Direita: 3
-}
+Por fim, a coleção users é composta pelos campos id, name, email e password. Essa coleção implementa um sistema de autenticação convencional, garantindo a segurança e o controle de acesso aos recursos do sistema. Os usuários podem autenticar-se com suas credenciais únicas, como nome de usuário (name), endereço de e-mail (email) e senha (password), para acessar funcionalidades e recursos específicos disponibilizados pelo sistema.
 
-O documento _oxygen_ representa a deficiência ou enriquecimento de oxigênio medidos em porcentagem captados pelo sensor do robô.
-
-Além disso, essa coleção possui a _Foreign Key_ _space_, que a relaciona com a coleção _space_. A _Foreign Key_ garante a integridade dos dados das duas coleções, tornando possível estabelecer a relação com segurança.
 
 ## Servidor
 
