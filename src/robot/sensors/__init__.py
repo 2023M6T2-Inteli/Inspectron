@@ -1,1 +1,2 @@
-from .dht11 import DHT11
+from .environment import EnvironmentSensor
+from .gps import GPSSensor, GPSData
