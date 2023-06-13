@@ -24,8 +24,9 @@
 * [4. Guia de Instalação](#guia-de-instalção)
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
-* [7. Troubleshooting](#troubleshooting)
-* [8. Creditos](#creditos) 
+* [7. Questões de Segurança](#guia-de-operação)
+* [8. Troubleshooting](#troubleshooting)
+* [9. Creditos](#creditos) 
 
 # 1. Introdução
 ## 1.1. Solução
@@ -155,7 +156,9 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
-# 7. Troubleshooting
+# 7. Questões de Segurança
+
+# 8. Troubleshooting
 
 |   #             |Problema                          |         Possível solução                |
 |----------------|-------------------------------|-----------------------------|
@@ -163,7 +166,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |2          |"Digite aq"            |"Digite aq "            |
 |3          |"Digite aq "|"Digite aq"|
 
-# 8. Creditos 
+# 9. Creditos 
 
 * [Antônio Ribeiro Cavalcante](https://www.linkedin.com/in/antonioribeiro893/)
 * [Emanuele Lacerda Morais Martins](https://www.linkedin.com/in/emanuele-morais/)
