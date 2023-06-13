@@ -3,9 +3,10 @@
 # estabelecendo as associações adequadas entre eles.
 
 from mongoengine import * # Importando o módulo "mongoengine" / "mongoengine" é um módulo que permite a conexão com o banco de dados MongoDB
-from models import Robot, Scan, Location, Direction # Importando a classe "Location" da pasta "models" e o arquivo "location.py"
+from models import Robot, Scan, Location # Importando a classe "Location" da pasta "models" e o arquivo "location.py"
 from config import connect_to_database # Importando a variável "uri" do arquivo "db_connection.py" da pasta "config"
 #Uri é a variável que contém a string de conexão com o banco de dados MongoDB
+from bson import ObjectId
 
 connect_to_database() # Conectando com o banco de dados MongoDB
 
@@ -18,9 +19,9 @@ robot.ip = '222.1312.1212' # Atribuindo o valor do parâmetro "ip" ao objeto "ro
 robot.save() # Salvando o objeto "robot" no banco de dados
 
 # Instanciando o objeto "scan" da classe "Scan" e passando o parâmetro "directions"
-scan = Scan(directions=[{"direction": Direction.FRENTE, "value": 10}, {
-            "direction": Direction.DIREITA, "value": 30}, {"direction": Direction.TRAS, "value": 20}])
+scan = Scan()
+scan.actions = [{"x": 1, "y": 2}, 10, 'ANDOU PRA ESQUERDA', 20]
 scan.oxygen = 22.2
-scan.location = location
-scan.robot = robot
+scan.location = location.id
+scan.robot = robot.id
 scan.save()
