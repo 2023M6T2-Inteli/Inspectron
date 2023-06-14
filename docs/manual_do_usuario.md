@@ -164,7 +164,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |----------------|-------------------------------|-----------------------------|
 |1|      Falta de Bateria      |  Parar o que o robô está fazendo e colocar a bateria para carregar. Uma vez que a bateria descarrega, não é possível recarregar novamente.          |
 |2          |Falhas no sistema de coleta e análise de dados            |Verifique se há espaço de armanezamento e se os dispositivos de coletos estão funcionando corretamente            |
-|3          |"Digite aq "|"Digite aq"|
+|3          | Danos físicos |Verifique se o robô sofreu algum dano físico, se os componentes físicos estão em boas condições e se os cabos e conexões estão firmemente conectados |
 
 # 9. Creditos 
 
