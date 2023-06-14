@@ -32,14 +32,16 @@ class BackendController(Node):
     async def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
         
-        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
+        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
 
         # model = YOLO("ros/yolo.pt")
         # result = model.predict(current_frame, conf=0.6)
         # annotated = result[0].plot()
 
-        # _, frame = cv2.imencode(".jpg", annotated)
-        frame64 = base64.b64encode(current_frame.tobytes()).decode("utf-8")
+        _, buffer = cv2.imencode('.jpg', current_frame)
+
+        # Convert byte array to base64 string
+        frame64 = base64.b64encode(buffer).decode('utf-8')
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
         
