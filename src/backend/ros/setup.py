@@ -26,6 +26,7 @@ class BackendController(Node):
         
         self.bridge = CvBridge()
         self.event_queue = event_queue
+        self.teste = 0
         
         
 
@@ -34,16 +35,18 @@ class BackendController(Node):
         
         current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
 
-        # model = YOLO("ros/yolo.pt")
-        # result = model.predict(current_frame, conf=0.6)
-        # annotated = result[0].plot()
+        model = YOLO("ros/yolo.pt")
+        result = model.predict(current_frame, conf=0.6)
+        annotated = result[0].plot()
 
-        _, buffer = cv2.imencode('.jpg', current_frame)
+        _, buffer = cv2.imencode('.jpg', annotated)
 
         # Convert byte array to base64 string
         frame64 = base64.b64encode(buffer).decode('utf-8')
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
+        self.teste += 1
+        print(self.teste, flush=True)
         
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})

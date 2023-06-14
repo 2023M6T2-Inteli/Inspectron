@@ -16,7 +16,7 @@ class Publisher:
 
     def connect(self) -> None:
         self.publisher = self.node.create_publisher(
-            self.topic_type, self.topic_name, 10
+            self.topic_type, self.topic_name, 1000
         )  # Create the publisher to the topic
 
         self.node.get_logger().info(f"Publisher {self.name} connected.")
