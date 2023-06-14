@@ -12,10 +12,9 @@ import { io } from "socket.io-client";
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
+    const [form, setForm] = React.useState(undefined);
+   
     const [socket, setSocket] = React.useState<any>(null);
-
-    
-    const [videoImage, setVideoImage] = React.useState<string | undefined>(undefined);
 
     function onConnect() {
         toast.success("Varredura iniciada com sucesso!");
@@ -29,31 +28,12 @@ const NewSimulation: React.FC = (props) => {
         setLoading(false);
     }
 
-    const startScan = () => {
+    const startScan = (data: any) => {
         setLoading(true);
         socket.connect();
+        console.log(data)
+        setForm(data)
     };
-
-    const emergencyStop = () => {
-        toast.info("Varredura finalizada com sucesso!");
-        socket.disconnect();
-        setStage(0);
-    };
-
-    function onCamera(value: string) {
-        if (videoImage == undefined) {
-            setVideoImage(value);
-
-        }
-    }
-
-    function onOxygen(value: string) {
-        console.log(value);
-    }
-
-    function onBattery(value: string) {
-        console.log(value);
-    }
 
     useEffect(() => {
         const socket = io(process.env.NEXT_PUBLIC_APP_URL!, { autoConnect: false, transports: ["websocket"] });
@@ -61,14 +41,11 @@ const NewSimulation: React.FC = (props) => {
 
         socket.on("connect", onConnect);
         socket.on("disconnect", onDisconnect);
-        socket.on("camera", onCamera);
-        socket.on("oxygen", onOxygen);
 
         return () => {
             socket.off("connect", onConnect);
             socket.off("disconnect", onDisconnect);
-            socket.off("camera", onCamera);
-            socket.off("oxygen", onOxygen);
+
             socket.disconnect();
         };
     }, []);
@@ -79,7 +56,7 @@ const NewSimulation: React.FC = (props) => {
             content = <StartScan buttonHandler={startScan} />;
             break;
         case 1:
-            content = <LiveScan buttonHandler={emergencyStop} videoImage={videoImage}/>;
+            content = <LiveScan form={form} socket={socket} setStage={setStage} />;
             break;
     }
 

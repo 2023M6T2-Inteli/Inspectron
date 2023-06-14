@@ -5,10 +5,7 @@ import cv2
 from cv_bridge import CvBridge
 from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
 from ros.publisher import BackendCommands, Heartbeat
-import json
-import websockets
 import base64
-import asyncio
 
 class BackendController(Node):
     def __init__(self, sio, event_queue):
