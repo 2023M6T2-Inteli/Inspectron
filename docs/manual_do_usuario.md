@@ -24,7 +24,7 @@
 * [4. Guia de Instalação](#guia-de-instalção)
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
-* [7. Questões de Segurança](#guia-de-operação)
+* [7. Considerações de Segurança](#guia-de-operação)
 * [8. Troubleshooting](#troubleshooting)
 * [9. Creditos](#creditos) 
 
@@ -156,7 +156,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
-# 7. Questões de Segurança
+# 7. Considerações de Segurança
 
 # 8. Troubleshooting
 
