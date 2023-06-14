@@ -9,9 +9,10 @@ import json
 import websockets
 import base64
 import asyncio
+from utils import NewScan
 
 class BackendController(Node):
-    def __init__(self, sio, event_queue):
+    def __init__(self, sio, event_queue, new_scan):
         super().__init__("backend_controller")
         self.sio = sio
         self.camera_module = Camera(self, self.__camera_callback)
@@ -26,6 +27,8 @@ class BackendController(Node):
         
         self.bridge = CvBridge()
         self.event_queue = event_queue
+
+        self.new_scan = new_scan
         
         
 
@@ -42,24 +45,39 @@ class BackendController(Node):
         frame64 = base64.b64encode(current_frame.tobytes()).decode("utf-8")
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
+
+        self.new_scan.video = current_frame
         
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})
+        self.new_scan.heartbeat = data
            
           
     def __battery_callback(self, data):  
         self.percentage = ((data.voltage - 11)/1.6) * 100
         #print(self.percentage)
+        self.new_scan.battery = self.percentage
                      
     def __oxygen_callback(self, data):
         print(data.data)
+        if self.new_scan.oxygen_max == None:
+            self.new_scan.oxygen_max = data.data
+        elif data.data > self.new_scan.oxygen_max:
+            self.new_scan.oxygen_max = data.data
+
+        if self.new_scan.oxygen_min == None:
+            self.new_scan.oxygen_min = data.data
+        elif data.data < self.new_scan.oxygen_min:
+            self.new_scan.oxygen_min = data.data
         
     def __temperature_callback(self, data):
         print(data.data)
+        self.new_scan.temperature = data.data
 
     
     def __humidity_callback(self, data):
         print(data.data)
+        self.new_scan.humidity = data.data
         
         
         

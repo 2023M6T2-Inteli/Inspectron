@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from uvicorn.protocols.http.h11_impl import H11Protocol
 import asyncio
 import queue
-
+from utils import NewScan
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
 
@@ -65,7 +65,8 @@ sio = AsyncServer(async_handlers=True, logger=True,
 event_queue = queue.Queue()
 
 rclpy.init()
-node_backend = BackendController(sio=sio, event_queue=event_queue)
+new_scan = NewScan()
+node_backend = BackendController(sio=sio, event_queue=event_queue, new_scan=new_scan)
 
 socketio_app = socketio.ASGIApp(sio, app)
 
