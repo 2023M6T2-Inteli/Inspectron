@@ -161,8 +161,8 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 # 7. Riscos Operacionais
 |   #             |Problema                          |         Descrição                |
 |----------------|-------------------------------|-----------------------------|
-|1|            |Falhas técnicas            |O robô pode enfrentar falhas técnicas, como mau funcionamento dos componentes, perda de energia, falhas de comunicação ou problemas de software. Essas falhas podem resultar na interrupção da operação do robô, atrasos nas inspeções ou perda de dados. É importante realizar manutenções regulares, testes de funcionalidade e implementar sistemas de backup para lidar com essas situações.|
-|2          |            |           |
+|1|Falhas técnicas            |O robô pode enfrentar falhas técnicas, como mau funcionamento dos componentes, perda de energia, falhas de comunicação ou problemas de software. Essas falhas podem resultar na interrupção da operação do robô, atrasos nas inspeções ou perda de dados. É importante realizar manutenções regulares, testes de funcionalidade e implementar sistemas de backup para lidar com essas situações.            |
+|2          |            |           
 |3          |  |
 # 8. Adequação do Local de Operação do Robô
 
