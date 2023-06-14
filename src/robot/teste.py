@@ -45,7 +45,8 @@ class TurtleBotController(Node):
 
     def command_start(self):
         self.get_logger().info("Starting robot runtime...")
-        self.create_timer(0.16, self.__runtime_camera)
+        # self.create_timer(0.16, self.__runtime_camera)
+        self.__runtime_camera()
 
     def __backend_commands_callback(self, data):
         print(data)
