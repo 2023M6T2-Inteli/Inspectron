@@ -163,7 +163,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |   #             |Problema                          |         Possível solução                |
 |----------------|-------------------------------|-----------------------------|
 |1|      Falta de Bateria      |  Parar o que o robô está fazendo e colocar a bateria para carregar. Uma vez que a bateria descarrega, não é possível recarregar novamente.          |
-|2          |"Digite aq"            |"Digite aq "            |
+|2          |Falhas no sistema de coleta e análise de dados            |Verifique se há espaço de armanezamento e se os dispositivos de coletos estão funcionando corretamente            |
 |3          |"Digite aq "|"Digite aq"|
 
 # 9. Creditos 
