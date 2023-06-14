@@ -167,7 +167,12 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 # 8. Adequação do Local de Operação do Robô
 
 # 9. Guia de Prevenção e Mitigação de Acidentes
-
+Segue uma tabela com possiveis passos que podem sererm tomados para a mitigação e prevenção de acidentes
+|   #             |Item                          |         Descrição                |
+|----------------|-------------------------------|-----------------------------|
+|1|"Digite Aqui"|"Digite Aqui"|
+|2|"Digite Aqui"|"Digite Aqui"|
+|3|"Digite Aqui"|"Digite Aqui"|
 # 10. Troubleshooting
 
 |   #             |Problema                          |         Possível solução                |
