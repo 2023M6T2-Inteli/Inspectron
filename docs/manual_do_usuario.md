@@ -34,7 +34,7 @@ A solução se trata de um sistema de varredura de ambientes confinados, por mei
 
 O TurtleBot entra em espaços confinados medindo o nível de oxigênio presente no ambiente a fim de garantir segurança aos operários que necessitem adentrar para fazer reparos. O Robô contará também, com um sensor “lidar”, que será usado para identificar obstáculos à sua frente e contorná-lo e uma câmera a fim de identificar rachaduras ao longo do percurso.
 
-O operador terá disponível um website, que trará informações de varreduras antigas , disponibilizando relatórios e criando novas varreduras.
+O operador terá disponível um website, que trará informações de varreduras antigas, disponibilizando relatórios e criando novas varreduras.
 
 ## 1.2. Arquitetura da Solução
 
