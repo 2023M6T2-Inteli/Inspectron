@@ -159,7 +159,11 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
 # 7. Riscos Operacionais
-
+|   #             |Problema                          |         Possível solução                |
+|----------------|-------------------------------|-----------------------------|
+|1|            |            ||
+|2          |            |           |
+|3          |  |
 # 8. Adequação do Local de Operação do Robô
 
 # 9. Guia de Prevenção e Mitigação de Acidentes
