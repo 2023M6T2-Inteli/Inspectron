@@ -13,6 +13,8 @@ const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
     const [socket, setSocket] = React.useState<any>(null);
+
+    
     const [videoImage, setVideoImage] = React.useState<string | undefined>(undefined);
 
     function onConnect() {
@@ -40,10 +42,17 @@ const NewSimulation: React.FC = (props) => {
 
     function onCamera(value: string) {
         if (videoImage == undefined) {
-            console.log(value)
             setVideoImage(value);
 
         }
+    }
+
+    function onOxygen(value: string) {
+        console.log(value);
+    }
+
+    function onBattery(value: string) {
+        console.log(value);
     }
 
     useEffect(() => {
@@ -53,11 +62,13 @@ const NewSimulation: React.FC = (props) => {
         socket.on("connect", onConnect);
         socket.on("disconnect", onDisconnect);
         socket.on("camera", onCamera);
+        socket.on("oxygen", onOxygen);
 
         return () => {
             socket.off("connect", onConnect);
             socket.off("disconnect", onDisconnect);
             socket.off("camera", onCamera);
+            socket.off("oxygen", onOxygen);
             socket.disconnect();
         };
     }, []);

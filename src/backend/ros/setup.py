@@ -54,17 +54,25 @@ class BackendController(Node):
           
     def __battery_callback(self, data):  
         self.percentage = ((data.voltage - 11)/1.6) * 100
+        event = {"name": "battery", "data": self.percentage}
+        self.event_queue.put(event)
         #print(self.percentage)
                      
     def __oxygen_callback(self, data):
         print(data.data)
+        event = {"name": "oxygen", "data": data.data}
+        self.event_queue.put(event)
         
     def __temperature_callback(self, data):
         print(data.data)
+        event = {"name": "temperature", "data": data.data}
+        self.event_queue.put(event)
 
     
     def __humidity_callback(self, data):
         print(data.data)
+        event = {"name": "humidity", "data": data.data}
+        self.event_queue.put(event)
         
         
         
