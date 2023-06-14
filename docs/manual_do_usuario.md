@@ -26,9 +26,8 @@
 * [6. Guia de Operação](#guia-de-operação)
 * [7. Considerações de Segurança](#considerações-de-segurança)
 * [8. Especificações do Sistema](#especificações-do-sistema)
-* [9. Manual Operacional](#manual-operacional)
-* [10. Troubleshooting](#troubleshooting)
-* [11. Creditos](#creditos) 
+* [9. Troubleshooting](#troubleshooting)
+* [10. Creditos](#creditos) 
 
 # 1. Introdução
 ## 1.1. Solução
@@ -162,9 +161,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 
 # 8. Especificações do Sistema
 
-# 9. Manual Operacional
-
-# 10. Troubleshooting
+# 9. Troubleshooting
 
 |   #             |Problema                          |         Possível solução                |
 |----------------|-------------------------------|-----------------------------|
@@ -172,7 +169,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |2          |"Digite aq"            |"Digite aq "            |
 |3          |"Digite aq "|"Digite aq"|
 
-# 11. Creditos 
+# 10. Creditos 
 
 * [Antônio Ribeiro Cavalcante](https://www.linkedin.com/in/antonioribeiro893/)
 * [Emanuele Lacerda Morais Martins](https://www.linkedin.com/in/emanuele-morais/)
