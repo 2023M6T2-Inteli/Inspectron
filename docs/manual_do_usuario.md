@@ -24,9 +24,11 @@
 * [4. Guia de Instalação](#guia-de-instalção)
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
-* [7. Considerações de Segurança](#considerações-de-segurança)
-* [8. Troubleshooting](#troubleshooting)
-* [9. Creditos](#creditos) 
+* [7. Riscos Operacionaias](#riscos-operacionaias)
+* [8. Adequação do Local de Operação do Robô](#adequação-do-local-de-operação-do-robô)
+* [9. Guia de Prevenção e Mitigação de Acidentes](#guia-de-prevenção-e-mitigação-de-acidentes)
+* [10. Troubleshooting](#troubleshooting)
+* [11. Creditos](#creditos) 
 
 # 1. Introdução
 ## 1.1. Solução
@@ -156,9 +158,13 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
-# 7. Considerações de Segurança
+# 7. Riscos Operacionais
 
-# 8. Troubleshooting
+# 8. Adequação do Local de Operação do Robô
+
+# 9. Guia de Prevenção e Mitigação de Acidentes
+
+# 10. Troubleshooting
 
 |   #             |Problema                          |         Possível solução                |
 |----------------|-------------------------------|-----------------------------|
@@ -166,7 +172,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |2          |Falhas no sistema de coleta e análise de dados            |Verifique se há espaço de armanezamento e se os dispositivos de coletos estão funcionando corretamente            |
 |3          | Danos físicos |Verifique se o robô sofreu algum dano físico, se os componentes físicos estão em boas condições e se os cabos e conexões estão firmemente conectados |
 
-# 9. Creditos 
+# 11. Creditos 
 
 * [Antônio Ribeiro Cavalcante](https://www.linkedin.com/in/antonioribeiro893/)
 * [Emanuele Lacerda Morais Martins](https://www.linkedin.com/in/emanuele-morais/)
