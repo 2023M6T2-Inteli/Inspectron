@@ -24,7 +24,9 @@
 * [4. Guia de Instalação](#guia-de-instalção)
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
-* [7. Considerações de Segurança](#guia-de-operação)
+* [7. Considerações de Segurança](#considerações-de-segurança)
+* [8. Especificações do Sistema](#especificações-do-sistema)
+* [8. Manual Operacional](#manual-operacional)
 * [8. Troubleshooting](#troubleshooting)
 * [9. Creditos](#creditos) 
 
