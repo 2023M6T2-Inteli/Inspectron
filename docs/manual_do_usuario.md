@@ -30,7 +30,7 @@
 
 # 1. Introdução
 ## 1.1. Solução
-A solução se trata de um sistema de varredura de ambientes confinados, por meio de um robô, com o nome de TurtleBot. O TurtleBot é um autonomous guided vehicle (AGV) que pode ser considerado como um um tipo de robô autônomo que segue uma trajetória pré-definida por meio de software e utiliza sensores, como câmeras e lasers, para navegar no ambiente e evitar obstáculos.
+A solução se trata de um sistema de varredura de ambientes confinados, por meio de um robô, com o nome de TurtleBot. O TurtleBot é um Autonomous Guided Vehicle (AGV) que pode ser considerado como um um tipo de robô autônomo que segue uma trajetória pré-definida por meio de software e utiliza sensores, como câmeras e lasers, para navegar no ambiente e evitar obstáculos.
 
 O TurtleBot entra em espaços confinados medindo o nível de oxigênio presente no ambiente a fim de garantir segurança aos operários que necessitem adentrar para fazer reparos. O Robô contará também, com um sensor “lidar”, que será usado para identificar obstáculos à sua frente e contorná-lo e uma câmera a fim de identificar rachaduras ao longo do percurso.
 
