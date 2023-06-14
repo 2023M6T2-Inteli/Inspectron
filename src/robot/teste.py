@@ -15,7 +15,7 @@ class Controller(Node):
     def publish(self):                  
         self.publisher_temperature.publish(Float64(data=float(0.16)))
         self.publisher_oxygen.publish(Float64(data=float(0.16)))
-        self.publisher_oxygen.publish(Float64(data=float(11.5)))
+        self.publisher_battery.publish(Float64(data=float(11.5)))
 
         print("ok")
             

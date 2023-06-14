@@ -43,14 +43,13 @@ class BackendController(Node):
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
         self.teste += 1
-        print(self.teste, flush=True)
         
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})
            
           
     def __battery_callback(self, data):  
-        self.percentage = ((data.voltage - 11)/1.6) * 100
+        self.percentage = ((data.data - 11)/1.6) * 100
         event = {"name": "battery", "data": self.percentage}
         self.event_queue.put(event)
         #print(self.percentage)
