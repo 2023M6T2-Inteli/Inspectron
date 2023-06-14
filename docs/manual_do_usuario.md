@@ -159,9 +159,9 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
 # 7. Riscos Operacionais
-|   #             |Problema                          |         Possível solução                |
+|   #             |Problema                          |         Descrição                |
 |----------------|-------------------------------|-----------------------------|
-|1|            |            ||
+|1|            |Falhas técnicas            |O robô pode enfrentar falhas técnicas, como mau funcionamento dos componentes, perda de energia, falhas de comunicação ou problemas de software. Essas falhas podem resultar na interrupção da operação do robô, atrasos nas inspeções ou perda de dados. É importante realizar manutenções regulares, testes de funcionalidade e implementar sistemas de backup para lidar com essas situações.|
 |2          |            |           |
 |3          |  |
 # 8. Adequação do Local de Operação do Robô
