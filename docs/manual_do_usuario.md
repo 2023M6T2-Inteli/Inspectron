@@ -162,7 +162,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 |   #             |Problema                          |         Descrição                |
 |----------------|-------------------------------|-----------------------------|
 |1|Falhas técnicas            |O robô pode enfrentar falhas técnicas, como mau funcionamento dos componentes, perda de energia, falhas de comunicação ou problemas de software. Essas falhas podem resultar na interrupção da operação do robô, atrasos nas inspeções ou perda de dados. É importante realizar manutenções regulares, testes de funcionalidade e implementar sistemas de backup para lidar com essas situações.            |
-|2          |            |           
+|2|Riscos de cibersegurança          |O robô pode estar conectado a uma rede ou sistema central, o que pode torná-lo vulnerável a ataques cibernéticos. Isso pode resultar em acesso não autorizado, manipulação de dados, interrupção das operações ou danos aos sistemas conectados.            |           
 |3          |  |
 # 8. Adequação do Local de Operação do Robô
 
