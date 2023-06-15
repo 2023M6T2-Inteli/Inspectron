@@ -11,6 +11,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from uvicorn.protocols.http.h11_impl import H11Protocol
 import asyncio
 import queue
+from utils import NewScan
+import json
+from models import Scan
 
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
@@ -65,7 +68,8 @@ sio = AsyncServer(async_handlers=True, logger=True,
 event_queue = queue.Queue()
 
 rclpy.init()
-node_backend = BackendController(sio=sio, event_queue=event_queue)
+new_scan = NewScan()
+node_backend = BackendController(sio=sio, event_queue=event_queue, new_scan=new_scan)
 
 socketio_app = socketio.ASGIApp(sio, app)
 
@@ -83,26 +87,32 @@ def stop(sid):
 
 
 @sio.on('new_scan_data')
-def stop(sid, message):
-    print(message, flush=True)
+def new_scan_data(sid, message):
+    # Convert message to dict
+    message_dict = json.loads(message)
+    new_scan['name'] = message_dict['name']
+    new_scan['location'] = message_dict['location']['value']
+    new_scan['robot'] = message_dict['robot']['value']
+
 
 @sio.event
 def disconnect(sid):
-    print('Disconnected from socket')
-
-# async def emit_events_from_queue():
-#     while True:
-#         print("oie", flush=True)
-#         try:
-#             # Try to get an event from the queue
-#             event = event_queue.get_nowait()
-#         except queue.Empty:
-#             # If the queue is empty, sleep for a bit and then continue the loop
-#             await asyncio.sleep(0.1)
-#             continue
-#         print(event, flush=True)
-#         # If we got an event, emit it
-#         await sio.emit(event['name'], event['data'])
+    print('Disconnected from socket', flush=True)
+    print(new_scan, flush=True)
+    scan = Scan(
+        name=new_scan['name'],
+        location=new_scan['location'],
+        robot=new_scan['robot'],
+        oxygen_max=new_scan['oxygen_max'],
+        oxygen_min=new_scan['oxygen_min'],
+        temperature_min=new_scan['temperature_min'],
+        temperature_max=new_scan['temperature_max'],
+        humidity_min=new_scan['humidity_min'],
+        humidity_max=new_scan['humidity_max']
+    )
+    scan.save()
+    new_scan.clean_variables()
+    print("Scan saved", flush=True)
 
 def run_uvicorn():
     config = uvicorn.Config(
