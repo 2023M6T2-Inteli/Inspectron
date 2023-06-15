@@ -6,10 +6,31 @@ import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { createServerSideAxiosInstance } from "@/config/axios";
 
+export interface Location {
+    _id: {
+        $oid: string;
+    };
+    name: string;
+    coordinates: {
+        x: number;
+        y: number;
+    };
+}
+
+export interface Robot {
+    _id: {
+        $oid: string;
+    };
+    name: string;
+    ip: string;
+}
+
 export interface Scan {
     _id: {
         $oid: string;
     };
+    location: Location;
+    robot: Robot;
 }
 
 interface Room {
@@ -30,12 +51,14 @@ interface Props {
 }
 
 const Home = ({ locations, scans }: Props) => {
+    console.log(locations)
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
                 title: scan._id.$oid,
                 subtitle: "86% de oxigênio",
                 info: "01/09/2002 - 14:33:40",
+                link: `/scan/${scan._id.$oid}`,
             };
         });
     }, [scans]);
@@ -46,7 +69,7 @@ const Home = ({ locations, scans }: Props) => {
                 title: room.name,
                 subtitle: `x: ${room.coordinates.x} | y: ${room.coordinates.y}`,
                 info: `${room.scans ? room.scans.length : 0} varreduras realizadas`,
-                link: `/room/${room._id.$oid}`,
+                link: `/location/${room._id.$oid}`,
             };
         });
     }, [locations]);

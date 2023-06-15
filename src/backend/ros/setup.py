@@ -3,10 +3,9 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
-from publisher import BackendCommands, Heartbeat
+from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
+from ros.publisher import BackendCommands, Heartbeat
 import json
-import websockets
 import base64
 import asyncio
 

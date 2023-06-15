@@ -11,35 +11,40 @@ import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 interface Props {
-    scans: Scan[];
+    scan: Scan;
 }
 
-const Room = ({ scans }: Props) => {
-    const scansMemo = useMemo(() => {
-        return scans.map((scan) => {
-            return {
-                title: scan._id.$oid,
-                subtitle: "86% de oxigênio",
-                info: "01/09/2002 - 14:33:40",
-            };
-        });
-    }, [scans]);
-
+const Scan = (props: Props) => {
     return (
         <Wrapper title={"Sala #9083"}>
-            <CardList columns={"grid-cols-4"} items={scansMemo} />
+            <div className="grid grid-cols-3 gap-8">
+                <Card
+                    simple
+                    title={"Localização"}
+                    simpleInfos={[
+                        "Nome: " + props.scan.location.name,
+                        `Latitude: ${props.scan.location.coordinates.x}`,
+                        `Longitude: ${props.scan.location.coordinates.y}`,
+                    ]}
+                />
+                <Card
+                    simple
+                    title={"Robô"}
+                    simpleInfos={["Nome: " + props.scan.robot.name, `Ip: ${props.scan.robot.ip}`]}
+                />
+            </div>
         </Wrapper>
     );
 };
 export const getServerSideProps = async (ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) => {
     return await withAuth(ctx, async () => {
         const axios = await createServerSideAxiosInstance(ctx);
-        const { data: scans } = await axios.get("/scans");
+        const { data: scan } = await axios.get("/scans/" + ctx.query.id);
 
         return {
-            props: { scans },
+            props: { scan },
         };
     });
 };
 
-export default Room;
+export default Scan;
