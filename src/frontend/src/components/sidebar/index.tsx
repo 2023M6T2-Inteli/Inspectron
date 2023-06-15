@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import Logo from "@/assets/logo.png";
-import { LayoutDashboard, LogOut, Plus } from "lucide-react";
+import { LayoutDashboard, LogOut, PersonStandingIcon, Plus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Avatar from "@/assets/avatar.png";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 interface Props {}
 
@@ -23,6 +23,7 @@ const Sidebar: React.FC<Props> = (props) => {
             link: "/scan/new",
         },
     ];
+    const session = useSession()
 
     return (
         <div className="w-[20vw] min-h-[100vh] flex flex-col py-8 border-r-2 border-[#E4E4E4] fixed">
@@ -43,8 +44,8 @@ const Sidebar: React.FC<Props> = (props) => {
             </div>
 
             <div className="mt-auto flex gap-4 justify-center items-center text-lg">
-                <Image alt="Avatar" src={Avatar} className="" />
-                <p>Alfredo Soares Azevedo</p>
+                <PersonStandingIcon />
+                <p>{session.data?.user?.name}</p>
             </div>
             <div className="w-full bg-[#E4E4E4] h-[2px] mt-4"></div>
             <button

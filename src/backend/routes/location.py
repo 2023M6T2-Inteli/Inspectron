@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 import json
 from pydantic import BaseModel
 from middlewares import JWTBearer
+from models import Scan
 
 # Instanciando o objeto "router" da classe "APIRouter"
 router = APIRouter()  
@@ -14,6 +15,14 @@ router = APIRouter()
 @router.get("/locations", dependencies=[Depends(JWTBearer())],)
 async def get_locations():  # Definindo o método "get_locations"/ o "async" é para que o método seja assíncrono
     locations = json.loads(Location.objects().to_json())
+
+    # get all scans that happened in every location
+    for location in locations:
+        scans = json.loads(
+            Scan.objects(location=location["_id"]["$oid"]).to_json()
+        )
+        location["scans"] = scans
+
     
     # Retornando o objeto "locations" em formato JSON
     return JSONResponse(content=locations)

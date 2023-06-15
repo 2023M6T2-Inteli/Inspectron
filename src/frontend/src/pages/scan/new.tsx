@@ -13,7 +13,7 @@ const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
     const [loading, setLoading] = React.useState(false);
     const [form, setForm] = React.useState(undefined);
-   
+
     const [socket, setSocket] = React.useState<any>(null);
 
     function onConnect() {
@@ -31,8 +31,9 @@ const NewSimulation: React.FC = (props) => {
     const startScan = (data: any) => {
         setLoading(true);
         socket.connect();
-        console.log(data)
-        setForm(data)
+        console.log(data);
+        setForm(data);
+        socket.emit("new_scan_data", JSON.stringify(data));
     };
 
     useEffect(() => {
