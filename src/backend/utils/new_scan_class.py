@@ -1,9 +1,11 @@
 class NewScan():
     def __init__(self):
-        video = None
-        heartbeat = None
-        battery = None
+        name = None
+        location = None
+        robot = None
         oxygen_max = None
         oxygen_min = None
-        temperature = None
-        humidity = None
+        temperature_min = None
+        temperature_max = None
+        humidity_min = None
+        humidity_max = None

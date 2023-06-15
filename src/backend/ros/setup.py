@@ -27,8 +27,6 @@ class BackendController(Node):
         self.event_queue = event_queue
 
         self.new_scan = new_scan
-        
-        
 
     async def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
@@ -59,33 +57,31 @@ class BackendController(Node):
         self.new_scan.battery = self.percentage
                      
     def __oxygen_callback(self, data):
-        print(data.data)
-        if self.new_scan.oxygen_max == None:
-            self.new_scan.oxygen_max = data.data
-        elif data.data > self.new_scan.oxygen_max:
-            self.new_scan.oxygen_max = data.data
-
-        if self.new_scan.oxygen_min == None:
-            self.new_scan.oxygen_min = data.data
-        elif data.data < self.new_scan.oxygen_min:
-            self.new_scan.oxygen_min = data.data
+        self.update_range("oxygen_max", "oxygen_min", data.data)
         event = {"name": "oxygen", "data": data.data}
         self.event_queue.put(event)
         
     def __temperature_callback(self, data):
-        print(data.data)
-        self.new_scan.temperature = data.data
+        self.update_range("temperature_max", "temperature_min", data.data)
         event = {"name": "temperature", "data": data.data}
         self.event_queue.put(event)
 
     
     def __humidity_callback(self, data):
-        print(data.data)
-        self.new_scan.humidity = data.data
+        self.update_range("humidity_max", "humidity_min", data.data)
         event = {"name": "humidity", "data": data.data}
         self.event_queue.put(event)
         
-        
+    def update_range(self, fieldMax, fieldMin, data):
+        if self.new_scan[fieldMax] == None:
+            self.new_scan[fieldMax] = data.data
+        elif data.data > self.new_scan[fieldMax]:
+            self.new_scan[fieldMax] = data.data
+
+        if self.new_scan[fieldMin] == None:
+            self.new_scan[fieldMin] = data.data
+        elif data.data < self.new_scan[fieldMin]:
+            self.new_scan[fieldMin] = data.data
         
       
         

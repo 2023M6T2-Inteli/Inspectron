@@ -12,6 +12,9 @@ from uvicorn.protocols.http.h11_impl import H11Protocol
 import asyncio
 import queue
 from utils import NewScan
+import json
+from models import Scan
+
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
 
@@ -85,25 +88,21 @@ def stop(sid):
 
 @sio.on('new_scan_data')
 def stop(sid, message):
+    # Convert message to dict
+    message_dict = json.load(message)
+    new_scan.name = message_dict['name']
+    new_scan.location = message_dict['location']
+    new_scan.robot = message_dict['robot']
+
     print(message, flush=True)
 
 @sio.event
 def disconnect(sid):
-    print('Disconnected from socket')
-
-# async def emit_events_from_queue():
-#     while True:
-#         print("oie", flush=True)
-#         try:
-#             # Try to get an event from the queue
-#             event = event_queue.get_nowait()
-#         except queue.Empty:
-#             # If the queue is empty, sleep for a bit and then continue the loop
-#             await asyncio.sleep(0.1)
-#             continue
-#         print(event, flush=True)
-#         # If we got an event, emit it
-#         await sio.emit(event['name'], event['data'])
+    print('Disconnected from socket', flush=True)
+    print(new_scan, flush=True)
+    scan = Scan(name=new_scan.name, location=new_scan.location, robot=new_scan.robot, oxygen_max=new_scan.oxygen_max, oxygen_min=new_scan.oxygen_min, temperature_min=new_scan.temperature_min, temperature_max=new_scan.temperature_max, humidity_min=new_scan.humidity_min, humidity_max=new_scan.humidity_max)
+    scan.save()
+    print("Scan saved", flush=True)
 
 def run_uvicorn():
     config = uvicorn.Config(
