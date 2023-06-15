@@ -57,7 +57,7 @@ const Home = ({ locations, scans }: Props) => {
             return {
                 title: scan._id.$oid,
                 subtitle: "86% de oxigênio",
-                info: "01/09/2002 - 14:33:40",
+                infos: ["01/09/2002 - 14:33:40"],
                 link: `/scan/${scan._id.$oid}`,
             };
         });
@@ -68,7 +68,7 @@ const Home = ({ locations, scans }: Props) => {
             return {
                 title: room.name,
                 subtitle: `x: ${room.coordinates.x} | y: ${room.coordinates.y}`,
-                info: `${room.scans ? room.scans.length : 0} varreduras realizadas`,
+                infos: [`${room.scans ? room.scans.length : 0} varreduras realizadas`],
                 link: `/location/${room._id.$oid}`,
             };
         });

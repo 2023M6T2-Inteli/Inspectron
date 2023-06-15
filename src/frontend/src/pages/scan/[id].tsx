@@ -14,23 +14,23 @@ interface Props {
     scan: Scan;
 }
 
-const Scan = (props: Props) => {
+const Scan = ({scan}: Props) => {
     return (
-        <Wrapper title={"Sala #9083"}>
+        <Wrapper title={scan._id.$oid}>
             <div className="grid grid-cols-3 gap-8">
                 <Card
                     simple
                     title={"Localização"}
-                    simpleInfos={[
-                        "Nome: " + props.scan.location.name,
-                        `Latitude: ${props.scan.location.coordinates.x}`,
-                        `Longitude: ${props.scan.location.coordinates.y}`,
+                    infos={[
+                        "Nome: " + scan.location.name,
+                        `Latitude: ${scan.location.coordinates.x}`,
+                        `Longitude: ${scan.location.coordinates.y}`,
                     ]}
                 />
                 <Card
                     simple
                     title={"Robô"}
-                    simpleInfos={["Nome: " + props.scan.robot.name, `Ip: ${props.scan.robot.ip}`]}
+                    infos={["Nome: " + scan.robot.name, `Ip: ${scan.robot.ip}`]}
                 />
             </div>
         </Wrapper>

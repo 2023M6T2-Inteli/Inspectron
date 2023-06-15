@@ -41,6 +41,7 @@ async def get_scans():
     "/scans/location/{location_id}"
 )
 async def get_scans_by_location(location_id: str):
+    location = Location.objects(id=location_id).first()
     scans = Scan.objects(location=location_id)
    
     all_scans = []
@@ -56,8 +57,12 @@ async def get_scans_by_location(location_id: str):
         scan_data["robot"] = robot_data
         all_scans.append(scan_data)
 
+    data = {
+        "location": json.loads(location.to_json()),
+        "scans": all_scans
+    }
 
-    return JSONResponse(content=all_scans)
+    return JSONResponse(content=data)
 
 @router.get(
     "/scans/{id}"
