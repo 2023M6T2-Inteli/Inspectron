@@ -170,9 +170,10 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 Segue uma tabela com possiveis passos que podem sererm tomados para a mitigação e prevenção de acidentes:
 |   #             |Item                          |         Descrição                |
 |----------------|-------------------------------|-----------------------------|
-|1|"Digite Aqui"|"Digite Aqui"|
-|2|"Digite Aqui"|"Digite Aqui"|
-|3|"Digite Aqui"|"Digite Aqui"|
+|1|Treinamento adequado| Forneça treinamento adequado aos operadores do robô para garantir que eles compreendam as precauções de segurança, os procedimentos de operação corretos e a resposta a emergências. Isso inclui familiarizá-los com as características do robô, seus controles, limitações e possíveis riscos operacionais.|
+|2|Manutenção regular|Estabeleça um plano de manutenção regular para o robô, seguindo as diretrizes do fabricante. Isso inclui a verificação e substituição de peças desgastadas, a limpeza adequada dos componentes e a realização de inspeções preventivas para detectar problemas antes que eles se tornem críticos.|
+|3|Avaliação contínua|Realize avaliações regulares do desempenho do robô, incluindo sua segurança operacional. Identifique áreas de melhoria e faça ajustes nos procedimentos ou no equipamento, conforme necessário.|
+|4|Atualizações de segurança|Mantenha-se atualizado sobre as atualizações de segurança do robô, incluindo atualizações de software e firmware. Essas atualizações podem incluir correções de segurança, melhorias de desempenho e novos recursos de segurança. Garanta que todas as atualizações sejam aplicadas regularmente para manter o robô protegido contra ameaças potenciais.|
 # 10. Troubleshooting
 
 |   #             |Problema                          |         Possível solução                |
