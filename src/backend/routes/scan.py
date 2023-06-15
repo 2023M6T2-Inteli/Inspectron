@@ -12,6 +12,7 @@ router = APIRouter()
 
 def complete_scan(location=None):
     scans = Scan.objects()
+    all_scans = []
     for scan in scans:
         location = Location.objects(id=scan.location).first()
         robot = Robot.objects(id=scan.robot).first()
@@ -22,8 +23,9 @@ def complete_scan(location=None):
 
         scan_data["location"] = location_data
         scan_data["robot"] = robot_data
+        all_scans.append(scan_data)
 
-    return scan_data
+    return all_scans
 
 # Definindo a rota "/scan"
 @router.get(
