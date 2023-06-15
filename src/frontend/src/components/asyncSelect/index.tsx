@@ -60,7 +60,7 @@ export default function AsyncSelect({ label, addIcon, link, reload, control, nam
                                 control: (state) => "p-2 w-80",
                             }}
                             onChange={(value: any) => {
-                                field.onChange(value.value);
+                                field.onChange(value);
                             }}
                             onBlur={() => field.onBlur()}
                             loadOptions={callApi}

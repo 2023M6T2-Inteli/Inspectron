@@ -5,9 +5,7 @@ import cv2
 from cv_bridge import CvBridge
 from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
 from ros.publisher import BackendCommands, Heartbeat
-import json
 import base64
-import asyncio
 
 class BackendController(Node):
     def __init__(self, sio, event_queue):
@@ -25,40 +23,52 @@ class BackendController(Node):
         
         self.bridge = CvBridge()
         self.event_queue = event_queue
+        self.teste = 0
         
         
 
     async def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
         
-        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
+        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
 
-        # model = YOLO("ros/yolo.pt")
-        # result = model.predict(current_frame, conf=0.6)
-        # annotated = result[0].plot()
+        model = YOLO("ros/yolo.pt")
+        result = model.predict(current_frame, conf=0.6)
+        annotated = result[0].plot()
 
-        # _, frame = cv2.imencode(".jpg", annotated)
-        frame64 = base64.b64encode(current_frame.tobytes()).decode("utf-8")
+        _, buffer = cv2.imencode('.jpg', annotated)
+
+        # Convert byte array to base64 string
+        frame64 = base64.b64encode(buffer).decode('utf-8')
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
+        self.teste += 1
         
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})
            
           
     def __battery_callback(self, data):  
-        self.percentage = ((data.voltage - 11)/1.6) * 100
+        self.percentage = ((data.data - 11)/1.6) * 100
+        event = {"name": "battery", "data": self.percentage}
+        self.event_queue.put(event)
         #print(self.percentage)
                      
     def __oxygen_callback(self, data):
         print(data.data)
+        event = {"name": "oxygen", "data": data.data}
+        self.event_queue.put(event)
         
     def __temperature_callback(self, data):
         print(data.data)
+        event = {"name": "temperature", "data": data.data}
+        self.event_queue.put(event)
 
     
     def __humidity_callback(self, data):
         print(data.data)
+        event = {"name": "humidity", "data": data.data}
+        self.event_queue.put(event)
         
         
         

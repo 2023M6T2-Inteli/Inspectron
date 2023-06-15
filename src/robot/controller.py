@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-from modules.publishers import Velocity, Camera, HeartbeatResponse, TVOC, Temperature, ECO2, GPS
+from modules.publishers import Velocity, Camera, HeartbeatResponse
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 
 # from ros2_message_converter import message_converter
@@ -34,10 +34,10 @@ class TurtleBotController(Node):
         self.__camera_module = Camera(self)
         self.__heartbeat_response_callback = HeartbeatResponse(self)
 
-        self.__tvoc_sensor = TVOC(self)
-        self.__temperature_sensor = Temperature(self)
-        self.__eco2_sensor = ECO2(self)
-        self.__gps_sensor = GPS(self)
+        # self.__tvoc_sensor = TVOC(self)
+        # self.__temperature_sensor = Temperature(self)
+        # self.__eco2_sensor = ECO2(self)
+        # self.__gps_sensor = GPS(self)
 
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
@@ -46,7 +46,8 @@ class TurtleBotController(Node):
         self.__backend_commands_module = BackendCommands(
             self, self.__backend_commands_callback)
 
-        self.command_start()  # If you want to start the robot automatically
+        self.__runtime_camera()
+        # self.command_start()  # If you want to start the robot automatically
 
     def command_start(self):
         self.get_logger().info("Starting robot runtime...")
@@ -59,7 +60,8 @@ class TurtleBotController(Node):
         msg_json = json.loads(data.data)
         match (msg_json["command"]):
             case "START":
-                self.command_start()
+                # self.command_start()
+                pass
             case "STOP":
                 pass
             case "PAUSE":

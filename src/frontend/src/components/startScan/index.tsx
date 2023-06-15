@@ -13,8 +13,8 @@ import Input from "../input";
 const schema = yup
     .object({
         name: yup.string().required("Esse campo é obrigatório."),
-        robot: yup.string().required("Esse campo é obrigatório."),
-        location: yup.string().required("Esse campo é obrigatório."),
+        robot: yup.object().required("Esse campo é obrigatório."),
+        location: yup.object().required("Esse campo é obrigatório."),
     })
     .required();
 
