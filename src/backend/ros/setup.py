@@ -3,10 +3,8 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
-from publisher import BackendCommands, Heartbeat
-import json
-import websockets
+from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
+from ros.publisher import BackendCommands, Heartbeat
 import base64
 import asyncio
 from utils import NewScan
@@ -35,18 +33,18 @@ class BackendController(Node):
     async def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
         
-        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
+        current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
 
-        # model = YOLO("ros/yolo.pt")
-        # result = model.predict(current_frame, conf=0.6)
-        # annotated = result[0].plot()
+        model = YOLO("ros/yolo.pt")
+        result = model.predict(current_frame, conf=0.6)
+        annotated = result[0].plot()
 
-        # _, frame = cv2.imencode(".jpg", annotated)
-        frame64 = base64.b64encode(current_frame.tobytes()).decode("utf-8")
+        _, buffer = cv2.imencode('.jpg', annotated)
+
+        # Convert byte array to base64 string
+        frame64 = base64.b64encode(buffer).decode('utf-8')
         event = {"name": "camera", "data": frame64}
         self.event_queue.put(event)
-
-        self.new_scan.video = current_frame
         
     def __heartbeat_response_callback(self, data):
         self.backend_commands.send({'command': 'START', 'body': ''})
@@ -54,7 +52,9 @@ class BackendController(Node):
            
           
     def __battery_callback(self, data):  
-        self.percentage = ((data.voltage - 11)/1.6) * 100
+        self.percentage = ((data.data - 11)/1.6) * 100
+        event = {"name": "battery", "data": self.percentage}
+        self.event_queue.put(event)
         #print(self.percentage)
         self.new_scan.battery = self.percentage
                      
@@ -69,15 +69,21 @@ class BackendController(Node):
             self.new_scan.oxygen_min = data.data
         elif data.data < self.new_scan.oxygen_min:
             self.new_scan.oxygen_min = data.data
+        event = {"name": "oxygen", "data": data.data}
+        self.event_queue.put(event)
         
     def __temperature_callback(self, data):
         print(data.data)
         self.new_scan.temperature = data.data
+        event = {"name": "temperature", "data": data.data}
+        self.event_queue.put(event)
 
     
     def __humidity_callback(self, data):
         print(data.data)
         self.new_scan.humidity = data.data
+        event = {"name": "humidity", "data": data.data}
+        self.event_queue.put(event)
         
         
         

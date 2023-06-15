@@ -15,7 +15,7 @@ class Subscription:
 
     def connect(self, subscription_callback: Any) -> None:
         self.subscription = self.node.create_subscription(
-            self.srv_type, self.srv_name, subscription_callback, 10
+            self.srv_type, self.srv_name, subscription_callback, 1000
         )  # Create the subscription to the topic with the callback
 
         self.node.get_logger().info(f"Subscription {self.name} connected.")

@@ -24,7 +24,7 @@ interface Props {
     items: {
         title: string;
         subtitle: string;
-        info: string;
+        infos: string[];
         link?: string;
     }[];
     columns: string;
@@ -49,9 +49,11 @@ const CardList: React.FC<Props> = ({ items, columns, loading }) => {
                             transition={{ delay: index * 0.2 }} // Delay each card by 0.2 seconds
                         >
                             {item.link ? (
-                                <Link href={item.link} key={index}>
-                                    <Card {...item} />
-                                </Link>
+                                <div className="hover:-translate-y-1 transition-all">
+                                    <Link href={item.link} key={index}>
+                                        <Card {...item} />
+                                    </Link>
+                                </div>
                             ) : (
                                 <Card key={index} {...item} />
                             )}

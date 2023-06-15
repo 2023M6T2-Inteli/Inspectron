@@ -8,6 +8,7 @@ import Router from 'next/router'
 import NProgress from 'nprogress' //nprogress module
 import 'nprogress/nprogress.css' //styles of nprogress
 import '../styles/npstyle.css'
+import { SessionProvider } from "next-auth/react";
 
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start())
@@ -16,9 +17,9 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <>
+        <SessionProvider>
             <Component {...pageProps} />
             <ToastContainer />
-        </>
+        </SessionProvider>
     );
 }

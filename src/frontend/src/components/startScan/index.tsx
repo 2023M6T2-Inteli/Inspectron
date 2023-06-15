@@ -8,11 +8,13 @@ import AsyncSelect from "../asyncSelect";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Input from "../input";
 
 const schema = yup
     .object({
-        robot: yup.string().required("Esse campo é obrigatório."),
-        location: yup.string().required("Esse campo é obrigatório."),
+        name: yup.string().required("Esse campo é obrigatório."),
+        robot: yup.object().required("Esse campo é obrigatório."),
+        location: yup.object().required("Esse campo é obrigatório."),
     })
     .required();
 
@@ -43,6 +45,7 @@ const StartScan: React.FC<Props> = ({ buttonHandler }) => {
         <>
             <div className="h-full flex justify-center items-center">
                 <form onSubmit={handleSubmit(buttonHandler)} className="w-96 flex flex-col gap-6">
+                    <Input placeholder="Digite um nome..." selectDesign register={{...register("name")}} error={errors.name?.message as string} label="Nome" />
                     <AsyncSelect
                         link="/robots"
                         label="Robô"

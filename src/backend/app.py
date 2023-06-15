@@ -82,6 +82,11 @@ def stop(sid):
     sio.emit("emergency_stop")
     sio.sleep(0)
 
+
+@sio.on('new_scan_data')
+def stop(sid, message):
+    print(message, flush=True)
+
 @sio.event
 def disconnect(sid):
     print('Disconnected from socket')
