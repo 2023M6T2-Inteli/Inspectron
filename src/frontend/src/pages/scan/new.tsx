@@ -33,7 +33,7 @@ const NewSimulation: React.FC = (props) => {
         socket.connect();
         console.log(data);
         setForm(data);
-        socket.emit("new_scan_data", JSON.parse(data));
+        socket.emit("new_scan_data", JSON.stringify(data));
     };
 
     useEffect(() => {
