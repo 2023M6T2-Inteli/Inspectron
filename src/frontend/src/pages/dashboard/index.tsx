@@ -29,6 +29,13 @@ export interface Scan {
     _id: {
         $oid: string;
     };
+    name: string
+    temperature_min: number;
+    temperature_max: number;
+    humidity_min: number;
+    humidity_max: number;
+    oxygen_min: number;
+    oxygen_max: number;
     location: Location;
     robot: Robot;
 }
