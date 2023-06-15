@@ -58,11 +58,10 @@ interface Props {
 }
 
 const Home = ({ locations, scans }: Props) => {
-    console.log(locations)
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
-                title: scan._id.$oid,
+                title: scan.name,
                 subtitle: "86% de oxigênio",
                 infos: ["01/09/2002 - 14:33:40"],
                 link: `/scan/${scan._id.$oid}`,
