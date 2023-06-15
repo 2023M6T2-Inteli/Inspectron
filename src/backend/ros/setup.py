@@ -74,14 +74,14 @@ class BackendController(Node):
         
     def update_range(self, fieldMax, fieldMin, data):
         if self.new_scan[fieldMax] == None:
-            self.new_scan[fieldMax] = data.data
-        elif data.data > self.new_scan[fieldMax]:
-            self.new_scan[fieldMax] = data.data
+            self.new_scan[fieldMax] = data
+        elif data > self.new_scan[fieldMax]:
+            self.new_scan[fieldMax] = data
 
         if self.new_scan[fieldMin] == None:
-            self.new_scan[fieldMin] = data.data
-        elif data.data < self.new_scan[fieldMin]:
-            self.new_scan[fieldMin] = data.data
+            self.new_scan[fieldMin] = data
+        elif data < self.new_scan[fieldMin]:
+            self.new_scan[fieldMin] = data
         
       
         
