@@ -50,20 +50,20 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
             socket.off("battery", onBattery);
             socket.off("temperature", onTemperature);
         };
-    }, []);
+    }, [socket]);
 
     return (
         <div className="flex flex-col p-4 h-full">
             <h3 className="text-2xl mb-2">Vídeo</h3>
             <img
-                className="w-full bg-slate-400 rounded-md grow mb-8"
+                className="w-full border-slate-700 border flex justify-center items-center rounded-md grow mb-8"
                 src={`data:image/png;base64,${videoImage}`}
-                alt="Base64 Image"
+                alt="Vídeo da varredura"
             />
             <div className="flex gap-4 justify-around">
-                <SimpleInfo label="Bateria" value={`${battery}%`} />
-                <SimpleInfo label="Oxigênio" value={`${oxygen}%`} />
                 <SimpleInfo label="Local" value={form.location.label} />
+                <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
+                <SimpleInfo label="Oxigênio" value={ oxygen ? `${oxygen}%` : "..."} />
                 <SimpleInfo label="Temperatura" value={temperature ? temperature : "..."} />
                 <Button buttonType={ButtonTypes.danger} onClick={emergencyStop}>
                     Parada de emergência
