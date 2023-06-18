@@ -9,13 +9,18 @@ import { Location, Scan } from "../dashboard";
 import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
+import dynamic from "next/dynamic";
+
+const MapWithNoSSR = dynamic(() => import("../../components/map"), {
+    ssr: false,
+});
 
 interface Props {
     scans: Scan[];
-    location: Location
+    location: Location;
 }
 
-const Location = ({ scans,location }: Props) => {
+const Location = ({ scans, location }: Props) => {
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
@@ -27,9 +32,18 @@ const Location = ({ scans,location }: Props) => {
         });
     }, [scans]);
 
+    const LocationInfo = () => (
+        <div className="h-[40vh]">
+            <MapWithNoSSR position={[location.coordinates.x, location.coordinates.y]} />
+        </div>
+    );
+
     return (
         <Wrapper title={location.name}>
+            <p className="text-2xl mb-4">Varreduras realizadas nessa localização</p>
             <CardList columns={"grid-cols-4"} items={scansMemo} />
+            <p className="text-2xl mt-8 mb-4">Mapa</p>
+            <Card content={<LocationInfo />} />
         </Wrapper>
     );
 };

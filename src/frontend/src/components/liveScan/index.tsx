@@ -1,76 +1,97 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import dynamic from "next/dynamic";
+import Card from "../card";
 import SimpleInfo from "../simpleInfo";
 import Button, { ButtonTypes } from "../button";
-import { toast } from "react-toastify";
+
+const MapWithNoSSR = dynamic(() => import("../../components/map"), {
+  ssr: false,
+});
 
 interface Props {
-    socket: any;
-    setStage: React.Dispatch<React.SetStateAction<number>>;
-    form:any
+  socket: any;
+  setStage: React.Dispatch<React.SetStateAction<number>>;
+  form: any;
 }
 
 const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
-    const [videoImage, setVideoImage] = React.useState<string | undefined>(undefined);
-    const [battery, setBattery] = React.useState<string | undefined>(undefined);
-    const [oxygen, setOxygen] = React.useState<string | undefined>(undefined);
-    const [temperature, setTemperature] = React.useState<string | undefined>(undefined);
+  const [videoImage, setVideoImage] = useState<string | undefined>(undefined);
+  const [battery, setBattery] = useState<string | undefined>(undefined);
+  const [oxygen, setOxygen] = useState<string | undefined>(undefined);
+  const [temperature, setTemperature] = useState<string | undefined>(undefined);
 
-    const emergencyStop = () => {
-        toast.info("Varredura finalizada com sucesso!");
-        socket.disconnect();
-        setStage(0);
+  const emergencyStop = () => {
+    toast.info("Varredura finalizada com sucesso!");
+    socket.disconnect();
+    setStage(0);
+  };
+
+  const handleSensorData = (valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>) => {
+    return (value: string) => {
+      valueSetter(value);
     };
+  };
 
-    const onCamera = (value: string) => {
-        setVideoImage(value);
+  const onCamera = handleSensorData(setVideoImage);
+  const onOxygen = handleSensorData(setOxygen);
+  const onBattery = handleSensorData(setBattery);
+  const onTemperature = handleSensorData(setTemperature);
+
+  useEffect(() => {
+    socket.on("camera", onCamera);
+    socket.on("oxygen", onOxygen);
+    socket.on("battery", onBattery);
+    socket.on("temperature", onTemperature);
+
+    return () => {
+      socket.off("camera", onCamera);
+      socket.off("oxygen", onOxygen);
+      socket.off("battery", onBattery);
+      socket.off("temperature", onTemperature);
     };
+  }, [socket]);
 
-    const onOxygen = (value: string) => {
-        setOxygen(value);
-    };
+  const ImageInfo = () => (
+    <img
+      className="w-full border-slate-700 border flex justify-center items-center rounded-md grow mb-8"
+      src={`data:image/png;base64,${videoImage}`}
+      alt="Vídeo da varredura"
+    />
+  );
 
-    const onBattery = (value: string) => {
-        setBattery(value);
-    };
+  const SensorsInfo = () => (
+    <div className="flex gap-4 justify-around">
+      <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
+      <SimpleInfo label="Oxigênio" value={oxygen ? `${oxygen}%` : "..."} />
+      <SimpleInfo label="Temperatura" value={temperature ? temperature : "..."} />
+    </div>
+  );
 
-    const onTemperature = (value: string) => {
-        setTemperature(value);
-    }
+  const Actions = () => (
+    <div className="flex justify-end">
+      <Button buttonType={ButtonTypes.danger} onClick={emergencyStop}>
+        Parada de emergência
+      </Button>
+    </div>
+  );
 
-    useEffect(() => {
-        socket.on("camera", onCamera);
-        socket.on("oxygen", onOxygen);
-        socket.on("battery", onBattery);
-        socket.on("temperature", onTemperature);
+  const LocationInfo = () => (
+    <div className="h-[40vh]">
+      <MapWithNoSSR position={[form.location.coordinates.x, form.location.coordinates.y]} />
+    </div>
+  );
 
-        return () => {
-            socket.off("camera", onCamera);
-            socket.off("oxygen", onOxygen);
-            socket.off("battery", onBattery);
-            socket.off("temperature", onTemperature);
-        };
-    }, [socket]);
-
-    return (
-        <div className="flex flex-col p-4 h-full">
-            <h3 className="text-2xl mb-2">Vídeo</h3>
-            <img
-                className="w-full border-slate-700 border flex justify-center items-center rounded-md grow mb-8"
-                src={`data:image/png;base64,${videoImage}`}
-                alt="Vídeo da varredura"
-            />
-            <div className="flex gap-4 justify-around">
-                <SimpleInfo label="Local" value={form.location.label} />
-                <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
-                <SimpleInfo label="Oxigênio" value={ oxygen ? `${oxygen}%` : "..."} />
-                <SimpleInfo label="Temperatura" value={temperature ? temperature : "..."} />
-                <Button buttonType={ButtonTypes.danger} onClick={emergencyStop}>
-                    Parada de emergência
-                </Button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex flex-col gap-4">
+      <Card title="Vídeo" content={<ImageInfo />} classes={"min-h-[40vh] grow"} />
+      <Card title="Sensores" content={<SensorsInfo />} />
+      <Card title={`Localização: ${form.location.name}`} content={<LocationInfo />} />
+      <Card title="Ações" content={<Actions />} />
+    </div>
+  );
 };
 
 export default LiveScan;

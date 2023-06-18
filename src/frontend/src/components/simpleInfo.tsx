@@ -8,7 +8,7 @@ interface Props {
 const SimpleInfo: React.FC<Props> = ({label, value}) => {
     return (
         <div className="flex flex-col items-center">
-            <label className="text-2xl">{label}</label>
+            <label className="text-xl">{label}</label>
             <p className="text-xl">{value}</p>
         </div>
     );
