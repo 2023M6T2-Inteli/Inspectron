@@ -3,11 +3,9 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import HeartbeatResponse, Battery, Tvoc, Camera, Humidity, Temperature, GPS, Eco2
+from ros.subscribers import HeartbeatResponse, Battery, Tvoc, Camera, Temperature, GPS, Eco2
 from ros.publisher import BackendCommands, Heartbeat
 import base64
-import asyncio
-from utils import NewScan
 
 class BackendController(Node):
     def __init__(self, sio, event_queue, new_scan):

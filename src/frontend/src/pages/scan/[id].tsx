@@ -13,14 +13,23 @@ interface Props {
 }
 
 const ScanInfo = ({ scan }: Props) => {
-    console.log(scan)
     const MapWithNoSSR = dynamic(() => import("../../components/map"), {
         ssr: false,
     });
 
     const mean = (a: number, b: number) => {
+        // create e mean of two numbers but checking if they exist
+        if (!a && !b) return "não coletado";
+        if (!a) return b.toFixed(2);
+        if (!b) return a.toFixed(2);
+
         return ((a + b) / 2).toFixed(2);
     };
+
+    const sensorValue = (value: number | undefined) => {
+        if (!value) return "não coletado"
+        return value;
+    }
 
     const renderLocationCard = () => (
         <Card
@@ -65,11 +74,11 @@ const ScanInfo = ({ scan }: Props) => {
     const renderEco2Card = () => (
         <Card
             simple
-            title={"Dioxido de carbono"}
+            title={"Dióxido de carbono"}
             infos={[
-                `Mínima: ${scan.eco2_min}`,
+                `Mínimo: ${sensorValue(scan.eco2_min)}`,
                 `Média: ${mean(scan.eco2_min, scan.eco2_max)}`,
-                `Máxima: ${scan.eco2_max}`,
+                `Máximo: ${sensorValue(scan.eco2_max)}`,
             ]}
         />
     );
@@ -79,9 +88,9 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             title={"Oxigênio"}
             infos={[
-                `Mínimo: ${scan.tvoc_min}`,
+                `Mínimo: ${sensorValue(scan.tvoc_min)}`,
                 `Médio: ${mean(scan.tvoc_min, scan.tvoc_max)}`,
-                `Máximo: ${scan.tvoc_max}`,
+                `Máximo: ${sensorValue(scan.tvoc_max)}`,
             ]}
         />
     );
@@ -91,9 +100,9 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             title={"Temperatura"}
             infos={[
-                `Mínima: ${scan.temperature_min}`,
+                `Mínima: ${sensorValue(scan.temperature_min)}`,
                 `Média: ${mean(scan.temperature_min, scan.temperature_max)}`,
-                `Máxima: ${scan.temperature_max}`,
+                `Máxima: ${sensorValue(scan.temperature_max)}`,
             ]}
         />
     );

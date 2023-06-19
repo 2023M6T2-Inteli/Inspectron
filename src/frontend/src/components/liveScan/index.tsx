@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
+import React, {  useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import dynamic from "next/dynamic";
 import Card from "../card";
@@ -22,23 +22,26 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const [battery, setBattery] = useState<string | undefined>(undefined);
     const [tvoc, setTvoc] = useState<string | undefined>(undefined);
     const [temperature, setTemperature] = useState<string | undefined>(undefined);
-    const [gps, setGps] = useState<{x: number, y: number} | undefined>(undefined);
+    const [gps, setGps] = useState<{ x: number; y: number } | undefined>(undefined);
     const [eco2, setEco2] = useState<string | undefined>(undefined);
 
-    const emergencyStop = () => {
-        toast.info("Varredura finalizada com sucesso!");
+    const endScan = () => {
+        toast.info("Varredura salva com sucesso!");
         socket.disconnect();
         setStage(0);
     };
 
-    const handleSensorData = (valueGetter: string| undefined, valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>) => {
+    const handleSensorData = (
+        valueGetter: string | undefined,
+        valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>
+    ) => {
         return (value: string) => {
             if (valueGetter === value) return;
             valueSetter(value);
         };
     };
 
-    const onCamera = handleSensorData(videoImage,setVideoImage);
+    const onCamera = handleSensorData(videoImage, setVideoImage);
     const onTvoc = handleSensorData(tvoc, setTvoc);
     const onBattery = handleSensorData(battery, setBattery);
     const onTemperature = handleSensorData(temperature, setTemperature);
@@ -47,9 +50,9 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const onGps = (value: string) => {
         const gpsData = JSON.parse(value);
         if (gps && gpsData.x != gps.x && gpsData.y != gps.y) {
-            setGps(gpsData)
+            setGps(gpsData);
         }
-    }
+    };
 
     useEffect(() => {
         socket.on("camera", onCamera);
@@ -66,7 +69,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
             socket.off("temperature", onTemperature);
             socket.off("eco2", onEco2);
             socket.off("gps", onGps);
-    };
+        };
     }, [socket]);
 
     const ImageInfo = () => (
@@ -88,7 +91,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
 
     const Actions = () => (
         <div className="flex justify-end">
-            <Button buttonType={ButtonTypes.danger} onClick={emergencyStop}>
+            <Button buttonType={ButtonTypes.danger} onClick={endScan}>
                 Parada de emergência
             </Button>
         </div>
@@ -96,7 +99,9 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
 
     const LocationInfo = () => (
         <div className="h-[40vh]">
-            <MapWithNoSSR position={[gps ? gps.x : form.location.coordinates.x, gps ? gps.y : form.location.coordinates.y]} />
+            <MapWithNoSSR
+                position={[gps ? gps.x : form.location.coordinates.x, gps ? gps.y : form.location.coordinates.y]}
+            />
         </div>
     );
 

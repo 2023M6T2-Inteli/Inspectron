@@ -16,8 +16,9 @@ import json
 from models import Scan
 from datetime import datetime
 
-#Cria um objeto API para o FASTAPI
+# Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
+
 
 async def startup_event():
     while True:
@@ -28,19 +29,22 @@ async def startup_event():
             # If the queue is empty, sleep for a bit and then continue the loop
             await asyncio.sleep(0.1)
             continue
-       
+
         # If we got an event, emit it
-        await sio.emit(event['name'], event['data'])
+        await sio.emit(event["name"], event["data"])
+
 
 # async def startup():
 #     loop = asyncio.get_event_loop()
 #     await loop.run_in_executor(None, startup_event)
 
+
 @app.on_event("startup")
 async def tste():
     # await startup()
-    
+
     asyncio.create_task(startup_event())
+
 
 origins = [
     "http://localhost:3000",
@@ -62,9 +66,15 @@ app.include_router(user_router)
 HOST = "0.0.0.0"  # localhost padrão
 PORT = 3001  # Porta a ser utilizada
 
-#iniciando o socket
-sio = AsyncServer(async_handlers=True, logger=True,
-                      ping_interval=120, ping_timeout=120, async_mode='asgi', cors_allowed_origins='*')
+# iniciando o socket
+sio = AsyncServer(
+    async_handlers=True,
+    logger=True,
+    ping_interval=120,
+    ping_timeout=120,
+    async_mode="asgi",
+    cors_allowed_origins="*",
+)
 
 event_queue = queue.Queue()
 
@@ -75,66 +85,63 @@ node_backend = BackendController(sio=sio, event_queue=event_queue, new_scan=new_
 socketio_app = socketio.ASGIApp(sio, app)
 
 
+def end_scan():
+    scan = Scan(
+        name=new_scan["name"],
+        location=new_scan["location"],
+        robot=new_scan["robot"],
+        temperature_min=new_scan["temperature_min"],
+        temperature_max=new_scan["temperature_max"],
+        humidity_min=new_scan["humidity_min"],
+        humidity_max=new_scan["humidity_max"],
+        created_at=datetime.now(),
+        tvoc_min=new_scan["tvoc_min"],
+        tvoc_max=new_scan["tvoc_max"],
+        eco2_min=new_scan["eco2_min"],
+        eco2_max=new_scan["eco2_max"],
+    )
+    scan.save()
+    new_scan.clean_variables()
+    node_backend.backend_commands.send({'command': 'STOP', 'body': ''})
+    print("Scan saved", flush=True)
+
 @sio.event
 async def connect(sid, environ):
     print(datetime.now().time(), flush=True)
     node_backend.heartbeat.send("oi")
-    print('Connected to socket', flush=True)
-    
+    print("Connected to socket", flush=True)
 
-@sio.on('emergency_stop')
-def stop(sid):
-    sio.emit("emergency_stop")
-    sio.sleep(0)
-
-
-@sio.on('new_scan_data')
+@sio.on("new_scan_data")
 def new_scan_data(sid, message):
     # Convert message to dict
     message_dict = json.loads(message)
-    new_scan['name'] = message_dict['name']
-    new_scan['location'] = message_dict['location']['value']
-    new_scan['robot'] = message_dict['robot']['value']
+    new_scan["name"] = message_dict["name"]
+    new_scan["location"] = message_dict["location"]["value"]
+    new_scan["robot"] = message_dict["robot"]["value"]
 
 
 @sio.event
 def disconnect(sid):
-    print('Disconnected from socket', flush=True)
-    print(new_scan, flush=True)
-    print(datetime.now(), flush=True)
-    scan = Scan(
-        name=new_scan['name'],
-        location=new_scan['location'],
-        robot=new_scan['robot'],
-        temperature_min=new_scan['temperature_min'],
-        temperature_max=new_scan['temperature_max'],
-        humidity_min=new_scan['humidity_min'],
-        humidity_max=new_scan['humidity_max'],
-        created_at=datetime.now(),
-        tvoc_min=new_scan['tvoc_min'],
-        tvoc_max=new_scan['tvoc_max'],
+    print("Disconnected from socket", flush=True)
+    end_scan()
 
-        eco2_min=new_scan['eco2_min'],
-        eco2_max=new_scan['eco2_max'],
-    )
-    scan.save()
-    new_scan.clean_variables()
-    print("Scan saved", flush=True)
 
 def run_uvicorn():
     config = uvicorn.Config(
-        socketio_app, 
-        host=HOST, 
+        socketio_app,
+        host=HOST,
         port=PORT,
     )
     server = uvicorn.Server(config)
-    
+
     server.run()
+
 
 def run_rclpy():
     rclpy.spin(node_backend)
     rclpy.shutdown()
-    
+
+
 def main():
     connect_to_database()
 
@@ -146,6 +153,7 @@ def main():
 
     uvicorn_thread.join()
     rclpy_thread.join()
+
 
 if __name__ == "__main__":
     main()

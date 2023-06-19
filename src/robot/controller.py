@@ -66,14 +66,6 @@ class TurtleBotController(Node):
                 pass
             case "STOP":
                 pass
-            case "PAUSE":
-                pass
-            case "RESUME":
-                pass
-            case "RESTART":
-                pass
-            case "SHUTDOWN":
-                pass
 
     def __heartbeat_callback(self, msg):
         print("Mensagem recebida com sucesso no heartbeat!")
