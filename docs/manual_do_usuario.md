@@ -187,6 +187,7 @@ Segue uma tabela com possiveis passos que podem sererm tomados para a mitigaçã
 |1|      Falta de Bateria      |  Parar o que o robô está fazendo e colocar a bateria para carregar. Uma vez que a bateria descarrega, não é possível recarregar novamente.          |
 |2          |Falhas no sistema de coleta e análise de dados            |Verifique se há espaço de armanezamento e se os dispositivos de coletos estão funcionando corretamente            |
 |3          | Danos físicos |Verifique se o robô sofreu algum dano físico, se os componentes físicos estão em boas condições e se os cabos e conexões estão firmemente conectados |
+|4|Conexão de rede perdida||
 
 # 11. Creditos 
 
