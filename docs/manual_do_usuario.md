@@ -67,9 +67,9 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 
  
-# 2. Componestes e Recursos 
+# 2. Componentes e Recursos 
 
-## 2.1. Componestes de hardware 
+## 2.1. Componentes de hardware 
 
 * **TurtleBot3Burger**
 	* **OpenCr1.0 :**  O OpenCR significa Módulo de Controle de Código Aberto para ROS (Robot Operating System). O OpenCR foi desenvolvido para sistemas embarcados que utilizam o ROS, com o objetivo de fornecer hardware e software completamente de código aberto.
