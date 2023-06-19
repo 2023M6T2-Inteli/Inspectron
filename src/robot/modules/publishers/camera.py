@@ -9,12 +9,14 @@ class Camera(Publisher):
     def __init__(self, node: Node):
         super().__init__("camera", node, f"/camera", Image)
         self.__video_capture = cv2.VideoCapture(0)
+        self.__video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+        self.__video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
         self.__bridge = CvBridge()
 
     def update(self):
         total_frames = int(self.__video_capture.get(cv2.CAP_PROP_FRAME_COUNT))
         print("Total frames in the video: %d" % total_frames)
-        frame_rate = self.__video_capture.get(cv2.CAP_PROP_FPS)
+        frame_rate = self.__video_capture.get(5)
         duration = total_frames / frame_rate
 
         print("Duration to show %d frames: %.2f seconds" % (total_frames, duration))
@@ -23,7 +25,6 @@ class Camera(Publisher):
         while True:
             returned, frame = self.__video_capture.read()
             if not returned:
-                print("acabou!")
                 break
 
             self.publish(self.__bridge.cv2_to_imgmsg(frame, encoding="bgr8"))

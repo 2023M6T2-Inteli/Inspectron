@@ -58,7 +58,6 @@ class TurtleBotController(Node):
         self.create_timer(0.24, self.__runtime_movement)
 
     def __backend_commands_callback(self, data):
-        print(data)
         msg_json = json.loads(data.data)
         match (msg_json["command"]):
             case "START":
