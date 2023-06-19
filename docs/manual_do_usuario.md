@@ -110,7 +110,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 **4.** Criar uma conexão estável via wifi com o TurtleBot.
 
-# 4. Guia de Instalção
+# 4. Guia de Instalação
 
 Caso o operador deseje criar novas funções ao robô, é importante seguir este tutorial abaixo:
 
