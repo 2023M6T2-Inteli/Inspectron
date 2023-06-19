@@ -1,3 +1,4 @@
+
 <table>
 <tr>
 <td>
@@ -40,13 +41,13 @@
 
 O Canvas de Proposta de Valor é uma forma de ajudar criadores de solução a focar naquilo que é importante para o consumidor da solução, priorizando aquilo que gera valor ao produto final. A principal vantagem da proposta de valor apresentada é aumentar a segurança dos colaboradores da Gerdau, melhorar as vistorias realizadas e monitorar em tempo real.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235381624-3a66133d-8ee4-43b3-a694-97aa20c38639.png" width=100%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/canvas_de_valor_final.png?raw=true" width=100%></img></p>
 
 ## 1.2. Matriz de Riscos
 
 Matriz de riscos é uma ferramenta utilizada para identificar, avaliar e priorizar os riscos que podem afetar um projeto, uma empresa ou uma organização. Na matriz os riscos podem ser classificados como baixo, médio ou alto em termos de probabilidade e impacto. A partir da análise é possível identificar quais riscos devem receber mais atenção e quais medidas devem ser tomadas para mitigá-los ou eliminá-los.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235231848-dffbb591-547e-476b-bc44-37f2dcd9c1d0.png" width=80%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/matriz_de_risco_final.png?raw=true" width=80%></img></p>
 
 ### Ameaças e plano de mitigação
 
@@ -66,6 +67,10 @@ Para capacitar o robô a operar em ambientes com condições adversas, pode-se a
 
 Para garantir a qualidade das informações dos sensores, deve-se escolher sensores precisos e calibrá-los regularmente. Além disso, é possível utilizar sensores redundantes, para comparar as informações captadas por ele e identificar possíveis incongruências.
 
+5.  Perda de conexão com o robo
+
+6. Camera não identificar rachadura
+
 ### Oportunidades
 
 1. Maior conforto para empresa, ao não arriscar a vida de um funcionário (Automação de uma atividade perigosa)
@@ -80,7 +85,7 @@ Para garantir a qualidade das informações dos sensores, deve-se escolher senso
 
 O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar novos mercados e a alcançar o sucesso em meio à concorrência acirrada de uma solução. Para realizar a análise foi feita a comparação entre o método atual utilizada pela parceira e a solução que está sendo desenvolvida.
 
-<p align="center"><img src="media\oceano azul2.png" width=60%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/oceano_azul_final.png?raw=true" width=60%></img></p>
 
 **Variáveis análisadas:**
 
@@ -120,11 +125,11 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 A análise financeira informa o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas que o parceiro projeta ter relacionadas ao projeto. Ressalta-se que é uma estimativa feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/99221221/235224067-2c36aa92-0bc3-4073-a9b2-650df9a09703.png" width=120%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/analize_financeira.png?raw=true" width=90%></img></p>
 
 \*\* ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
 
-Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.030,00 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
+Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.099,16 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
 
 Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00 - Página da Gerdau no Glassdoor), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução.
 
