@@ -52,7 +52,7 @@ class BackendController(Node):
            
           
     def __battery_callback(self, data):  
-        self.percentage = ((data.data - 11)/1.6) * 100
+        self.percentage = ((data.voltage- 11)/1.6) * 100
         event = {"name": "battery", "data": self.percentage}
         self.event_queue.put(event)
         self.new_scan.battery = self.percentage
