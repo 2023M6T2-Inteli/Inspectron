@@ -191,7 +191,7 @@ Segue uma tabela com possiveis passos que podem sererm tomados para a mitigaçã
 |3          | Danos físicos |Verifique se o robô sofreu algum dano físico, se os componentes físicos estão em boas condições e se os cabos e conexões estão firmemente conectados |
 |4|Conexão de rede perdida|Verifique se o robô está dentro da faixa de alcance do roteador Wi-Fi, reinicie o roteador e verifique se outras conexões de rede estão funcionando corretamente e verifique se as configurações de rede do robô estão corretas e atualizadas|
 |5|Perda de sinal de GPS|Certifique-se de que o módulo GPS esteja corretamente conectado e funcione adequadamente e reinicie o módulo GPS e verifique se os cabos de conexão estão firmemente conectados|
-|6|||
+|6|Falha no sistema de mapeamento e navegação|Reinicie o sistema de mapeamento e navegação e verifique se todas as configurações estão corretas e verifique se há interferências magnéticas ou outras fontes de perturbação que possam afetar a precisão do sistema|
 
 # 11. Creditos 
 
