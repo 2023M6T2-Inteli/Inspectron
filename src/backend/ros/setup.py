@@ -3,23 +3,25 @@ from rclpy.node import Node
 from ultralytics import YOLO
 import cv2
 from cv_bridge import CvBridge
-from ros.subscribers import HeartbeatResponse, Battery, Oxygen, Camera, Humidity, Temperature
+from ros.subscribers import HeartbeatResponse, Battery, Tvoc, Camera, Temperature, GPS, Eco2
 from ros.publisher import BackendCommands, Heartbeat
 import base64
-import asyncio
-from utils import NewScan
 
 class BackendController(Node):
     def __init__(self, sio, event_queue, new_scan):
         super().__init__("backend_controller")
         self.sio = sio
+
+        # Subscribers
         self.camera_module = Camera(self, self.__camera_callback)
         self.heartbeat_response_module = HeartbeatResponse(self, self.__heartbeat_response_callback)
         self.battery_module = Battery(self, self.__battery_callback)
-        self.oxygen_module = Oxygen(self, self.__oxygen_callback)
+        self.tvoc_module = Tvoc(self, self.__tvoc_callback)
         self.temperature_module = Temperature(self, self.__temperature_callback)
-        self.humidity_module = Humidity(self, self.__humidity_callback)
+        self.gps_module = GPS(self, self.__gps_callback)
+        self.eco2_module = Eco2(self, self.__eco2_callback)
         
+        # Publishers
         self.heartbeat = Heartbeat(self)
         self.backend_commands = BackendCommands(self)
         
@@ -53,23 +55,26 @@ class BackendController(Node):
         self.percentage = ((data.data - 11)/1.6) * 100
         event = {"name": "battery", "data": self.percentage}
         self.event_queue.put(event)
-        #print(self.percentage)
         self.new_scan.battery = self.percentage
                      
-    def __oxygen_callback(self, data):
-        self.update_range("oxygen_max", "oxygen_min", data.data)
-        event = {"name": "oxygen", "data": data.data}
+    def __tvoc_callback(self, data):
+        self.update_range("tvoc_max", "tvoc_min", data.data)
+        event = {"name": "tvoc", "data": data.data}
         self.event_queue.put(event)
         
     def __temperature_callback(self, data):
         self.update_range("temperature_max", "temperature_min", data.data)
         event = {"name": "temperature", "data": data.data}
         self.event_queue.put(event)
-
     
-    def __humidity_callback(self, data):
-        self.update_range("humidity_max", "humidity_min", data.data)
-        event = {"name": "humidity", "data": data.data}
+    def __gps_callback(self, data):
+        print(data.data, flush=True)
+        event = {"name": "gps", "data": data.data}
+        self.event_queue.put(event)
+
+    def __eco2_callback(self, data):
+        self.update_range("eco2_max", "eco2_min", data.data)
+        event = {"name": "eco2", "data": data.data}
         self.event_queue.put(event)
         
     def update_range(self, fieldMax, fieldMin, data):
@@ -82,25 +87,3 @@ class BackendController(Node):
             self.new_scan[fieldMin] = data
         elif data < self.new_scan[fieldMin]:
             self.new_scan[fieldMin] = data
-        
-      
-        
-# def main(args=None):
-#     rclpy.init(args=args)
-#     image_subscriber = BackendController()
-#     rclpy.spin(image_subscriber)
-#     image_subscriber.destroy_node()
-#     rclpy.shutdown()
-  
-# if __name__ == '__main__':
-#   main()
-        
-        
-        
-        
-        
-        
- 
-      
-
-    

@@ -24,7 +24,7 @@ interface Props {
     items: {
         title: string;
         subtitle: string;
-        infos: string[];
+        infos: string[] | JSX.Element[];
         link?: string;
     }[];
     columns: string;

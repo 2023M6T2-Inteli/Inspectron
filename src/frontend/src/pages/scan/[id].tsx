@@ -1,15 +1,12 @@
-import Image from "next/image";
 import Wrapper from "@/components/wrapper";
 import Card from "@/components/card";
-import CardList from "@/components/cardList";
-import { useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
 import { createServerSideAxiosInstance } from "@/config/axios";
 import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { Scan } from "../dashboard";
 import dynamic from "next/dynamic";
+import Moment from "react-moment";
 
 interface Props {
     scan: Scan;
@@ -21,8 +18,18 @@ const ScanInfo = ({ scan }: Props) => {
     });
 
     const mean = (a: number, b: number) => {
+        // create e mean of two numbers but checking if they exist
+        if (!a && !b) return "não coletado";
+        if (!a) return b.toFixed(2);
+        if (!b) return a.toFixed(2);
+
         return ((a + b) / 2).toFixed(2);
     };
+
+    const sensorValue = (value: number | undefined) => {
+        if (!value) return "não coletado"
+        return value;
+    }
 
     const renderLocationCard = () => (
         <Card
@@ -43,14 +50,35 @@ const ScanInfo = ({ scan }: Props) => {
         <Card simple alignLeft title={"Robô"} infos={["Nome: " + scan.robot.name, `Ip: ${scan.robot.ip}`]} />
     );
 
-    const renderHumidityCard = () => (
+    const renderMoment = (label: string, format: string) => (
+        <div className="flex items-center gap-2">
+            <span>{label}:</span>
+            <Moment format={format}>
+                {scan.created_at.$date}
+            </Moment>
+        </div>
+    );
+
+    const renderDateTimeCard = () => (
         <Card
             simple
-            title={"Humidade"}
+            alignLeft
+            title={"Data e hora"}
             infos={[
-                `Mínima: ${scan.humidity_min}`,
-                `Média: ${mean(scan.humidity_min, scan.humidity_max)}`,
-                `Máxima: ${scan.humidity_max}`,
+                renderMoment("Data", "DD/MM/YYYY"),
+                renderMoment("Hora", "HH:mm"),
+            ]}
+        />
+    );
+
+    const renderEco2Card = () => (
+        <Card
+            simple
+            title={"Dióxido de carbono"}
+            infos={[
+                `Mínimo: ${sensorValue(scan.eco2_min)}`,
+                `Média: ${mean(scan.eco2_min, scan.eco2_max)}`,
+                `Máximo: ${sensorValue(scan.eco2_max)}`,
             ]}
         />
     );
@@ -60,9 +88,9 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             title={"Oxigênio"}
             infos={[
-                `Mínimo: ${scan.oxygen_min}`,
-                `Médio: ${mean(scan.oxygen_min, scan.oxygen_max)}`,
-                `Máximo: ${scan.oxygen_max}`,
+                `Mínimo: ${sensorValue(scan.tvoc_min)}`,
+                `Médio: ${mean(scan.tvoc_min, scan.tvoc_max)}`,
+                `Máximo: ${sensorValue(scan.tvoc_max)}`,
             ]}
         />
     );
@@ -72,9 +100,9 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             title={"Temperatura"}
             infos={[
-                `Mínima: ${scan.temperature_min}`,
+                `Mínima: ${sensorValue(scan.temperature_min)}`,
                 `Média: ${mean(scan.temperature_min, scan.temperature_max)}`,
-                `Máxima: ${scan.temperature_max}`,
+                `Máxima: ${sensorValue(scan.temperature_max)}`,
             ]}
         />
     );
@@ -83,13 +111,14 @@ const ScanInfo = ({ scan }: Props) => {
         <Wrapper title={scan.name}>
             <h3 className="text-2xl my-8">Informações detectadas pelos sensores</h3>
             <div className="grid grid-cols-3 gap-8">
-                {renderHumidityCard()}
+                {renderEco2Card()}
                 {renderOxygenCard()}
                 {renderTemperatureCard()}
             </div>
             <h3 className="text-2xl mb-8 mt-10">Informações gerais da varredura</h3>
             <div className="grid grid-cols-3 grid-rows-7 gap-8">
                 {renderRobotCard()}
+                {renderDateTimeCard()}
                 {renderLocationCard()}
             </div>
         </Wrapper>

@@ -4,12 +4,14 @@ class NewScan:
             "name": None,
             "location": None,
             "robot": None,
-            "oxygen_max": None,
-            "oxygen_min": None,
+            "eco2_max": None,
+            "eco2_min": None,
+            "tvoc_max": None,
+            "tvoc_min": None,
             "temperature_min": None,
             "temperature_max": None,
             "humidity_min": None,
-            "humidity_max": None
+            "humidity_max": None,
         }
 
     def __getitem__(self, key):
