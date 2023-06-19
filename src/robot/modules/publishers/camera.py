@@ -8,7 +8,9 @@ import cv2
 class Camera(Publisher):
     def __init__(self, node: Node):
         super().__init__("camera", node, f"/camera", Image)
-        self.__video_capture = cv2.VideoCapture(0, cv2.CAP_PROP_FRAME_WIDTH, 320, cv2.CAP_PROP_FRAME_HEIGHT, 240)
+        self.__video_capture = cv2.VideoCapture(0)
+        self.__video_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+        self.__video_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
         self.__bridge = CvBridge()
 
     def update(self):
