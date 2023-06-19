@@ -122,7 +122,8 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 * **3.** Para baixar o wsl, entre neste [link](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-wsl) e siga as instruções. Esta é uma versão resumida feita pela instituição de ensino, Inteli, mas caso deseje, aqui está a documentação [original](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
 
 * **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso deseje a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
-* **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron)
+* **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
+* **6.** Após ter nosso o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de codigo em seus respectivos lugares. Por exemplo, colocar o codigo do robô no robô em si.
  	
  
 
