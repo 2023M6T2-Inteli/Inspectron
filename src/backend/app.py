@@ -100,6 +100,7 @@ def end_scan():
         tvoc_max=new_scan["tvoc_max"],
         eco2_min=new_scan["eco2_min"],
         eco2_max=new_scan["eco2_max"],
+        video_filename=new_scan["video_filename"],
     )
     scan.save()
     new_scan.clean_variables()

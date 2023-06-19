@@ -13,5 +13,6 @@ class Scan(Document):
     humidity_max = FloatField()
     location = ObjectIdField()
     robot = ObjectIdField()
+    video_filename = StringField()
     created_at = DateTimeField()
 
