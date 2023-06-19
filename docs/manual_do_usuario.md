@@ -95,7 +95,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/componentes.png?raw=true" width="80%"></img></p>
 
 
-## 2.2. Componestes externos
+## 2.2. Componentes externos
 
 * Computador com conexão à internet.
 * Uma ou mais redes wifi que juntas cubram todo o ambiente.
