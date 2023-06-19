@@ -3,8 +3,10 @@ from mongoengine import *
 class Scan(Document):
     actions = ListField(DynamicField())
     name = StringField()
-    oxygen_min = FloatField()
-    oxygen_max = FloatField()
+    tvoc_min = FloatField()
+    tvoc_max = FloatField()
+    eco2_min = FloatField()
+    eco2_max = FloatField()
     temperature_min = FloatField()
     temperature_max = FloatField()
     humidity_min = FloatField()

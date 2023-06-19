@@ -22,7 +22,7 @@ class BackendController(Node):
         self.temperature_module = Temperature(self, self.__temperature_callback)
         self.humidity_module = Humidity(self, self.__humidity_callback)
         self.gps_module = GPS(self, self.__gps_callback)
-        self.eco2_module = GPS(self, self.__eco2_callback)
+        self.eco2_module = Eco2(self, self.__eco2_callback)
         
         # Publishers
         self.heartbeat = Heartbeat(self)
@@ -76,6 +76,7 @@ class BackendController(Node):
         self.event_queue.put(event)
 
     def __gps_callback(self, data):
+        print(data.data, flush=True)
         event = {"name": "gps", "data": data.data}
         self.event_queue.put(event)
 

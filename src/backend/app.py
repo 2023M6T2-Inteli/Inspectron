@@ -113,6 +113,7 @@ def disconnect(sid):
         created_at=datetime.now(),
         tvoc_min=new_scan['tvoc_min'],
         tvoc_max=new_scan['tvoc_max'],
+
         eco2_min=new_scan['eco2_min'],
         eco2_max=new_scan['eco2_max'],
     )

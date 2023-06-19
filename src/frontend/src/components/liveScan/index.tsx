@@ -33,6 +33,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
 
     const handleSensorData = (valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>) => {
         return (value: string) => {
+            console.log(value)
             valueSetter(value);
         };
     };
@@ -42,21 +43,24 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const onBattery = handleSensorData(setBattery);
     const onTemperature = handleSensorData(setTemperature);
     const onEco2 = handleSensorData(setEco2);
+    const onGps = handleSensorData(setGps);
 
     useEffect(() => {
         socket.on("camera", onCamera);
-        socket.on("oxygen", onTvoc);
+        socket.on("tvoc", onTvoc);
         socket.on("battery", onBattery);
         socket.on("temperature", onTemperature);
         socket.on("eco2", onEco2);
+        socket.on("gps", onGps);
 
         return () => {
             socket.off("camera", onCamera);
-            socket.off("oxygen", onTvoc);
+            socket.off("tvoc", onTvoc);
             socket.off("battery", onBattery);
             socket.off("temperature", onTemperature);
             socket.off("eco2", onEco2);
-        };
+            socket.off("gps", onGps);
+    };
     }, [socket]);
 
     const ImageInfo = () => (
