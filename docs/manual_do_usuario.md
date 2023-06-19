@@ -125,7 +125,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 * **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
 * **6.** Após ter nosso o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de codigo em seus respectivos lugares. Por exemplo, colocar o codigo do robô no robô em si.
 * **7.** Para solucionar os erros que surgiram de falta de ter as bibliotecas devidas instalado, basta seguir a documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
-* **8.** Para subir o site no ar é fazer o processo de colocar o projeto no sistema de uso.
+* **8.** Para subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
  	
  
 
