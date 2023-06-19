@@ -114,7 +114,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 Caso o operador deseje criar novas funções ao robô, é importante seguir este tutorial abaixo:
 
- * **1.** O primeiro passo é ter um sistema operacional Linux. Pode ser qualquer distro Linux mas a mais usada é o Ubuntu. Para conseguir instalar o subsistema do Linux no Windows segue esse tutorial [link](https://learn.microsoft.com/pt-br/windows/wsl/install)
+ * **1.** O primeiro passo é ter um sistema operacional Linux. Pode ser qualquer distro Linux mas a mais usada é o Ubuntu. 
  
  * **2.** Caso seu sistema operacional seja Windows , existem 2 maneiras de resolver:
 	 * **a.** Fazer um dualboot(ter 2 sistemas operacionais em um computador)
