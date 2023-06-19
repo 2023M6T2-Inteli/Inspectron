@@ -98,7 +98,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 ## 2.2. Componentes externos
 
 * Computador com conexão à internet.
-* Uma ou mais redes wifi que juntas cubram todo o ambiente.
+* Uma ou mais redes wifi que, juntas, cubram todo o ambiente.
 
 # 3. Guia de Montagem
 
@@ -112,19 +112,19 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 # 4. Guia de Instalação
 
-Caso o operador deseje criar novas funções ao robô, é importante seguir este tutorial abaixo:
+Caso o operador queira criar novas funções ao robô, é importante seguir este tutorial abaixo:
 
  * **1.** O primeiro passo é ter um sistema operacional Linux. Pode ser qualquer distro Linux mas a mais usada é o Ubuntu. 
  
  * **2.** Caso seu sistema operacional seja Windows , existem 2 maneiras de resolver:
 	 * **a.** Fazer um dualboot(ter 2 sistemas operacionais em um computador)
 	 * **b.** Baixar o WSL(o Windows Subsystem for Linux é uma camada de compatibilidade desenvolvida pela Microsoft que permite executar distribuições Linux no sistema operacional Windows.) **Recomendado**
-* **3.** Para baixar o wsl, entre neste [link](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-wsl) e siga as instruções. Esta é uma versão resumida feita pela instituição de ensino, Inteli, mas caso deseje, aqui está a documentação [original](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
+* **3.** Para baixar o wsl, entre neste [link](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-wsl) e siga as instruções. Esta é uma versão resumida feita pela instituição de ensino Inteli. Porém, mas caso queira, aqui está a documentação [original](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
 
-* **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso deseje a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+* **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso queira, a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 * **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
-* **6.** Após ter nosso o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de codigo em seus respectivos lugares. Por exemplo, colocar o codigo do robô no robô em si.
-* **7.** Para solucionar os erros que surgiram de falta de ter as bibliotecas devidas instalado, basta seguir a documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+* **6.** Após ter o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de código em seus respectivos lugares. Por exemplo, colocar o código do robô no robô em si.
+* **7.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta seguir a documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 * **8.** Para subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
  	
  
@@ -135,7 +135,7 @@ Caso o operador deseje criar novas funções ao robô, é importante seguir este
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
-**2ª :** Selecionar o botão “+ Nova varredura” para ir até a aba de configuração/criação de um novo robô.
+**2ª:** Selecionar o botão “+ Nova varredura” para ir até a aba de configuração/criação de um novo robô.
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/botoes_laterais.png?raw=true" width="20%"></img></p>
 
