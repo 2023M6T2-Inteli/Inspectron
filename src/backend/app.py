@@ -127,7 +127,7 @@ def new_scan_data(sid, message):
     current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     output_file_name = message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
     new_scan["video_filename"] = output_file_name
-    new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (1920, 1080))
+    new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (320, 240))
 
 @sio.event
 def disconnect(sid):
