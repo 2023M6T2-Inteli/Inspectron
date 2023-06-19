@@ -13,6 +13,7 @@ interface Props {
 }
 
 const ScanInfo = ({ scan }: Props) => {
+    console.log(scan)
     const MapWithNoSSR = dynamic(() => import("../../components/map"), {
         ssr: false,
     });
@@ -61,14 +62,14 @@ const ScanInfo = ({ scan }: Props) => {
         />
     );
 
-    const renderHumidityCard = () => (
+    const renderEco2Card = () => (
         <Card
             simple
-            title={"Humidade"}
+            title={"Dioxido de carbono"}
             infos={[
-                `Mínima: ${scan.humidity_min}`,
-                `Média: ${mean(scan.humidity_min, scan.humidity_max)}`,
-                `Máxima: ${scan.humidity_max}`,
+                `Mínima: ${scan.eco2_min}`,
+                `Média: ${mean(scan.eco2_min, scan.eco2_max)}`,
+                `Máxima: ${scan.eco2_max}`,
             ]}
         />
     );
@@ -78,9 +79,9 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             title={"Oxigênio"}
             infos={[
-                `Mínimo: ${scan.oxygen_min}`,
-                `Médio: ${mean(scan.oxygen_min, scan.oxygen_max)}`,
-                `Máximo: ${scan.oxygen_max}`,
+                `Mínimo: ${scan.tvoc_min}`,
+                `Médio: ${mean(scan.tvoc_min, scan.tvoc_max)}`,
+                `Máximo: ${scan.tvoc_max}`,
             ]}
         />
     );
@@ -101,7 +102,7 @@ const ScanInfo = ({ scan }: Props) => {
         <Wrapper title={scan.name}>
             <h3 className="text-2xl my-8">Informações detectadas pelos sensores</h3>
             <div className="grid grid-cols-3 gap-8">
-                {renderHumidityCard()}
+                {renderEco2Card()}
                 {renderOxygenCard()}
                 {renderTemperatureCard()}
             </div>

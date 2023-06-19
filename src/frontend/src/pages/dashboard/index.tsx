@@ -33,10 +33,10 @@ export interface Scan {
     name: string
     temperature_min: number;
     temperature_max: number;
-    humidity_min: number;
-    humidity_max: number;
-    oxygen_min: number;
-    oxygen_max: number;
+    eco2_min: number;
+    eco2_max: number;
+    tvoc_min: number;
+    tvoc_max: number;
     location: Location;
     robot: Robot;
     created_at: {

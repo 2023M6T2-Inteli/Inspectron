@@ -22,7 +22,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const [battery, setBattery] = useState<string | undefined>(undefined);
     const [tvoc, setTvoc] = useState<string | undefined>(undefined);
     const [temperature, setTemperature] = useState<string | undefined>(undefined);
-    const [gps, setGps] = useState<string | undefined>(undefined);
+    const [gps, setGps] = useState<{x: number, y: number} | undefined>(undefined);
     const [eco2, setEco2] = useState<string | undefined>(undefined);
 
     const emergencyStop = () => {
@@ -31,19 +31,25 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
         setStage(0);
     };
 
-    const handleSensorData = (valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>) => {
+    const handleSensorData = (valueGetter: string| undefined, valueSetter: React.Dispatch<React.SetStateAction<string | undefined>>) => {
         return (value: string) => {
-            console.log(value)
+            if (valueGetter === value) return;
             valueSetter(value);
         };
     };
 
-    const onCamera = handleSensorData(setVideoImage);
-    const onTvoc = handleSensorData(setTvoc);
-    const onBattery = handleSensorData(setBattery);
-    const onTemperature = handleSensorData(setTemperature);
-    const onEco2 = handleSensorData(setEco2);
-    const onGps = handleSensorData(setGps);
+    const onCamera = handleSensorData(videoImage,setVideoImage);
+    const onTvoc = handleSensorData(tvoc, setTvoc);
+    const onBattery = handleSensorData(battery, setBattery);
+    const onTemperature = handleSensorData(temperature, setTemperature);
+    const onEco2 = handleSensorData(eco2, setEco2);
+
+    const onGps = (value: string) => {
+        const gpsData = JSON.parse(value);
+        if (gps && gpsData.x != gps.x && gpsData.y != gps.y) {
+            setGps(gpsData)
+        }
+    }
 
     useEffect(() => {
         socket.on("camera", onCamera);
@@ -76,7 +82,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
             <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
             <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc}%` : "..."} />
             <SimpleInfo label="Eco2" value={eco2 ? `${eco2}%` : "..."} />
-            <SimpleInfo label="Gps" value={gps ? gps : "..."} />
             <SimpleInfo label="Temperatura" value={temperature ? temperature : "..."} />
         </div>
     );
@@ -91,7 +96,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
 
     const LocationInfo = () => (
         <div className="h-[40vh]">
-            <MapWithNoSSR position={[form.location.coordinates.x, form.location.coordinates.y]} />
+            <MapWithNoSSR position={[gps ? gps.x : form.location.coordinates.x, gps ? gps.y : form.location.coordinates.y]} />
         </div>
     );
 
