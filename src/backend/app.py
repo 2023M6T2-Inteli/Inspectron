@@ -14,6 +14,7 @@ import queue
 from utils import NewScan
 import json
 from models import Scan
+from datetime import datetime
 
 #Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
@@ -76,6 +77,7 @@ socketio_app = socketio.ASGIApp(sio, app)
 
 @sio.event
 async def connect(sid, environ):
+    print(datetime.now().time(), flush=True)
     node_backend.heartbeat.send("oi")
     print('Connected to socket', flush=True)
     
@@ -99,6 +101,7 @@ def new_scan_data(sid, message):
 def disconnect(sid):
     print('Disconnected from socket', flush=True)
     print(new_scan, flush=True)
+    print(datetime.now(), flush=True)
     scan = Scan(
         name=new_scan['name'],
         location=new_scan['location'],
@@ -108,7 +111,8 @@ def disconnect(sid):
         temperature_min=new_scan['temperature_min'],
         temperature_max=new_scan['temperature_max'],
         humidity_min=new_scan['humidity_min'],
-        humidity_max=new_scan['humidity_max']
+        humidity_max=new_scan['humidity_max'],
+        created_at=datetime.now()
     )
     scan.save()
     new_scan.clean_variables()

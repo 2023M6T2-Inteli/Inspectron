@@ -10,6 +10,7 @@ import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import dynamic from "next/dynamic";
+import Moment from "react-moment";
 
 const MapWithNoSSR = dynamic(() => import("../../components/map"), {
     ssr: false,
@@ -26,7 +27,7 @@ const Location = ({ scans, location }: Props) => {
             return {
                 title: scan.name,
                 subtitle: "86% de oxigênio",
-                infos: ["01/09/2002 - 14:33:40"],
+                infos: [<Moment format="DD/MM/YYYY HH:mm" key={scan._id.$oid}>{scan.created_at.$date}</Moment>],
                 link: `/scan/${scan._id.$oid}`,
             };
         });

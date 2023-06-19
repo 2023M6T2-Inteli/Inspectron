@@ -10,7 +10,7 @@ interface CardProps {
     title?: string;
     subtitle?: string;
     simple?: boolean;
-    infos?: string[];
+    infos?: string[] | JSX.Element[];
     content?: React.ReactNode;
     rows?: string;
     columns?: string;
@@ -28,9 +28,7 @@ const SimpleCard: React.FC<CardProps> = ({ title, infos, content, rows, columns,
 
         {infos && (
             <div className="flex flex-col gap-2">
-                {infos.map((info) => (
-                    <InfoItem key={info} info={info} />
-                ))}
+                {infos.map((info) => (typeof info === "string" ? <InfoItem key={info} info={info} /> : info))}
             </div>
         )}
         {content && <div className="mt-4">{content}</div>}
@@ -41,7 +39,7 @@ const DefaultCard: React.FC<CardProps> = ({ title, subtitle, infos, content, cla
     <div className={`bg-white rounded-xl shadow-xl p-6 ${classes && classes}`}>
         {title && <p className="text-lg mb-2">{title}</p>}
         {subtitle && <p className="text-zinc-500 mb-24">{subtitle}</p>}
-        {infos && infos.map((info) => <InfoItem key={info} info={info} />)}
+        {infos && infos.map((info) => (typeof info === "string" ? <InfoItem key={info} info={info} /> : info))}
         {content && content}
     </div>
 );

@@ -1,15 +1,12 @@
-import Image from "next/image";
 import Wrapper from "@/components/wrapper";
 import Card from "@/components/card";
-import CardList from "@/components/cardList";
-import { useEffect, useMemo, useState } from "react";
-import { toast } from "react-toastify";
 import { createServerSideAxiosInstance } from "@/config/axios";
 import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { Scan } from "../dashboard";
 import dynamic from "next/dynamic";
+import Moment from "react-moment";
 
 interface Props {
     scan: Scan;
@@ -41,6 +38,27 @@ const ScanInfo = ({ scan }: Props) => {
 
     const renderRobotCard = () => (
         <Card simple alignLeft title={"Robô"} infos={["Nome: " + scan.robot.name, `Ip: ${scan.robot.ip}`]} />
+    );
+
+    const renderMoment = (label: string, format: string) => (
+        <div className="flex items-center gap-2">
+            <span>{label}:</span>
+            <Moment format={format}>
+                {scan.created_at.$date}
+            </Moment>
+        </div>
+    );
+
+    const renderDateTimeCard = () => (
+        <Card
+            simple
+            alignLeft
+            title={"Data e hora"}
+            infos={[
+                renderMoment("Data", "DD/MM/YYYY"),
+                renderMoment("Hora", "HH:mm"),
+            ]}
+        />
     );
 
     const renderHumidityCard = () => (
@@ -90,6 +108,7 @@ const ScanInfo = ({ scan }: Props) => {
             <h3 className="text-2xl mb-8 mt-10">Informações gerais da varredura</h3>
             <div className="grid grid-cols-3 grid-rows-7 gap-8">
                 {renderRobotCard()}
+                {renderDateTimeCard()}
                 {renderLocationCard()}
             </div>
         </Wrapper>
