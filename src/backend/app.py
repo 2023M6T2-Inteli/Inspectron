@@ -15,6 +15,7 @@ from utils import NewScan
 import json
 from models import Scan
 from datetime import datetime
+import cv2
 
 # Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
@@ -103,6 +104,7 @@ def end_scan():
     scan.save()
     new_scan.clean_variables()
     node_backend.backend_commands.send({'command': 'STOP', 'body': ''})
+    node_backend.upload_video()
     print("Scan saved", flush=True)
 
 @sio.event
@@ -119,6 +121,12 @@ def new_scan_data(sid, message):
     new_scan["location"] = message_dict["location"]["value"]
     new_scan["robot"] = message_dict["robot"]["value"]
 
+
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")  # Use mp4v codec for .mp4 file
+    current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    output_file_name = message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
+    new_scan["video_filename"] = output_file_name
+    new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (1920, 1080))
 
 @sio.event
 def disconnect(sid):
