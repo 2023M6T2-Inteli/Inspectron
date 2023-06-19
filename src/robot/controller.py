@@ -34,11 +34,13 @@ class TurtleBotController(Node):
         self.__camera_module = Camera(self)
         self.__heartbeat_response_callback = HeartbeatResponse(self)
 
+        # Publishers
         # self.__tvoc_sensor = TVOC(self)
         # self.__temperature_sensor = Temperature(self)
         # self.__eco2_sensor = ECO2(self)
         # self.__gps_sensor = GPS(self)
 
+        # Subscribers
         self.__position_module = Position(self, self.__position_callback)
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)

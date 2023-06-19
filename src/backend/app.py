@@ -106,13 +106,15 @@ def disconnect(sid):
         name=new_scan['name'],
         location=new_scan['location'],
         robot=new_scan['robot'],
-        oxygen_max=new_scan['oxygen_max'],
-        oxygen_min=new_scan['oxygen_min'],
         temperature_min=new_scan['temperature_min'],
         temperature_max=new_scan['temperature_max'],
         humidity_min=new_scan['humidity_min'],
         humidity_max=new_scan['humidity_max'],
-        created_at=datetime.now()
+        created_at=datetime.now(),
+        tvoc_min=new_scan['tvoc_min'],
+        tvoc_max=new_scan['tvoc_max'],
+        eco2_min=new_scan['eco2_min'],
+        eco2_max=new_scan['eco2_max'],
     )
     scan.save()
     new_scan.clean_variables()
