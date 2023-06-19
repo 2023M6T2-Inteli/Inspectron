@@ -22,6 +22,7 @@ export default function AsyncSelect({ label, addIcon, link, reload, control, nam
     const mapResponseToValuesAndLabels: any = (data: any) => ({
         value: data._id.$oid,
         label: data.name,
+        ...data
     });
 
     async function callApi(value: any, callback: any) {
