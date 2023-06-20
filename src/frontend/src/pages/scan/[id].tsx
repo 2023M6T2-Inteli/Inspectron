@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Wrapper from "@/components/wrapper";
 import Card from "@/components/card";
 import { createServerSideAxiosInstance } from "@/config/axios";
@@ -7,12 +8,29 @@ import { ParsedUrlQuery } from "querystring";
 import { Scan } from "../dashboard";
 import dynamic from "next/dynamic";
 import Moment from "react-moment";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+    process.env.NEXT_PUBLIC_SUPABASE_KEY as string
+);
 
 interface Props {
     scan: Scan;
 }
 
 const ScanInfo = ({ scan }: Props) => {
+    const [videoUrl, setVideoUrl] = useState<string>("");
+
+    const getVideoUrl = async () => {
+        const { data } = await supabase.storage.from("Videos").getPublicUrl(scan.video_filename);
+        setVideoUrl(data.publicUrl)
+    };
+
+    useEffect(() => {
+        getVideoUrl()
+    }, []);
+
     const MapWithNoSSR = dynamic(() => import("../../components/map"), {
         ssr: false,
     });
@@ -27,9 +45,9 @@ const ScanInfo = ({ scan }: Props) => {
     };
 
     const sensorValue = (value: number | undefined) => {
-        if (!value) return "não coletado"
+        if (!value) return "não coletado";
         return value;
-    }
+    };
 
     const renderLocationCard = () => (
         <Card
@@ -46,6 +64,19 @@ const ScanInfo = ({ scan }: Props) => {
         />
     );
 
+    const renderVideoCard = () => (
+        <Card
+            simple
+            alignLeft
+            title={`Vídeo`}
+            content={
+                    <div className="flex justify-center"><video src={videoUrl ? videoUrl : ""} controls/></div>
+            }
+            rows="row-span-5"
+            columns="col-span-full"
+        />
+    );
+
     const renderRobotCard = () => (
         <Card simple alignLeft title={"Robô"} infos={["Nome: " + scan.robot.name, `Ip: ${scan.robot.ip}`]} />
     );
@@ -53,9 +84,7 @@ const ScanInfo = ({ scan }: Props) => {
     const renderMoment = (label: string, format: string) => (
         <div className="flex items-center gap-2">
             <span>{label}:</span>
-            <Moment format={format}>
-                {scan.created_at.$date}
-            </Moment>
+            <Moment format={format}>{scan.created_at.$date}</Moment>
         </div>
     );
 
@@ -64,10 +93,7 @@ const ScanInfo = ({ scan }: Props) => {
             simple
             alignLeft
             title={"Data e hora"}
-            infos={[
-                renderMoment("Data", "DD/MM/YYYY"),
-                renderMoment("Hora", "HH:mm"),
-            ]}
+            infos={[renderMoment("Data", "DD/MM/YYYY"), renderMoment("Hora", "HH:mm")]}
         />
     );
 
@@ -119,6 +145,7 @@ const ScanInfo = ({ scan }: Props) => {
             <div className="grid grid-cols-3 grid-rows-7 gap-8">
                 {renderRobotCard()}
                 {renderDateTimeCard()}
+                {renderVideoCard()}
                 {renderLocationCard()}
             </div>
         </Wrapper>
