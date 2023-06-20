@@ -197,9 +197,26 @@ Os principais pontos que justificam o uso de uma nova tecnologia são:
 
 ## 2.4. Influências socioculturais
 
+Com o objetivo de manter uma relação sociocultural favorável, o projeto busca assegurar a segurança dos trabalhadores. Um dos principais impactos é garantir ao operador a segurança necessária ao adentrar em espaços confinados, reduzindo os riscos de acidentes e proporcionando maior tranquilidade aos operários. Esses aspectos influenciam a cultura organizacional da empresa, promovendo um ambiente de trabalho valorizado e respeitoso.
+
+A introdução de tecnologias robóticas e autônomas, como o TurtleBot, pode resultar em mudanças nas habilidades requeridas para a realização de certas tarefas. Os operadores precisam adquirir novos conhecimentos e competências para operar e supervisionar o sistema. Isso pode afetar a formação profissional e demandar investimentos em treinamento e capacitação. Além disso, pode ocorrer uma redistribuição de tarefas, substituindo trabalhos manuais repetitivos pela automação, enquanto outros se concentram em tarefas mais complexas que requerem interação humana.
+
+Aceitação e adaptação à tecnologia: A introdução de robôs autônomos no ambiente de trabalho pode exigir uma mudança de mentalidade e cultura organizacional. Pode ser necessário um período de adaptação para que os trabalhadores se acostumem e confiem na tecnologia. Também pode haver resistência inicial devido ao receio de substituição de empregos. Portanto, é essencial promover conscientização, participação e colaboração dos trabalhadores no processo de implementação, fornecendo suporte e treinamento adequados.
+
 ## 2.5. Tipológico-formais e ergonômicos
 
+
+A aplicação das abordagens tipológico-formais e ergonômicas no uso de um AGV é fundamental para garantir sua eficácia e segurança em diferentes ambientes e atividades. O Turtlebot3 Burger é um veículo autônomo guiado por sistemas automatizados, projetado para executar Pesquisa em robótica, Desenvolvimento de aplicações robóticas e Demonstração de conceitos robóticos. Em nosso projeto, usamos para fazer prova de conceito, demonstrando sua eficiência em varreduras em espaços confinados.
+
+No aspecto tipológico-formal, é importante considerar as características físicas e funcionais do ambiente onde o TurtleBot será utilizado. Cada ambiente pode apresentar obstáculos, espaços estreitos, diferentes superfícies ou até mesmo diferentes níveis de altura. Ao projetá-lo, foi necessário analisar esses aspectos para criar maneiras de contorná-las e aprimorá-las. Isso inclui a escolha dos sensores e da maneira que programamos o robô para evitar colisões com obstáculos.
+
+A abordagem ergonômica no uso de um AGV refere-se à interação entre o veículo e as pessoas que o utilizam. Mesmo que o AGV seja autônomo, foi importante projetar uma interface intuitiva e amigável para facilitar a interação com os operadores ou outros funcionários que possam estar envolvidos na sua operação ou manutenção. Isso inclui painéis de controle de fácil compreensão, recursos de visualização em tempo real, recursos de relatórios fáceis e indicadores visuais, para transmitir informações relevantes sobre o status da operação.
+Além disso, o design do robô foi planejado de forma com que atenda aos requisitos do ambiente e de manutenção. Ele apresenta uma fácil instalação de sensores e não necessita um grande espaço de armazenamento, já que o mesmo, é pequeno e de fácil manuseio. 
+
+
 ## 2.6. Tecnologia produtiva e materiais empregados
+
+
 
 # 3. Descrição da arquitetura do sistema.
 
