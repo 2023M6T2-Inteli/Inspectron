@@ -139,7 +139,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/botoes_laterais.png?raw=true" width="20%"></img></p>
 
-**3ª: ** Após isso é preciso registrar o robô no sistema, preenchendo os seguintes campos. E ao final, clicar em “Iniciar varredura”.
+**3ª: ** Após isso é preciso registrar o robô no sistema, preenchendo os campos abaixo. E ao final, clicar em “Iniciar varredura”.
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/create_page.png?raw=true" width="80%"></img></p>
 
@@ -149,7 +149,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
 # 6. Guia de Operação
 
-**1ª:** Para a visualização a visualização dos dados obtidos em cada varredura ou em um ambiente específico, clique no botão “Varreduras/Locais”
+**1ª:** Para a visualização dos dados obtidos em cada varredura ou em um ambiente específico, clique no botão “Varreduras/Locais”
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/botoes_laterais.png?raw=true" width="20%"></img></p>
 
