@@ -42,6 +42,7 @@ export interface Scan {
     created_at: {
         $date: number;
     }
+    video_filename: string;
 }
 
 interface Room {
