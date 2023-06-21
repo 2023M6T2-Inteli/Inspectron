@@ -6,6 +6,16 @@ from cv_bridge import CvBridge
 from ros.subscribers import HeartbeatResponse, Battery, Tvoc, Camera, Temperature, GPS, Eco2
 from ros.publisher import BackendCommands, Heartbeat
 import base64
+import os
+from dotenv import load_dotenv
+from supabase import create_client
+
+load_dotenv()
+
+URL = os.getenv("SUPABASE_URL")
+KEY = os.getenv("SUPABASE_KEY")
+supabase = create_client(URL, KEY)
+bucket_name = "Videos"
 
 class BackendController(Node):
     def __init__(self, sio, event_queue, new_scan):
@@ -30,6 +40,14 @@ class BackendController(Node):
 
         self.new_scan = new_scan
 
+    def upload_video(self):
+        try:
+            supabase.storage.from_(bucket_name).upload(self.new_scan.video_filename, self.new_scan.video_filename)
+            print("Vídeo uploaded successfully", flush=True)
+        except: 
+            print("Error uploading video", flush=True)
+
+
     async def __camera_callback(self, data):
         self.get_logger().info('Receiving video frame')
         
@@ -40,6 +58,7 @@ class BackendController(Node):
         annotated = result[0].plot()
 
         _, buffer = cv2.imencode('.jpg', annotated)
+        self.output_file.write(buffer)
 
         # Convert byte array to base64 string
         frame64 = base64.b64encode(buffer).decode('utf-8')
@@ -52,7 +71,7 @@ class BackendController(Node):
            
           
     def __battery_callback(self, data):  
-        self.percentage = ((data.data - 11)/1.6) * 100
+        self.percentage = ((data.voltage- 11)/1.6) * 100
         event = {"name": "battery", "data": self.percentage}
         self.event_queue.put(event)
         self.new_scan.battery = self.percentage

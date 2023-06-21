@@ -1,6 +1,9 @@
 import io
-import serial
-import pynmea2
+try:
+    import serial
+    import pynmea2
+except Exception as error:
+    print(f"Warning: {error}")
 
 
 class GPSData:
@@ -26,7 +29,7 @@ class GPSData:
 
 
 class GPSSensor:
-    PORT = "/dev/ttyAMA1"
+    PORT = "/dev/ttyUSB1"
     BAUDRATE = 9600
     TIMEOUT = 0.5
 

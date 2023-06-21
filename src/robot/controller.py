@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-from modules.publishers import Velocity, Camera, HeartbeatResponse
+from modules.publishers import Velocity, Camera, HeartbeatResponse, TVOC, Temperature, ECO2, GPS
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
 
 # from ros2_message_converter import message_converter
@@ -35,10 +35,10 @@ class TurtleBotController(Node):
         self.__heartbeat_response_callback = HeartbeatResponse(self)
 
         # Publishers
-        # self.__tvoc_sensor = TVOC(self)
-        # self.__temperature_sensor = Temperature(self)
-        # self.__eco2_sensor = ECO2(self)
-        # self.__gps_sensor = GPS(self)
+        self.__tvoc_sensor = TVOC(self)
+        self.__temperature_sensor = Temperature(self)
+        self.__eco2_sensor = ECO2(self)
+        self.__gps_sensor = GPS(self)
 
         # Subscribers
         self.__position_module = Position(self, self.__position_callback)
@@ -48,28 +48,37 @@ class TurtleBotController(Node):
         self.__backend_commands_module = BackendCommands(
             self, self.__backend_commands_callback)
 
-        self.__runtime_camera()
-        # self.command_start()  # If you want to start the robot automatically
+        # Set runtime objects
+        self.__sensores_runtime_object = None
+        self.__runtime_camera_object = None
+        self.__runtime_movement_object = None
 
-    def command_start(self):
+        self.__runtime_camera()
+        self.__command_start()
+
+    def __command_start(self):
         self.get_logger().info("Starting robot runtime...")
-        self.create_timer(1, self.__sensores_runtime)
-        self.create_timer(0.16, self.__runtime_camera)
-        self.create_timer(0.24, self.__runtime_movement)
+        self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
+        self.__runtime_camera_object = self.create_timer(0.08, self.__runtime_camera)
+        self.__runtime_movement_object = self.create_timer(0.16, self.__runtime_movement)
 
     def __backend_commands_callback(self, data):
-        print(data)
         msg_json = json.loads(data.data)
         match (msg_json["command"]):
             case "START":
-                # self.command_start()
-                pass
+                self.__command_start()
+
             case "STOP":
-                pass
+                runtimes = [self.__sensores_runtime_object,
+                            self.__runtime_camera_object,
+                            self.__runtime_movement_object]
+
+                for runtime in runtimes:
+                    if runtime and (not runtime.is_canceled()):
+                        runtime.cancel()
 
     def __heartbeat_callback(self, msg):
-        print("Mensagem recebida com sucesso no heartbeat!")
-        self.__heartbeat_response_callback.send("oie")
+        self.__heartbeat_response_callback.pong()
 
     def __position_callback(self, euler_data: EulerData):
         self.__euler_data = euler_data
@@ -95,23 +104,22 @@ class TurtleBotController(Node):
 
     def __runtime_movement(self):
         pass
-
         # frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
         # self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
 
         # if frontal_min_distance < 0.3:
-        #     _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
+        #    _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
 
-        #     if right_avarage_distance > left_avarage_distance and self.__state != State.DETOUR_LEFT:
-        #         self.__state = State.DETOUR_RIGHT
-        #         self.__velocity_module.apply(0, -0.30)
+        #    if right_avarage_distance > left_avarage_distance and self.__state != State.DETOUR_LEFT:
+        #        self.__state = State.DETOUR_RIGHT
+        #        self.__velocity_module.apply(0, -0.30)
 
-        #     if left_avarage_distance > right_avarage_distance and self.__state != State.DETOUR_RIGHT:
-        #         self.__state = State.DETOUR_LEFT
-        #         self.__velocity_module.apply(0, 0.30)
+        #    if left_avarage_distance > right_avarage_distance and self.__state != State.DETOUR_RIGHT:
+        #        self.__state = State.DETOUR_LEFT
+        #        self.__velocity_module.apply(0, 0.30)
         # else:
-        #     self.__state = State.FOWARD
-        #     self.__velocity_module.apply(0.30, 0)
+        #    self.__state = State.FOWARD
+        #    self.__velocity_module.apply(0.30, 0)
 
         # self.get_logger().info(f"State: {self.__state}")
 

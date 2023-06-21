@@ -12,6 +12,8 @@ class NewScan:
             "temperature_max": None,
             "humidity_min": None,
             "humidity_max": None,
+            "video": None,
+            "video_filename": None
         }
 
     def __getitem__(self, key):
