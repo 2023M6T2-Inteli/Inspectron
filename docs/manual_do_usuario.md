@@ -142,13 +142,13 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.1 BackEnd
 
- * **1.**
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
  * **2.**
  * **3.**
 
  ### 4.2.2 FrontEnd
 
- * **1.**
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
  * **2.**
  * **3.**
 
