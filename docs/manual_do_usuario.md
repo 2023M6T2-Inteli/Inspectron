@@ -143,14 +143,14 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  ### 4.2.1 BackEnd
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
- * **2.**
- * **3.**
+ * **2.** Depois é necesário achar os arquivos relevantes do codigo do backend.
+ * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o 'pip install' das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
  ### 4.2.2 FrontEnd
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
- * **2.**
- * **3.**
+ * **2.** Depois é necesário achar os arquivos relevantes do codigo do frontend.
+ * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o 'pip install' das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 
 # 5. Guia de Configuração
 
