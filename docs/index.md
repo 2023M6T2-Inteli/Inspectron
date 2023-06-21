@@ -15,11 +15,24 @@
   - [1.1 - Canvas Proposta de Valor](#11-canvas-proposta-de-valor)
   - [1.2 - Matriz de Riscos](#12-matriz-de-riscos)
   - [1.3 - Oceano Azul](#13-oceano-azul)
+    * [1.3.1. - Aumentar](#131-aumentar)
+    * [1.3.2. - Diminuir](#132-diminuir)
+    * [1.3.3. - Criar](#133-criar)
+    * [1.3.4. - Eliminar](#134-eliminar)
   - [1.4 - Análise financeira](#14-análise-financeira)
 - [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
+    - [2.2.1. Produto, orientação de mercado e precificação](#221-produto-orientação-de-mercado-e-precificação)
+    - [2.2.2. Cenário do mercado](#222-cenário-o-mercado)
+    - [2.2.3. Visão do projeto proposto](#223-visão-do-projeto-proposto)
   - [2.2 - Sistema produto/design](#22-sistema-produto/design)
+  - [2.2.1. Missão do projeto ](#221-missao-do-projeto)
+  - [2.2.2. Unidade formal entre o design do produto, as formas de divulgação e venda](#222-Unidade-formal-entre-o-design-do-produt-as-formas-de-divulgação-e-venda)
+  
   - [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
+    - [2.3.1. Ecoeficiente do projeto
+](231-ecoeficiente-do-projeto
+)
   - [2.4 - Influências socioculturais](#24-influências-socioculturais)
   - [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
@@ -98,25 +111,25 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 7. Segurança
 8. Praticidade
 
-### Aumentar
+### 1.3.1. Aumentar
 
 - A Qualidade da inspeção irá aumentar pois o robô irá entrar dentro do espaço confinado, diferente do processo atual que é apenas superficial;
 - A precisão da análise será elevada pois a inspeção será no interior do espaço que necessita de manutenção;
 - Irá melhorar a praticidade pois os colaboradores da Gerdau terão apenas que controlar a dashboard de dados coletador pelo robô;
 
-### Diminuir
+### 1.3.2. Diminuir
 
 - De acordo com dados da análise financeira é perceptivel que o custo da solução irá baratear o processo depois de um certo periodo;
 - Realiza a inspeção e coleta de dados em espaços confinados de maneira mais rápida, reduzindo o tempo necessário para realizar essas atividades
 
-### Criar
+### 1.3.3. Criar
 
 - Tecnologia será criada pois o processo atual é feito de forma manual;
 - Irá criar segurança, uma vez que, os colaboradores não serão expostos ao risco;
 - Monitoramento remoto em tempo real, permitindo a análise de dados coletados e a tomada de decisões de forma mais rápida e eficiente.
 - Flexibilidade, pois a tecnologia é adaptável às necessidades dos clientes, permitindo a personalização dos recursos para cada cenário.
 
-### Eliminar
+### 1.3.4. Eliminar
 
 - A intervenção humana no processo de vistoria será eliminada pois o robô fara o trabalho de entrada no espaço confinado;
 - Erros humanos durante a inspeção e coleta de dados em espaços confinados.
@@ -125,7 +138,7 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 A análise financeira informa o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas que o parceiro projeta ter relacionadas ao projeto. Ressalta-se que é uma estimativa feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/analise_financeira.png?raw=true" width=90%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/analise_financeira.png?raw=true" width=70%></img></p>
 
 \*\* ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
 
@@ -137,7 +150,7 @@ Considerando o salário anual de um funcionário que realiza inspeção em espa�
 
 ## 2.1. Fatores mercadológicos
 
-### Produto, orientação de mercado e precificação
+### 2.1.1. Produto, orientação de mercado e precificação
 
 Um AGV é um tipo de robô autônomo que segue uma trajetória pré-definida por meio de software e utiliza sensores, como câmeras e lasers, para navegar no ambiente e evitar obstáculos. Esses robôs são altamente precisos e seguros, permitindo que se movimentem por espaços apertados com habilidade superior à das mãos humanas. Por essas razões, eles são amplamente utilizados para transportar materiais em ambientes industriais ou logísticos. Além de seu uso para transporte, os AGVs podem ser equipados com sensores e câmeras para realizar a inspeção de áreas de difícil acesso ou perigosas para os humanos. Isso garante mais segurança e precisão na realização da manutenção preventiva.
 
@@ -147,7 +160,7 @@ Felizmente, a indústria 4.0 está trazendo soluções para esse problema atrav�
 
 No que se refere à precificação do produto, é importante destacar que os AGVs apresentam uma ampla variação de preços ("How much does an AGV cost?", [s.d.], que podem variar dependendo do tipo de veículo, tamanho, sensores instalados, função e outras possíveis variações. Além disso, é preciso levar em consideração os custos envolvidos na implantação do AGV, tais como o treinamento dos funcionários, a instalação de trilhos ou outras referências de movimento e a integração com outros sistemas de softwares. Para precificar o MVP, será utilizado o TurtleBot3 com os sensores necessários e os investimentos necessários para implementar a solução na empresa parceira.
 
-### Cenário do mercado
+### 2.1.2. Cenário do mercado
 
 Com as mudanças globais em constante evolução, as expectativas dos consumidores e investidores estão se tornando cada vez mais exigentes. Nesse contexto, a Indústria 4.0 surge como um grande integrador de toda a cadeia da indústria, levantando debates importantes sobre o seu desenvolvimento ("Indústria 4.0 no Brasil: cenário e perspectivas", [s.d.]). No Brasil, a implementação da Indústria 4.0 apresenta desafios que vão desde o investimento em equipamentos que incorporem essas tecnologias até a adaptação de processos e formas de relacionamento entre as empresas ao longo da cadeia produtiva, além da criação de novas especialidades e desenvolvimento de competências ("Indústria 4.0", [s.d]).
 
@@ -155,7 +168,7 @@ No entanto, de acordo com a McKinsey, estima-se que até 2025, os processos rela
 
 Em ambientes confinados a utilização de robôs tem se mostrado uma alternativa favorável para facilitar vistórias em ambientes restritos e perigosos para seres humanos. De acordo com um relatório da BCC Research, o mercado global de veículos guiados automatizados (AGVs) deve atingir US$ 4 bilhões até 2025. Isso indica que os AGVs estão sendo amplamente adotados pelas indústrias para aumentar a eficiência de suas operações, uma vez que essa tecnologia oferece diversos benefícios, como o diminuição da exposição de trabalhadores a tarefas perigodas e otimização na coleta de dados.
 
-### Visão do projeto proposto
+### 2.1.3. Visão do projeto proposto
 
 O setor siderúrgico, onde a Gerdau atua, envolve a manipulação de equipamentos e materiais pesados, altas temperaturas e exposição dos trabalhadores a materiais e gases químicos tóxicos, o que o torna um setor de alto risco em termos de segurança do trabalho.
 
@@ -167,7 +180,7 @@ Nesse cenário, o projeto apresenta uma grande importância para a Gerdau pois t
 
 ## 2.2. Sistema produto/design
 
-### Missão do projeto
+### 2.2.1. Missão do projeto
 
 O setor siderúrgico é conhecido por envolver o manuseio de equipamentos e materiais pesados, altas temperaturas e exposição a materiais químicos tóxicos, tornando-o de alto risco em termos de segurança do trabalho. A Gerdau, valorizando a segurança de seus colaboradores ("Sobre nós", [s.d.]), traça objetivos para tornar o desenvolvimento de segurança mais palpável e busca alcançar o objetivo de acidente zero por meio da adoção de rigorosos padrões de operação e manutenção, além de seguir normas nacionais e internacionais de segurança.
 
@@ -175,7 +188,7 @@ A empresa realizou um mapeamento das possíveis ameaças à segurança e identif
 
 Para solucionar esse problema e estar em linha com sua política de segurança, a Gerdau pretende realizar inspeções em espaços confinados por meio de um AGV (Automated Guided Vehicle), um veículo guiado automaticamente que permitirá que a empresa tenha acesso a informações e imagens do ambiente em tempo real através de um software de integração. Dessa forma, a empresa poderá identificar possíveis vazamentos, problemas na infraestrutura e outros riscos relacionados a espaços confinados e preparar-se corretamente para realizar intervenções seguras.
 
-### Unidade formal entre o design do produto, as formas de divulgação e venda
+### 2.2.2. Unidade formal entre o design do produto, as formas de divulgação e venda
 
 A solução desenvolvida para a Gerdau é personalizada e não será comercializada em larga escala. Nesse sentido, a abordagem de divulgação e venda deve ser adaptada à visão interna da empresa. É importante manter a coerência em todos os aspectos do projeto, desde a apresentação visual até os requisitos técnicos do produto, para manter uma unidade formal entre o design, a forma de divulgação e a venda. Esses elementos têm um grande impacto na imagem do projeto e da empresa.
 
@@ -185,7 +198,7 @@ Além disso, a capacitação dos funcionários, principalmente nos setores que t
 
 ## 2.3. Sustentabilidade ambiental
 
-### Ecoeficiente do projeto
+### 2.3.1. Ecoeficiente do projeto
 
 O projeto visa uma automatização do processo de varredura de gases em espaços confinados que possibilita análises em diferentes áreas destes. Com o escopo em mente, assume-se que o projeto poderá trazer uma quantidade menor de recursos, onde um único robô poderá fazer varreduras em diversos segmentos, seja em meio a leitura de gases ou gravação do atual estado estrutural do ambiente, sem a necessidade de um operador ser exposto ao risco.
 
@@ -236,7 +249,7 @@ Nossa arquitetura de solução abrange três áreas de atuação, cada uma desem
 
 Todos os componentes da solução estão conectados através de uma rede Wi-Fi, garantindo uma comunicação contínua entre eles. O ROS2 (Robot Operating System 2) é utilizado para facilitar a comunicação e o envio de comandos entre o backend e o embarcado. Essa plataforma otimiza o sistema de troca de informações, permitindo uma interação eficiente entre as diferentes partes da solução.
 
-![Arquitetura-do-sistema](./media/Arquitetura%20do%20sistema.png)
+<p align="center"><img src="" width="80%"></img></p>
 
 # 4. Sistema de locomoção e otimização de rota.
 
@@ -360,11 +373,12 @@ Além disso, também fornecemos exemplos visuais das predições realizadas pelo
 
 Ao analisar a matriz de confusão e examinar as predições visuais em imagens de teste, podemos ter uma compreensão mais completa da performance do modelo. Isso nos permite avaliar sua capacidade de detectar rachaduras com precisão e identificar possíveis áreas de melhoria.
 
-![Arquitetura-do-sistema](./media/confusion_matrix.png)
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/confusion_matrix.png?raw=true" width="80%"></img></p>
 
-![Arquitetura-do-sistema](./media/val_batch0_pred.jpg)
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/val_batch0_pred.jpg?raw=true" width="80%"></img></p>
 
-![Arquitetura-do-sistema](./media/val_batch1_pred.jpg)
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/val_batch1_pred.jpg?raw=true" width="80%"></img></p>
+
 
 ### Adendo
 
