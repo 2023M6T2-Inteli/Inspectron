@@ -135,7 +135,6 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 * **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso queira, a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 * **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
 * **6.** Após ter o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de código em seus respectivos lugares. Por exemplo, colocar o código do robô no robô em si.
-* **7.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta seguir a documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 * **8.** Para subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
  	
  ## 4.2. Site
@@ -145,12 +144,14 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
  * **2.** Depois é necesário achar os arquivos relevantes do codigo do backend.
  * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o 'pip install' das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+ * **4.** Caso necesesita subir o backend no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
 
  ### 4.2.2 FrontEnd
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
  * **2.** Depois é necesário achar os arquivos relevantes do codigo do frontend.
  * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o 'pip install' das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+ * **4.** Caso necesesita subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
 
 # 5. Guia de Configuração
 
