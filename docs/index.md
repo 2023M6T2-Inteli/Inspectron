@@ -30,19 +30,30 @@
   - [2.2.2. Unidade formal entre o design do produto, as formas de divulgação e venda](#222-Unidade-formal-entre-o-design-do-produt-as-formas-de-divulgação-e-venda)
   
   - [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
-    - [2.3.1. Ecoeficiente do projeto
-](231-ecoeficiente-do-projeto
-)
+    - [2.3.1. Ecoeficiente do projeto](#231-ecoeficiente-do-projeto)
+
   - [2.4 - Influências socioculturais](#24-influências-socioculturais)
   - [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
 - [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
 - [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
 - [5 - Interface de usuário](#5-interface-de-usuário)
+  - [5.1. Páginas principais:](#51-páginas-principais)
 - [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
+  - [6.1. Modelo de detecção de rachaduras Yolov8](#61-modelo-de-detecção-de-rachaduras-Yolov8)
+    - [6.1.1. Pré-processamento da imagem](#611-pré-processamento-da-imagem)
+    - [6.1.2. Onde o modelo está sendo utilizado?](#612-onde-o-modelo-está-sendo-utilizado?)
+    - [6.1.3. Testes de eficácia e performance](#613-testes-de-eficácia-e-performance)
+    - [6.1.4. Adendo](#614-adendo)
+    - [6.1.5. Vídeo do funcionamento do modelo a partir da webcam](#615-vídeo-do-funcionamento-do-modelo-a-partir-da-webcam)
 - [7 - Sistemas de segurança](#7-sistemas-de-segurança)
+  - [7.1. Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos](#71-mapeamento-de-riscos-dos-sistemas-eletromecânicos-mecânicos-e-eletrônicos)
+  - [7.2. Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.](#72-definição-implementação-e-validação-de-dispositivos-de-segurança-para-os-riscos-mapeados.)
+  - [7.3. Nossas implementações](#73-Nossas-implementações)
+    - [7.3.1. Sensor Lidar](731-ensor-lidar)
 - [8 - Backend](#8-backend)
 - [9 - Integração de sistemas](#9-integração-de-sistemas)
+  - [9.1. Teste de eficácia e performance](#91-teste-de-eficácia-e-performance)
 - [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
 - [11 - Referências](#11-referências)
 
@@ -249,7 +260,7 @@ Nossa arquitetura de solução abrange três áreas de atuação, cada uma desem
 
 Todos os componentes da solução estão conectados através de uma rede Wi-Fi, garantindo uma comunicação contínua entre eles. O ROS2 (Robot Operating System 2) é utilizado para facilitar a comunicação e o envio de comandos entre o backend e o embarcado. Essa plataforma otimiza o sistema de troca de informações, permitindo uma interação eficiente entre as diferentes partes da solução.
 
-<p align="center"><img src="" width="80%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/Arquitetura%20do%20sistema%20completa.png?raw=true" width="80%"></img></p>
 
 # 4. Sistema de locomoção e otimização de rota.
 
@@ -277,9 +288,9 @@ Todas as etapas de prototipação do frontend foram realizadas no Figma, uma fer
 
 Além disso, durante o processo de desenvolvimento, priorizamos a usabilidade, buscando simplificar cada interação e garantir que a interface fosse amigável e fácil de usar. Também nos esforçamos para oferecer uma estética visual atraente, combinando cores, tipografia e elementos gráficos de forma harmoniosa.
 
-### Páginas principais:
+## 5.1. Páginas principais:
 
-#### Página de login
+ **Página de login**
 
 A página de login foi meticulosamente projetada para ser a porta de entrada dos usuários em nosso sistema. Reconhecemos a importância crucial da autenticação em nosso projeto, uma vez que apenas usuários autorizados da empresa parceira têm permissão para acessar a plataforma e desfrutar de todas as funcionalidades que ela oferece. Essa abordagem de autenticação garante a segurança e a integridade dos dados, bem como a privacidade das informações armazenadas.
 
@@ -289,7 +300,7 @@ A autenticação no nosso sistema é essencial para proteger os recursos dispon�
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
-#### Página de varreduras/locais
+**Página de varreduras/locais**
 
 A página de varreduras/locais é um componente essencial do nosso sistema, pois fornece uma visão abrangente e organizada do histórico de todas as varreduras realizadas e locais cadastrados. Nessa página, optamos por agrupar as informações em cards, pois acreditamos que essa abordagem oferece uma forma elegante e intuitiva de apresentar os dados. Cada card contém um resumo conciso e visualmente atraente das informações relacionadas a cada varredura ou local.
 
@@ -301,7 +312,7 @@ Além do aspecto visual, também consideramos a usabilidade ao projetar essa pá
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/historic_page.png?raw=true" width="80%"></img></p>
 
-#### Página de ver todas as varreduras realizadas em um local
+**Página de ver todas as varreduras realizadas em um local**
 
 Nessa página específica, proporcionamos aos usuários a capacidade de visualizar todas as varreduras realizadas em uma localização específica. Aqui, destacamos nossa abordagem consistente em padronizar a experiência do usuário, evidenciada pelo uso de cards para renderizar as informações. Essa abordagem foi cuidadosamente pensada para criar um senso de continuidade em todo o sistema, levando em consideração as heurísticas de Nielsen.
 
@@ -311,7 +322,7 @@ Um aspecto importante dessa página é o objetivo de permitir que o usuário com
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
 
-#### Página de realizar nova varredura
+**Página de realizar nova varredura**
 
 Essa página foi cuidadosamente projetada para permitir que o usuário execute todo o fluxo necessário para realizar uma nova varredura. Ela consiste em duas partes principais:
 
@@ -335,13 +346,13 @@ O sistema de visão computacional implementado no projeto desempenha um papel cr
 
 A aplicação do sistema de visão computacional nesse contexto traz uma série de benefícios. Além de automatizar o processo de detecção de rachaduras, o sistema oferece uma abordagem não invasiva para inspecionar estruturas de locais não propícios a sobrevivência humana, reduzindo a necessidade de intervenção humana direta e potencialmente perigosa. Além disso, a detecção precoce de rachaduras pode ajudar a evitar problemas futuros, permitindo que medidas corretivas sejam tomadas antes que danos mais graves ocorram.
 
-## Modelo de detecção de rachaduras Yolov8
+## 6.1. Modelo de detecção de rachaduras Yolov8
 
 A detecção de rachaduras é de suma importância, especialmente quando o robô realiza varreduras em ambientes que contêm gases tóxicos para seres humanos, como sistemas de tubulação e dutos. Para lidar com esse desafio, optamos por implementar um modelo de inteligência artificial pr=e-treinado YOLOv8. Ele foi especialmente treinado para reconhecer padrões visuais característicos de rachaduras. Ao processar as imagens capturadas pelo sensor de câmera, o sistema analisa minuciosamente cada pixel, identificando possíveis rachaduras com base em características como formas, texturas e variações de cor. Ao detectar uma rachadura, o sistema automaticamente desenha um quadrado no frame do vídeo correspondente, indicando com precisão ao usuário a localização exata da rachadura detectada.
 
 Acreditamos que a identificação e localização das rachaduras presentes no ambiente de varredura sejam informações cruciais para o nosso parceiro. Essa funcionalidade permite que eles tenham conhecimento prévio das condições estruturais e possam tomar medidas adequadas para a manutenção e reparo, evitando possíveis problemas futuros.
 
-### Pré-processamento da imagem
+### 6.1.1. Pré-processamento da imagem
 
 No desenvolvimento do nosso modelo, optamos por não utilizar técnicas de pré-processamento de imagens, pois constatamos que o YOLOv8 foi capaz de identificar as rachaduras com sucesso mesmo quando treinado apenas com imagens puras.
 
@@ -353,7 +364,7 @@ Essa abordagem simplificada de treinamento é possível graças à capacidade do
 
 Embora técnicas de pré-processamento de imagens possam ser úteis em determinados cenários, como redução de ruído ou ajuste de iluminação, no nosso caso específico, observamos que o YOLOv8 apresentou um desempenho satisfatório sem a necessidade dessas etapas adicionais. Isso simplifica o fluxo de trabalho e aumenta a eficiência do modelo, permitindo uma detecção eficaz das rachaduras nas imagens capturadas.
 
-### Onde o modelo está sendo utilizado?
+### 6.1.2. Onde o modelo está sendo utilizado?
 
 Como mencionado nas seções anteriores, a backend do nosso modelo é responsável por receber e processar informações provenientes de diferentes tópicos do ROS.
 
@@ -363,7 +374,7 @@ Ao se inscrever no tópico `/camera`, a backend é capaz de receber as imagens s
 
 Essa interação entre o robô, o tópico `/camera` e a backend do modelo de visão computacional permite que o sistema seja capaz de detectar e visualizar as rachaduras em tempo real. Essa abordagem é especialmente valiosa em ambientes onde a presença de rachaduras representa um risco significativo, como em sistemas de tubulação e dutos contendo gases tóxicos, pois permite a tomada de ações imediatas para reparo e manutenção.
 
-### Testes de eficácia e performance
+### 6.1.3. Testes de eficácia e performance
 
 Estamos confiantes de que nosso modelo atingiu um alto nível de eficácia na detecção de rachaduras. Para treiná-lo, utilizamos um conjunto de dados robusto, composto por 3.700 imagens, das quais separamos 200 para validação e 112 para teste. Essa divisão dos dados é essencial para avaliar o desempenho do modelo em cenários não vistos durante o treinamento.
 
@@ -380,7 +391,7 @@ Ao analisar a matriz de confusão e examinar as predições visuais em imagens d
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/val_batch1_pred.jpg?raw=true" width="80%"></img></p>
 
 
-### Adendo
+### 6.1.4. Adendo
 
 Além das implementações mencionadas anteriormente, também adicionamos ao nosso projeto uma pasta chamada `/src/model` que contém arquivos específicos para o processo de detecção de rachaduras e treinamento do modelo.
 
@@ -390,13 +401,13 @@ Adicionalmente, no arquivo `training.py`, localizado também na pasta `/src/mode
 
 Essas adições ao projeto, tanto o código de detecção de rachaduras em tempo real quanto o código de treinamento do modelo, têm o objetivo de fornecer uma estrutura completa e funcional para o uso da visão computacional na detecção de rachaduras. Com essas implementações, os usuários podem tanto visualizar a detecção de rachaduras em tempo real quanto treinar o modelo com suas próprias imagens de rachaduras, adaptando-o às suas necessidades específicas.
 
-#### Vídeo do funcionamento do modelo a partir da webcam
+#### 6.1.5. Vídeo do funcionamento do modelo a partir da webcam
 
 https://youtu.be/QXdE4vfUh5s
 
 # 7. Sistemas de segurança.
 
-## Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos
+## 7.1. Mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos
 
 No contexto de desenvolvimento um AGV, usado para inspeção em locais confinados, é essencial realizar um mapeamento de riscos dos sistemas eletromecânicos, mecânicos e eletrônicos envolvidos. O objetivo é identificar e compreender os potenciais perigos associados a esses sistemas, a fim de mitigar os riscos e garantir a segurança e integradade de componentes durante as operações do AGV.
 
@@ -407,7 +418,7 @@ No contexto de desenvolvimento um AGV, usado para inspeção em locais confinado
 
 Para mitigar esses riscos, é fundamental realizar uma análise detalhada dos componentes e sistemas envolvidos no AGV, bem como implementar mecanismos de segurança robustos. Isso pode incluir o uso de sistemas avançados de detecção e prevenção de colisões, sistemas redundantes em componentes críticos, como rodas e freios, e adesão a padrões de segurança relevantes. Além disso, é importante considerar o ambiente em que o AGV será utilizado e adotar medidas de proteção adicionais, como revestimentos resistentes a ambientes corrosivos ou à prova d'água, dependendo das condições específicas encontradas durante a inspeção em locais confinados.
 
-## Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
+## 7.2. Definição, implementação e validação de dispositivos de segurança para os riscos mapeados.
 
 Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, mecânicos e eletrônicos do AGV, decidimos definir dispositivos de segurança apropriados para mitigar esses riscos. Esses dispositivos têm o objetivo de prevenir acidentes, reduzir a gravidade das consequências e garantir a segurança das operações do AGV em locais confinados.
 
@@ -419,15 +430,15 @@ Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, 
 
 A implementação dessas estratégias de mitigação contriburá para garantir a segurança e integridade do AGV durante as operações de inspeção em locais confinados, protegendo tanto o próprio veículo quanto os ambientes em que ele opera. Em um primeiro momento, focamos na movimentação do robô e atuação perante obstruções, sendo as alternativasa cimas opções para evoluções futuras.
 
-## Nossas implementações
+## 7.3. Nossas implementações
 
-### Sensor Lidar
+### 7.3.1. Sensor Lidar
 
 A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente. Atualmente, nossa aplicação dispõem de uma analise constante em quanto em moviemnto de obstruções diante do robô e automatizamos seu desvio. Logo, nos organizamos para utilizar deste sensor em prol da segurança e efetividade nas inpeções que o robô deverá realizar.
 
 # 8. Backend.
 
-## Banco de Dados
+<h1>Banco de Dados</h1>
 
 O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, das varreduras e as informações de ambiente captadas pelos sensores do robô, qual robô realizou a varredura e também é fundamental a criação de um sistema de autenticação de usuário.
 Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, _location_ (que representa o espaço confinado em si) e _scan_ (que representa as varreduras feitas nos determinados espaços).
@@ -445,11 +456,11 @@ Para a coleção robot, tem-se os campos id, name e ip. Essa coleção tem como 
 Por fim, a coleção users é composta pelos campos id, name, email e password. Essa coleção implementa um sistema de autenticação convencional, garantindo a segurança e o controle de acesso aos recursos do sistema. Os usuários podem autenticar-se com suas credenciais únicas, como nome de usuário (name), endereço de e-mail (email) e senha (password), para acessar funcionalidades e recursos específicos disponibilizados pelo sistema.
 
 
-## Servidor
+<h1>Servidor</h1>
 
 A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
 
-### ROS (Robot Operating System)
+<h2>ROS (Robot Operating System)</h2>
 
 O primeiro serviço que temos em nossa backend é o ROS (Robot Operating System). Nele, criamos um nó do ROS responsável por trocar informações com o robô. Esse nó do ROS se conecta a tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos. Abaixo estão listados os tópicos que estamos utilizando:
 
@@ -469,7 +480,7 @@ Tópicos que a backend publica:
 
 Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante
 
-### SOCKET.IO
+<h2>SOCKET.IO</h2>
 
 O segundo serviço é o Socketio. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos.
 
@@ -481,27 +492,27 @@ Através dessa conexão em tempo real, podemos enviar os dados mencionados acima
 
 Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. Além disso, essa tecnologia é altamente
 
-### FAST API
+<h2> FAST API </h2>
 
 O terceiro serviço criado em nossa backend é uma FastAPI responsável por receber requisições HTTP do nosso frontend e gerenciar o armazenamento e busca de dados em nosso banco de dados. Essa API possui uma variedade de rotas para diferentes funcionalidades:
 
-#### Rotas de Usuário:
+<h2>Rotas de Usuário:</h2>
 
 * /users/create: Essa rota é responsável por criar um novo usuário e armazená-lo no banco de dados. Ela recebe os dados necessários para criar um usuário, como nome, email, senha e realiza a inserção dessas informações no banco de dados.
 * /users: Essa rota retorna todos os usuários cadastrados no sistema. Ao acessar essa rota, o frontend pode receber uma lista completa de todos os usuários registrados, com suas respectivas informações.
 * /users/login: Essa rota é responsável por realizar o login de um usuário. Ela recebe um email e uma senha, verifica se o usuário correspondente existe no banco de dados e, se for o caso, gera tokens de autenticação JWT (JSON Web Tokens) para permitir o acesso autenticado às demais partes do sistema.
 
-#### Rotas de Varreduras:
+<h3>Rotas de Varreduras:</h3>
 
 * /scans: Essa rota retorna todas as varreduras realizadas. Ela fornece ao frontend uma lista com todas as varreduras registradas, incluindo informações relevantes como data, hora e outras.
 * /scans/locations: Essa rota retorna todas as varreduras realizadas em uma determinada localização. O frontend pode especificar uma localização específica como parâmetro e receberá uma lista das varreduras realizadas apenas nessa área, fornecendo uma visão mais específica dos dados de varredura.
 
-#### Rotas de Robô:
+<h3>Rotas de Robô:</h3>
 
 * /robots: Essa rota retorna todos os robôs cadastrados no banco de dados. Ao acessar essa rota, o frontend receberá uma lista com informações detalhadas sobre cada robô registrado, como nome e ip.
 * /robots/create: Essa rota permite armazenar um novo robô no banco de dados. O frontend pode enviar os dados relevantes do robô, como nome, ip, e a API se encarregará de adicioná-lo ao banco de dados.
 
-#### Rotas de Localização:
+<h3>Rotas de Localização:</h3>
 
 * /locations: Essa rota retorna todas as localizações cadastradas no banco de dados. O frontend pode acessá-la para obter uma lista completa de todas as localizações registradas, com detalhes como nome e coordenadas geográficas.
 * /locations/create: Essa rota permite a criação de uma nova localização. O frontend pode enviar os dados necessários para criar uma nova localização, como nome, endereço, coordenadas, e a API se encarregará de adicioná-la ao banco de dados.
@@ -518,7 +529,7 @@ A fim de apresentar a fluidez da integração do nosso sistema, segue uma breve 
 
 Nesse contexto, apresentando o escopo de nossa solução novamente e vinculando suas features às tecnologias, começamos desenvolvendo os publisher das informações pertinentes do robô, no nosso caso, valor do sensor do oxigênio, bateria e imagens da câmera, todos em frequencia constante. Após isso entra o WebSocket, que estará configurado para ouvir os tópicos desenvolvidos no nodo ROS, este receberá o valor e sera responsável de emitir ao Frontend esta atualização. Em suma, desenvolvemos esta ponte entre robô, back e frontend utilizando fundamentalmente destes protocolos para tal, visando que nosso cliente tenha um acesso à criação de uma nova  inspeção, stream da inspeção.
 
-## Teste de eficácia e performance
+## 9.1. Teste de eficácia e performance
 
 Para iniciar o desenvolvimento e teste da arquitetura proposta, optamos por uma implementação simples que visa validar as principais funcionalidades e a comunicação entre os componentes. Nesse estágio inicial, priorizamos a eficiência e a confiabilidade da comunicação entre o robô, o frontend e o banco de dados, enquanto mantemos a complexidade reduzida para facilitar a depuração e a identificação de possíveis problemas. Na implementação de teste, limitamos as funcionalidades do ROS, do WebSocket e da API HTTP em Fast, focando apenas nas operações essenciais para o fluxo básico do sistema.
 
@@ -531,6 +542,7 @@ Quanto à API HTTP em Fast, estabelecemos rotas básicas para permitir que o fro
 Essas implementações simples para testes nos permitiu validar a comunicação entre os componentes e garantir que a arquitetura proposta funcione corretamente em um ambiente básico. Durante essa fase, focamos em identificar possíveis problemas de integração, latência ou erros de comunicação. À medida que avançamos, visamos aprimorar a implementação, adicionando mais funcionalidades e recursos à backend, garantindo uma experiência mais completa e abrangente para os usuários do sistema.
 
 # 10. Validação da eficácia do sistema.
+ Em contrução...
 
 # 11. Referências
 
