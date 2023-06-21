@@ -90,6 +90,12 @@ O operador terá disponível um website, que trará informações de varreduras 
 *   **MQ135 :** Um sensor capaz de medir os níveis de gases de um ambiente.
     
 
+* ** CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
+
+
+* ** GPS NEO-6M V2 :** É um módulo GPS (Global Positioning System) compacto e altamente preciso. Ele utiliza o sistema de posicionamento por satélite para determinar a localização geográfica com base em coordenadas de latitude e longitude. O módulo NEO-6M V2 é conhecido por sua eficiência em termos de consumo de energia e sua capacidade de aquisição rápida de sinais de satélite, mesmo em condições desafiadoras.
+
+
 - **Câmera :** Uma câmera comum para visualização.
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" width="80%"></img></p>
