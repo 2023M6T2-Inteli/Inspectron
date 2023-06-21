@@ -22,6 +22,11 @@
 	* [2.2. Componentes externos](#componentes-externos)
 * [3. Guia de Montagem](#guia-de-montagem)
 * [4. Guia de Instalação](#guia-de-instalção)
+	* [4.1. TurtleBot3](#turtlebot3)
+	* [4.2. Site](#site)
+		* [4.2.1. BackEnd](#backend)
+		* [4.2.2. FrontEnd](#frontend)
+
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
 * [7. Riscos Operacionaias](#riscos-operacionaias)
@@ -98,8 +103,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 - **Câmera :** Uma câmera comum para visualização.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" width="80%"></img></p>
-
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" style="background-color: #f2f2f2;" width="80%" ></img></p>
 
 ## 2.2. Componentes externos
 
@@ -118,6 +122,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 # 4. Guia de Instalação
 
+## 4.1. TurtleBot3 Burger
 Caso o operador queira criar novas funções ao robô, é importante seguir este tutorial abaixo:
 
  * **1.** O primeiro passo é ter um sistema operacional Linux. Pode ser qualquer distro Linux mas a mais usada é o Ubuntu. 
@@ -133,7 +138,11 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 * **7.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta seguir a documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
 * **8.** Para subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
  	
- 
+ ## 4.2. Site
+
+ ### 4.2.1 BackEnd
+
+ ### 4.2.2 FrontEnd
 
 # 5. Guia de Configuração
 
