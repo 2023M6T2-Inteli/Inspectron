@@ -142,7 +142,15 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.1 BackEnd
 
+ * **1.**
+ * **2.**
+ * **3.**
+
  ### 4.2.2 FrontEnd
+
+ * **1.**
+ * **2.**
+ * **3.**
 
 # 5. Guia de Configuração
 
