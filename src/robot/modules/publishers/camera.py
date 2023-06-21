@@ -14,15 +14,15 @@ class Camera(Publisher):
         self.__bridge = CvBridge()
 
     def update(self):
-<<<<<<< HEAD
+
         total_frames = int(self.__video_capture.get(cv2.CAP_PROP_FRAME_COUNT))
         print("Total frames in the video: %d" % total_frames)
         frame_rate = self.__video_capture.get(5)
         duration = total_frames / frame_rate
-=======
+
         returned, frame = self.__video_capture.read()
         if not returned:
             return
->>>>>>> d6b8285bf7d893ac7c0d6315367427f4f66113f5
+
 
         self.publish(self.__bridge.cv2_to_imgmsg(frame, encoding="bgr8"))
