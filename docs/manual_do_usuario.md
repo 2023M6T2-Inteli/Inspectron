@@ -145,6 +145,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
    das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
  * **4.** Caso necesesita subir o backend no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
+ * **5.** Caso for rodar localmente inserir no terminal "python3 'nome do arquivo'"
 
  ### 4.2.2 FrontEnd
 
@@ -153,6 +154,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
    das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
  * **4.** Caso necesesita subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
+ * **5.** Caso for rodar localmentemente no VS code é só clicar no botão de rodar
 
 # 5. Guia de Configuração
 
