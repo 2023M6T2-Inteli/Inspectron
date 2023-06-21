@@ -422,7 +422,7 @@ Tópicos que a backend publica:
 * heartbeat: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Essa publicação serve como um sinal para o robô informando que a conexão foi estabelecida.
 * backend_commands: Esse tópico é aquele em que o robô se inscreve, e a backend utiliza para enviar comandos ao robô. A backend publica nesse tópico todos os comandos que deseja que o robô execute, como iniciar o movimento, pausar, retornar ao ponto inicial, desligar, entre outros. Essa comunicação bidirecional permite que a backend envie instruções e controle o comportamento do robô durante a varredura.
 
-Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante
+Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante o processo de varredura.
 
 ### SOCKET.IO
 
@@ -434,7 +434,7 @@ Ao utilizar o WebSocket, somos capazes de transmitir diversos tipos de dados rel
 
 Através dessa conexão em tempo real, podemos enviar os dados mencionados acima para o frontend de forma contínua e atualizada, permitindo que a interface do usuário reaja instantaneamente às informações recebidas. Isso significa que o usuário poderá visualizar o vídeo em tempo real, monitorar os níveis de oxigênio e receber alertas imediatos caso gases tóxicos sejam detectados durante a varredura.
 
-Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. Além disso, essa tecnologia é altamente
+Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. 
 
 ### FAST API
 
