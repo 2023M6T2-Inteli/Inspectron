@@ -216,7 +216,15 @@ Além disso, o design do robô foi planejado de forma com que atenda aos requisi
 
 ## 2.6. Tecnologia produtiva e materiais empregados
 
+O TurtleBot 3 Burger destaca-se por sua estrutura simples e compacta, predominantemente feita de plástico resistente, o que o torna leve e durável. Além disso, o fato de ser fabricado com materiais recicláveis ressalta sua preocupação com a sustentabilidade.
 
+Uma das características notáveis desse robô é a variedade de placas eletrônicas disponíveis, incluindo uma placa controladora principal e uma placa de interface. Essas placas oferecem flexibilidade de uso, atendendo tanto a propósitos acadêmicos como a projetos de maior escala.
+
+O TurtleBot 3 Burger possui uma gama de sensores, como umidade, oxigênio e GPS, que fornecem dados em tempo real. Além disso, conta com uma câmera acoplada que possibilita a visualização em tempo real, permitindo a identificação de rachaduras ao longo do trajeto.
+
+Para garantir sua mobilidade, o robô é equipado com rodas omnidirecionais, que oferecem a capacidade de se movimentar em diferentes direções. Essas rodas são fabricadas geralmente com plástico resistente e possuem superfícies emborrachadas para proporcionar tração adequada.
+
+Em resumo, o TurtleBot 3 Burger se destaca por sua estrutura leve e durável, fabricada principalmente com plástico resistente e reciclável. Sua ampla variedade de placas eletrônicas possibilita a sua utilização em diferentes contextos, desde fins acadêmicos até projetos mais complexos. Os diversos sensores e a câmera acoplada proporcionam a obtenção de dados em tempo real e a detecção de rachaduras, enquanto suas rodas omnidirecionais garantem uma mobilidade versátil e eficiente.
 
 # 3. Descrição da arquitetura do sistema.
 
