@@ -141,13 +141,12 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  ### 4.2.1 BackEnd
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone seguido``` pelo URL do repositório.
- * **2.** Depois é necesário achar os arquivos relevantes do codigo do backend.
- * **3.** Para instalar o python é necesário rodar esse comando em um terminal ```Pip install python```
- * **4.** Para instalar o Mongo DB é somente seguir esse tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
- * **4.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
-   das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
- * **5.** Caso necesesita subir o backend no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
- * **6.** Caso for rodar localmente inserir no terminal "python3 'nome do arquivo'"
+ * **2.** Após baixar o projeto, é necessário localizar os arquivos relevantes do código do backend. Esses arquivos estão na pasta "Backend" dentro da pasta "Src"
+ * **3.** Para instalar o Python, você pode seguir as instruções de instalação disponíveis no site oficial do Python (python.org). Dependendo do sistema operacional, pode ser necessário utilizar um gerenciador de pacotes, como o pip, para instalar o Python. No terminal, você pode executar o comando ```pip install python``` para instalar o Python.
+ * **4.** Para instalar o MongoDB, você pode seguir um tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/) fornecido pela equipe do MongoDB. O tutorial geralmente inclui instruções específicas para diferentes sistemas operacionais e ambientes. É recomendável seguir o tutorial oficial para garantir uma instalação correta e atualizada. 
+ * **5.** Ao trabalhar com bibliotecas e dependências específicas do projeto, podem ocorrer erros relacionados à falta de instalação das bibliotecas necessárias. Nesses casos, você pode utilizar o pip para instalar as bibliotecas faltantes. No terminal, você pode executar o comando ```pip install <nome_da_biblioteca>``` para instalar a biblioteca específica. Se o comando pip não funcionar, você pode consultar a documentação oficial da biblioteca para obter instruções de instalação específicas.
+ * **6.** Se você precisar colocar o backend em produção, é necessário realizar o processo de implantação em um servidor ou plataforma de hospedagem. Por exemplo, se você estiver usando a AWS (Amazon Web Services), precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto no servidor.
+ * **7.** Caso você queira executar o backend localmente, você pode abrir um terminal e navegar até o diretório onde está localizado o arquivo do backend. Em seguida, execute o comando ```python3 <nome_do_arquivo>``` para iniciar o servidor localmente. Certifique-se de ter o Python corretamente instalado e configurado em seu sistema antes de executar esse comando.
 
  ### 4.2.2 FrontEnd
 
