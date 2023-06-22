@@ -2,8 +2,7 @@ O frontend do foi feito com o framework [Next.js](https://nextjs.org/).
 
 ## Iniciando o projeto
 
-Primeiro, execute o servidor de desenvolvimento:
-
+Primeiro, abra o terminal em ``Inspectron/src/frontend`` e execute o comando abaixo:
 
 ```
 npm i
