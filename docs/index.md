@@ -532,6 +532,22 @@ Ao analisar a matriz de confusão e examinar as predições visuais em imagens d
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/val_batch1_pred.jpg?raw=true" width="80%"></img></p>
 
 
+Com base nos valores fornecidos, podemos analisar o desempenho do modelo de detecção de rachaduras da seguinte forma:
+
+Verdadeiros positivos (True Positives - TP): 201
+Essa métrica representa a quantidade de casos corretamente classificados como rachaduras pelo modelo. No contexto da detecção de rachaduras, esses são os casos em que o modelo identificou corretamente a presença de rachaduras.
+
+Verdadeiros negativos (True Negatives - TN): 0
+Indica a quantidade de casos corretamente classificados como ausência de rachaduras pelo modelo. Nesse caso, o valor zero sugere que o modelo não conseguiu identificar corretamente os casos em que não há rachaduras. Isso pode indicar uma baixa taxa de detecção correta de não rachaduras ou um desequilíbrio na distribuição dos dados.
+
+Falsos positivos (False Positives - FP): 92
+Refere-se aos casos em que o modelo classificou erroneamente amostras como rachaduras, quando na verdade não eram. Isso indica que o modelo está apresentando um número considerável de falsos positivos, ou seja, está identificando rachaduras onde não existem.
+
+Falsos negativos (False Negatives - FN): 48
+Essa métrica representa os casos em que o modelo classificou incorretamente as amostras como não rachaduras, quando na verdade eram. Aqui, o modelo está falhando em detectar corretamente as rachaduras existentes.
+
+
+
 ### 6.1.4. Adendo
 
 Além das implementações mencionadas anteriormente, também adicionamos ao nosso projeto uma pasta chamada `/src/model` que contém arquivos específicos para o processo de detecção de rachaduras e treinamento do modelo.
