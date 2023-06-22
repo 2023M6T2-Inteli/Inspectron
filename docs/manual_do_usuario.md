@@ -88,10 +88,10 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 	* **USB2LDS :**  Um adaptador USB para Laser Distance Sensor (LDS). Esse adaptador permite conectar um sensor de distância a laser ao computador por meio de uma porta USB.
 
-* ** CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
+* **CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
 
 
-* ** GPS NEO-6M V2 :** É um módulo GPS (Global Positioning System) compacto e altamente preciso. Ele utiliza o sistema de posicionamento por satélite para determinar a localização geográfica com base em coordenadas de latitude e longitude. O módulo NEO-6M V2 é conhecido por sua eficiência em termos de consumo de energia e sua capacidade de aquisição rápida de sinais de satélite, mesmo em condições desafiadoras.
+* **GPS NEO-6M V2 :** É um módulo GPS (Global Positioning System) compacto e altamente preciso. Ele utiliza o sistema de posicionamento por satélite para determinar a localização geográfica com base em coordenadas de latitude e longitude. O módulo NEO-6M V2 é conhecido por sua eficiência em termos de consumo de energia e sua capacidade de aquisição rápida de sinais de satélite, mesmo em condições desafiadoras.
 
 
 - **Câmera :** Uma câmera comum para visualização.
@@ -107,7 +107,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 **1.** Seguir a montagem do TurtleBot3 Burger conforme o manual: [Página para download do manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/hardware_setup/), **[Vídeo de montagem](https://youtu.be/5D9S_tcenL4)**.
 
-**2.** Acoplar os sensores MQ135, DTH11 e a câmera em seus devidos suportes.
+**2.** Acoplar os sensores GPS NEO-6M V2, CJMCU-811 e a câmera em seus devidos suportes.
 
 **3.** Conectar os sensores nas portas(entradas) do Raspberry Pi 3.
 
