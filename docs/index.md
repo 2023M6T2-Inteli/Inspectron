@@ -46,6 +46,11 @@
     - [4.2.8 Software de movimentação do robô](#428-software-de-movimentação-do-robô)
 - [5 - Interface de usuário](#5-interface-de-usuário)
   - [5.1. Páginas principais:](#51-páginas-principais)
+    - [5.1.1. Página de login](#511-página-de-login)
+    - [5.1.2. Página de locais/varreduras: visualizar todos os locais e varreduras realizadas](#512-página-de-locais/varreduras:-visualizar-todos-os-locais-e-varreduras-realizadas)
+    - [5.1.3. Página de varreduras em um local: explorar todas as varreduras realizadas em um local específico](#513-página-de-varreduras-em-um-local:-explorar-todas-as-varreduras-realizadas-em-um-local-específico)
+    - [5.1.4. Página de detalhamento de varredura: explorar as informações detalhadas de uma varredura específica](#514-página-de-detalhamento-de-varredura:-explorar-as-informações-detalhadas-de-uma-varredura-específica)
+    - [5.1.5. Página de realização de nova varredura](#515-página-de-realização-de-nova-varredura)
 - [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
   - [6.1. Modelo de detecção de rachaduras Yolov8](#61-modelo-de-detecção-de-rachaduras-Yolov8)
     - [6.1.1. Pré-processamento da imagem](#611-pré-processamento-da-imagem)
@@ -438,7 +443,7 @@ Além disso, durante o processo de desenvolvimento, priorizamos a usabilidade, b
 
 ## 5.1. Páginas principais:
 
-### **Página de login**
+### **5.1.1. Página de login**
 
 A página de login foi meticulosamente projetada para ser a porta de entrada dos usuários em nosso sistema. Reconhecemos a importância crucial da autenticação em nosso projeto, uma vez que apenas usuários autorizados da empresa parceira têm permissão para acessar a plataforma e desfrutar de todas as funcionalidades que ela oferece. Essa abordagem de autenticação garante a segurança e a integridade dos dados, bem como a privacidade das informações armazenadas.
 
@@ -449,7 +454,7 @@ A autenticação no nosso sistema é essencial para proteger os recursos dispon�
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
 
-### **Página de varreduras/locais**
+### **5.1.2. Página de locais/varreduras: visualizar todos os locais e varreduras realizadas**
 
 A página de varreduras/locais é um componente essencial do nosso sistema, pois fornece uma visão abrangente e organizada do histórico de todas as varreduras realizadas e locais cadastrados. Nessa página, optamos por agrupar as informações em cards, pois acreditamos que essa abordagem oferece uma forma elegante e intuitiva de apresentar os dados. Cada card contém um resumo conciso e visualmente atraente das informações relacionadas a cada varredura ou local.
 
@@ -461,7 +466,7 @@ Além do aspecto visual, também consideramos a usabilidade ao projetar essa pá
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/historic_page.png?raw=true" width="80%"></img></p>
 
-### **Página de ver todas as varreduras realizadas em um local**
+### **5.1.3. Página de varreduras em um local: explorar todas as varreduras realizadas em um local específico**
 
 Nessa página específica, proporcionamos aos usuários a capacidade de visualizar todas as varreduras realizadas em uma localização específica. Aqui, destacamos nossa abordagem consistente em padronizar a experiência do usuário, evidenciada pelo uso de cards para renderizar as informações. Essa abordagem foi cuidadosamente pensada para criar um senso de continuidade em todo o sistema, levando em consideração as heurísticas de Nielsen.
 
@@ -472,7 +477,7 @@ Um aspecto importante dessa página é o objetivo de permitir que o usuário com
 ![1687445924201](media/room_page.png)
 
 
-### **Página de Detalhamento de uma Varredura: Explorando as Informações Detalhadas**
+### **5.1.4. Página de detalhamento de varredura: explorar as informações detalhadas de uma varredura específica**
 
 A página de detalhamento de uma varredura foi cuidadosamente projetada para fornecer aos usuários uma visão completa e abrangente de todas as informações relevantes relacionadas a uma varredura realizada. É uma ferramenta poderosa que permite aos usuários acessar dados vitais e obter insights valiosos sobre os resultados obtidos pelos sensores e pelo robô durante o processo de varredura.
 
@@ -497,7 +502,7 @@ Com essa página, os usuários podem ter confiança de que estão acessando toda
 
 ![1687445924201](media/scan_page.png)
 
-### **Página de realizar nova varredura**
+### **5.1.5. Página de realização de nova varredura**
 
 Essa página foi cuidadosamente projetada para permitir que o usuário execute todo o fluxo necessário para realizar uma nova varredura. Ela consiste em duas partes principais:
 
