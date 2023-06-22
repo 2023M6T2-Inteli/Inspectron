@@ -23,7 +23,7 @@ const itemVariants = {
 interface Props {
     items: {
         title: string;
-        subtitle: string;
+        subtitle?: string;
         infos: string[] | JSX.Element[];
         link?: string;
     }[];

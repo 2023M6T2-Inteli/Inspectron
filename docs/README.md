@@ -10,7 +10,7 @@
 
 # Organização do Diretório de Documentação
 
-Este diretório é destinado para armazenar a documentação elaborada ao longo do projeto. Aqui é possível encontrar o manual do usuário e o relatório do projeto. O relatório do projeto é gerado automaticamente utilizando o github pages com a tecnologia Jekyll. Para alterar os itens do relatório, basta modificar o arquivo `index.md` que encontra-se nesta pasta. Para acessar o relatório renderizado, basta acessar este [link](https://2023m5t2-inteli.github.io/template/) (lembre-se de modificar o link quando criar o seu repositório). Preencha aqui quaisquer detalhes a mais devem ser considerados acerca da organização do seu diretório de documentação.
+Nesta pasta contém o arquivo `index.md`, que serve como ponto central da documentação do projeto. É aqui que os usuários podem encontrar informações detalhadas e instruções sobre o sistema. Além disso, também é possível encontrar o `manual_do_usuario.md`, que possui o guia de instalação e passos para executar o projeto com um viés técnico.
 
 
 

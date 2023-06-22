@@ -10,4 +10,4 @@
 
 # Organização do diretório de mídias
 
-Este diretório é destinado para o armazenamento de mídia (fotos e vídeos) relacionados ao protótipo desenvolvido pelo grupo, assim como do processo de desenvolvimento em si. Para as fotos deve-se utilizar o formato `.png`. Para os vídeos, deve-se usar o formato `.mp4`.
+Este diretório é destinado para o armazenamento de mídia (fotos e vídeos) relacionados ao protótipo desenvolvido pelo grupo, assim como do processo de desenvolvimento em si. 

@@ -10,4 +10,12 @@
 
 # Organização do diretório de arquivos fonte
 
-Este diretório é destinado para o armazenamento e versionamento dos arquivos fonte relacionados à aplicação desenvolvida pelos alunos. Preencha aqui explicando como está organizado seu diretório e resumindo o que faz cada um dos arquivos principais.
+A estrutura da pasta raiz consiste nos seguintes diretórios:
+
+  - backend: Este diretório contém o código relacionado à lógica de implementação da solução. Aqui estão os arquivos e componentes responsáveis pelo processamento dos dados, gerenciamento de banco de dados, regras de negócio e qualquer outra funcionalidade relacionada ao backend.
+
+  - frontend: Neste diretório, você encontrará a parte visual do projeto. Aqui estão os arquivos responsáveis pela interface do usuário, design, componentes de interface e interações do sistema. É aqui que os usuários podem interagir com o sistema de forma intuitiva e amigável.
+
+  - model: Este diretório contém o código utilizado para treinar o modelo de inteligência artificial que detecta rachaduras. Aqui estão os scripts, dados de treinamento e quaisquer outros recursos relacionados ao processo de criação e treinamento do modelo.
+
+  - robot: Este diretório contém o código que foi implementado no Turtlebot3, o robô utilizado para o MVP (Minimum Viable Product). Aqui estão os arquivos relacionados à integração do sistema com o robô, como controle de movimento, comunicação e qualquer outra funcionalidade específica do robô.
