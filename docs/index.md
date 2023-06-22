@@ -38,7 +38,7 @@
   - [4.1 Movimento em ambiente de simulação](#41-movimento-em-ambiente-de-simulação)
   - [4.2 Movimento do robô físico Turtlebot3](#42-movimento-do-robô-físico-turtlebot3)
       - [4.2.1 Instalação dos pacotes do TurtleBot3 no ROS](#421-instalação-dos-pacotes-do-turtlebot3-no-ros)
-      - [4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3](#422-instalação-dos-pacotes-do-nap2-e-turtleBot3)
+      - [4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3](#422-instalação-dos-pacotes-do-nav2-e-turtlebot3)
       - [4.2.3 Configuração das variáveis de ambiente](#423-configuração-das-variáveis-de-ambiente)
       - [4.2.4 Utilização do SLAM para movimentação](#424-utilização-do-slam-para-movimentação)
       - [4.2.5 Verificação do funcionamento](#425-verificação-do-funcionamento)
@@ -62,7 +62,7 @@
 - [8 - Backend](#8-backend)
   - [8.1. Banco de Dados](#81-banco-de-dados)
   - [8.2. Servidor](#82-servidor)
-  - [8.3. ROS (Robot Operating System)](#83-ros-(robot-operating-system))
+  - [8.3. ROS (Robot Operating System)](#83-ros-robot-operating-system)
   - [8.4. SOCKET.IO](#84-socketio)
   - [8.5. FAST API](#85-fast-api)
   - [8.6. Rotas de Usuário](#86-rotas-de-usuário)
@@ -168,7 +168,7 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 ## 1.4. Análise financeira
 
-A análise financeira informa o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas que o parceiro projeta ter relacionadas ao projeto. Ressalta-se que é uma estimativa feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.
+A análise financeira informa o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas que o parceiro projeta ter relacionadas ao projeto. **Ressalta-se que é uma estimativa feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.**
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/analise_financeira.png?raw=true" width=70%></img></p>
 
@@ -177,6 +177,7 @@ A análise financeira informa o quanto o parceiro tem projetado para investir no
 Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.099,16 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
 
 Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00 - Página da Gerdau no Glassdoor), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução.
+
 
 # 2. Entendimento do metadesign
 
@@ -610,7 +611,8 @@ Tópicos em que a backend se inscreve:
 * battery: Esse tópico é responsável por receber informações sobre o nível de bateria do robô enquanto ele está realizando uma nova varredura. A backend se inscreve nesse tópico para obter os dados atualizados sobre a energia disponível no robô.
 * camera: Esse tópico é responsável por receber cada frame da câmera do robô durante a varredura. A backend se inscreve nesse tópico para receber os dados de imagem capturados pelo robô em tempo real.
 * humidity: Esse tópico é responsável por receber informações sobre a umidade do ambiente em que o robô está operando. A backend se inscreve nesse tópico para obter os dados atualizados sobre a umidade do local.
-* oxygen: Esse tópico é responsável por receber informações sobre o nível de oxigênio do ambiente em que o robô está realizando a varredura. A backend se inscreve nesse tópico para monitorar os dados relacionados à qualidade do ar no local.
+* tvoc: Esse tópico é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Uma das funções desse sensor é medir e monitorar a presença e concentração de compostos orgânicos voláteis no ambiente.
+* eco2: Esse tópico também é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Diferente do tvoc, esse tópico envia dados relativos a quantidade de  dióxido de carbono presente no ambiente.
 * temperature: Esse tópico é responsável por receber informações sobre a temperatura do ambiente em que o robô está operando. A backend se inscreve nesse tópico para acompanhar os dados atualizados de temperatura.
 * heartbeat_response: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Se o robô estiver ativo, ele enviará uma mensagem de resposta no tópico "heartbeat_response".
 
