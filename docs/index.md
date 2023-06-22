@@ -20,7 +20,7 @@
     * [1.3.3. - Criar](#133-criar)
     * [1.3.4. - Eliminar](#134-eliminar)
   - [1.4 - Análise financeira](#14-análise-financeira)
-- [**2** - Entendimento do metadesign](#2-entendimento-do-metadesign)
+- [2 - Entendimento do metadesign](#2-entendimento-do-metadesign)
   - [2.1 - Fatores mercadológicos](#21-fatores-mercadológicos)
     - [2.2.1. Produto, orientação de mercado e precificação](#221-produto-orientação-de-mercado-e-precificação)
     - [2.2.2. Cenário do mercado](#222-cenário-o-mercado)
@@ -28,15 +28,15 @@
   - [2.2 - Sistema produto/design](#22-sistema-produto/design)
   - [2.2.1. Missão do projeto ](#221-missao-do-projeto)
   - [2.2.2. Unidade formal entre o design do produto, as formas de divulgação e venda](#222-Unidade-formal-entre-o-design-do-produt-as-formas-de-divulgação-e-venda)
-  
   - [2.3 - Sustentabilidade ambiental](#23-sustentabilidade-ambiental)
     - [2.3.1. Ecoeficiente do projeto](#231-ecoeficiente-do-projeto)
-
   - [2.4 - Influências socioculturais](#24-influências-socioculturais)
   - [2.5 - Tipológico-formais e ergonômicos](#25-tipológico-formais-e-ergonômicos)
   - [2.6 - Tecnologia produtiva e materiais empregados](#26-tecnologia-produtiva-e-materiais-empregados)
 - [3 - Descrição da arquitetura do sistema](#3-descrição-da-arquitetura-do-sistema)
 - [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
+  - [4.1 Movimento em ambiente de simulação](#41-movimento-em-ambiente-de-simulação)
+  - [4.2 Movimento do robô físico Turtlebot3](#42-movimento-do-robô-físico-turtlebot3)
 - [5 - Interface de usuário](#5-interface-de-usuário)
   - [5.1. Páginas principais:](#51-páginas-principais)
 - [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
@@ -277,19 +277,138 @@ Todos os componentes da solução estão conectados através de uma rede Wi-Fi, 
 
 # 4. Sistema de locomoção e otimização de rota.
 
-Em face do contexto da nossa aplicação, decidimos empregar o robô e seus sensores para efetuar a movimentação. Desse modo, o robô, ao "adentrar" o espaço confinado, irá percorrer uma rota livre de obstruções, baseando-se em uma análise que fará a partir dos dados dos sensores. Planejamos utilizar principalmente o sensor LIDAR para aumentar a precisão da detecção de pontos entre o robô e a estrutura ou obstruções do local.
+## 4.1 Movimento em ambiente de simulação
+
+Em face do contexto da nossa aplicação, decidimos empregar o robô para efetuar a movimentação de forma autônoma. Desse modo, o robô, ao "adentrar" o espaço confinado, irá percorrer uma rota livre de obstruções, baseando-se em uma análise que fará a partir dos dados dos sensores. Planejamos utilizar principalmente o sensor LIDAR para aumentar a precisão da detecção de pontos entre o robô e a estrutura ou obstruções do local.
 
 Explicando a implementação com mais detalhes, elaboramos um script cuja lógica principal é: se um objeto for identificado pelo sensor (configuramos uma determinada distância para isso), o robô deverá alterar sua rota. Essa mudança pode envolver a continuação do percurso em uma direção diferente ou até mesmo um retorno completo em face de uma obstrução.
 
 Para testar nossa solução, começamos com o simulador Gazebo do ROS, que possui um sensor LIDAR. Com o produto mínimo viável (MVP) desenvolvido, decidimos utilizar o cenário de testes disponibilizado pelo próprio Gazebo, assim, podemos testar a solução atual e quais os possívels problemas a serem encontrados. Durante os testes, percebemos que o atual algoritmo de desvio de obstáculos é eficiente, porém limitado, atualmente o robô só consegue desviar de obstáculos que estão a sua frente e buscar o melhor caminho decidido pelos valores do sensor LIDAR do lado direito e esquerda do robô, então não podemos direcionar para o mesmo alcançar um ponto específico, apenas para que ele desvie de obstáculos.
 
-Fluxo de funcionamento atual:
+Fluxo de funcionamento no ambiente de simulação (Gazebo):
 
 - O robô inicia o percurso;
 - O robô segue em frente até encontrar um obstáculo ( angulo de 330° a 30° );
 - O robô identifica o obstáculo, verificar qual dos lados possui o maior espaço livre ( média dos pontos de 60° a 120°, relativo a direita, e 240° a 300°, relativo a esquerda);
 - Com a informação de qual lado possui o maior espaço livre, o robô gira para o lado com maior espaço livre até os sensores frontais não identificarem mais o obstáculo;
 - Repete o processo inicial;
+
+## 4.2 Movimento do robô físico Turtlebot3
+
+A movimentação física do robô TurtleBot3 é realizada por meio do NAV2, um sistema de navegação autônomo desenvolvido especificamente para esse robô. O NAV2 é baseado na estrutura de software Navigation Stack do ROS (Robot Operating System) e oferece recursos avançados de navegação para o TurtleBot3, permitindo que ele se mova de forma autônoma em um ambiente, evitando obstáculos e alcançando destinos desejados.
+
+O NAV2 utiliza algoritmos como o SLAM (Simultaneous Localization and Mapping) para construir mapas do ambiente e localizar o TurtleBot3 dentro desses mapas. Também utiliza o algoritmo de planejamento de trajetórias para determinar a melhor rota para o robô seguir, levando em consideração os obstáculos presentes no ambiente.
+
+Para utilizar o NAV2, é necessário atender a alguns requisitos e realizar algumas etapas de instalação e configuração. A seguir, são apresentados os passos necessários:
+
+**Requisitos:**
+
+- Utilizar um sistema operacional Linux.
+- Ter os pacotes ROS2 (Robot Operating System) instalados.
+
+Os passos abaixo demonstam como executar o NAV2:
+### 4.2.1 Instalação dos pacotes do TurtleBot3 no ROS
+
+Execute o seguinte comando no terminal:
+
+```
+sudo apt install ros-humble-turtlebot3*
+```
+
+### 4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3
+Execute os seguintes comandos no terminal (um de cada vez):
+
+```
+sudo apt install ros-humble-slam-toolbox
+sudo apt install ros-humble-navigation2
+sudo apt install ros-humble-distro>-nav2-bringup
+sudo apt install ros-humble-turtlebot3-gazebo
+```
+
+### 4.2.3 Configuração das variáveis de ambiente
+
+Execute os seguintes comandos no terminal (um de cada vez):
+
+```
+source /opt/ros/humble/setup.bash
+export TURTLEBOT3_MODEL=burger
+source .bashrc
+```
+
+### 4.2.4 Utilização do SLAM para movimentação
+
+Abrir três terminais diferentes para entrar no robô Turtlebot3 via ssh e em cada um deles seguir rodar o seguinte comando:
+
+```
+ssh inteli@grupo1.local
+Senha: irolandinho
+```
+
+**Importante: Verificar se o robô e o computador então conectador na mesma rede wifi.**
+
+
+Após rodar esse comando nos três termianis aberto, colocar os comandos abaixo:
+
+**Terminal 1:**
+```
+ros2 launch turtlebot3_bringup robot.launch.py
+```
+
+**Terminal 2:**
+```
+ros2 launch nav2_bringup navigation_launch.py
+```
+
+**Terminal 3:**
+```
+ros2 launch slam_toolbox online_async_launch.py
+```
+
+### 4.2.5 Verificação do funcionamento
+Em um novo terminal no seu dispositivo, execute o seguinte comando:
+```
+ros2 topic list
+```
+Verifique se o tópico "/map" está listado para confirmar o funcionamento adequado.
+
+### 4.2.6 Mapeamento do ambiente
+
+Para mapear o ambiente em que o robô se movimentará, execute o seguinte comando em um terminal:
+
+```
+ros2 run turtlebot3_teleop teleop_keyboard
+```
+Use as teclas 's', 'w', 'a', 'd' e 'x' para mover o robô pelo ambiente.
+
+### 4.2.7 Exportação do mapa
+Em um novo terminal, execute o seguinte comando:
+
+```
+ros2 run nav2_map_server map_saver_cli -f ~/map
+```
+Isso irá gerar um arquivo "map.yaml" na pasta home do computador, contendo o mapa do ambiente mapeado. Ao abrir o mapa, o mapa será algo parecido com a figura abaixo (de acordo com o ambiente mapeado):
+
+![image](https://github.com/2023M6T2-Inteli/Inspectron/assets/99221221/b67c33dd-a79e-4507-a6a9-91e30a521e0f)
+
+### 4.2.8 Software de movimentação do robô
+
+Execute os seguintes comandos em dois terminais diferentes:
+
+**Terminal 1:**
+```
+ros2 launch nav2_bringup bringup_launch.py use_sim_time:=False autostart:=False map:=~/map.yaml
+```
+
+**Terminal 2:**
+```
+ros2 run rviz2 rviz2 -d $(ros2 pkg prefix nav2_bringup)/share/nav2_bringup/rviz/nav2_default_view.rviz
+```
+
+O segundo comando abrirá o software RVIZ, onde você poderá definir o ponto de destino para o TurtleBot3. No vídeo abaixo é possível observar o funcionamento do NAV2.
+
+[video]
+
+Esses são os passos básicos para utilizar o NAV2 no TurtleBot3, permitindo que ele se mova autonomamente em um ambiente e execute tarefas de navegação. Certifique-se de seguir as instruções cuidadosamente e adaptá-las de acordo com o seu ambiente e configuração específicos.
 
 # 5. Interface de usuário.
 
