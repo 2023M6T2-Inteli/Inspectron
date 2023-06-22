@@ -152,7 +152,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  ### 4.2.2 FrontEnd
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
- * **2.** Depois é necesário achar os arquivos relevantes do codigo do frontend.
+ * **2.** Depois é necesário achar os arquivos relevantes do codigo do frontend. O framework que utilizamos para fazer o Front foi JS React que é o padrão do mercado que é a melhor forma de concluir o que foi pedido.
  * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
    das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
  * **4.** Caso necesesita subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
