@@ -142,10 +142,12 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
  * **2.** Depois é necesário achar os arquivos relevantes do codigo do backend.
- * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
+ * **3.** Para instalar o python é necesário rodar esse comando em um terminal ```Pip install python```
+ * **4.** Para instalar o Mongo DB é somente seguir esse tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
+ * **4.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
    das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
- * **4.** Caso necesesita subir o backend no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
- * **5.** Caso for rodar localmente inserir no terminal "python3 'nome do arquivo'"
+ * **5.** Caso necesesita subir o backend no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
+ * **6.** Caso for rodar localmente inserir no terminal "python3 'nome do arquivo'"
 
  ### 4.2.2 FrontEnd
 
