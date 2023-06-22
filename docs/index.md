@@ -1,4 +1,3 @@
-
 <table>
 <tr>
 <td>
@@ -37,14 +36,14 @@
 - [4 - Sistema de locomoção e otimização de rota](#4-sistema-de-locomoção-e-otimização-de-rota)
   - [4.1 Movimento em ambiente de simulação](#41-movimento-em-ambiente-de-simulação)
   - [4.2 Movimento do robô físico Turtlebot3](#42-movimento-do-robô-físico-turtlebot3)
-      - [4.2.1 Instalação dos pacotes do TurtleBot3 no ROS](#421-instalação-dos-pacotes-do-turtlebot3-no-ros)
-      - [4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3](#422-instalação-dos-pacotes-do-nav2-e-turtlebot3)
-      - [4.2.3 Configuração das variáveis de ambiente](#423-configuração-das-variáveis-de-ambiente)
-      - [4.2.4 Utilização do SLAM para movimentação](#424-utilização-do-slam-para-movimentação)
-      - [4.2.5 Verificação do funcionamento](#425-verificação-do-funcionamento)
-      - [4.2.6 Mapeamento do ambiente](#426-mapeamento-do-ambiente)
-      - [4.2.7 Exportação do mapa](#427-exportação-do-mapa)
-      - [4.2.8 Software de movimentação do robô](#428-software-de-movimentação-do-robô)
+    - [4.2.1 Instalação dos pacotes do TurtleBot3 no ROS](#421-instalação-dos-pacotes-do-turtlebot3-no-ros)
+    - [4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3](#422-instalação-dos-pacotes-do-nav2-e-turtlebot3)
+    - [4.2.3 Configuração das variáveis de ambiente](#423-configuração-das-variáveis-de-ambiente)
+    - [4.2.4 Utilização do SLAM para movimentação](#424-utilização-do-slam-para-movimentação)
+    - [4.2.5 Verificação do funcionamento](#425-verificação-do-funcionamento)
+    - [4.2.6 Mapeamento do ambiente](#426-mapeamento-do-ambiente)
+    - [4.2.7 Exportação do mapa](#427-exportação-do-mapa)
+    - [4.2.8 Software de movimentação do robô](#428-software-de-movimentação-do-robô)
 - [5 - Interface de usuário](#5-interface-de-usuário)
   - [5.1. Páginas principais:](#51-páginas-principais)
 - [6 - Sistema de visão computacional](#6-sistema-de-visão-computacional)
@@ -112,8 +111,7 @@ Para capacitar o robô a operar em ambientes com condições adversas, pode-se a
 
 Para garantir a qualidade das informações dos sensores, deve-se escolher sensores precisos e calibrá-los regularmente. Além disso, é possível utilizar sensores redundantes, para comparar as informações captadas por ele e identificar possíveis incongruências.
 
-5.  Perda de conexão com o robo
-
+5. Perda de conexão com o robo
 6. Camera não identificar rachadura
 
 ### Oportunidades
@@ -177,7 +175,6 @@ A análise financeira informa o quanto o parceiro tem projetado para investir no
 Ao realizar a análise financeira da solução, constatou-se que o custo total de compra e implementação é de **R$ 10.099,16 no primeiro ano**. Após a compra da solução, os gastos necessários seriam apenas com manutenção e treinamento de novos funcionários, conforme a demanda. Assim, **o retorno sobre o investimento (ROI) seria alcançado em um ano**.
 
 Considerando o salário anual de um funcionário que realiza inspeção em espaço confinado é de R$ 71.500,00 (13 x R$ 5.500,00 - Página da Gerdau no Glassdoor), com esse valor, seria possível implementar 7 robôs e realocar os colaboradores para outras atividades, mediante o treinamento necessário para controlar a solução.
-
 
 # 2. Entendimento do metadesign
 
@@ -251,14 +248,12 @@ Aceitação e adaptação à tecnologia: A introdução de robôs autônomos no 
 
 ## 2.5. Tipológico-formais e ergonômicos
 
-
 A aplicação das abordagens tipológico-formais e ergonômicas no uso de um AGV é fundamental para garantir sua eficácia e segurança em diferentes ambientes e atividades. O Turtlebot3 Burger é um veículo autônomo guiado por sistemas automatizados, projetado para executar Pesquisa em robótica, Desenvolvimento de aplicações robóticas e Demonstração de conceitos robóticos. Em nosso projeto, usamos para fazer prova de conceito, demonstrando sua eficiência em varreduras em espaços confinados.
 
 No aspecto tipológico-formal, é importante considerar as características físicas e funcionais do ambiente onde o TurtleBot será utilizado. Cada ambiente pode apresentar obstáculos, espaços estreitos, diferentes superfícies ou até mesmo diferentes níveis de altura. Ao projetá-lo, foi necessário analisar esses aspectos para criar maneiras de contorná-las e aprimorá-las. Isso inclui a escolha dos sensores e da maneira que programamos o robô para evitar colisões com obstáculos.
 
 A abordagem ergonômica no uso de um AGV refere-se à interação entre o veículo e as pessoas que o utilizam. Mesmo que o AGV seja autônomo, foi importante projetar uma interface intuitiva e amigável para facilitar a interação com os operadores ou outros funcionários que possam estar envolvidos na sua operação ou manutenção. Isso inclui painéis de controle de fácil compreensão, recursos de visualização em tempo real, recursos de relatórios fáceis e indicadores visuais, para transmitir informações relevantes sobre o status da operação.
-Além disso, o design do robô foi planejado de forma com que atenda aos requisitos do ambiente e de manutenção. Ele apresenta uma fácil instalação de sensores e não necessita um grande espaço de armazenamento, já que o mesmo, é pequeno e de fácil manuseio. 
-
+Além disso, o design do robô foi planejado de forma com que atenda aos requisitos do ambiente e de manutenção. Ele apresenta uma fácil instalação de sensores e não necessita um grande espaço de armazenamento, já que o mesmo, é pequeno e de fácil manuseio.
 
 ## 2.6. Tecnologia produtiva e materiais empregados
 
@@ -316,6 +311,7 @@ Para utilizar o NAV2, é necessário atender a alguns requisitos e realizar algu
 - Ter os pacotes ROS2 (Robot Operating System) instalados.
 
 Os passos abaixo demonstam como executar o NAV2:
+
 ### 4.2.1 Instalação dos pacotes do TurtleBot3 no ROS
 
 Execute o seguinte comando no terminal:
@@ -325,6 +321,7 @@ sudo apt install ros-humble-turtlebot3*
 ```
 
 ### 4.2.2 Instalação dos pacotes do NAV2 e TurtleBot3
+
 Execute os seguintes comandos no terminal (um de cada vez):
 
 ```
@@ -355,29 +352,34 @@ Senha: irolandinho
 
 **Importante: Verificar se o robô e o computador então conectador na mesma rede wifi.**
 
-
 Após rodar esse comando nos três termianis aberto, colocar os comandos abaixo:
 
 **Terminal 1:**
+
 ```
 ros2 launch turtlebot3_bringup robot.launch.py
 ```
 
 **Terminal 2:**
+
 ```
 ros2 launch nav2_bringup navigation_launch.py
 ```
 
 **Terminal 3:**
+
 ```
 ros2 launch slam_toolbox online_async_launch.py
 ```
 
 ### 4.2.5 Verificação do funcionamento
+
 Em um novo terminal no seu dispositivo, execute o seguinte comando:
+
 ```
 ros2 topic list
 ```
+
 Verifique se o tópico "/map" está listado para confirmar o funcionamento adequado.
 
 ### 4.2.6 Mapeamento do ambiente
@@ -387,14 +389,17 @@ Para mapear o ambiente em que o robô se movimentará, execute o seguinte comand
 ```
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
+
 Use as teclas 's', 'w', 'a', 'd' e 'x' para mover o robô pelo ambiente.
 
 ### 4.2.7 Exportação do mapa
+
 Em um novo terminal, execute o seguinte comando:
 
 ```
 ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
+
 Isso irá gerar um arquivo "map.yaml" na pasta home do computador, contendo o mapa do ambiente mapeado. Ao abrir o mapa, o mapa será algo parecido com a figura abaixo (de acordo com o ambiente mapeado):
 
 ![image](https://github.com/2023M6T2-Inteli/Inspectron/assets/99221221/b67c33dd-a79e-4507-a6a9-91e30a521e0f)
@@ -404,11 +409,13 @@ Isso irá gerar um arquivo "map.yaml" na pasta home do computador, contendo o ma
 Execute os seguintes comandos em dois terminais diferentes:
 
 **Terminal 1:**
+
 ```
 ros2 launch nav2_bringup bringup_launch.py use_sim_time:=False autostart:=False map:=~/map.yaml
 ```
 
 **Terminal 2:**
+
 ```
 ros2 run rviz2 rviz2 -d $(ros2 pkg prefix nav2_bringup)/share/nav2_bringup/rviz/nav2_default_view.rviz
 ```
@@ -431,7 +438,7 @@ Além disso, durante o processo de desenvolvimento, priorizamos a usabilidade, b
 
 ## 5.1. Páginas principais:
 
- **Página de login**
+### **Página de login**
 
 A página de login foi meticulosamente projetada para ser a porta de entrada dos usuários em nosso sistema. Reconhecemos a importância crucial da autenticação em nosso projeto, uma vez que apenas usuários autorizados da empresa parceira têm permissão para acessar a plataforma e desfrutar de todas as funcionalidades que ela oferece. Essa abordagem de autenticação garante a segurança e a integridade dos dados, bem como a privacidade das informações armazenadas.
 
@@ -441,7 +448,8 @@ A autenticação no nosso sistema é essencial para proteger os recursos dispon�
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
-**Página de varreduras/locais**
+
+### **Página de varreduras/locais**
 
 A página de varreduras/locais é um componente essencial do nosso sistema, pois fornece uma visão abrangente e organizada do histórico de todas as varreduras realizadas e locais cadastrados. Nessa página, optamos por agrupar as informações em cards, pois acreditamos que essa abordagem oferece uma forma elegante e intuitiva de apresentar os dados. Cada card contém um resumo conciso e visualmente atraente das informações relacionadas a cada varredura ou local.
 
@@ -453,7 +461,7 @@ Além do aspecto visual, também consideramos a usabilidade ao projetar essa pá
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/historic_page.png?raw=true" width="80%"></img></p>
 
-**Página de ver todas as varreduras realizadas em um local**
+### **Página de ver todas as varreduras realizadas em um local**
 
 Nessa página específica, proporcionamos aos usuários a capacidade de visualizar todas as varreduras realizadas em uma localização específica. Aqui, destacamos nossa abordagem consistente em padronizar a experiência do usuário, evidenciada pelo uso de cards para renderizar as informações. Essa abordagem foi cuidadosamente pensada para criar um senso de continuidade em todo o sistema, levando em consideração as heurísticas de Nielsen.
 
@@ -461,9 +469,35 @@ Ao utilizar cards para apresentar as informações, buscamos oferecer uma experi
 
 Um aspecto importante dessa página é o objetivo de permitir que o usuário compare varreduras em um mesmo local, mas em diferentes períodos de tempo. Ao exibir as varreduras em cards organizados, os usuários têm a capacidade de identificar facilmente as variações nos resultados ao longo do tempo. Essa funcionalidade é valiosa para a análise e monitoramento de dados, permitindo que o usuário identifique tendências, padrões ou anomalias nas varreduras realizadas em uma localização específica.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/room_page.png?raw=true" width="80%"></img></p>
+![1687445924201](media/room_page.png)
 
-**Página de realizar nova varredura**
+
+### **Página de Detalhamento de uma Varredura: Explorando as Informações Detalhadas**
+
+A página de detalhamento de uma varredura foi cuidadosamente projetada para fornecer aos usuários uma visão completa e abrangente de todas as informações relevantes relacionadas a uma varredura realizada. É uma ferramenta poderosa que permite aos usuários acessar dados vitais e obter insights valiosos sobre os resultados obtidos pelos sensores e pelo robô durante o processo de varredura.
+
+Nesta página, os usuários terão acesso a uma ampla gama de informações, incluindo:
+
+1. Informações de Sensores:
+   * Sensores de Oxigênio: Detalhes sobre os níveis de oxigênio detectados durante a varredura, fornecendo informações críticas sobre a qualidade do ar e possíveis riscos à saúde.
+   * Sensores de Dióxido de Carbono: Informações sobre os níveis de dióxido de carbono registrados durante a varredura, permitindo uma análise precisa da ventilação e da qualidade do ambiente.
+   * Sensor de Temperatura: Dados sobre as variações de temperatura encontradas durante a varredura, possibilitando a identificação de áreas com condições anormais ou riscos de superaquecimento.
+2. Informações Gerais da Varredura:
+   * Detalhes do Robô: Informações sobre o robô responsável pela execução da varredura, incluindo seu nome, modelo e especificações técnicas relevantes.
+   * Data e Hora: Registro preciso da data e horário em que a varredura foi realizada, fornecendo uma referência temporal para análises e comparações futuras.
+3. Vídeo da Varredura:
+   * A página apresenta um vídeo capturado pela câmera do robô durante a varredura. Isso permite que os usuários visualizem a varredura em tempo real ou revivam o processo posteriormente, facilitando a identificação de áreas problemáticas ou situações específicas que requerem atenção adicional.
+4. Informações de Localização:
+   * Nome da Localização: Identificação da área ou ambiente onde a varredura foi realizada, fornecendo contexto e facilitando a rastreabilidade das informações.
+   * Mapa Interativo: Um mapa interativo exibe visualmente o local onde a varredura foi feita, permitindo aos usuários ter uma compreensão geográfica precisa das áreas examinadas.
+
+Essa página de detalhamento de varredura proporciona aos usuários uma experiência intuitiva e abrangente, com recursos visuais e informações detalhadas para uma análise mais precisa e aprofundada. Além disso, ela possibilita a comparação de varreduras anteriores, a identificação de padrões e tendências ao longo do tempo, e a tomada de decisões informadas com base nos dados coletados.
+
+Com essa página, os usuários podem ter confiança de que estão acessando todas as informações necessárias para uma avaliação completa e uma compreensão aprofundada dos resultados de uma varredura específica.
+
+![1687445924201](media/scan_page.png)
+
+### **Página de realizar nova varredura**
 
 Essa página foi cuidadosamente projetada para permitir que o usuário execute todo o fluxo necessário para realizar uma nova varredura. Ela consiste em duas partes principais:
 
@@ -473,11 +507,12 @@ Em seguida, o usuário deve selecionar o local onde a varredura será realizada.
 
 Após selecionar as informações necessárias, o usuário deve clicar no botão "Iniciar varredura". Nesse momento, o sistema tenta automaticamente estabelecer uma conexão com o backend e, consequentemente, com o robô selecionado. Durante esse processo de conexão, o sistema exibe uma tela de carregamento para indicar que algo está acontecendo nos bastidores.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/create_page.png?raw=true" width="80%"></img></p>
+![New Scan Page](media/create_page.png)
+
 
 A segunda parte da página é exibida quando a conexão é estabelecida com sucesso. Nessa seção, são mostradas informações em tempo real da varredura em andamento, como o vídeo capturado pelo robô, o nível de oxigênio no local, o nível de bateria do robô, entre outras. Além disso, a página também conta com um botão de "Parada de emergência", que pode ser utilizado para interromper completamente o processo.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/visualization_page.png?raw=true" width="80%"></img></p>
+![New Scan Page](media/new_scan_page.png)
 
 Essa abordagem permite que o usuário execute de forma eficiente e conveniente o fluxo necessário para iniciar uma nova varredura, com a possibilidade de adicionar novos robôs e locais conforme necessário. A exibição de informações em tempo real e a disponibilidade de uma opção de parada de emergência garantem um acompanhamento seguro e eficaz do processo de varredura.
 
@@ -531,7 +566,6 @@ Ao analisar a matriz de confusão e examinar as predições visuais em imagens d
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Att_docs/docs/media/val_batch1_pred.jpg?raw=true" width="80%"></img></p>
 
-
 Com base nos valores fornecidos, podemos analisar o desempenho do modelo de detecção de rachaduras da seguinte forma:
 
 Verdadeiros positivos (True Positives - TP): 201
@@ -545,8 +579,6 @@ Refere-se aos casos em que o modelo classificou erroneamente amostras como racha
 
 Falsos negativos (False Negatives - FN): 48
 Essa métrica representa os casos em que o modelo classificou incorretamente as amostras como não rachaduras, quando na verdade eram. Aqui, o modelo está falhando em detectar corretamente as rachaduras existentes.
-
-
 
 ### 6.1.4. Adendo
 
@@ -612,9 +644,7 @@ Para a coleção robot, tem-se os campos id, name e ip. Essa coleção tem como 
 
 Por fim, a coleção users é composta pelos campos id, name, email e password. Essa coleção implementa um sistema de autenticação convencional, garantindo a segurança e o controle de acesso aos recursos do sistema. Os usuários podem autenticar-se com suas credenciais únicas, como nome de usuário (name), endereço de e-mail (email) e senha (password), para acessar funcionalidades e recursos específicos disponibilizados pelo sistema.
 
-
 ## 8.2. Servidor
-
 
 A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
 
@@ -649,9 +679,9 @@ Ao utilizar o WebSocket, somos capazes de transmitir diversos tipos de dados rel
 
 Através dessa conexão em tempo real, podemos enviar os dados mencionados acima para o frontend de forma contínua e atualizada, permitindo que a interface do usuário reaja instantaneamente às informações recebidas. Isso significa que o usuário poderá visualizar o vídeo em tempo real, monitorar os níveis de oxigênio e receber alertas imediatos caso gases tóxicos sejam detectados durante a varredura.
 
-Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. 
+Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata.
 
-## 8.5. FAST API 
+## 8.5. FAST API
 
 O terceiro serviço criado em nossa backend é uma FastAPI responsável por receber requisições HTTP do nosso frontend e gerenciar o armazenamento e busca de dados em nosso banco de dados. Essa API possui uma variedade de rotas para diferentes funcionalidades:
 
@@ -701,7 +731,7 @@ Quanto à API HTTP em Fast, estabelecemos rotas básicas para permitir que o fro
 Essas implementações simples para testes nos permitiu validar a comunicação entre os componentes e garantir que a arquitetura proposta funcione corretamente em um ambiente básico. Durante essa fase, focamos em identificar possíveis problemas de integração, latência ou erros de comunicação. À medida que avançamos, visamos aprimorar a implementação, adicionando mais funcionalidades e recursos à backend, garantindo uma experiência mais completa e abrangente para os usuários do sistema.
 
 # 10. Validação da eficácia do sistema.
- 
+
  Retomando o projeto Inspectron, desenvolvido pela equipe Inspectron, trata-se de uma proposta inovadora que visa aumentar a segurança e eficiência das inspeções em espaços confinados, como tubulações e caixas, em ambientes industriais. A solução proposta é um robô autônomo, equipado com sensores e câmeras, que pode navegar por esses espaços e realizar inspeções detalhadas, identificando possíveis rachaduras nas paredes e outras irregularidades.
 
 O projeto é dividido em três áreas principais: embarcado, backend e frontend. O embarcado é o próprio robô, que é responsável por capturar informações do ambiente e fornecer dados essenciais para o funcionamento autônomo do robô. O backend é o sistema de servidor em nuvem que fornece dados do robô para o frontend, além de armazenar as varreduras realizadas pelo robô. O frontend é o painel de controle principal usado pelo usuário para monitorar e controlar o robô remotamente.
@@ -741,10 +771,9 @@ Após a realização dos testes de validação do sistema Inspectron, estamos sa
 
 O robô Inspectron demonstrou uma capacidade excepcional de navegação autônoma, percorrendo a tubulação montada com caixas de maneira eficiente e segura. A qualidade das gravações do cenário foi excelente, fornecendo uma visão clara e detalhada do interior da tubulação. A funcionalidade de detecção de rachaduras do robô também se mostrou altamente eficaz. O robô foi capaz de identificar e registrar todas as rachaduras e irregularidades presentes nas paredes da tubulação, demonstrando uma precisão impressionante. Em relação à transmissão e armazenamento de dados, o sistema funcionou sem problemas. Os dados coletados pelo robô foram transmitidos corretamente para o backend e exibidos no frontend em tempo real. Além disso, todos os dados foram armazenados de maneira segura e eficiente no banco de dados, permitindo um acesso fácil e rápido para revisão posterior. O painel de controle do usuário também recebeu feedback positivo. Os usuários encontraram a interface intuitiva e fácil de usar, e o robô respondeu corretamente a todos os comandos enviados.
 
-Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores. 
+Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores.
 
 Em caso de realização de testes por parte de terceiros, após a conclusão do teste, é essencial realizar uma análise detalhada dos resultados. Cada aspecto do sistema Inspectron, desde a navegação autônoma e detecção de rachaduras até a transmissão e armazenamento de dados, deve ser avaliado cuidadosamente. Com base em sua análise, desenvolva um plano de ação para resolver quaisquer problemas identificados. Isso pode envolver a correção de bugs, a melhoria da interface do usuário, a otimização do desempenho do sistema ou a implementação de novos recursos. O objetivo do teste de validação é garantir que o sistema Inspectron seja não apenas funcional, mas também eficiente, preciso e fácil de usar. Qualquer feedback obtido durante este processo é valioso para a melhoria contínua do sistema.
-
 
 Retomando o projeto Inspectron, desenvolvido pela equipe Inspectron, trata-se de uma proposta inovadora que visa aumentar a segurança e eficiência das inspeções em espaços confinados, como tubulações e caixas, em ambientes industriais. A solução proposta é um robô autônomo, equipado com sensores e câmeras, que pode navegar por esses espaços e realizar inspeções detalhadas, identificando possíveis rachaduras nas paredes e outras irregularidades.
 
@@ -785,7 +814,7 @@ Após a realização dos testes de validação do sistema Inspectron, estamos sa
 
 O robô Inspectron demonstrou uma capacidade excepcional de navegação autônoma, percorrendo a tubulação montada com caixas de maneira eficiente e segura. A qualidade das gravações do cenário foi excelente, fornecendo uma visão clara e detalhada do interior da tubulação. A funcionalidade de detecção de rachaduras do robô também se mostrou altamente eficaz. O robô foi capaz de identificar e registrar todas as rachaduras e irregularidades presentes nas paredes da tubulação, demonstrando uma precisão impressionante. Em relação à transmissão e armazenamento de dados, o sistema funcionou sem problemas. Os dados coletados pelo robô foram transmitidos corretamente para o backend e exibidos no frontend em tempo real. Além disso, todos os dados foram armazenados de maneira segura e eficiente no banco de dados, permitindo um acesso fácil e rápido para revisão posterior. O painel de controle do usuário também recebeu feedback positivo. Os usuários encontraram a interface intuitiva e fácil de usar, e o robô respondeu corretamente a todos os comandos enviados.
 
-Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores. 
+Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores.
 
 Em caso de realização de testes por parte de terceiros, após a conclusão do teste, é essencial realizar uma análise detalhada dos resultados. Cada aspecto do sistema Inspectron, desde a navegação autônoma e detecção de rachaduras até a transmissão e armazenamento de dados, deve ser avaliado cuidadosamente. Com base em sua análise, desenvolva um plano de ação para resolver quaisquer problemas identificados. Isso pode envolver a correção de bugs, a melhoria da interface do usuário, a otimização do desempenho do sistema ou a implementação de novos recursos. O objetivo do teste de validação é garantir que o sistema Inspectron seja não apenas funcional, mas também eficiente, preciso e fácil de usar. Qualquer feedback obtido durante este processo é valioso para a melhoria contínua do sistema.
 
