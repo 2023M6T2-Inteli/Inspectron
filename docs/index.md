@@ -453,7 +453,6 @@ A autenticação no nosso sistema é essencial para proteger os recursos dispon�
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
-
 ### **5.1.2. Página de locais/varreduras: visualizar todos os locais e varreduras realizadas**
 
 A página de varreduras/locais é um componente essencial do nosso sistema, pois fornece uma visão abrangente e organizada do histórico de todas as varreduras realizadas e locais cadastrados. Nessa página, optamos por agrupar as informações em cards, pois acreditamos que essa abordagem oferece uma forma elegante e intuitiva de apresentar os dados. Cada card contém um resumo conciso e visualmente atraente das informações relacionadas a cada varredura ou local.
@@ -475,7 +474,6 @@ Ao utilizar cards para apresentar as informações, buscamos oferecer uma experi
 Um aspecto importante dessa página é o objetivo de permitir que o usuário compare varreduras em um mesmo local, mas em diferentes períodos de tempo. Ao exibir as varreduras em cards organizados, os usuários têm a capacidade de identificar facilmente as variações nos resultados ao longo do tempo. Essa funcionalidade é valiosa para a análise e monitoramento de dados, permitindo que o usuário identifique tendências, padrões ou anomalias nas varreduras realizadas em uma localização específica.
 
 ![1687445924201](media/room_page.png)
-
 
 ### **5.1.4. Página de detalhamento de varredura: explorar as informações detalhadas de uma varredura específica**
 
@@ -513,7 +511,6 @@ Em seguida, o usuário deve selecionar o local onde a varredura será realizada.
 Após selecionar as informações necessárias, o usuário deve clicar no botão "Iniciar varredura". Nesse momento, o sistema tenta automaticamente estabelecer uma conexão com o backend e, consequentemente, com o robô selecionado. Durante esse processo de conexão, o sistema exibe uma tela de carregamento para indicar que algo está acontecendo nos bastidores.
 
 ![New Scan Page](media/create_page.png)
-
 
 A segunda parte da página é exibida quando a conexão é estabelecida com sucesso. Nessa seção, são mostradas informações em tempo real da varredura em andamento, como o vídeo capturado pelo robô, o nível de oxigênio no local, o nível de bateria do robô, entre outras. Além disso, a página também conta com um botão de "Parada de emergência", que pode ser utilizado para interromper completamente o processo.
 
@@ -624,13 +621,20 @@ Após a identificação e avaliação dos riscos nos sistemas eletromecânicos, 
 
 A implementação dessas estratégias de mitigação contriburá para garantir a segurança e integridade do AGV durante as operações de inspeção em locais confinados, protegendo tanto o próprio veículo quanto os ambientes em que ele opera. Em um primeiro momento, focamos na movimentação do robô e atuação perante obstruções, sendo as alternativasa cimas opções para evoluções futuras.
 
-## 7.3. Nossas implementações
+## 7.3. Implementações realizadas
+
+A seguir, entraremos em mais detalhes sobre nossas implementações no âmbito de dispositivos de segurança. Nossos focos principais foram em relação à movimentação do robô, gostariamos de implementar features que aumentassem a confiabilidade do produto para a realização deste serviço. Decidimos por utilizar de sensores como o LIDAR para garantir a movimentação fluida e segura do robô e pela implementacao de um sistema de parada de emergencia podendo ser ativada a todo momento pelo usuário durante a varredura.
 
 ### 7.3.1. Sensor Lidar
 
-A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente. Atualmente, nossa aplicação dispõem de uma analise constante em quanto em moviemnto de obstruções diante do robô e automatizamos seu desvio. Logo, nos organizamos para utilizar deste sensor em prol da segurança e efetividade nas inpeções que o robô deverá realizar.
+A detecção de obstáculos é uma etapa fundamental para garantir que o robô mapeie os locais da melhor maneira possível, evitando colisões e interações indesejadas com objetos presentes no ambiente. O sensor Lidar é capaz de fornecer informações precisas sobre a proximidade de objetos em torno do robô, permitindo que ele tome decisões de navegação adequadas para evitar possíveis danos a si mesmo e ao ambiente. Atualmente, nossa aplicação dispõem de uma análise constante em quanto em movimento de obstruções diante do robô e automatizamos no script seu desvio. Logo, nos organizamos para utilizar deste sensor em prol da segurança e efetividade nas inpeções que o robô deverá realizar.
 
-# 8. Backend.
+### 7.3.2 Parada de Emergência
+
+A fim de evitar acidentes no percuso, implementamos um botão de facil acesso no front para o usuário com o fim de possibiliar a realização da parada de emergência caso necessário. Esta é fundamental para evitar possiveis acidentes e danos ao robô ou à estrutura no qual esta inserido. Pensando no contexto do projeto, basicamente, ao iniciar uma nova varredura e obter as respostas do robô (sensores/imagens), nós tambem iniciamos sua escuta no tópico ao qual sera realizado a postagem caso o usuário selecione o botão de parada apresentado, o robô em seguida deverá parar sua movimentacao e serviços e aguardar novas instruções.
+
+
+# 8. Backend
 
 ## 8.1. Banco de Dados
 
@@ -737,7 +741,7 @@ Essas implementações simples para testes nos permitiu validar a comunicação 
 
 # 10. Validação da eficácia do sistema.
 
- Retomando o projeto Inspectron, desenvolvido pela equipe Inspectron, trata-se de uma proposta inovadora que visa aumentar a segurança e eficiência das inspeções em espaços confinados, como tubulações e caixas, em ambientes industriais. A solução proposta é um robô autônomo, equipado com sensores e câmeras, que pode navegar por esses espaços e realizar inspeções detalhadas, identificando possíveis rachaduras nas paredes e outras irregularidades.
+ Retomando o projeto Inspectron, desenvolvido pela equipe Inspectron, trata-se de uma proposta inovadora que visa aumentar a segurança e eficiência das inspeções em espaços confinados, como tubulações em ambientes industriais. A solução proposta é um robô autônomo, equipado com sensores e câmeras, que pode navegar por esses espaços e realizar inspeções detalhadas, identificando possíveis rachaduras nas paredes e outras irregularidades.
 
 O projeto é dividido em três áreas principais: embarcado, backend e frontend. O embarcado é o próprio robô, que é responsável por capturar informações do ambiente e fornecer dados essenciais para o funcionamento autônomo do robô. O backend é o sistema de servidor em nuvem que fornece dados do robô para o frontend, além de armazenar as varreduras realizadas pelo robô. O frontend é o painel de controle principal usado pelo usuário para monitorar e controlar o robô remotamente.
 
@@ -777,8 +781,6 @@ Após a realização dos testes de validação do sistema Inspectron, estamos sa
 O robô Inspectron demonstrou uma capacidade excepcional de navegação autônoma, percorrendo a tubulação montada com caixas de maneira eficiente e segura. A qualidade das gravações do cenário foi excelente, fornecendo uma visão clara e detalhada do interior da tubulação. A funcionalidade de detecção de rachaduras do robô também se mostrou altamente eficaz. O robô foi capaz de identificar e registrar todas as rachaduras e irregularidades presentes nas paredes da tubulação, demonstrando uma precisão impressionante. Em relação à transmissão e armazenamento de dados, o sistema funcionou sem problemas. Os dados coletados pelo robô foram transmitidos corretamente para o backend e exibidos no frontend em tempo real. Além disso, todos os dados foram armazenados de maneira segura e eficiente no banco de dados, permitindo um acesso fácil e rápido para revisão posterior. O painel de controle do usuário também recebeu feedback positivo. Os usuários encontraram a interface intuitiva e fácil de usar, e o robô respondeu corretamente a todos os comandos enviados.
 
 Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores.
-
-Em caso de realização de testes por parte de terceiros, após a conclusão do teste, é essencial realizar uma análise detalhada dos resultados. Cada aspecto do sistema Inspectron, desde a navegação autônoma e detecção de rachaduras até a transmissão e armazenamento de dados, deve ser avaliado cuidadosamente. Com base em sua análise, desenvolva um plano de ação para resolver quaisquer problemas identificados. Isso pode envolver a correção de bugs, a melhoria da interface do usuário, a otimização do desempenho do sistema ou a implementação de novos recursos. O objetivo do teste de validação é garantir que o sistema Inspectron seja não apenas funcional, mas também eficiente, preciso e fácil de usar. Qualquer feedback obtido durante este processo é valioso para a melhoria contínua do sistema.
 
 # 11. Referências
 
