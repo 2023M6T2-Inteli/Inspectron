@@ -484,7 +484,6 @@ Nesta página, os usuários terão acesso a uma ampla gama de informações, inc
 1. Informações de Sensores:
    * Sensores de Oxigênio: Detalhes sobre os níveis de oxigênio detectados durante a varredura, fornecendo informações críticas sobre a qualidade do ar e possíveis riscos à saúde.
    * Sensores de Dióxido de Carbono: Informações sobre os níveis de dióxido de carbono registrados durante a varredura, permitindo uma análise precisa da ventilação e da qualidade do ambiente.
-   * Sensor de Temperatura: Dados sobre as variações de temperatura encontradas durante a varredura, possibilitando a identificação de áreas com condições anormais ou riscos de superaquecimento.
 2. Informações Gerais da Varredura:
    * Detalhes do Robô: Informações sobre o robô responsável pela execução da varredura, incluindo seu nome, modelo e especificações técnicas relevantes.
    * Data e Hora: Registro preciso da data e horário em que a varredura foi realizada, fornecendo uma referência temporal para análises e comparações futuras.
@@ -668,7 +667,6 @@ Tópicos em que a backend se inscreve:
 * humidity: Esse tópico é responsável por receber informações sobre a umidade do ambiente em que o robô está operando. A backend se inscreve nesse tópico para obter os dados atualizados sobre a umidade do local.
 * tvoc: Esse tópico é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Uma das funções desse sensor é medir e monitorar a presença e concentração de compostos orgânicos voláteis no ambiente.
 * eco2: Esse tópico também é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Diferente do tvoc, esse tópico envia dados relativos a quantidade de  dióxido de carbono presente no ambiente.
-* temperature: Esse tópico é responsável por receber informações sobre a temperatura do ambiente em que o robô está operando. A backend se inscreve nesse tópico para acompanhar os dados atualizados de temperatura.
 * heartbeat_response: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Se o robô estiver ativo, ele enviará uma mensagem de resposta no tópico "heartbeat_response".
 
 Tópicos que a backend publica:
