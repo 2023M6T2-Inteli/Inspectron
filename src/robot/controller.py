@@ -51,12 +51,12 @@ class TurtleBotController(Node):
         self.__runtime_camera_object = None
         self.__runtime_movement_object = None
 
-        # self.__command_start() # Uncomment to start robot runtime on startup
+        self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
+        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
+        # self.__command_start()  # Uncomment to start robot runtime on startup
 
     def __command_start(self):
         self.get_logger().info("Starting robot runtime...")
-        self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
-        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
         self.__runtime_movement_object = self.create_timer(0.08, self.__runtime_movement)
 
     def __backend_commands_callback(self, data):
@@ -66,9 +66,7 @@ class TurtleBotController(Node):
                 self.__command_start()
 
             case "STOP":
-                runtimes = [self.__sensores_runtime_object,
-                            self.__runtime_camera_object,
-                            self.__runtime_movement_object]
+                runtimes = [self.__runtime_movement_object]
 
                 for runtime in runtimes:
                     if runtime and (not runtime.is_canceled()):
@@ -102,8 +100,8 @@ class TurtleBotController(Node):
 
     def __runtime_movement(self):
         frontal_min_distance, right_min_distance, left_min_distance, back_min_distance = self.__lidar_module.min_distances
-        self.get_logger().info(
-            f"\nFrontal: {frontal_min_distance} \n Right: {right_min_distance} \n Left: {left_min_distance} \n Back: {back_min_distance}")
+        # self.get_logger().info(
+        #    f"\nFrontal: {frontal_min_distance} \n Right: {right_min_distance} \n Left: {left_min_distance} \n Back: {back_min_distance}")
 
         if frontal_min_distance < 0.32:
             _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
@@ -119,7 +117,7 @@ class TurtleBotController(Node):
             self.__state = State.FOWARD
             self.__velocity_module.apply(0.2, 0)
 
-        self.get_logger().info(f"State: {self.__state}")
+        # self.get_logger().info(f"State: {self.__state}")
 
 
 if __name__ == "__main__":
