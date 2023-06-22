@@ -135,16 +135,20 @@ Execute o seguinte comando no terminal:
 ```
 sudo apt install ros-humble-turtlebot3*
 ```
+É usado para instalar os pacotes relacionados ao TurtleBot3 dentro do ambiente ROS em um sistema Ubuntu.
 
 * **8.**
 
 Execute os seguintes comandos no terminal (um de cada vez):
 
 ```
-sudo apt install ros-humble-slam-toolbox
-sudo apt install ros-humble-navigation2
-sudo apt install ros-humble-distro>-nav2-bringup
-sudo apt install ros-humble-turtlebot3-gazebo
+sudo apt install ros-humble-slam-toolbox #Esse comando instala o pacote "ros-humble-slam-toolbox", que é uma caixa de ferramentas para a construção e execução de algoritmos SLAM (Simultaneous Localization and Mapping)
+
+sudo apt install ros-humble-navigation2 # Esse comando instala o pacote "ros-humble-navigation2", que é uma biblioteca de navegação de alto nível para robôs móveis.
+
+sudo apt install ros-humble-distro>-nav2-bringup #Esse comando instala o pacote "ros-humble-distro>-nav2-bringup", que é responsável por iniciar o sistema de navegação e trazer todos os componentes necessários para executar a navegação no TurtleBot3.
+
+sudo apt install ros-humble-turtlebot3-gazebo #Esse comando instala o pacote "ros-humble-turtlebot3-gazebo", que é usado para simular o TurtleBot3 no ambiente de simulação Gazebo. 
 ```
 
 * **9.**
@@ -152,9 +156,9 @@ sudo apt install ros-humble-turtlebot3-gazebo
 Execute os seguintes comandos no terminal (um de cada vez):
 
 ```
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=burger
-source .bashrc
+source /opt/ros/humble/setup.bash #Este comando faz a "fonte" (source) do arquivo "setup.bash" localizado no diretório "/opt/ros/humble".
+export TURTLEBOT3_MODEL=burger #Este comando define a variável de ambiente "TURTLEBOT3_MODEL" para o valor "burger".
+source .bashrc #Este comando faz a "fonte" (source) do arquivo ".bashrc". 
 ```
 
 * **10.**
@@ -162,8 +166,8 @@ source .bashrc
 Abrir três terminais diferentes para entrar no robô Turtlebot3 via ssh e em cada um deles seguir rodar o seguinte comando:
 
 ```
-ssh inteli@grupo1.local
-Senha: irolandinho
+ssh inteli@grupo1.local #O comando "ssh" é usado para iniciar uma sessão SSH e estabelecer uma conexão segura com um servidor ou dispositivo remoto.
+Senha: irolandinho #Após executar o comando SSH, você será solicitado a fornecer a senha correspondente ao nome de usuário "inteli".
 ```
 
 **Importante: Verificar se o robô e o computador então conectador na mesma rede wifi.**
@@ -173,20 +177,23 @@ Após rodar esse comando nos três termianis aberto, colocar os comandos abaixo:
 **Terminal 1:**
 
 ```
-ros2 launch turtlebot3_bringup robot.launch.py
+ros2 launch turtlebot3_bringup robot.launch.py 
 ```
+O commando é usado no ROS 2 (Robot Operating System 2) para iniciar o lançamento (launch) do pacote "turtlebot3_bringup" e executar o arquivo "robot.launch.py".
 
 **Terminal 2:**
 
 ```
 ros2 launch nav2_bringup navigation_launch.py
 ```
+O commando é usado no ROS 2 para iniciar o lançamento (launch) do pacote "nav2_bringup" e executar o arquivo "navigation_launch.py".
 
 **Terminal 3:**
 
 ```
 ros2 launch slam_toolbox online_async_launch.py
 ```
+O commando é usado no ROS 2 (Robot Operating System 2) para iniciar o lançamento (launch) do pacote "slam_toolbox" e executar o arquivo "online_async_launch.py".
 
 * **11.**
 
@@ -195,6 +202,7 @@ Em um novo terminal no seu dispositivo, execute o seguinte comando:
 ```
 ros2 topic list
 ```
+O commando é usado no ROS 2 para listar todos os tópicos disponíveis no sistema.
 
 Verifique se o tópico "/map" está listado para confirmar o funcionamento adequado.
 
@@ -205,6 +213,7 @@ Para mapear o ambiente em que o robô se movimentará, execute o seguinte comand
 ```
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
+O commando é usado no ROS 2 para executar o nó (node) chamado "teleop_keyboard" do pacote "turtlebot3_teleop".
 
 Use as teclas 's', 'w', 'a', 'd' e 'x' para mover o robô pelo ambiente.
 
@@ -215,7 +224,7 @@ Em um novo terminal, execute o seguinte comando:
 ```
 ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
-
+O commando é usado no ROS 2 para executar o nó (node) chamado "map_saver_cli" do pacote "nav2_map_server" e salvar o mapa do ambiente.
  	
  ## 4.2. Site
 
