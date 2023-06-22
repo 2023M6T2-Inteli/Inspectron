@@ -3,6 +3,7 @@ from rclpy.node import Node
 from typing import Any
 from sensor_msgs.msg import Imu as ImuMsgData
 
+
 class ImuDataVector3:
     x = None
     y = None
@@ -18,6 +19,7 @@ class ImuDataVector3:
 
     def __str__(self):
         return f'({self.x}, {self.y}, {self.z})'
+
 
 class ImuData:
     orientation = None

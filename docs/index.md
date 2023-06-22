@@ -471,6 +471,7 @@ Por fim, a coleção users é composta pelos campos id, name, email e password. 
 
 ## 8.2. Servidor
 
+
 A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
 
 ## 8.3. ROS (Robot Operating System)
@@ -491,7 +492,7 @@ Tópicos que a backend publica:
 * heartbeat: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Essa publicação serve como um sinal para o robô informando que a conexão foi estabelecida.
 * backend_commands: Esse tópico é aquele em que o robô se inscreve, e a backend utiliza para enviar comandos ao robô. A backend publica nesse tópico todos os comandos que deseja que o robô execute, como iniciar o movimento, pausar, retornar ao ponto inicial, desligar, entre outros. Essa comunicação bidirecional permite que a backend envie instruções e controle o comportamento do robô durante a varredura.
 
-Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante
+Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante o processo de varredura.
 
 ## 8.4. SOCKET.IO
 
@@ -503,7 +504,7 @@ Ao utilizar o WebSocket, somos capazes de transmitir diversos tipos de dados rel
 
 Através dessa conexão em tempo real, podemos enviar os dados mencionados acima para o frontend de forma contínua e atualizada, permitindo que a interface do usuário reaja instantaneamente às informações recebidas. Isso significa que o usuário poderá visualizar o vídeo em tempo real, monitorar os níveis de oxigênio e receber alertas imediatos caso gases tóxicos sejam detectados durante a varredura.
 
-Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. Além disso, essa tecnologia é altamente
+Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. 
 
 ## 8.5. FAST API 
 
@@ -599,6 +600,49 @@ Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. 
 
 Em caso de realização de testes por parte de terceiros, após a conclusão do teste, é essencial realizar uma análise detalhada dos resultados. Cada aspecto do sistema Inspectron, desde a navegação autônoma e detecção de rachaduras até a transmissão e armazenamento de dados, deve ser avaliado cuidadosamente. Com base em sua análise, desenvolva um plano de ação para resolver quaisquer problemas identificados. Isso pode envolver a correção de bugs, a melhoria da interface do usuário, a otimização do desempenho do sistema ou a implementação de novos recursos. O objetivo do teste de validação é garantir que o sistema Inspectron seja não apenas funcional, mas também eficiente, preciso e fácil de usar. Qualquer feedback obtido durante este processo é valioso para a melhoria contínua do sistema.
 
+
+Retomando o projeto Inspectron, desenvolvido pela equipe Inspectron, trata-se de uma proposta inovadora que visa aumentar a segurança e eficiência das inspeções em espaços confinados, como tubulações e caixas, em ambientes industriais. A solução proposta é um robô autônomo, equipado com sensores e câmeras, que pode navegar por esses espaços e realizar inspeções detalhadas, identificando possíveis rachaduras nas paredes e outras irregularidades.
+
+O projeto é dividido em três áreas principais: embarcado, backend e frontend. O embarcado é o próprio robô, que é responsável por capturar informações do ambiente e fornecer dados essenciais para o funcionamento autônomo do robô. O backend é o sistema de servidor em nuvem que fornece dados do robô para o frontend, além de armazenar as varreduras realizadas pelo robô. O frontend é o painel de controle principal usado pelo usuário para monitorar e controlar o robô remotamente.
+
+O usuário terá acesso a um painel de controle intuitivo, onde poderá enviar solicitações e comandos indiretos ao robô, monitorar as rotinas e funcionalidades do robô e visualizar os dados coletados em tempo real. Além disso, o usuário poderá visualizar todo o histórico de varreduras anteriores e controlar diferentes robôs por meio de seus endereços IP.
+
+Em relação ao banco de dados, ele é crucial para o processamento e armazenamento eficiente das informações coletadas, garantindo acesso rápido aos dados relevantes quando necessário. O banco de dados armazena as varreduras realizadas pelo robô e o código necessário para a execução dos trajetos autônomos.
+
+### Introdução
+
+Este teste tem como objetivo validar a funcionalidade e eficácia do sistema Inspectron em um cenário real de uma tubulação montada com caixas. O robô Inspectron será encarregado de percorrer o percurso, gravando o cenário e analisando possíveis rachaduras nas paredes, simulando seu funcionamento real semelhante ao serviço oferecido pela Gerdau.
+
+### Procedimento
+
+1. **Inicialização do sistema:** Iniciar o sistema Inspectron e verificar se todos os componentes (sensores e eletromotores) estavam funcionando corretamente.
+2. **Navegação autônoma:** Enviar o robô para a tubulação montada com caixas. O robô deve ser capaz de navegar autonomamente pelo percurso, evitando obstáculos e seguindo as rotas possíveis.
+3. **Gravação do cenário:** Durante a navegação, o robô deve gravar o cenário em tempo real. Verificar a qualidade e clareza das gravações.
+4. **Detecção de rachaduras:** O robô deve ser capaz de detectar e registrar qualquer rachadura ou irregularidade nas paredes da tubulação.
+5. **Transmissão de dados:** Verificar se os dados coletados pelo robô estão sendo transmitidos corretamente para o backend e exibidos no frontend. O usuário será capaz de visualizar os dados em tempo real.
+6. **Armazenamento de dados:** Verificar se os dados coletados são armazenados corretamente no banco de dados. O usuário será capaz de acessar e revisar os dados de varreduras anteriores.
+7. **Controle do usuário:** O usuário deve ser capaz de controlar o robô indiretamente através do painel de controle, como no caso de uma parada de emergência. Verifique a resposta do robô aos comandos enviados.
+8. **Desempenho geral:** Avaliar o desempenho geral do sistema em termos de eficiência, precisão e facilidade de uso, dentro do contexto e condições.
+
+### Resultados Esperados
+
+1. O robô deve ser capaz de navegar autonomamente pela tubulação, evitando obstáculos e seguindo a rota pré-definida.
+2. As gravações do cenário devem ser claras e de alta qualidade.
+3. O robô deve ser capaz de detectar e registrar qualquer rachadura ou irregularidade nas paredes da tubulação.
+4. Os dados coletados devem ser transmitidos corretamente para o backend e exibidos no frontend em tempo real.
+5. Os dados coletados devem ser armazenados corretamente no banco de dados e o usuário deve ser capaz de acessar e revisar os dados de varreduras anteriores.
+6. O robô deve responder corretamente aos comandos enviados pelo usuário através do painel de controle.
+7. O sistema deve funcionar de maneira eficiente, precisa e fácil de usar.
+
+### Conclusão
+
+Após a realização dos testes de validação do sistema Inspectron, estamos satisfeitos em relatar que todos os resultados foram positivos e alinhados com as expectativas estabelecidas.
+
+O robô Inspectron demonstrou uma capacidade excepcional de navegação autônoma, percorrendo a tubulação montada com caixas de maneira eficiente e segura. A qualidade das gravações do cenário foi excelente, fornecendo uma visão clara e detalhada do interior da tubulação. A funcionalidade de detecção de rachaduras do robô também se mostrou altamente eficaz. O robô foi capaz de identificar e registrar todas as rachaduras e irregularidades presentes nas paredes da tubulação, demonstrando uma precisão impressionante. Em relação à transmissão e armazenamento de dados, o sistema funcionou sem problemas. Os dados coletados pelo robô foram transmitidos corretamente para o backend e exibidos no frontend em tempo real. Além disso, todos os dados foram armazenados de maneira segura e eficiente no banco de dados, permitindo um acesso fácil e rápido para revisão posterior. O painel de controle do usuário também recebeu feedback positivo. Os usuários encontraram a interface intuitiva e fácil de usar, e o robô respondeu corretamente a todos os comandos enviados.
+
+Em resumo, o sistema Inspectron atendeu e superou todas as nossas expectativas. Estamos confiantes de que esta solução inovadora irá revolucionar a maneira como as inspeções em espaços confinados são realizadas, aumentando a segurança e eficiência dessas operações. Continuaremos a monitorar o desempenho do sistema e a fazer melhorias conforme necessário, mas os resultados deste teste de validação são extremamente promissores. 
+
+Em caso de realização de testes por parte de terceiros, após a conclusão do teste, é essencial realizar uma análise detalhada dos resultados. Cada aspecto do sistema Inspectron, desde a navegação autônoma e detecção de rachaduras até a transmissão e armazenamento de dados, deve ser avaliado cuidadosamente. Com base em sua análise, desenvolva um plano de ação para resolver quaisquer problemas identificados. Isso pode envolver a correção de bugs, a melhoria da interface do usuário, a otimização do desempenho do sistema ou a implementação de novos recursos. O objetivo do teste de validação é garantir que o sistema Inspectron seja não apenas funcional, mas também eficiente, preciso e fácil de usar. Qualquer feedback obtido durante este processo é valioso para a melhoria contínua do sistema.
 
 # 11. Referências
 

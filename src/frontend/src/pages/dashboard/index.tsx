@@ -5,6 +5,7 @@ import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { createServerSideAxiosInstance } from "@/config/axios";
+import Moment from 'react-moment';
 
 export interface Location {
     _id: {
@@ -32,12 +33,16 @@ export interface Scan {
     name: string
     temperature_min: number;
     temperature_max: number;
-    humidity_min: number;
-    humidity_max: number;
-    oxygen_min: number;
-    oxygen_max: number;
+    eco2_min: number;
+    eco2_max: number;
+    tvoc_min: number;
+    tvoc_max: number;
     location: Location;
     robot: Robot;
+    created_at: {
+        $date: number;
+    }
+    video_filename: string;
 }
 
 interface Room {
@@ -58,12 +63,13 @@ interface Props {
 }
 
 const Home = ({ locations, scans }: Props) => {
+    console.log(scans)
     const scansMemo = useMemo(() => {
         return scans.map((scan) => {
             return {
                 title: scan.name,
                 subtitle: "86% de oxigênio",
-                infos: ["01/09/2002 - 14:33:40"],
+                infos: [<Moment format="DD/MM/YYYY - HH:mm:ss" key={scan._id.$oid}>{scan.created_at.$date}</Moment>],
                 link: `/scan/${scan._id.$oid}`,
             };
         });

@@ -14,9 +14,12 @@ import queue
 from utils import NewScan
 import json
 from models import Scan
+from datetime import datetime
+import cv2
 
-#Cria um objeto API para o FASTAPI
+# Cria um objeto API para o FASTAPI
 app = FastAPI(debug=True)
+
 
 async def startup_event():
     while True:
@@ -27,19 +30,22 @@ async def startup_event():
             # If the queue is empty, sleep for a bit and then continue the loop
             await asyncio.sleep(0.1)
             continue
-       
+
         # If we got an event, emit it
-        await sio.emit(event['name'], event['data'])
+        await sio.emit(event["name"], event["data"])
+
 
 # async def startup():
 #     loop = asyncio.get_event_loop()
 #     await loop.run_in_executor(None, startup_event)
 
+
 @app.on_event("startup")
 async def tste():
     # await startup()
-    
+
     asyncio.create_task(startup_event())
+
 
 origins = [
     "http://localhost:3000",
@@ -61,9 +67,15 @@ app.include_router(user_router)
 HOST = "0.0.0.0"  # localhost padrão
 PORT = 3001  # Porta a ser utilizada
 
-#iniciando o socket
-sio = AsyncServer(async_handlers=True, logger=True,
-                      ping_interval=120, ping_timeout=120, async_mode='asgi', cors_allowed_origins='*')
+# iniciando o socket
+sio = AsyncServer(
+    async_handlers=True,
+    logger=True,
+    ping_interval=120,
+    ping_timeout=120,
+    async_mode="asgi",
+    cors_allowed_origins="*",
+)
 
 event_queue = queue.Queue()
 
@@ -74,60 +86,71 @@ node_backend = BackendController(sio=sio, event_queue=event_queue, new_scan=new_
 socketio_app = socketio.ASGIApp(sio, app)
 
 
-@sio.event
-async def connect(sid, environ):
-    node_backend.heartbeat.send("oi")
-    print('Connected to socket', flush=True)
-    
-
-@sio.on('emergency_stop')
-def stop(sid):
-    sio.emit("emergency_stop")
-    sio.sleep(0)
-
-
-@sio.on('new_scan_data')
-def new_scan_data(sid, message):
-    # Convert message to dict
-    message_dict = json.loads(message)
-    new_scan['name'] = message_dict['name']
-    new_scan['location'] = message_dict['location']['value']
-    new_scan['robot'] = message_dict['robot']['value']
-
-
-@sio.event
-def disconnect(sid):
-    print('Disconnected from socket', flush=True)
-    print(new_scan, flush=True)
+def end_scan():
     scan = Scan(
-        name=new_scan['name'],
-        location=new_scan['location'],
-        robot=new_scan['robot'],
-        oxygen_max=new_scan['oxygen_max'],
-        oxygen_min=new_scan['oxygen_min'],
-        temperature_min=new_scan['temperature_min'],
-        temperature_max=new_scan['temperature_max'],
-        humidity_min=new_scan['humidity_min'],
-        humidity_max=new_scan['humidity_max']
+        name=new_scan["name"],
+        location=new_scan["location"],
+        robot=new_scan["robot"],
+        temperature_min=new_scan["temperature_min"],
+        temperature_max=new_scan["temperature_max"],
+        humidity_min=new_scan["humidity_min"],
+        humidity_max=new_scan["humidity_max"],
+        created_at=datetime.now(),
+        tvoc_min=new_scan["tvoc_min"],
+        tvoc_max=new_scan["tvoc_max"],
+        eco2_min=new_scan["eco2_min"],
+        eco2_max=new_scan["eco2_max"],
+        video_filename=new_scan["video_filename"],
     )
     scan.save()
     new_scan.clean_variables()
+    node_backend.backend_commands.send({'command': 'STOP', 'body': ''})
+    node_backend.upload_video()
     print("Scan saved", flush=True)
+
+@sio.event
+async def connect(sid, environ):
+    print(datetime.now().time(), flush=True)
+    node_backend.heartbeat.send("oi")
+    print("Connected to socket", flush=True)
+
+@sio.on("new_scan_data")
+def new_scan_data(sid, message):
+    # Convert message to dict
+    message_dict = json.loads(message)
+    new_scan["name"] = message_dict["name"]
+    new_scan["location"] = message_dict["location"]["value"]
+    new_scan["robot"] = message_dict["robot"]["value"]
+
+
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")  # Use mp4v codec for .mp4 file
+    current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    output_file_name = message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
+    new_scan["video_filename"] = output_file_name
+    new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (320, 240))
+
+@sio.event
+def disconnect(sid):
+    print("Disconnected from socket", flush=True)
+    end_scan()
+
 
 def run_uvicorn():
     config = uvicorn.Config(
-        socketio_app, 
-        host=HOST, 
+        socketio_app,
+        host=HOST,
         port=PORT,
     )
     server = uvicorn.Server(config)
-    
+
     server.run()
+
 
 def run_rclpy():
     rclpy.spin(node_backend)
     rclpy.shutdown()
-    
+
+
 def main():
     connect_to_database()
 
@@ -139,6 +162,7 @@ def main():
 
     uvicorn_thread.join()
     rclpy_thread.join()
+
 
 if __name__ == "__main__":
     main()

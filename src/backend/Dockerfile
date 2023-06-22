@@ -28,7 +28,9 @@ RUN apt update -y && \
 
 # COPY requirements.txt .
 # RUN pip3 install --no-cache-dir -r requirements.txt
-RUN pip3 install fastapi uvicorn eventlet ultralytics python-socketio mongoengine python-dotenv pydantic passlib python-jose[cryptography]
+RUN pip3 install --upgrade pip
+RUN apt-get update -y
+RUN pip3 install fastapi uvicorn uvicorn[standard] eventlet ultralytics python-socketio mongoengine python-dotenv pydantic passlib "python-jose[cryptography]" websockets supabase
 
 WORKDIR /app
 COPY . .

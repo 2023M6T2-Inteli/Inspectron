@@ -8,6 +8,7 @@ import { withAuth } from "@/HOC/withAuth";
 import { GetServerSidePropsContext, PreviewData } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { io } from "socket.io-client";
+import Card from "@/components/card";
 
 const NewSimulation: React.FC = (props) => {
     const [stage, setStage] = React.useState(0);
@@ -28,12 +29,11 @@ const NewSimulation: React.FC = (props) => {
         setLoading(false);
     }
 
-    const startScan = (data: any) => {
+    const startScan = async (data: any) => {
         setLoading(true);
         socket.connect();
-        console.log(data);
-        setForm(data);
         socket.emit("new_scan_data", JSON.stringify(data));
+        setForm(data);
     };
 
     useEffect(() => {
@@ -54,7 +54,7 @@ const NewSimulation: React.FC = (props) => {
     let content = null;
     switch (stage) {
         case 0:
-            content = <StartScan buttonHandler={startScan} />;
+            content = <Card classes={"grow"} content={<StartScan buttonHandler={startScan} />} />
             break;
         case 1:
             content = <LiveScan form={form} socket={socket} setStage={setStage} />;
@@ -63,7 +63,11 @@ const NewSimulation: React.FC = (props) => {
 
     return (
         <Wrapper title={"Nova varredura"}>
-            <div className="bg-white rounded-xl shadow-2xl p-8 grow">{loading ? <Loader /> : content}</div>
+            {loading ? (
+                    <Card classes={"grow"} content={<Loader />} />
+            ) : (
+                content
+            )}
         </Wrapper>
     );
 };
