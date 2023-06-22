@@ -150,12 +150,11 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.2 FrontEnd
 
- * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
- * **2.** Depois é necesário achar os arquivos relevantes do codigo do frontend. O framework que utilizamos para fazer o Front foi JS React que é o padrão do mercado que é a melhor forma de concluir o que foi pedido.
- * **3.** Para solucionar os erros que surgirem por falta de ter as bibliotecas devidas instaladas, basta fazer o ```Pip install```
-   das mesmas. Caso não funcionar segue o link da documentação [oficial](https://packaging.python.org/en/latest/tutorials/installing-packages/)
- * **4.** Caso necesesita subir o site no ar é necesário realizar o processo de inserir a parte web do projeto no sistema de uso (ex. aws).
- * **5.** Caso for rodar localmentemente no VS code é só clicar no botão de rodar
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone seguido``` pelo URL do repositório.
+ * **2.** Após baixar o projeto, é necessário localizar os arquivos relevantes do código do frontend. O framework utilizado é o React, que é uma biblioteca JavaScript para construção de interfaces de usuário. Os arquivos do frontend estão localizados na pasta "frontend" que está dentro da pasta "src".
+ * **3.** Ao trabalhar com bibliotecas e dependências no projeto React, podem ocorrer erros relacionados à falta de instalação das bibliotecas necessárias. Para solucionar esses erros, você pode utilizar o npm (gerenciador de pacotes do Node.js) para instalar as dependências. No terminal, dentro da pasta do projeto, execute o comando ```npm install``` para instalar as dependências do projeto. Caso ocorra algum erro, é recomendado verificar a documentação oficial da biblioteca ou pacote específico para obter instruções de instalação corretas.
+ * **4.** Se você precisa disponibilizar o site online, é necessário realizar o processo de hospedagem. Um exemplo mencionado é utilizar a AWS (Amazon Web Services), onde você precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto. Existem também outras opções de hospedagem, como serviços de hospedagem compartilhada, plataformas de hospedagem específicas para React, entre outras. Cada opção tem suas próprias etapas específicas para implantação.
+ * **5.** Caso você deseje rodar o projeto localmente no Visual Studio Code, você pode utilizar ferramentas como o Live Server, que é uma extensão do VS Code que permite iniciar um servidor local para executar o frontend do projeto. Basta abrir o projeto no VS Code, clicar com o botão direito no arquivo HTML principal do projeto e selecionar a opção "Open with Live Server" para iniciar o servidor local e visualizar o site no navegador.
 
 # 5. Guia de Configuração
 
