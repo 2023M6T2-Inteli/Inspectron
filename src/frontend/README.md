@@ -1,6 +1,6 @@
 O frontend do foi feito com o framework [Next.js](https://nextjs.org/).
 
-## Iniciando
+## Iniciando o projeto
 
 Primeiro, execute o servidor de desenvolvimento:
 
