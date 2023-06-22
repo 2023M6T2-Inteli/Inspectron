@@ -173,7 +173,7 @@ O conceito de Oceano Azul é uma abordagem estratégica que pode ajudar a criar 
 
 A análise financeira informa o quanto o parceiro tem projetado para investir no projeto e quais são as projeções de custos e de receitas que o parceiro projeta ter relacionadas ao projeto. **Ressalta-se que é uma estimativa feita baseada nos materiais disposibilizados para realizar o MVP, para um processo de real implementação é necessário reavaliar os dispositivos de hardware utilizados.**
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/assets/99221221/e759165f-6d82-4335-8ab5-6a48ba8dc467" width=70%></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/assets/99221221/108b3e6e-a809-45ea-bc07-90aaccc1beec" width=120%></img></p>
 
 \*\* ICMS é a sigla para Imposto sobre Circulação de Mercadorias e Prestação de Serviços de Transporte Interestadual e Intermunicipal e de Comunicação. Regulamentado pela Lei Kandir (Lei complementar 87/1996), é um tributo estadual e seus valores são definidos pelos estados e Distrito Federal.
 
