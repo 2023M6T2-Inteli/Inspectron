@@ -112,7 +112,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 **3.** Conectar os sensores nas portas(entradas) do Raspberry Pi 3.
 
-**4.** Criar uma conexão estável via wifi com o TurtleBot.
+**4.** Criar uma conexão estável com o servidor e siga o tópico **4** (guia de instalação).
 
 # 4. Guia de Instalação
 
