@@ -24,8 +24,8 @@
 * [4. Guia de Instalação](#guia-de-instalção)
 	* [4.1. TurtleBot3](#turtlebot3)
 	* [4.2. Site](#site)
-		* [4.2.1. BackEnd](#backend)
-		* [4.2.2. FrontEnd](#frontend)
+		* [4.2.1. Backend](#backend)
+		* [4.2.2. Frontend](#frontend)
 
 * [5. Guia de Configuração](#guia-de-configuração)
 * [6. Guia de Operação](#guia-de-operação)
