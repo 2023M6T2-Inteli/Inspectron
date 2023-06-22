@@ -52,6 +52,15 @@
   - [7.3. Nossas implementações](#73-Nossas-implementações)
     - [7.3.1. Sensor Lidar](731-ensor-lidar)
 - [8 - Backend](#8-backend)
+  - [8.1. Banco de Dados](#81-banco-de-dados)
+  - [8.2. Servidor](#)
+  - [8.3. ROS (Robot Operating System)](#)
+  - [8.4. SOCKET.IO](#)
+  - [8.5. FAST API](#)
+  - [8.6. Rotas de Usuário](#)
+  - [8.7. Rotas de Varreduras](#)
+  - [8.8. Rotas de Robô](#)
+  - [8.9. Rotas de Localização](#)
 - [9 - Integração de sistemas](#9-integração-de-sistemas)
   - [9.1. Teste de eficácia e performance](#91-teste-de-eficácia-e-performance)
 - [10 - Validação da eficácia do sistema](#10-validação-da-eficácia-do-sistema)
@@ -442,7 +451,7 @@ A detecção de obstáculos é uma etapa fundamental para garantir que o robô m
 
 # 8. Backend.
 
-<h1>Banco de Dados</h1>
+## 8.1. Banco de Dados
 
 O banco de dados é uma ferramenta utilizada para o armazenamento e gerenciamento de informações do sistema. O projeto baseia-se na automação de inspeção de espaços confinados por meio de um AGV, ou seja, deve-se pensar na necessidade de salvamento de espaços, das varreduras e as informações de ambiente captadas pelos sensores do robô, qual robô realizou a varredura e também é fundamental a criação de um sistema de autenticação de usuário.
 Neste sentido, é necessário que o banco de dados seja capaz de relacionar duas coleções, _location_ (que representa o espaço confinado em si) e _scan_ (que representa as varreduras feitas nos determinados espaços).
@@ -460,11 +469,11 @@ Para a coleção robot, tem-se os campos id, name e ip. Essa coleção tem como 
 Por fim, a coleção users é composta pelos campos id, name, email e password. Essa coleção implementa um sistema de autenticação convencional, garantindo a segurança e o controle de acesso aos recursos do sistema. Os usuários podem autenticar-se com suas credenciais únicas, como nome de usuário (name), endereço de e-mail (email) e senha (password), para acessar funcionalidades e recursos específicos disponibilizados pelo sistema.
 
 
-<h1>Servidor</h1>
+## 8.2. Servidor
 
 A backend do nosso projeto desempenha um papel crucial ao estabelecer a conexão entre o robô e o frontend, servindo como o ponto de contato com o nosso banco de dados. Nós configuramos três serviços distintos nessa camada, todos interconectados, cada um responsável por um tipo de protocolo específico.
 
-<h2>ROS (Robot Operating System)</h2>
+## 8.3. ROS (Robot Operating System)
 
 O primeiro serviço que temos em nossa backend é o ROS (Robot Operating System). Nele, criamos um nó do ROS responsável por trocar informações com o robô. Esse nó do ROS se conecta a tópicos específicos para receber dados e também possui funções para publicar informações em outros tópicos. Abaixo estão listados os tópicos que estamos utilizando:
 
@@ -484,7 +493,7 @@ Tópicos que a backend publica:
 
 Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante
 
-<h2>SOCKET.IO</h2>
+## 8.4. SOCKET.IO
 
 O segundo serviço é o Socketio. Ele é essencial para a troca de informações em tempo real com o frontend. Assim como no ROS, utilizamos o conceito de subscrição e publicação de dados em tópicos específicos.
 
@@ -496,27 +505,27 @@ Através dessa conexão em tempo real, podemos enviar os dados mencionados acima
 
 Essa abordagem baseada em WebSocket e socket.io oferece uma comunicação bidirecional assíncrona e em tempo real, garantindo que os dados sejam transmitidos de maneira eficiente e que o frontend seja capaz de atualizar e exibir as informações de forma imediata. Além disso, essa tecnologia é altamente
 
-<h2> FAST API </h2>
+## 8.5. FAST API 
 
 O terceiro serviço criado em nossa backend é uma FastAPI responsável por receber requisições HTTP do nosso frontend e gerenciar o armazenamento e busca de dados em nosso banco de dados. Essa API possui uma variedade de rotas para diferentes funcionalidades:
 
-<h2>Rotas de Usuário:</h2>
+## 8.6. Rotas de Usuário:
 
 * /users/create: Essa rota é responsável por criar um novo usuário e armazená-lo no banco de dados. Ela recebe os dados necessários para criar um usuário, como nome, email, senha e realiza a inserção dessas informações no banco de dados.
 * /users: Essa rota retorna todos os usuários cadastrados no sistema. Ao acessar essa rota, o frontend pode receber uma lista completa de todos os usuários registrados, com suas respectivas informações.
 * /users/login: Essa rota é responsável por realizar o login de um usuário. Ela recebe um email e uma senha, verifica se o usuário correspondente existe no banco de dados e, se for o caso, gera tokens de autenticação JWT (JSON Web Tokens) para permitir o acesso autenticado às demais partes do sistema.
 
-<h3>Rotas de Varreduras:</h3>
+## 8.7. Rotas de Varreduras:
 
 * /scans: Essa rota retorna todas as varreduras realizadas. Ela fornece ao frontend uma lista com todas as varreduras registradas, incluindo informações relevantes como data, hora e outras.
 * /scans/locations: Essa rota retorna todas as varreduras realizadas em uma determinada localização. O frontend pode especificar uma localização específica como parâmetro e receberá uma lista das varreduras realizadas apenas nessa área, fornecendo uma visão mais específica dos dados de varredura.
 
-<h3>Rotas de Robô:</h3>
+## 8.8. Rotas de Robô:
 
 * /robots: Essa rota retorna todos os robôs cadastrados no banco de dados. Ao acessar essa rota, o frontend receberá uma lista com informações detalhadas sobre cada robô registrado, como nome e ip.
 * /robots/create: Essa rota permite armazenar um novo robô no banco de dados. O frontend pode enviar os dados relevantes do robô, como nome, ip, e a API se encarregará de adicioná-lo ao banco de dados.
 
-<h3>Rotas de Localização:</h3>
+## 8.9. Rotas de Localização:
 
 * /locations: Essa rota retorna todas as localizações cadastradas no banco de dados. O frontend pode acessá-la para obter uma lista completa de todas as localizações registradas, com detalhes como nome e coordenadas geográficas.
 * /locations/create: Essa rota permite a criação de uma nova localização. O frontend pode enviar os dados necessários para criar uma nova localização, como nome, endereço, coordenadas, e a API se encarregará de adicioná-la ao banco de dados.
