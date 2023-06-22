@@ -33,7 +33,7 @@
 * [8. Adequação do Local de Operação do Robô](#adequação-do-local-de-operação-do-robô)
 * [9. Guia de Prevenção e Mitigação de Acidentes](#guia-de-prevenção-e-mitigação-de-acidentes)
 * [10. Troubleshooting](#troubleshooting)
-* [11. Creditos](#creditos) 
+* [11. Créditos](#creditos) 
 
 # 1. Introdução
 ## 1.1. Solução
@@ -224,7 +224,7 @@ Segue uma tabela com possiveis passos que podem sererm tomados para a mitigaçã
 |5|Perda de sinal de GPS|Certifique-se de que o módulo GPS esteja corretamente conectado e funcionando adequadamente; reinicie o módulo GPS e verifique se os cabos de conexão estão firmemente conectados.|
 |6|Falha no sistema de mapeamento e navegação|Reinicie o sistema de mapeamento e navegação; verifique se todas as configurações estão corretas e verifique se há interferências magnéticas ou outras fontes de perturbação que possam afetar a precisão do sistema.|
 
-# 11. Creditos 
+# 11. Créditos 
 
 * [Antônio Ribeiro Cavalcante](https://www.linkedin.com/in/antonioribeiro893/)
 * [Emanuele Lacerda Morais Martins](https://www.linkedin.com/in/emanuele-morais/)
