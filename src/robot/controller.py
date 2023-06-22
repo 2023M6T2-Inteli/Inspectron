@@ -72,6 +72,8 @@ class TurtleBotController(Node):
                     if runtime and (not runtime.is_canceled()):
                         runtime.cancel()
 
+                self.__velocity_module.apply(0.0, 0.0)
+
     def __heartbeat_callback(self, msg):
         self.__heartbeat_response_callback.pong()
 
