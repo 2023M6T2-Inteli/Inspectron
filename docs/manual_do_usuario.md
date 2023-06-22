@@ -156,6 +156,8 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
  * **4.** Se você precisa disponibilizar o site online, é necessário realizar o processo de hospedagem. Um exemplo mencionado é utilizar a AWS (Amazon Web Services), onde você precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto. Existem também outras opções de hospedagem, como serviços de hospedagem compartilhada, plataformas de hospedagem específicas para React, entre outras. Cada opção tem suas próprias etapas específicas para implantação.
  * **5.** Caso você deseje rodar o projeto localmente no Visual Studio Code, você pode utilizar ferramentas como o Live Server, que é uma extensão do VS Code que permite iniciar um servidor local para executar o frontend do projeto. Basta abrir o projeto no VS Code, clicar com o botão direito no arquivo HTML principal do projeto e selecionar a opção "Open with Live Server" para iniciar o servidor local e visualizar o site no navegador.
 
+ ### 4.2.3 Frameworks
+
 # 5. Guia de Configuração
 
 **1ª:** Fazer o login com um computador no [Site](link do site).
