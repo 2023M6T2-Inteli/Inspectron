@@ -140,7 +140,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.1 BackEnd
 
- * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone seguido``` pelo URL do repositório.
  * **2.** Depois é necesário achar os arquivos relevantes do codigo do backend.
  * **3.** Para instalar o python é necesário rodar esse comando em um terminal ```Pip install python```
  * **4.** Para instalar o Mongo DB é somente seguir esse tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
