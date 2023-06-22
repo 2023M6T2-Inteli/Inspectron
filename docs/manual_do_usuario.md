@@ -162,8 +162,8 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 * **3.** MongoDB é um banco de dados orientado a documentos, classificado como NoSQL (Não Somente SQL). Ao contrário dos bancos de dados relacionais tradicionais, que armazenam dados em tabelas e linhas, o MongoDB armazena dados em documentos flexíveis do tipo JSON (BSON). Ele oferece uma abordagem escalável e de alto desempenho para armazenamento e recuperação de dados. O MongoDB é amplamente utilizado em aplicativos web modernos, especialmente em cenários onde a flexibilidade de esquema é necessária, pois não exige uma estrutura rígida de dados. Ele suporta consultas avançadas, índices, replicação para alta disponibilidade e recursos de escalabilidade horizontal. O MongoDB é usado em conjunto com várias linguagens de programação, incluindo Python, para armazenar e acessar dados de forma eficiente.
 * **4.** Tailwind CSS é um framework de CSS utilitário que permite a construção rápida e eficiente de interfaces de usuário responsivas. Ao contrário de outros frameworks de CSS, como Bootstrap ou Foundation, que fornecem estilos predefinidos, o Tailwind CSS adota uma abordagem diferente, fornecendo classes utilitárias de baixo nível que podem ser combinadas para criar estilos personalizados.
 * **5.** Next.js é um framework de desenvolvimento web React que permite a criação de aplicativos web rápidos e escaláveis. Ele combina as poderosas funcionalidades do React com recursos avançados de servidor e renderização do lado do servidor (SSR) e renderização do lado do cliente (CSR).
-* **6.**
-* **7.**
+* **6.** Há um arquivo chamado requirements.txt na pasta do backend com as libs do back instaladas
+* **7.** Há um arquivo chamado package.json na pasta do frontend com as libs do front instaladas
 
 # 5. Guia de Configuração
 
