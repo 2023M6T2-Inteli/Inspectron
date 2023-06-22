@@ -249,7 +249,7 @@ ros2 run nav2_map_server map_saver_cli -f ~/map
 
 **1ª:** 
 
-<p align="center"><img src="[https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/login_page.png?raw=true](https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/login_page.png?raw=true)" width="80%"></img></p>
+<p align="center"><img src="(https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/login_page.png?raw=true)" width="80%"></img></p>
 
 **2ª:** Selecionar o botão “+ Nova varredura” para ir até a aba de configuração/criação de um novo robô.
 
