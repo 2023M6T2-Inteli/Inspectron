@@ -96,7 +96,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 - **Câmera :** Uma câmera comum para visualização.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" style="background-color: #f2f2f2;" width="80%" ></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" width="80%" ></img></p>
 
 ## 2.2. Componentes externos
 
