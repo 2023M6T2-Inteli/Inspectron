@@ -249,19 +249,19 @@ ros2 run nav2_map_server map_saver_cli -f ~/map
 
 **1ª:** 
 
-<p align="center"><img src="(https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/login_page.png?raw=true)" width="80%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/login_page.png?raw=true" width="80%"></img></p>
 
 **2ª:** Selecionar o botão “+ Nova varredura” para ir até a aba de configuração/criação de um novo robô.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/botoes_laterais.png?raw=true" width="20%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/botoes_laterais.png?raw=true" width="20%"></img></p>
 
 **3ª:** Após isso é preciso registrar o robô no sistema, preenchendo os campos abaixo. E ao final, clicar em “Iniciar varredura”.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/create_page.png?raw=true" width="80%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/new_scan_page.png?raw=true" width="80%"></img></p>
 
 **4ª:** Apoios a configuração de um novo robô/varredura, o usuário será redirecionado para a aba onde será possível ver a operação em tempo real.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/visualization_page.png?raw=true" width="80%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/main/docs/media/scan_page.png?raw=true" width="80%"></img></p>
 
 # 6. Guia de Operação
 
