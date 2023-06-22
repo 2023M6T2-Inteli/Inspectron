@@ -49,8 +49,6 @@ O operador terá disponível um website, que trará informações de varreduras 
  
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true" width="100%"></img></p>
 
-<p align="center"><img src="" width="100%"></img></p>
-
 <table>  
 <tr>  
 <th>1º Node</th>  
@@ -130,6 +128,93 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 * **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso queira, a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 * **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
 * **6.** Após ter o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de código em seus respectivos lugares. Por exemplo, colocar o código do robô no robô em si.
+* **7.** A partir daqui é o passo a passo para fazer o código do robô funcionar
+Execute o seguinte comando no terminal:
+
+```
+sudo apt install ros-humble-turtlebot3*
+```
+
+* **8.**
+
+Execute os seguintes comandos no terminal (um de cada vez):
+
+```
+sudo apt install ros-humble-slam-toolbox
+sudo apt install ros-humble-navigation2
+sudo apt install ros-humble-distro>-nav2-bringup
+sudo apt install ros-humble-turtlebot3-gazebo
+```
+
+* **9.**
+
+Execute os seguintes comandos no terminal (um de cada vez):
+
+```
+source /opt/ros/humble/setup.bash
+export TURTLEBOT3_MODEL=burger
+source .bashrc
+```
+
+* **10.**
+
+Abrir três terminais diferentes para entrar no robô Turtlebot3 via ssh e em cada um deles seguir rodar o seguinte comando:
+
+```
+ssh inteli@grupo1.local
+Senha: irolandinho
+```
+
+**Importante: Verificar se o robô e o computador então conectador na mesma rede wifi.**
+
+Após rodar esse comando nos três termianis aberto, colocar os comandos abaixo:
+
+**Terminal 1:**
+
+```
+ros2 launch turtlebot3_bringup robot.launch.py
+```
+
+**Terminal 2:**
+
+```
+ros2 launch nav2_bringup navigation_launch.py
+```
+
+**Terminal 3:**
+
+```
+ros2 launch slam_toolbox online_async_launch.py
+```
+
+* **11.**
+
+Em um novo terminal no seu dispositivo, execute o seguinte comando:
+
+```
+ros2 topic list
+```
+
+Verifique se o tópico "/map" está listado para confirmar o funcionamento adequado.
+
+* **12.**
+
+Para mapear o ambiente em que o robô se movimentará, execute o seguinte comando em um terminal:
+
+```
+ros2 run turtlebot3_teleop teleop_keyboard
+```
+
+Use as teclas 's', 'w', 'a', 'd' e 'x' para mover o robô pelo ambiente.
+
+* **13.**
+
+Em um novo terminal, execute o seguinte comando:
+
+```
+ros2 run nav2_map_server map_saver_cli -f ~/map
+```
+
  	
  ## 4.2. Site
 
