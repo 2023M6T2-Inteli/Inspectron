@@ -107,7 +107,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 **1.** Seguir a montagem do TurtleBot3 Burger conforme o manual: [Página para download do manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/hardware_setup/), **[Vídeo de montagem](https://youtu.be/5D9S_tcenL4)**.
 
-**2.** Acoplar os sensores MQ135, DTH11 e a câmera em seus devidos suportes.
+**2.** Acoplar os sensores GPS NEO-6M V2, CJMCU-811 e a câmera em seus devidos suportes.
 
 **3.** Conectar os sensores nas portas(entradas) do Raspberry Pi 3.
 
