@@ -5,7 +5,8 @@ from sensor_msgs.msg import LaserScan
 from enum import Enum
 from rclpy.qos import qos_profile_sensor_data
 import rclpy
-from numpy import interp
+import numpy as np
+import math
 
 
 class DistanceFilterType(Enum):
@@ -35,36 +36,40 @@ class Lidar(Subscription):
         return lidar_data
 
     @staticmethod
-    def find_nearest_index(data: list, index: float) -> int:
-        return min(range(len(data)), key=lambda i: abs(data[i] - index))
+    def find_nearest_index(data: list, angle: float) -> int:
+        angle %= 2 * np.pi
+        angle_indices = np.linspace(0, 2 * np.pi, len(data), endpoint=False)
+        nearest_index = np.argmin(np.abs(angle_indices - angle))
+        return nearest_index
 
     @staticmethod
     def remap_to_scan(data: list) -> list:
-        # print(len(data.ranges))
-        # print(data.ranges)
-        new_list = []
-
-        for i in range(360):
-            index = interp(i, [0, 360], [0, len(data.ranges)])
-            new_list.append(
-                data.ranges[Lidar.find_nearest_index(data.ranges, index)])
-        return new_list
+        angles = np.linspace(0, 2 * np.pi, len(data.ranges), endpoint=False)
+        remapped_ranges = np.interp(np.linspace(0, 2 * np.pi, 360, endpoint=False), angles, data.ranges)
+        return remapped_ranges.tolist()
 
     @staticmethod
     def get_distance(lidar_data: LaserScan, angles: list, distance_type: DistanceFilterType) -> float:
-        if len(angles) == 0 or len(lidar_data.ranges) == 0:
-            return float("inf")
+        valid_ranges = []
+        for i in angles:
+            if i >= 0 and i < len(lidar_data.ranges):
+                range_value = lidar_data.ranges[i]
+                if not math.isnan(range_value):
+                    valid_ranges.append(range_value)
 
-        return round(DistanceFilterFunctions.MAP[distance_type]([lidar_data.ranges[i] for i in angles]), 3)
+        if len(valid_ranges) == 0:
+            return float("nan")
+
+        return round(DistanceFilterFunctions.MAP[distance_type](valid_ranges), 3)
 
     def frontal_distance(self, distance_type: DistanceFilterType) -> float:
         return self.get_distance(self.__data, range(-30, 30), distance_type)
 
     def right_distance(self, distance_type: DistanceFilterType) -> float:
-        return self.get_distance(self.__data, range(60, 120), distance_type)
+        return self.get_distance(self.__data, range(240, 300), distance_type)
 
     def left_distance(self, distance_type: DistanceFilterType) -> float:
-        return self.get_distance(self.__data, range(240, 300), distance_type)
+        return self.get_distance(self.__data, range(60, 120), distance_type)
 
     def back_distance(self, distance_type: DistanceFilterType) -> float:
         return self.get_distance(self.__data, range(150, 210), distance_type)
