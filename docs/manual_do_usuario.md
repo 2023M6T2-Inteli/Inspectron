@@ -135,7 +135,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.1 BackEnd
 
- * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone seguido``` pelo URL do repositório.
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone https://github.com/2023M6T2-Inteli/Inspectron/blob/main```.
  * **2.** Após baixar o projeto, é necessário localizar os arquivos relevantes do código do backend. Esses arquivos estão na pasta "Backend" dentro da pasta "Src"
  * **3.** Para instalar o Python, você pode seguir as instruções de instalação disponíveis no site oficial do Python (python.org). Dependendo do sistema operacional, pode ser necessário utilizar um gerenciador de pacotes, como o pip, para instalar o Python. No terminal, você pode executar o comando ```pip install python``` para instalar o Python.
  * **4.** Para instalar o MongoDB, você pode seguir um tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/) fornecido pela equipe do MongoDB. O tutorial geralmente inclui instruções específicas para diferentes sistemas operacionais e ambientes. É recomendável seguir o tutorial oficial para garantir uma instalação correta e atualizada. 
@@ -145,7 +145,7 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
  ### 4.2.2 FrontEnd
 
- * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone seguido``` pelo URL do repositório.
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone git clone https://github.com/2023M6T2-Inteli/Inspectron/blob/main```.
  * **2.** Após baixar o projeto, é necessário localizar os arquivos relevantes do código do frontend. O framework utilizado é o React, que é uma biblioteca JavaScript para construção de interfaces de usuário. Os arquivos do frontend estão localizados na pasta "frontend" que está dentro da pasta "src".
  * **3.** Ao trabalhar com bibliotecas e dependências no projeto React, podem ocorrer erros relacionados à falta de instalação das bibliotecas necessárias. Para solucionar esses erros, você pode utilizar o npm (gerenciador de pacotes do Node.js) para instalar as dependências. No terminal, dentro da pasta do projeto, execute o comando ```npm install``` para instalar as dependências do projeto. Caso ocorra algum erro, é recomendado verificar a documentação oficial da biblioteca ou pacote específico para obter instruções de instalação corretas.
  * **4.** Se você precisa disponibilizar o site online, é necessário realizar o processo de hospedagem. Um exemplo mencionado é utilizar a AWS (Amazon Web Services), onde você precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto. Existem também outras opções de hospedagem, como serviços de hospedagem compartilhada, plataformas de hospedagem específicas para React, entre outras. Cada opção tem suas próprias etapas específicas para implantação.
