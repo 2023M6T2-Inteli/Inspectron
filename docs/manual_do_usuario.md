@@ -47,7 +47,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 ### 1.2.1. Hardware
  
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true" width="100%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true"></img></p>
 
 <table>  
 <tr>  
