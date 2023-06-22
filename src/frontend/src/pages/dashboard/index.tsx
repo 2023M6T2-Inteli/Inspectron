@@ -68,7 +68,7 @@ const Home = ({ locations, scans }: Props) => {
         return scans.map((scan) => {
             return {
                 title: scan.name,
-                subtitle: "86% de oxigênio",
+                subtitle: "Robô: " + scan.robot.name,
                 infos: [<Moment format="DD/MM/YYYY - HH:mm:ss" key={scan._id.$oid}>{scan.created_at.$date}</Moment>],
                 link: `/scan/${scan._id.$oid}`,
             };

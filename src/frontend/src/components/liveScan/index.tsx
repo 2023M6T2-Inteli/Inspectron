@@ -21,7 +21,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const [videoImage, setVideoImage] = useState<string | undefined>(undefined);
     const [battery, setBattery] = useState<string | undefined>(undefined);
     const [tvoc, setTvoc] = useState<string | undefined>(undefined);
-    const [temperature, setTemperature] = useState<string | undefined>(undefined);
     const [gps, setGps] = useState<{ x: number; y: number } | undefined>(undefined);
     const [eco2, setEco2] = useState<string | undefined>(undefined);
 
@@ -44,7 +43,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const onCamera = handleSensorData(videoImage, setVideoImage);
     const onTvoc = handleSensorData(tvoc, setTvoc);
     const onBattery = handleSensorData(battery, setBattery);
-    const onTemperature = handleSensorData(temperature, setTemperature);
     const onEco2 = handleSensorData(eco2, setEco2);
 
     const onGps = (value: string) => {
@@ -58,7 +56,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
         socket.on("camera", onCamera);
         socket.on("tvoc", onTvoc);
         socket.on("battery", onBattery);
-        socket.on("temperature", onTemperature);
         socket.on("eco2", onEco2);
         socket.on("gps", onGps);
 
@@ -66,7 +63,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
             socket.off("camera", onCamera);
             socket.off("tvoc", onTvoc);
             socket.off("battery", onBattery);
-            socket.off("temperature", onTemperature);
             socket.off("eco2", onEco2);
             socket.off("gps", onGps);
         };
@@ -85,7 +81,6 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
             <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
             <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc}%` : "..."} />
             <SimpleInfo label="Eco2" value={eco2 ? `${eco2}%` : "..."} />
-            <SimpleInfo label="Temperatura" value={temperature ? temperature : "..."} />
         </div>
     );
 

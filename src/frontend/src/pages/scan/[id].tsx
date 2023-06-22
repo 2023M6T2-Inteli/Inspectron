@@ -121,25 +121,12 @@ const ScanInfo = ({ scan }: Props) => {
         />
     );
 
-    const renderTemperatureCard = () => (
-        <Card
-            simple
-            title={"Temperatura"}
-            infos={[
-                `Mínima: ${sensorValue(scan.temperature_min)}`,
-                `Média: ${mean(scan.temperature_min, scan.temperature_max)}`,
-                `Máxima: ${sensorValue(scan.temperature_max)}`,
-            ]}
-        />
-    );
-
     return (
         <Wrapper title={scan.name}>
             <h3 className="text-2xl my-8">Informações detectadas pelos sensores</h3>
             <div className="grid grid-cols-3 gap-8">
                 {renderEco2Card()}
                 {renderOxygenCard()}
-                {renderTemperatureCard()}
             </div>
             <h3 className="text-2xl mb-8 mt-10">Informações gerais da varredura</h3>
             <div className="grid grid-cols-3 grid-rows-7 gap-8">
