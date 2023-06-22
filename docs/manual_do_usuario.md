@@ -45,7 +45,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 ## 1.2. Arquitetura da Solução
 
-### 1.2.1. HardWare
+### 1.2.1. Hardware
  
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true" width="100%"></img></p>
 
@@ -65,7 +65,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 
 
-### 1.2.2. FrontEnd e BackEnd
+### 1.2.2. Frontend e Backend
 
 <p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/arquitetura_do_sistema_front_back.png?raw=true" width="100%"></img></p>
 
