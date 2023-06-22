@@ -89,11 +89,6 @@ O operador terá disponível um website, que trará informações de varreduras 
     
 
 	* **USB2LDS :**  Um adaptador USB para Laser Distance Sensor (LDS). Esse adaptador permite conectar um sensor de distância a laser ao computador por meio de uma porta USB.
-	
-* **DTH11 :** Um sensor capaz de medir a temperatura e umidade de um ambiente.
-
-*   **MQ135 :** Um sensor capaz de medir os níveis de gases de um ambiente.
-    
 
 * ** CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
 
