@@ -42,14 +42,15 @@ class BackendController(Node):
 
     def upload_video(self):
         try:
-            supabase.storage.from_(bucket_name).upload(self.new_scan.video_filename, self.new_scan.video_filename)
+            print(self.new_scan["video_filename"], flush=True)
+            supabase.storage.from_(bucket_name).upload(self.new_scan["video_filename"], self.new_scan["video_filename"])
             print("Vídeo uploaded successfully", flush=True)
-        except: 
+        except Exception as e: 
+            print(e, flush=True)
             print("Error uploading video", flush=True)
 
 
     async def __camera_callback(self, data):
-        self.get_logger().info('Receiving video frame')
         
         current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding="bgr8")
 
@@ -57,8 +58,11 @@ class BackendController(Node):
         result = model.predict(current_frame, conf=0.6)
         annotated = result[0].plot()
 
+
         _, buffer = cv2.imencode('.jpg', annotated)
-        self.output_file.write(buffer)
+
+        if self.new_scan["video"] != None:
+            self.new_scan["video"].write(buffer)
 
         # Convert byte array to base64 string
         frame64 = base64.b64encode(buffer).decode('utf-8')

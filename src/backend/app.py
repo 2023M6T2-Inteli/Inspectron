@@ -70,7 +70,6 @@ PORT = 3001  # Porta a ser utilizada
 # iniciando o socket
 sio = AsyncServer(
     async_handlers=True,
-    logger=True,
     ping_interval=120,
     ping_timeout=120,
     async_mode="asgi",
@@ -124,8 +123,9 @@ def new_scan_data(sid, message):
 
 
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")  # Use mp4v codec for .mp4 file
-    current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    output_file_name = message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
+    current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+    output_file_name = 'temp/' + message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
+    print(output_file_name, flush=True)
     new_scan["video_filename"] = output_file_name
     new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (320, 240))
 

@@ -79,8 +79,8 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const SensorsInfo = () => (
         <div className="flex gap-4 justify-around">
             <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
-            <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc}%` : "..."} />
-            <SimpleInfo label="Eco2" value={eco2 ? `${eco2}%` : "..."} />
+            <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc} PPB` : "..."} />
+            <SimpleInfo label="Eco2" value={eco2 ? `${eco2} PPM` : "..."} />
         </div>
     );
 
@@ -95,7 +95,7 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
     const LocationInfo = () => (
         <div className="h-[40vh]">
             <MapWithNoSSR
-                position={[gps ? gps.x : form.location.coordinates.x, gps ? gps.y : form.location.coordinates.y]}
+                position={[form.location.coordinates.x, form.location.coordinates.y]}
             />
         </div>
     );

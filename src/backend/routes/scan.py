@@ -35,7 +35,7 @@ def complete_scan():
 async def get_scans():
     scan_data = complete_scan()
     json.dumps(scan_data)
-    return JSONResponse(content=scan_data)
+    return JSONResponse(content=scan_data)  
 
 @router.get(
     "/scans/location/{location_id}"
