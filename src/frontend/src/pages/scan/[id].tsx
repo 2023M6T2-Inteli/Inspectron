@@ -70,7 +70,7 @@ const ScanInfo = ({ scan }: Props) => {
             alignLeft
             title={`Vídeo`}
             content={
-                    <div className="flex justify-center"><video src={videoUrl ? videoUrl : ""} controls/></div>
+                    <div className="flex justify-center"><video controls> <source src={videoUrl ? videoUrl : ""}  type="video/mp4" /> </video></div>
             }
             rows="row-span-5"
             columns="col-span-full"

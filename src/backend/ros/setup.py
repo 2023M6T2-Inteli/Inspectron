@@ -43,8 +43,10 @@ class BackendController(Node):
     def upload_video(self):
         try:
             print(self.new_scan["video_filename"], flush=True)
-            supabase.storage.from_(bucket_name).upload(self.new_scan["video_filename"], self.new_scan["video_filename"])
-            print("Vídeo uploaded successfully", flush=True)
+            with open(os.path.join(self.new_scan["video_filename"]), 'rb+') as file:
+                video_bytes = file.read()
+                supabase.storage.from_(bucket_name).upload(self.new_scan["video_filename"], video_bytes, file_options={"content-type": "video/mp4"})
+                print("Vídeo uploaded successfully", flush=True)
         except Exception as e: 
             print(e, flush=True)
             print("Error uploading video", flush=True)
@@ -58,11 +60,11 @@ class BackendController(Node):
         result = model.predict(current_frame, conf=0.6)
         annotated = result[0].plot()
 
-
         _, buffer = cv2.imencode('.jpg', annotated)
-
+        
         if self.new_scan["video"] != None:
-            self.new_scan["video"].write(buffer)
+            print("Writing frame", flush=True)
+            self.new_scan["video"].write(annotated)
 
         # Convert byte array to base64 string
         frame64 = base64.b64encode(buffer).decode('utf-8')

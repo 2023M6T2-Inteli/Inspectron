@@ -108,8 +108,10 @@ def end_scan():
         video_filename=new_scan["video_filename"],
     )
     scan.save()
-    new_scan.clean_variables()
+    new_scan["video"].release()
+
     node_backend.upload_video()
+    new_scan.clean_variables()
     print("Scan saved", flush=True)
 
 
@@ -131,7 +133,6 @@ def new_scan_data(sid, message):
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")  # Use mp4v codec for .mp4 file
     current_time = datetime.now().strftime("%Y%m%d%H%M%S")
     output_file_name = 'temp/' + message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
-    print(output_file_name, flush=True)
     new_scan["video_filename"] = output_file_name
     new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (320, 240))
 
