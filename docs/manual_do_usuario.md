@@ -1,6 +1,7 @@
 <table>
 <tr>
 <td>
+	
 <a href= "https://www2.gerdau.com.br/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Gerdau_logo_%282011%29.svg/1200px-Gerdau_logo_%282011%29.svg.png" alt="Gerdau" border="0" width="20%"></a>
 </td>
 <td><a href= "https://www.inteli.edu.br/"><img src="[https://www.inteli.edu.br/wp-content/uploads/2022/04/28103439/Logo-Container.png](https://github.com/2023M6T2-Inteli/Inspectron/blob/Manual_branch/docs/media/Logo-Container.png?raw=true)" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width="300%"></a>
@@ -47,7 +48,7 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 ### 1.2.1. Hardware
  
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true" width="100%"></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/Arquitetura%20do%20sistema.png?raw=true"></img></p>
 
 <table>  
 <tr>  
@@ -88,15 +89,15 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 	* **USB2LDS :**  Um adaptador USB para Laser Distance Sensor (LDS). Esse adaptador permite conectar um sensor de distância a laser ao computador por meio de uma porta USB.
 
-* ** CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
+* **CJMCU-811 :** Um sensor de qualidade do ar, projetado para medir e detectar a concentração de dióxido de carbono (CO2) e compostos orgânicos voláteis (COV) no ambiente.
 
 
-* ** GPS NEO-6M V2 :** É um módulo GPS (Global Positioning System) compacto e altamente preciso. Ele utiliza o sistema de posicionamento por satélite para determinar a localização geográfica com base em coordenadas de latitude e longitude. O módulo NEO-6M V2 é conhecido por sua eficiência em termos de consumo de energia e sua capacidade de aquisição rápida de sinais de satélite, mesmo em condições desafiadoras.
+* **GPS NEO-6M V2 :** É um módulo GPS (Global Positioning System) compacto e altamente preciso. Ele utiliza o sistema de posicionamento por satélite para determinar a localização geográfica com base em coordenadas de latitude e longitude. O módulo NEO-6M V2 é conhecido por sua eficiência em termos de consumo de energia e sua capacidade de aquisição rápida de sinais de satélite, mesmo em condições desafiadoras.
 
 
 - **Câmera :** Uma câmera comum para visualização.
 
-<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" style="background-color: #f2f2f2;" width="80%" ></img></p>
+<p align="center"><img src="https://github.com/2023M6T2-Inteli/Inspectron/blob/LucaSarhan-patch-1/docs/media/componentes.png?raw=true" width="80%" ></img></p>
 
 ## 2.2. Componentes externos
 
@@ -107,11 +108,11 @@ O operador terá disponível um website, que trará informações de varreduras 
 
 **1.** Seguir a montagem do TurtleBot3 Burger conforme o manual: [Página para download do manual](https://emanual.robotis.com/docs/en/platform/turtlebot3/hardware_setup/), **[Vídeo de montagem](https://youtu.be/5D9S_tcenL4)**.
 
-**2.** Acoplar os sensores MQ135, DTH11 e a câmera em seus devidos suportes.
+**2.** Acoplar os sensores GPS NEO-6M V2, CJMCU-811 e a câmera em seus devidos suportes.
 
 **3.** Conectar os sensores nas portas(entradas) do Raspberry Pi 3.
 
-**4.** Criar uma conexão estável via wifi com o TurtleBot.
+**4.** Criar uma conexão estável com o servidor e siga o tópico **4** (guia de instalação).
 
 # 4. Guia de Instalação
 
@@ -127,23 +128,27 @@ Caso o operador queira criar novas funções ao robô, é importante seguir este
 
 * **4.** Ao completar a instalação do WSL, deve-se baixar o [ROS2 Humble](https://github.com/rmnicola/m6-ec-encontro1/tree/b27ae69c8799c29ce488e7f53bba7b92411eaf7a#instalando-o-ros2-humble). Caso queira, a documentação [oficial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 * **5.** Faça o download do nosso projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron).
-* **6.** Após ter o nosso projeto em sua máquina de escolha é necesário colocar os arquivos de código em seus respectivos lugares. Por exemplo, colocar o código do robô no robô em si.
+* **6.** Abra o terminal linux e execute os codigos abaixo.
 * **7.** A partir daqui é o passo a passo para fazer o código do robô funcionar
 Execute o seguinte comando no terminal:
 
 ```
 sudo apt install ros-humble-turtlebot3*
 ```
+É usado para instalar os pacotes relacionados ao TurtleBot3 dentro do ambiente ROS em um sistema Ubuntu.
 
 * **8.**
 
 Execute os seguintes comandos no terminal (um de cada vez):
 
 ```
-sudo apt install ros-humble-slam-toolbox
-sudo apt install ros-humble-navigation2
-sudo apt install ros-humble-distro>-nav2-bringup
-sudo apt install ros-humble-turtlebot3-gazebo
+sudo apt install ros-humble-slam-toolbox #Esse comando instala o pacote "ros-humble-slam-toolbox", que é uma caixa de ferramentas para a construção e execução de algoritmos SLAM (Simultaneous Localization and Mapping)
+
+sudo apt install ros-humble-navigation2 # Esse comando instala o pacote "ros-humble-navigation2", que é uma biblioteca de navegação de alto nível para robôs móveis.
+
+sudo apt install ros-humble-distro>-nav2-bringup #Esse comando instala o pacote "ros-humble-distro>-nav2-bringup", que é responsável por iniciar o sistema de navegação e trazer todos os componentes necessários para executar a navegação no TurtleBot3.
+
+sudo apt install ros-humble-turtlebot3-gazebo #Esse comando instala o pacote "ros-humble-turtlebot3-gazebo", que é usado para simular o TurtleBot3 no ambiente de simulação Gazebo. 
 ```
 
 * **9.**
@@ -151,9 +156,9 @@ sudo apt install ros-humble-turtlebot3-gazebo
 Execute os seguintes comandos no terminal (um de cada vez):
 
 ```
-source /opt/ros/humble/setup.bash
-export TURTLEBOT3_MODEL=burger
-source .bashrc
+source /opt/ros/humble/setup.bash #Este comando faz a "fonte" (source) do arquivo "setup.bash" localizado no diretório "/opt/ros/humble".
+export TURTLEBOT3_MODEL=burger #Este comando define a variável de ambiente "TURTLEBOT3_MODEL" para o valor "burger".
+source .bashrc #Este comando faz a "fonte" (source) do arquivo ".bashrc". 
 ```
 
 * **10.**
@@ -161,8 +166,8 @@ source .bashrc
 Abrir três terminais diferentes para entrar no robô Turtlebot3 via ssh e em cada um deles seguir rodar o seguinte comando:
 
 ```
-ssh inteli@grupo1.local
-Senha: irolandinho
+ssh inteli@grupo1.local #O comando "ssh" é usado para iniciar uma sessão SSH e estabelecer uma conexão segura com um servidor ou dispositivo remoto.
+Senha: irolandinho #Após executar o comando SSH, você será solicitado a fornecer a senha correspondente ao nome de usuário "inteli".
 ```
 
 **Importante: Verificar se o robô e o computador então conectador na mesma rede wifi.**
@@ -172,20 +177,23 @@ Após rodar esse comando nos três termianis aberto, colocar os comandos abaixo:
 **Terminal 1:**
 
 ```
-ros2 launch turtlebot3_bringup robot.launch.py
+ros2 launch turtlebot3_bringup robot.launch.py 
 ```
+O commando é usado no ROS 2 (Robot Operating System 2) para iniciar o lançamento (launch) do pacote "turtlebot3_bringup" e executar o arquivo "robot.launch.py".
 
 **Terminal 2:**
 
 ```
 ros2 launch nav2_bringup navigation_launch.py
 ```
+O commando é usado no ROS 2 para iniciar o lançamento (launch) do pacote "nav2_bringup" e executar o arquivo "navigation_launch.py".
 
 **Terminal 3:**
 
 ```
 ros2 launch slam_toolbox online_async_launch.py
 ```
+O commando é usado no ROS 2 (Robot Operating System 2) para iniciar o lançamento (launch) do pacote "slam_toolbox" e executar o arquivo "online_async_launch.py".
 
 * **11.**
 
@@ -194,6 +202,7 @@ Em um novo terminal no seu dispositivo, execute o seguinte comando:
 ```
 ros2 topic list
 ```
+O commando é usado no ROS 2 para listar todos os tópicos disponíveis no sistema.
 
 Verifique se o tópico "/map" está listado para confirmar o funcionamento adequado.
 
@@ -204,6 +213,7 @@ Para mapear o ambiente em que o robô se movimentará, execute o seguinte comand
 ```
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
+O commando é usado no ROS 2 para executar o nó (node) chamado "teleop_keyboard" do pacote "turtlebot3_teleop".
 
 Use as teclas 's', 'w', 'a', 'd' e 'x' para mover o robô pelo ambiente.
 
@@ -214,7 +224,7 @@ Em um novo terminal, execute o seguinte comando:
 ```
 ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
-
+O commando é usado no ROS 2 para executar o nó (node) chamado "map_saver_cli" do pacote "nav2_map_server" e salvar o mapa do ambiente.
  	
  ## 4.2. Site
 
@@ -226,11 +236,11 @@ ros2 run nav2_map_server map_saver_cli -f ~/map
  * **4.** Para instalar o MongoDB, você pode seguir um tutorial [oficial](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/) fornecido pela equipe do MongoDB. O tutorial geralmente inclui instruções específicas para diferentes sistemas operacionais e ambientes. É recomendável seguir o tutorial oficial para garantir uma instalação correta e atualizada. 
  * **5.** Ao trabalhar com bibliotecas e dependências específicas do projeto, podem ocorrer erros relacionados à falta de instalação das bibliotecas necessárias. Nesses casos, você pode utilizar o pip para instalar as bibliotecas faltantes. No terminal, você pode executar o comando ```pip3 install fastapi uvicorn eventlet ultralytics python-socketio mongoengine python-dotenv pydantic passlib python-jose[cryptography]``` para instalar as bibliotecas específicas. Se o comando pip não funcionar, você pode consultar a documentação oficial da biblioteca para obter instruções de instalação específicas.
  * **6.** Se você precisar colocar o backend em produção, é necessário realizar o processo de implantação em um servidor ou plataforma de hospedagem. Por exemplo, se você estiver usando a AWS (Amazon Web Services), precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto no servidor.
- * **7.** Caso você queira executar o backend localmente, você pode abrir um terminal e navegar até o diretório onde está localizado o arquivo do backend. Em seguida, execute o comando ```python3 <nome_do_arquivo>``` para iniciar o servidor localmente. Certifique-se de ter o Python corretamente instalado e configurado em seu sistema antes de executar esse comando.
+ * **7.** Caso você queira executar o backend localmente, você pode abrir um terminal e navegar até o diretório onde está localizado o arquivo do backend. Em seguida, execute o comando ```python3 app.py``` para iniciar o servidor localmente. Certifique-se de ter o Python corretamente instalado e configurado em seu sistema antes de executar esse comando.
 
  ### 4.2.2 FrontEnd
 
- * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone git clone https://github.com/2023M6T2-Inteli/Inspectron/blob/main```.
+ * **1.** O primeiro passo é fazer o download do projeto pelo [GitHub](https://github.com/2023M6T2-Inteli/Inspectron). Isso pode ser feito utilizando o comando ```git clone https://github.com/2023M6T2-Inteli/Inspectron/blob/main```.
  * **2.** Após baixar o projeto, é necessário localizar os arquivos relevantes do código do frontend. O framework utilizado é o React, que é uma biblioteca JavaScript para construção de interfaces de usuário. Os arquivos do frontend estão localizados na pasta "frontend" que está dentro da pasta "src".
  * **3.** Ao trabalhar com bibliotecas e dependências no projeto React, podem ocorrer erros relacionados à falta de instalação das bibliotecas necessárias. Para solucionar esses erros, você pode utilizar o npm (gerenciador de pacotes do Node.js) para instalar as dependências. No terminal, dentro da pasta do projeto, execute o comando ```npm install``` para instalar as dependências do projeto. Caso ocorra algum erro, é recomendado verificar a documentação oficial da biblioteca ou pacote específico para obter instruções de instalação corretas.
  * **4.** Se você precisa disponibilizar o site online, é necessário realizar o processo de hospedagem. Um exemplo mencionado é utilizar a AWS (Amazon Web Services), onde você precisará configurar um ambiente de hospedagem (como uma instância EC2) e implantar seu projeto. Existem também outras opções de hospedagem, como serviços de hospedagem compartilhada, plataformas de hospedagem específicas para React, entre outras. Cada opção tem suas próprias etapas específicas para implantação.
