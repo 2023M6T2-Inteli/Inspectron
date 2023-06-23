@@ -51,13 +51,15 @@ class TurtleBotController(Node):
         self.__runtime_camera_object = None
         self.__runtime_movement_object = None
 
+		EnvironmentSensor.setup()
+
         self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
-        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
         # self.__command_start()  # Uncomment to start robot runtime on startup
 
     def __command_start(self):
         self.get_logger().info("Starting robot runtime...")
         self.__runtime_movement_object = self.create_timer(0.08, self.__runtime_movement)
+        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
 
     def __backend_commands_callback(self, data):
         msg_json = json.loads(data.data)
@@ -66,7 +68,7 @@ class TurtleBotController(Node):
                 self.__command_start()
 
             case "STOP":
-                runtimes = [self.__runtime_movement_object]
+                runtimes = [self.__runtime_movement_object, self.__runtime_camera_object]
 
                 for runtime in runtimes:
                     if runtime and (not runtime.is_canceled()):
