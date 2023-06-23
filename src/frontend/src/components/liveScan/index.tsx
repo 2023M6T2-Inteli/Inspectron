@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import React, {  useState, useEffect } from "react";
+import React, {  useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import dynamic from "next/dynamic";
 import Card from "../card";
@@ -68,37 +68,40 @@ const LiveScan: React.FC<Props> = ({ socket, setStage, form }) => {
         };
     }, [socket]);
 
-    const ImageInfo = () => (
-        <img
-            className="w-full border-slate-700 border flex justify-center items-center rounded-md grow mb-8"
-            src={`data:image/png;base64,${videoImage}`}
-            alt="Vídeo da varredura"
-        />
-    );
+    const ImageInfo = useCallback(() => (
+        <div className="bg-gray-300 rounded-lg">
+            <img
+                className="w-full h-[50vh] object-contain border flex justify-center items-center grow mb-8"
+                src={`data:image/png;base64,${videoImage}`}
+                alt="Vídeo da varredura"
+            />
 
-    const SensorsInfo = () => (
-        <div className="flex gap-4 justify-around">
-            <SimpleInfo label="Bateria" value={battery ? `${battery}%` : "..."} />
-            <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc}%` : "..."} />
-            <SimpleInfo label="Eco2" value={eco2 ? `${eco2}%` : "..."} />
         </div>
-    );
+    ), [videoImage]);
 
-    const Actions = () => (
+    const SensorsInfo = useCallback(() => (
+        <div className="flex gap-4 justify-around">
+            <SimpleInfo label="Bateria" value={battery ? `${parseInt(battery).toFixed(2)}%` : "..."} />
+            <SimpleInfo label="Tvoc" value={tvoc ? `${tvoc} PPB` : "..."} />
+            <SimpleInfo label="Eco2" value={eco2 ? `${eco2} PPM` : "..."} />
+        </div>
+    ), [battery, tvoc, eco2]);
+
+    const Actions = useCallback(() => (
         <div className="flex justify-end">
             <Button buttonType={ButtonTypes.danger} onClick={endScan}>
                 Parada de emergência
             </Button>
         </div>
-    );
+    ), []);
 
-    const LocationInfo = () => (
+    const LocationInfo = useCallback(() => (
         <div className="h-[40vh]">
             <MapWithNoSSR
-                position={[gps ? gps.x : form.location.coordinates.x, gps ? gps.y : form.location.coordinates.y]}
+                position={[form.location.coordinates.x, form.location.coordinates.y]}
             />
         </div>
-    );
+    ), [form.location]);
 
     return (
         <div className="flex flex-col gap-4">

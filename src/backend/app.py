@@ -70,7 +70,6 @@ PORT = 3001  # Porta a ser utilizada
 # iniciando o socket
 sio = AsyncServer(
     async_handlers=True,
-    logger=True,
     ping_interval=120,
     ping_timeout=120,
     async_mode="asgi",
@@ -87,6 +86,12 @@ socketio_app = socketio.ASGIApp(sio, app)
 
 
 def end_scan():
+    node_backend.backend_commands.send({"command": "STOP", "body": ""})
+
+    if new_scan["robot"] == None and new_scan["location"] == None:
+        print("Error: Robot and location not set", flush=True)
+        return
+
     scan = Scan(
         name=new_scan["name"],
         location=new_scan["location"],
@@ -103,16 +108,19 @@ def end_scan():
         video_filename=new_scan["video_filename"],
     )
     scan.save()
-    new_scan.clean_variables()
-    node_backend.backend_commands.send({'command': 'STOP', 'body': ''})
+    new_scan["video"].release()
+
     node_backend.upload_video()
+    new_scan.clean_variables()
     print("Scan saved", flush=True)
+
 
 @sio.event
 async def connect(sid, environ):
     print(datetime.now().time(), flush=True)
     node_backend.heartbeat.send("oi")
     print("Connected to socket", flush=True)
+
 
 @sio.on("new_scan_data")
 def new_scan_data(sid, message):
@@ -122,10 +130,9 @@ def new_scan_data(sid, message):
     new_scan["location"] = message_dict["location"]["value"]
     new_scan["robot"] = message_dict["robot"]["value"]
 
-
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")  # Use mp4v codec for .mp4 file
-    current_time = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    output_file_name = message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
+    current_time = datetime.now().strftime("%Y%m%d%H%M%S")
+    output_file_name = 'temp/' + message_dict["name"] + "_{}.mp4".format(current_time)  # Change file extension to .mp4
     new_scan["video_filename"] = output_file_name
     new_scan["video"] = cv2.VideoWriter(output_file_name, fourcc, 27.0, (320, 240))
 
