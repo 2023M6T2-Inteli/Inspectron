@@ -51,7 +51,7 @@ class TurtleBotController(Node):
         self.__runtime_camera_object = None
         self.__runtime_movement_object = None
 
-		EnvironmentSensor.setup()
+        EnvironmentSensor.setup()
 
         self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
         # self.__command_start()  # Uncomment to start robot runtime on startup
