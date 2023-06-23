@@ -3,7 +3,7 @@
 <td>
 <a href= "https://www2.gerdau.com.br/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Gerdau_logo_%282011%29.svg/1200px-Gerdau_logo_%282011%29.svg.png" alt="Gerdau" border="0" width="70%"></a>
 </td>
-<td><a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width="30%"></a>
+<td><a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0" width="80%"></a>
 </td>
 </tr>
 </table>
@@ -662,17 +662,20 @@ O primeiro serviço que temos em nossa backend é o ROS (Robot Operating System)
 
 Tópicos em que a backend se inscreve:
 
-* battery: Esse tópico é responsável por receber informações sobre o nível de bateria do robô enquanto ele está realizando uma nova varredura. A backend se inscreve nesse tópico para obter os dados atualizados sobre a energia disponível no robô.
 * camera: Esse tópico é responsável por receber cada frame da câmera do robô durante a varredura. A backend se inscreve nesse tópico para receber os dados de imagem capturados pelo robô em tempo real.
-* humidity: Esse tópico é responsável por receber informações sobre a umidade do ambiente em que o robô está operando. A backend se inscreve nesse tópico para obter os dados atualizados sobre a umidade do local.
 * tvoc: Esse tópico é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Uma das funções desse sensor é medir e monitorar a presença e concentração de compostos orgânicos voláteis no ambiente.
 * eco2: Esse tópico também é resposável por enviar dados do sensor CJMCU-811 acoplado ao robô. Diferente do tvoc, esse tópico envia dados relativos a quantidade de  dióxido de carbono presente no ambiente.
+* gps: Esse tópico é responsavel por enviar os dados de latitude e longitude do sensor GPS-NeoM6v2. Esté topico envia a localização do robo para caso de perdar de conexão
 * heartbeat_response: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Se o robô estiver ativo, ele enviará uma mensagem de resposta no tópico "heartbeat_response".
+* Velocity: Esse tópico é reponsavel pela movimentação do robo.
 
 Tópicos que a backend publica:
 
 * heartbeat: Quando um usuário entra na página de nova varredura e o frontend se conecta à backend via socket.io, a função de conexão realiza uma publicação no tópico "heartbeat" para verificar se o robô está ativo e pode estabelecer a conexão. Essa publicação serve como um sinal para o robô informando que a conexão foi estabelecida.
 * backend_commands: Esse tópico é aquele em que o robô se inscreve, e a backend utiliza para enviar comandos ao robô. A backend publica nesse tópico todos os comandos que deseja que o robô execute, como iniciar o movimento, pausar, retornar ao ponto inicial, desligar, entre outros. Essa comunicação bidirecional permite que a backend envie instruções e controle o comportamento do robô durante a varredura.
+* imu: Esse tópico é responsavel pelo calculo da distancia, sendo feito pelo giroscópio do motor.
+* position: Esse tópico é responsavel pela movimentação do róbo, onde é passado sua velocidade em x, y e z.
+* scan:Esse tópico é responsavel pelo sensor "lidar", que tem como função medir a distancia de obstaculos ao seu redor.
 
 Ao utilizar esses tópicos no ROS, a backend é capaz de receber informações atualizadas do robô e enviar comandos para controlar suas ações. Isso possibilita uma integração eficiente entre o backend e o robô, permitindo uma troca de dados contínua e o controle preciso do robô durante o processo de varredura.
 
