@@ -2,9 +2,9 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import LaserScan as LaserScanData
-from modules.publishers import Velocity, Camera, HeartbeatResponse, TVOC, Temperature, ECO2, GPS
+from modules.publishers import Velocity, Camera, HeartbeatResponse, TVOC, ECO2, GPS
 from modules.subscribers import Position, EulerData, Lidar, Imu, ImuData, DistanceFilterType, Heartbeat, BackendCommands
-
+from sensors.environment import EnvironmentSensor
 # from ros2_message_converter import message_converter
 import json
 from enum import Enum
@@ -36,7 +36,6 @@ class TurtleBotController(Node):
 
         # Publishers
         self.__tvoc_sensor = TVOC(self)
-        self.__temperature_sensor = Temperature(self)
         self.__eco2_sensor = ECO2(self)
         self.__gps_sensor = GPS(self)
 
@@ -45,22 +44,20 @@ class TurtleBotController(Node):
         self.__lidar_module = Lidar(self, self.__lidar_callback)
         self.__imu_module = Imu(self, self.__imu_callback)
         self.__heartbeat_module = Heartbeat(self, self.__heartbeat_callback)
-        self.__backend_commands_module = BackendCommands(
-            self, self.__backend_commands_callback)
+        self.__backend_commands_module = BackendCommands(self, self.__backend_commands_callback)
 
         # Set runtime objects
         self.__sensores_runtime_object = None
         self.__runtime_camera_object = None
         self.__runtime_movement_object = None
 
-        self.__runtime_camera()
-        self.__command_start()
+        self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
+        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
+        # self.__command_start()  # Uncomment to start robot runtime on startup
 
     def __command_start(self):
         self.get_logger().info("Starting robot runtime...")
-        self.__sensores_runtime_object = self.create_timer(1, self.__sensores_runtime)
-        self.__runtime_camera_object = self.create_timer(0.08, self.__runtime_camera)
-        self.__runtime_movement_object = self.create_timer(0.16, self.__runtime_movement)
+        self.__runtime_movement_object = self.create_timer(0.08, self.__runtime_movement)
 
     def __backend_commands_callback(self, data):
         msg_json = json.loads(data.data)
@@ -69,13 +66,13 @@ class TurtleBotController(Node):
                 self.__command_start()
 
             case "STOP":
-                runtimes = [self.__sensores_runtime_object,
-                            self.__runtime_camera_object,
-                            self.__runtime_movement_object]
+                runtimes = [self.__runtime_movement_object]
 
                 for runtime in runtimes:
                     if runtime and (not runtime.is_canceled()):
                         runtime.cancel()
+
+                self.__velocity_module.apply(0.0, 0.0)
 
     def __heartbeat_callback(self, msg):
         self.__heartbeat_response_callback.pong()
@@ -94,32 +91,33 @@ class TurtleBotController(Node):
         # self.get_logger().info(str(imu_data))
 
     def __sensores_runtime(self):
-        self.__tvoc_sensor.update()
-        self.__temperature_sensor.update()
-        self.__eco2_sensor.update()
+        if EnvironmentSensor.update_and_read_data():
+            self.__tvoc_sensor.update()
+            self.__eco2_sensor.update()
+
         self.__gps_sensor.update()
 
     def __runtime_camera(self):
         self.__camera_module.update()
 
     def __runtime_movement(self):
-        pass
-        # frontal_min_distance = self.__lidar_module.frontal_distance(DistanceFilterType.MIN)
-        # self.get_logger().info(f"Frontal distance: {frontal_min_distance}")
+        frontal_min_distance, right_min_distance, left_min_distance, back_min_distance = self.__lidar_module.min_distances
+        # self.get_logger().info(
+        #    f"\nFrontal: {frontal_min_distance} \n Right: {right_min_distance} \n Left: {left_min_distance} \n Back: {back_min_distance}")
 
-        # if frontal_min_distance < 0.3:
-        #    _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
+        if frontal_min_distance < 0.32:
+            _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
 
-        #    if right_avarage_distance > left_avarage_distance and self.__state != State.DETOUR_LEFT:
-        #        self.__state = State.DETOUR_RIGHT
-        #        self.__velocity_module.apply(0, -0.30)
+            if right_avarage_distance > left_avarage_distance and self.__state != State.DETOUR_LEFT:
+                self.__state = State.DETOUR_RIGHT
+                self.__velocity_module.apply(0, 0.30)
 
-        #    if left_avarage_distance > right_avarage_distance and self.__state != State.DETOUR_RIGHT:
-        #        self.__state = State.DETOUR_LEFT
-        #        self.__velocity_module.apply(0, 0.30)
-        # else:
-        #    self.__state = State.FOWARD
-        #    self.__velocity_module.apply(0.30, 0)
+            if left_avarage_distance > right_avarage_distance and self.__state != State.DETOUR_RIGHT:
+                self.__state = State.DETOUR_LEFT
+                self.__velocity_module.apply(0, -0.30)
+        else:
+            self.__state = State.FOWARD
+            self.__velocity_module.apply(0.2, 0)
 
         # self.get_logger().info(f"State: {self.__state}")
 
