@@ -59,7 +59,7 @@ class TurtleBotController(Node):
     def __command_start(self):
         self.get_logger().info("Starting robot runtime...")
         self.__runtime_movement_object = self.create_timer(0.08, self.__runtime_movement)
-        self.__runtime_camera_object = self.create_timer(0.24, self.__runtime_camera)
+        self.__runtime_camera_object = self.create_timer(0.16, self.__runtime_camera)
 
     def __backend_commands_callback(self, data):
         msg_json = json.loads(data.data)
@@ -104,10 +104,10 @@ class TurtleBotController(Node):
 
     def __runtime_movement(self):
         frontal_min_distance, right_min_distance, left_min_distance, back_min_distance = self.__lidar_module.min_distances
-        # self.get_logger().info(
-        #    f"\nFrontal: {frontal_min_distance} \n Right: {right_min_distance} \n Left: {left_min_distance} \n Back: {back_min_distance}")
+        self.get_logger().info(
+            f"\nFrontal: {frontal_min_distance} \n Right: {right_min_distance} \n Left: {left_min_distance} \n Back: {back_min_distance}")
 
-        if frontal_min_distance < 0.32:
+        if frontal_min_distance < 0.35:
             _, left_avarage_distance, right_avarage_distance, _ = self.__lidar_module.average_distances
 
             if right_avarage_distance > left_avarage_distance and self.__state != State.DETOUR_LEFT:
@@ -119,7 +119,7 @@ class TurtleBotController(Node):
                 self.__velocity_module.apply(0, -0.30)
         else:
             self.__state = State.FOWARD
-            self.__velocity_module.apply(0.2, 0)
+            self.__velocity_module.apply(0.12, 0)
 
         # self.get_logger().info(f"State: {self.__state}")
 
